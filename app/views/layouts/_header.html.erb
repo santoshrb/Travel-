@@ -1,0 +1,162 @@
+<!-- Main Header -->
+<header class="main-header">
+<!-- Logo -->
+<a href="/home" class="logo">
+ <span class="logo-mini"><b>HCM</b></span>
+  <span class="logo-lg"><b>
+        <!-- <small class="label label-default">Not Available</small> -->
+          <%#= image_tag src="../images/spark.jpg", :size => "200x60" %>
+          <%#= image_tag('/images/spark.jpg') %>
+          <%#= image_tag "spark.jpg", size: "200x30" %>
+        <!-- <center><= link_to '',download_company_logo_path(@company),class: 'btn btn-xs fa fa-picture-o' %></center> -->
+      
+          <!--   <input type="text" name="q" class="form-control" placeholder="Search...">
+        <span class="input-group-btn">
+          <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+        </span> -->
+         
+                </b></span>
+</a>
+
+<!-- Header Navbar -->
+<nav class="navbar navbar-static-top" role="navigation">
+  <!-- Sidebar toggle button-->
+  <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" title="Side Bar">
+    <span class="sr-only">Toggle navigation</span>
+  </a>
+  <!-- Navbar Right Menu -->
+  <div class="navbar-custom-menu">
+    <ul class="nav navbar-nav">
+      <!-- Messages: style can be found in dropdown.less-->
+
+      <li class="dropdown messages-menu">
+        <!-- Menu toggle button -->
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Employee Leave Request">
+          <i class="fa fa-envelope-o" ></i>
+          <span class="label label-success">
+           
+           </span>
+        </a>
+        <ul class="dropdown-menu">
+          <li class="header"> <a href="/manager_self_services/approved_or_rejected_leave_request"> Leave Request</a></li>
+          <li>
+            <!-- inner menu: contains the messages -->
+            <ul class="products-list product-list-in-box">
+              <li class="item"><!-- start message -->
+                 <center> <small class="label label-success">  You Have Leave Request  </small></center>
+              </li><!-- end message -->
+            </ul><!-- /.menu -->
+          </li>
+          <li class="footer"><a href="/manager_self_services/approved_or_rejected_leave_request">See All Request</a></li>
+        </ul>
+      </li><!-- /.messages-menu -->
+
+      <!-- Notifications Menu -->
+      <li class="dropdown notifications-menu">
+        <!-- Menu toggle button -->
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="On Duty Request">
+          <i class="fa fa-bell-o" ></i>
+          <span class="label label-warning">
+              
+          </span>
+        </a>
+        <ul class="dropdown-menu">
+          <li class="header"> <a href="/manager_self_services/request_approval_list"> On Duty Request</a></li>
+          <li>
+            <!-- Inner Menu: contains the notifications -->
+            <ul class="products-list product-list-in-box">
+              <li><!-- start notification -->
+                 <center> <small class="label label-warning">  You Have  On Duty Request  </small></center>
+              </li><!-- end notification -->
+            </ul>
+          </li>
+          <li class="footer"><a href="/manager_self_services/request_approval_list">See All Request</a></li>
+        </ul>
+      </li>
+
+      <!-- COff Menu -->
+      <li class="dropdown tasks-menu">
+        <!-- Menu Toggle Button -->
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="COff Request">
+          <i class="fa fa-flag-o"></i>
+          <span class="label label-success">
+
+          </span>
+        </a>
+        <ul class="dropdown-menu">
+          <li class="header"> <a href="/manager_self_services/leave_c_off"> C Off Request</a></li>
+          <li>
+            <!-- Inner menu: contains the tasks -->
+            <ul class="products-list product-list-in-box">
+              <li><!-- Task item -->
+                 <center> <small class="label label-success">  You HaveC Off Request  </small></center>
+              </li><!-- end task item -->
+            </ul>
+          </li>
+          <li class="footer"><a href="/manager_self_services/leave_c_off">See All Request</a></li>
+        </ul>
+      </li>
+</ul>
+</div>
+</nav>
+      <!-- User Account Menu -->
+      <li class="dropdown user user-menu">
+        <!-- Menu Toggle Button -->
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title = "Profile Setup">
+          <!-- The user image in the navbar-->
+         
+
+          <span class="hidden-xs"> 
+          <!-- Right hand header image -->
+            
+          </span>
+          <!-- hidden-xs hides the username on small devices so only the image appears. -->
+        </a>
+        <ul class="dropdown-menu">
+          <!-- The user image in the menu -->
+          <li class="user-header">
+           
+              <!-- <small>Member since <%= current_user.created_at%></small> -->
+            </p>
+          </li>
+          <!-- Menu Body -->
+          <li class="user-body">
+            <div class="col-xs-5 text-center">
+              <!-- <a href="#">Followers</a> -->
+              <small>DESIGNATION:</small>
+            </div>
+            <div class="col-xs-7 text-left">
+              <!-- <a href="#">Sales</a> -->
+             
+            </div>
+           <!--  <div class="col-xs-4 text-center">
+              <a href="#">Friends</a>
+            </div> -->
+          </li>
+          <!-- Menu Footer-->
+         
+            <li class="user-footer">
+              <div class="pull-left">
+                <%= link_to "Profile", edit_user_registration_path,class: "btn btn-default btn-flat" %>
+              </div>
+              <div class="pull-right">
+                <%= link_to 'Logout', destroy_user_session_path, :method => :delete ,class: "btn btn-default btn-flat", :id => 'example' %>
+              </div>
+            </li>
+        </ul>
+      </li>
+
+
+
+      <!-- Control Sidebar Toggle Button -->
+      <!-- <li>
+        <a href="#" data-toggle="control-sidebar" title = "Recent Activity">
+          <i class="fa fa-gears"></i>
+          < <i class="fa fa-gears"></i>
+          <i class="fa fa-cog fa-spin fa-spin fa-2x "></i> 
+        </a>
+      </li> -->
+    </ul>
+  </div>
+</nav>
+</header>

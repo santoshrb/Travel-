@@ -1,0 +1,67 @@
+<%= form_with(model: scheme, local: true) do |form| %>
+  <% if scheme.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(scheme.errors.count, "error") %> prohibited this scheme from being saved:</h2>
+
+      <ul>
+      <% scheme.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :scheme_type %>
+    <%= form.text_field :scheme_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :budget %>
+    <%= form.text_field :budget %>
+  </div>
+
+  <div class="field">
+    <%= form.label :down_payment %>
+    <%= form.text_field :down_payment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :installment %>
+    <%= form.text_field :installment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :installment_amount %>
+    <%= form.text_field :installment_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :intrest %>
+    <%= form.text_field :intrest %>
+  </div>
+
+  <div class="field">
+    <%= form.label :from_date %>
+    <%= form.date_select :from_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :to_date %>
+    <%= form.date_select :to_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

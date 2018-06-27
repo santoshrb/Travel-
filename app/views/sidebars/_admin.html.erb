@@ -1,0 +1,89 @@
+<!-- Optionally, you can add icons to the links -->
+<!-- sidebar menu: : style can be found in sidebar.less -->
+<ul class="sidebar-menu">
+  <li class="header">
+   <a href="/home"> <Center>   <%= current_user.role.name %> DASHBOARD</Center></a>
+  </li>
+ 
+  <li class="treeview" id="Master">
+    <a href="#">
+      <i class="glyphicon glyphicon-th-large"></i><span> Master </span>
+      <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu" >
+      <li><a href="/countries"><i class="fa fa-tags"></i> Country  </a></li>
+      <li><a href="/states"><i class="fa fa-tags"></i> State </a></li>
+      <li><a href="/districts"><i class="fa fa-tags"></i> District </a></li>
+      <li><a href="/blood_groups"><i class="fa fa-tags"></i> Blood Group </a></li>
+      <li><a href="/event_types"><i class="fa fa-tags"></i> Event Type </a></li>
+    </ul>
+  </li>
+
+  <li class="treeview" id="Agent">
+    <a href="#">
+      <i class="fa fa-user-secret"></i><span> Agent </span>
+      <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu" >
+      <li><a href="/event_details/agent_event_new"><i class="fa fa-tags"></i> Create Event </a></li>
+      <!-- <li><a href="/event_details"><i class="fa fa-tags"></i> Event List </a></li> -->
+
+    </ul>
+  </li> 
+
+  <li class="treeview" id="Agency">
+    <a href="#">
+      <i class="fa far fa-building"></i><span> Agency </span>
+      <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu" >
+      <li><a href="/agents/agency_agent_create"><i class="fa fa-tags"></i> Add Agent </a></li>
+      <li><a href="/event_details/agency_event_new"><i class="fa fa-tags"></i> Create Event </a></li>
+      <!-- <li><a href="/event_details"><i class="fa fa-tags"></i> Event List </a></li> -->
+     <!--  <li><a href="/agencies"><i class="fa fa-tags"></i> Agency </a></li> -->
+    </ul>
+  </li> 
+
+
+  <li class="treeview" id="Admin">
+    <a href="#">
+      <i class="glyphicon glyphicon-user"></i><span> Admin </span>
+      <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu" >
+      <li><a href="/companies"><i class="fa fa-tags"></i> Company</a></li>
+      <li><a href="/agencies"><i class="fa fa-tags"></i> Agency </a></li>
+      <li><a href="/agents"><i class="fa fa-tags"></i> Agent </a></li>
+      <li><a href="/event_details"><i class="fa fa-tags"></i> Create Event </a></li>
+      <li><a href="/data_collections/todays_contact"><i class="fa fa-tags"></i> Contact List </a></li>
+      <li><a href="/roles/role_edit_list"><i class="fa fa-tags"></i> Update Role </a></li>
+    </ul>
+  </li>
+
+  <li class="treeview" id="Report">
+    <a href="#">
+      <i class="fa fa-file"></i><span> Report </span>
+      <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu" >
+      <li><a href="/data_collections/event_report"><i class="fa fa-tags"></i> Eventwise </a></li>
+      <li><a href="/event_details/datewise_contact"><i class="fa fa-tags"></i> Datewise </a></li>
+    </ul>
+  </li> 
+
+</ul>
+
+
+<script typgre="text/javascript">
+  <% unless session[:active_tab].nil? %>
+  document.getElementById("<%= session[:active_tab] %>").classList.add("active");
+  <%end%>
+  <% unless session[:active_tab1].nil? %>
+  document.getElementById("<%= session[:active_tab1] %>").classList.add("active");
+  <%end%>
+  <% unless session[:active_tab2].nil? %>
+  document.getElementById("<%= session[:active_tab2] %>").classList.add("active");
+  <%end%>
+</script>
+
+   

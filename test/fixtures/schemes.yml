@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  name: MyString
+  budget: 9.99
+  down_payment: MyString
+  installment: MyString
+  installment: 9.99
+  intrest: 9.99
+  from_date: 2018-06-26
+  to_date: 2018-06-26
+  status: false
+
+two:
+  type: 
+  name: MyString
+  budget: 9.99
+  down_payment: MyString
+  installment: MyString
+  installment: 9.99
+  intrest: 9.99
+  from_date: 2018-06-26
+  to_date: 2018-06-26
+  status: false

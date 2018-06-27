@@ -1,0 +1,73 @@
+<!-- Optionally, you can add icons to the links -->
+<!-- sidebar menu: : style can be found in sidebar.less -->
+<ul class="sidebar-menu">
+  <li class="header">
+   <!-- <a href="/pages"> --> <a><Center> <%# if current_user.class == Member %><%#= current_user.company_location.company.try(:name) %>
+    <%#else%><%#= current_user.subdomain %>  <%= current_user.role.try(:name) %> <%#end%>DASHBOARD</Center></a>
+  </li>
+  <!-- <li class="treeview" id="company">
+    <a href="">
+      <i class="fa fa-user-plus"></i> <span><%#= current_user.company_location.company.try(:name) %> Magzines</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <ul class="treeview-menu" >
+      <li><a href="/magzines/show_active"><i class="fa fa-tags"></i> View/ Download Magzine</a></li>
+    </ul>
+  </li> -->
+<!--   <li class="treeview" id="company">
+    <a href="">
+      <i class="fa fa-user-plus"></i> <span><%#= current_user.company_location.company.try(:name) %> Photo Gallery</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <ul class="treeview-menu" >
+      <li><a href="/paintings/"><i class="fa fa-tags"></i> View Photos</a></li>
+    </ul>
+  </li> -->
+
+  <li class="treeview" id="MeetingPlan">
+    <a href="#">
+      <i class="glyphicon glyphicon-th-large"></i><span> Master </span>
+      <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu" >
+      <li><a href="/countries/new"><i class="fa fa-tags"></i> Country  </a></li>
+      <li><a href="/states/new"><i class="fa fa-tags"></i> State </a></li>
+      <li><a href="/districts/new"><i class="fa fa-tags"></i> District </a></li>
+      <li><a href="/blood_groups/new"><i class="fa fa-tags"></i> Blood Group </a></li>
+      <li><a href="/event_details/new"><i class="fa fa-tags"></i> Create Event </a></li>
+      <li><a href="/event_details"><i class="fa fa-tags"></i> Event List </a></li>
+      <li><a href="/agencies/new"><i class="fa fa-tags"></i> Agency </a></li>
+      <li><a href="/agents/new"><i class="fa fa-tags"></i> Agent </a></li>
+      <li><a href="/companies/new"><i class="fa fa-tags"></i> Company</a></li>
+    </ul>
+  </li>
+
+  
+  <% @magzines = Magzine.where(status: true) %>
+    <ul style="list-style-type: square; color: blue;">
+    <h5><span><%#= 'MAGZINES' %></span></h5></ul>
+    
+    <% @magzines.each do |magzine| %>
+    <ul style="list-style-type: square; color: blue;">
+    <li style="color: black;">
+
+      <a href="/magzines/show_details"> <%= link_to(magzine.try(:name), magzine_path(magzine), length: 1000, separator: ' ') %></a></li><br>
+    </ul>
+    <ul class="treeview-menu" >
+      <!-- <li><a href="/thoughts/import_xl"><i class="fa fa-tags"></i> Import xl</a></li> -->
+      <!-- <li><a href="/magzines/show_active"><i class="fa fa-tags"></i> View Magzine</a></li> -->
+    </ul>
+    </li>
+    <% end %>
+
+</ul>
+
+<script typgre="text/javascript">
+  <% unless session[:active_tab].nil? %>
+  document.getElementById("<%= session[:active_tab] %>").classList.add("active");
+  <%end%>
+  <% unless session[:active_tab1].nil? %>
+  document.getElementById("<%= session[:active_tab1] %>").classList.add("active");
+  <%end%>
+  <% unless session[:active_tab2].nil? %>
+  document.getElementById("<%= session[:active_tab2] %>").classList.add("active");
+  <%end%>
+</script>
+
+   

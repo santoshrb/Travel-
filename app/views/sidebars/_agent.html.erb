@@ -1,0 +1,38 @@
+<!-- Optionally, you can add icons to the links -->
+<!-- sidebar menu: : style can be found in sidebar.less -->
+<ul class="sidebar-menu">
+  <li class="header">
+   <a href="/home"> <Center>   <%= current_user.try(:role).try(:name) %> DASHBOARD</Center></a>
+  </li>
+ 
+
+  <li class="treeview" id="Agent">
+    <a href="#">
+      <i class="glyphicon glyphicon-th-large"></i><span> Agent </span>
+      <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu" >
+      <li><a href="/event_details/agent_event_new"><i class="fa fa-tags"></i> Create Event </a></li>
+      <!-- <li><a href="/event_details"><i class="fa fa-tags"></i> Event List </a></li> --><!-- 
+      <li><a href="/agencies"><i class="fa fa-tags"></i> Agency </a></li>
+      <li><a href="/agents"><i class="fa fa-tags"></i> Agent </a></li> -->
+    </ul>
+  </li> 
+</ul>
+
+
+
+
+<script typgre="text/javascript">
+  <% unless session[:active_tab].nil? %>
+  document.getElementById("<%= session[:active_tab] %>").classList.add("active");
+  <%end%>
+  <% unless session[:active_tab1].nil? %>
+  document.getElementById("<%= session[:active_tab1] %>").classList.add("active");
+  <%end%>
+  <% unless session[:active_tab2].nil? %>
+  document.getElementById("<%= session[:active_tab2] %>").classList.add("active");
+  <%end%>
+</script>
+
+   
