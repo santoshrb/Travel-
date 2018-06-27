@@ -1,59 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="box box-default">
+  <div class="box-body">
+    <table id="example2" class="table table-bordered table-hover table-condensed">
+      <tbody>
+        <tr>
+          <th colspan="5">
+            <strong><center>Company Detail</center></strong>
+          </th>
+        </tr>
+        <tr>
+          <%#= image_tag @agency.avatar.url(:medium),class: "profile-user-img img-responsive img-circle", alt: "User Image",size: "25x25" %>
+        </tr>
+        <tr>
+          <th>Code</th>
+          <td><%= @company.code %></td>
+          <th>Name</th>
+          <td><%= @company.name %></td>
+        </tr>
+        <tr>
+          <th>Address</th>
+          <td colspan="3"><%= @company.try(:address) %></td>
+        </tr>
+        <tr>
+          <th>Pin Code</th>
+          <td><%= @company.try(:pin_code) %></td>
+        
+          <th>Country</th>
+          <td><%=  @company.try(:country).try(:name) %></td>
+        </tr>
+        <tr>
+          <th>State</th>
+          <td><%= @company.try(:state).try(:name) %></td>
+        
+          <th>District</th>
+          <td><%= @company.try(:district).try(:name) %></td>
+        </tr>
+        <tr>
+          <th>City</th>
+          <td><%= @company.try(:city) %></td>
+        
+          <th>Email</th>
+          <td><%= @company.try(:email) %></td>
+        </tr>
+      </tbody>
+    </table><br>
+    <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-default btn-sm fa' %> |
+    <%= link_to 'Back', companies_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+  </div>
+</div>
 
-<p>
-  <strong>Code:</strong>
-  <%= @company.code %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @company.address %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @company.country %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @company.state %>
-</p>
-
-<p>
-  <strong>District:</strong>
-  <%= @company.district %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @company.city %>
-</p>
-
-<p>
-  <strong>Pin code:</strong>
-  <%= @company.pin_code %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @company.email %>
-</p>
-
-<p>
-  <strong>Contact no:</strong>
-  <%= @company.contact_no %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @company.status %>
-</p>
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>

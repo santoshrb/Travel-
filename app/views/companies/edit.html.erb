@@ -1,6 +1,14 @@
-<h1>Editing Company</h1>
-
-<%= render 'form', company: @company %>
-
-<%= link_to 'Show', @company %> |
-<%= link_to 'Back', companies_path %>
+<%#= render 'form', company: @company %>
+<%#= link_to 'Show', @company %> 
+<%#= link_to 'Back', companies_path %>
+<div class="box box-default">
+  <div class="box-header with-border">
+    <h3 class="box-title">Update Company</h3>
+    <div class="pull-right"></div>
+	<div class="box-body">
+		<div id="form">
+		   <%= render 'form' %>
+		</div>
+	</div>
+  </div>
+</div>

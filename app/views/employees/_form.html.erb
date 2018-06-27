@@ -1,107 +1,158 @@
-<%= form_with(model: employee, local: true) do |form| %>
-  <% if employee.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
-
-      <ul>
-      <% employee.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= bootstrap_form_for(@employee,html: {id: 'employee'}) do |f| %>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :code, label:'Employee Code', placeholder: 'A001' %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :code %>
-    <%= form.text_field :code %>
+    <div class="col-sm-3">
+      <div class="field">
+        <%= f.select :prefix ,['Mr.','Mrs.','Miss.'] ,{label: 'Prefix',include_blank: "Select Prefix"} %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :first_name , label: 'First Name',placeholder: 'First Name' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="field">
+       <%= f.text_field :middle_name, label: 'Middle Name',placeholder: 'Middle Name' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+       <%= f.text_field :last_name, label: 'Last Name',placeholder: 'Last Name' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <%= f.text_field :date_of_birth, label: 'Date of Birth', class: 'birth_date'%>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.select :gender, ['Male','Female'],{label: 'Select Gender',include_blank: " Select Gender"} %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="field">
+       <%= f.text_field :contact_no,label: 'Contact No.',placeholder: 'e.g.123456789' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+       <%= f.text_field :email,label: 'Email',placeholder: 'e.g.abc@sganalytics.com' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="field">
+      <%= f.text_field :blood_group,label: 'Blood Group',placeholder: 'O+' %>
+        <%#= f.select :blood_group_id, all_blood_group, {label: 'Blood Group',include_blank: " Select Blood Group"} %>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="form-group required">
+       <%= f.text_field :address, label: 'Address',placeholder: 'e.g. sector - c,pune' %>
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :country, label:'Country', placeholder: 'Truba Consultancy Services' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :state, label:'State', placeholder: 'State' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :district, label:'District', placeholder: 'District' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :city, label:'City', placeholder: 'Mumbai' %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :prefix %>
-    <%= form.text_field :prefix %>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :pin_code, label:'Pin Code', placeholder: '420016' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :adhar_no, label:'Contact No.', placeholder: '+2290981167' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.select :status,['Active','Inactive'],{label: 'Status',include_blank: " Select Employee Status"} %>
+      </div>
+    </div>
+
   </div>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :middle_name %>
-    <%= form.text_field :middle_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_of_birth %>
-    <%= form.date_select :date_of_birth %>
-  </div>
-
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.text_field :gender %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contact_no %>
-    <%= form.text_field :contact_no %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :blood_group %>
-    <%= form.text_field :blood_group %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :country %>
-    <%= form.text_field :country %>
-  </div>
-
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state %>
-  </div>
-
-  <div class="field">
-    <%= form.label :district %>
-    <%= form.text_field :district %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pin_code %>
-    <%= form.number_field :pin_code %>
-  </div>
-
-  <div class="field">
-    <%= form.label :adhar_no %>
-    <%= form.text_field :adhar_no %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.check_box :status %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row">
+    <div class="col-sm-3" style="padding-top: 20px;">
+      <div class="form-group required">
+        <%= f.submit "Create Employee", :class => class_name, data: { disable_with: data_info } %>
+        <%#= link_to 'Back', agencies_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+      </div>
+    </div>
   </div>
 <% end %>
+
+<script>
+$("#employee").validate({
+    rules: {
+      "employee[code]":{
+        required: true,
+      },
+      "employee[name]":{
+        required: true,
+      }
+       },
+    messages: {
+      "employee[code]":{
+        required: "Please specify code",
+      },
+       "employee[name]":{
+        required: "Please specify name",
+      }
+       },
+    errorPlacement: function(error, element) {
+     error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
+     error.insertAfter(element.parent(element));
+    }
+   });
+</script>
+

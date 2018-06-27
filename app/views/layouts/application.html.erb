@@ -16,15 +16,20 @@
     <%= csrf_meta_tags %>
   </head>
   <body font-size="12px">
-    <div class="ajax-progress"></div>
+    <% if user_signed_in? %>
+      <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+          <%= render 'layouts/header' %>
+          <%= render 'layouts/navbar' %>
+        </div>
       </body>
- 
+    <% else %>
       <body class="hold-transition login-page">
         <%= render 'layouts/messages' %>
         <%= yield %>
         <div>
-        <%= render :partial => "layouts/email_modal" %>
+          <%= render :partial => "layouts/email_modal" %>
         </div>
-      </body>
+    <% end %>
   </body>
 </html>

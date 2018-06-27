@@ -8690,3 +8690,2826 @@ Processing by Api::UserAuthsController#employee_list as JSON
 Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.3ms)
 
 
+  [1m[35m (0.5ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (19.7ms)[0m  [1m[35mCREATE DATABASE `travel_development` DEFAULT CHARACTER SET `utf8`[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE DATABASE `travel_development` DEFAULT CHARACTER SET `utf8`[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (225.7ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (90.5ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('7694111270370756945', 0)[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to DeviseCreateUsers (20180625050513)
+  [1m[35m (97.0ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  ↳ db/migrate/20180625050513_devise_create_users.rb:5
+  [1m[35m (209.6ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  ↳ db/migrate/20180625050513_devise_create_users.rb:39
+  [1m[35m (198.8ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) [0m
+  ↳ db/migrate/20180625050513_devise_create_users.rb:40
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180625050513')[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (59.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to CreateCompanies (20180625110139)
+  [1m[35m (98.0ms)[0m  [1m[35mCREATE TABLE `companies` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `code` varchar(255), `name` varchar(255), `address` text, `country` varchar(255), `state` varchar(255), `district` varchar(255), `city` varchar(255), `pin_code` int, `email` varchar(255), `contact_no` varchar(255), `status` tinyint(1), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  ↳ db/migrate/20180625110139_create_companies.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180625110139')[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (52.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to CreateBranches (20180625110231)
+  [1m[35m (98.4ms)[0m  [1m[35mCREATE TABLE `branches` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `code` varchar(255), `name` varchar(255), `address` text, `email` varchar(255), `contact_no` varchar(255), `status` tinyint(1), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  ↳ db/migrate/20180625110231_create_branches.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180625110231')[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (52.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to CreateEmployees (20180625114946)
+  [1m[35m (97.7ms)[0m  [1m[35mCREATE TABLE `employees` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `code` varchar(255), `prefix` varchar(255), `first_name` varchar(255), `middle_name` varchar(255), `last_name` varchar(255), `date_of_birth` date, `gender` varchar(255), `contact_no` varchar(255), `email` varchar(255), `blood_group` varchar(255), `address` varchar(255), `country` varchar(255), `state` varchar(255), `district` varchar(255), `city` varchar(255), `pin_code` int, `adhar_no` varchar(255), `status` tinyint(1), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  ↳ db/migrate/20180625114946_create_employees.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180625114946')[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (52.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to AddReffToEmployee (20180625121433)
+  [1m[35m (1473.5ms)[0m  [1m[35mALTER TABLE `employees` ADD `company_id` bigint[0m
+  ↳ db/migrate/20180625121433_add_reff_to_employee.rb:3
+  [1m[35m (209.9ms)[0m  [1m[35mCREATE  INDEX `index_employees_on_company_id`  ON `employees` (`company_id`) [0m
+  ↳ db/migrate/20180625121433_add_reff_to_employee.rb:3
+  [1m[35m (255.8ms)[0m  [1m[35mALTER TABLE `employees` ADD CONSTRAINT `fk_rails_15ca1438d5`
+FOREIGN KEY (`company_id`)
+  REFERENCES `companies` (`id`)
+[0m
+  ↳ db/migrate/20180625121433_add_reff_to_employee.rb:3
+  [1m[35m (244.8ms)[0m  [1m[35mALTER TABLE `employees` ADD `branch_id` bigint[0m
+  ↳ db/migrate/20180625121433_add_reff_to_employee.rb:4
+  [1m[35m (199.0ms)[0m  [1m[35mCREATE  INDEX `index_employees_on_branch_id`  ON `employees` (`branch_id`) [0m
+  ↳ db/migrate/20180625121433_add_reff_to_employee.rb:4
+  [1m[35m (279.9ms)[0m  [1m[35mALTER TABLE `employees` ADD CONSTRAINT `fk_rails_8604ac23f2`
+FOREIGN KEY (`branch_id`)
+  REFERENCES `branches` (`id`)
+[0m
+  ↳ db/migrate/20180625121433_add_reff_to_employee.rb:4
+  [1m[35m (289.4ms)[0m  [1m[35mALTER TABLE `branches` ADD `company_id` bigint[0m
+  ↳ db/migrate/20180625121433_add_reff_to_employee.rb:5
+  [1m[35m (199.0ms)[0m  [1m[35mCREATE  INDEX `index_branches_on_company_id`  ON `branches` (`company_id`) [0m
+  ↳ db/migrate/20180625121433_add_reff_to_employee.rb:5
+  [1m[35m (267.0ms)[0m  [1m[35mALTER TABLE `branches` ADD CONSTRAINT `fk_rails_9d5c1c06e3`
+FOREIGN KEY (`company_id`)
+  REFERENCES `companies` (`id`)
+[0m
+  ↳ db/migrate/20180625121433_add_reff_to_employee.rb:5
+  [1m[35m (256.0ms)[0m  [1m[35mALTER TABLE `users` ADD `role` varchar(255)[0m
+  ↳ db/migrate/20180625121433_add_reff_to_employee.rb:6
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180625121433')[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (52.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to CreateEnquiries (20180626072124)
+  [1m[35m (96.9ms)[0m  [1m[35mCREATE TABLE `enquiries` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `mobile_no` varchar(255), `name_first` varchar(255), `middle_name` varchar(255), `last_name` varchar(255), `email` varchar(255), `address` text, `place` varchar(255), `user_id` bigint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_enquiries_on_user_id`  (`user_id`), CONSTRAINT `fk_rails_4cb86fa9ea`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  ↳ db/migrate/20180626072124_create_enquiries.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180626072124')[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (52.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to CreateSchemes (20180626102655)
+  [1m[35m (97.9ms)[0m  [1m[35mCREATE TABLE `schemes` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `type` varchar(255), `name` varchar(255), `budget` decimal, `down_payment` varchar(255), `installment` decimal, `intrest` decimal, `from_date` date, `to_date` date, `status` tinyint(1), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  ↳ db/migrate/20180626102655_create_schemes.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180626102655')[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (41.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to ChangeColToScheme (20180626113710)
+  [1m[35m (220.6ms)[0m  [1m[35mALTER TABLE `schemes` DROP COLUMN `installment`[0m
+  ↳ db/migrate/20180626113710_change_col_to_scheme.rb:3
+  [1m[35m (222.6ms)[0m  [1m[35mALTER TABLE `schemes` ADD `installment_amount` decimal[0m
+  ↳ db/migrate/20180626113710_change_col_to_scheme.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180626113710')[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (52.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to ChangeColToSchemes (20180626114121)
+  [1m[35m (222.8ms)[0m  [1m[35mALTER TABLE `schemes` DROP COLUMN `type`[0m
+  ↳ db/migrate/20180626114121_change_col_to_schemes.rb:3
+  [1m[35m (267.1ms)[0m  [1m[35mALTER TABLE `schemes` ADD `scheme_type` varchar(255)[0m
+  ↳ db/migrate/20180626114121_change_col_to_schemes.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180626114121')[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (52.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to ChangeColToSchemess (20180626114507)
+  [1m[35m (266.4ms)[0m  [1m[35mALTER TABLE `schemes` ADD `installment` varchar(255)[0m
+  ↳ db/migrate/20180626114507_change_col_to_schemess.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180626114507')[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (52.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-06-27 08:18:12', '2018-06-27 08:18:12')[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (55.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('7694111270370756945')[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/bin/rake:23
+Started GET "/" for 127.0.0.1 at 2018-06-27 13:49:21 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_email_modal.html.erb (0.7ms)
+Completed 200 OK in 2100ms (Views: 2081.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2018-06-27 13:49:30 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/sign_out" for 127.0.0.1 at 2018-06-27 13:49:33 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-06-27 13:50:00 +0530
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_email_modal.html.erb (0.7ms)
+Completed 200 OK in 228ms (Views: 225.7ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'santoh@gmail.com' LIMIT 1[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('santoh@gmail.com', '$2a$11$ELf6rvciPrI9z9f7X3IQkOzos6vWN6qseew6IKLLEM2rqUu0Y/inG', '2018-06-27 08:38:04', '2018-06-27 08:38:04')[0m
+  [1m[35m (54.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'santosh@gmail.com' AND `users`.`id` != 1 LIMIT 1[0m
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE `users` SET `email` = 'santosh@gmail.com', `updated_at` = '2018-06-27 08:39:02' WHERE `users`.`id` = 1[0m
+  [1m[35m (63.8ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2018-06-27 14:32:16 +0530
+  [1m[35m (0.5ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_email_modal.html.erb (0.6ms)
+Completed 200 OK in 1329ms (Views: 1309.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-27 14:32:27 +0530
+  
+ActionController::RoutingError (uninitialized constant Users):
+  
+bootsnap (1.3.0) lib/bootsnap/load_path_cache/core_ext/active_support.rb:53:in `block in load_missing_constant'
+bootsnap (1.3.0) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.3.0) lib/bootsnap/load_path_cache/core_ext/active_support.rb:53:in `rescue in load_missing_constant'
+bootsnap (1.3.0) lib/bootsnap/load_path_cache/core_ext/active_support.rb:43:in `load_missing_constant'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.0) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.0) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (5.2.0) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.0) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/user/sign_in" for 127.0.0.1 at 2018-06-27 14:32:48 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/user/sign_in"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-27 14:32:52 +0530
+  
+ActionController::RoutingError (uninitialized constant Users):
+  
+bootsnap (1.3.0) lib/bootsnap/load_path_cache/core_ext/active_support.rb:53:in `block in load_missing_constant'
+bootsnap (1.3.0) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.3.0) lib/bootsnap/load_path_cache/core_ext/active_support.rb:53:in `rescue in load_missing_constant'
+bootsnap (1.3.0) lib/bootsnap/load_path_cache/core_ext/active_support.rb:43:in `load_missing_constant'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.0) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.0) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (5.2.0) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.0) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2018-06-27 14:33:18 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/enquiries" for 127.0.0.1 at 2018-06-27 14:33:28 +0530
+Processing by EnquiriesController#index as HTML
+  Rendering enquiries/index.html.erb within layouts/application
+  [1m[36mEnquiry Load (0.8ms)[0m  [1m[34mSELECT `enquiries`.* FROM `enquiries`[0m
+  ↳ app/views/enquiries/index.html.erb:21
+  Rendered enquiries/index.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_email_modal.html.erb (0.6ms)
+Completed 200 OK in 312ms (Views: 300.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/enquiries/new" for 127.0.0.1 at 2018-06-27 14:33:36 +0530
+Processing by EnquiriesController#new as HTML
+  Rendering enquiries/new.html.erb within layouts/application
+  Rendered enquiries/_form.html.erb (180.9ms)
+  Rendered enquiries/new.html.erb within layouts/application (195.5ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_email_modal.html.erb (0.6ms)
+Completed 200 OK in 491ms (Views: 454.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-27 14:40:05 +0530
+  [1m[35m (0.5ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_messages.html.erb (1.3ms)
+  Rendered layouts/_email_modal.html.erb (0.7ms)
+Completed 200 OK in 260ms (Views: 256.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-27 14:40:18 +0530
+  
+ActionController::RoutingError (undefined method `skip_before_filter' for Users::SessionsController:Class
+Did you mean?  skip_before_action):
+  
+app/controllers/users/sessions_controller.rb:4:in `<class:SessionsController>'
+app/controllers/users/sessions_controller.rb:2:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-06-27 14:41:01 +0530
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_email_modal.html.erb (0.6ms)
+Completed 200 OK in 249ms (Views: 247.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-27 14:44:58 +0530
+  
+NameError (undefined local variable or method `rolify' for #<Class:0xb1c3deec>):
+  
+app/models/user.rb:2:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+config/routes.rb:11:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-27 14:45:11 +0530
+  
+ArgumentError (Before process_action callback :require_login has not been defined):
+  
+app/controllers/users/sessions_controller.rb:4:in `<class:SessionsController>'
+app/controllers/users/sessions_controller.rb:2:in `<main>'
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-27 14:45:29 +0530
+  
+ActionController::RoutingError (undefined method `skip_before_filter' for Users::SessionsController:Class
+Did you mean?  skip_before_action):
+  
+app/controllers/users/sessions_controller.rb:4:in `<class:SessionsController>'
+app/controllers/users/sessions_controller.rb:2:in `<main>'
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-27 14:45:36 +0530
+  
+ActionController::RoutingError (undefined method `skip_before_filter' for Users::SessionsController:Class
+Did you mean?  skip_before_action):
+  
+app/controllers/users/sessions_controller.rb:4:in `<class:SessionsController>'
+app/controllers/users/sessions_controller.rb:2:in `<main>'
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-27 14:46:00 +0530
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (136.2ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_email_modal.html.erb (0.9ms)
+Completed 200 OK in 495ms (Views: 424.2ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-27 14:46:32 +0530
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qxcEZGjI2PcPPX6DmM7RIE7uOkNyrKTJnIKt113tstLadhf3BVRbWxdfX4DJ/C//lMZY53WHeAkOo9tzldRYQw==", "user"=>{"email"=>"santosh@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'santosh@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2018-06-27 09:16:32', `last_sign_in_at` = '2018-06-27 09:16:32', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2018-06-27 09:16:32' WHERE `users`.`id` = 1[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (74.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 433ms (ActiveRecord: 76.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-27 14:46:33 +0530
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_messages.html.erb (1.2ms)
+  Rendered layouts/_email_modal.html.erb (0.7ms)
+Completed 200 OK in 291ms (Views: 286.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 14:47:04 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:24
+  Rendered companies/index.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_email_modal.html.erb (0.8ms)
+Completed 200 OK in 327ms (Views: 281.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 14:50:04 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:24
+  Rendered companies/index.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_email_modal.html.erb (1.0ms)
+Completed 200 OK in 272ms (Views: 268.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 14:51:35 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:24
+  Rendered companies/index.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_email_modal.html.erb (0.9ms)
+Completed 200 OK in 313ms (Views: 306.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 14:52:48 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:24
+  Rendered companies/index.html.erb within layouts/application (4.1ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:23
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (4.1ms)
+Completed 200 OK in 269ms (Views: 265.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 14:53:51 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.5ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:24
+  Rendered companies/index.html.erb within layouts/application (8.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:23
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (1.5ms)
+  Rendered layouts/_navbar.html.erb (5.0ms)
+Completed 200 OK in 332ms (Views: 327.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 14:53:57 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:24
+  Rendered companies/index.html.erb within layouts/application (5.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:23
+  Rendered layouts/_header.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.3ms)
+Completed 200 OK in 347ms (Views: 344.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 14:54:06 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.4ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:24
+  Rendered companies/index.html.erb within layouts/application (8.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:23
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (1.2ms)
+  Rendered layouts/_navbar.html.erb (4.8ms)
+Completed 200 OK in 360ms (Views: 353.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 14:55:07 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (4.8ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:24
+  Rendered companies/index.html.erb within layouts/application (8.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:21
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (3.8ms)
+Completed 200 OK in 319ms (Views: 311.5ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 14:58:39 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:24
+  Rendered companies/index.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:20
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (4.0ms)
+Completed 200 OK in 325ms (Views: 321.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 15:00:55 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:24
+  Rendered companies/index.html.erb within layouts/application (12.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (1.3ms)
+  Rendered layouts/_navbar.html.erb (4.1ms)
+Completed 200 OK in 348ms (Views: 344.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:01:02 +0530
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (131.4ms)
+  Rendered companies/new.html.erb within layouts/application (134.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (5.5ms)
+  Rendered layouts/_messages.html.erb (1.9ms)
+  Rendered layouts/_navbar.html.erb (6.6ms)
+Completed 200 OK in 596ms (Views: 550.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 15:06:52 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:25
+  Rendered companies/index.html.erb within layouts/application (17.1ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    80: 
+    81:       <tbody>
+    82:         <% i = 0 %>
+    83:         <% @agencies.each do |agency| %>
+    84:           <tr>
+    85:             <td><%= i = i + 1 %></td>
+    86:             <td><%= company.code %></td>
+  
+app/views/companies/index.html.erb:83:in `_app_views_companies_index_html_erb___855063221__659481938'
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 15:07:14 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:25
+  Rendered companies/index.html.erb within layouts/application (6.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (3.7ms)
+Completed 200 OK in 331ms (Views: 326.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 15:09:02 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (8.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (3.9ms)
+Completed 200 OK in 295ms (Views: 290.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 15:09:20 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (8.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.7ms)
+Completed 200 OK in 291ms (Views: 287.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-27 15:09:26 +0530
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (1.9ms)
+  Rendered layouts/_navbar.html.erb (4.9ms)
+Completed 200 OK in 282ms (Views: 279.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:09:42 +0530
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (12.2ms)
+  Rendered companies/new.html.erb within layouts/application (14.6ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.3ms)
+Completed 200 OK in 298ms (Views: 294.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:29:48 +0530
+  [1m[35m (0.5ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (381.8ms)
+  Rendered companies/new.html.erb within layouts/application (384.6ms)
+Completed 500 Internal Server Error in 393ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `bootstrap_form_for' for #<#<Class:0xb2fb9d04>:0xb17b8570>):
+    1: <%= bootstrap_form_for(@company,html: {id: 'company'}) do |f| %>
+    2:   <div class="row">
+    3:     <div class="col-sm-3">
+    4:       <div class="form-group required">
+  
+app/views/companies/_form.html.erb:1:in `_app_views_companies__form_html_erb___61958385__658685878'
+app/views/companies/new.html.erb:3:in `_app_views_companies_new_html_erb__829106300__658651788'
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:31:41 +0530
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (391.8ms)
+  Rendered companies/new.html.erb within layouts/application (397.1ms)
+Completed 500 Internal Server Error in 408ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `bootstrap_form_for' for #<#<Class:0xb2fb9d04>:0xb1499920>):
+    1: <%= bootstrap_form_for(@company,html: {id: 'company'}) do |f| %>
+    2:   <div class="row">
+    3:     <div class="col-sm-3">
+    4:       <div class="form-group required">
+  
+app/views/companies/_form.html.erb:1:in `_app_views_companies__form_html_erb___61958385__660338038'
+app/views/companies/new.html.erb:3:in `_app_views_companies_new_html_erb__829106300__660287728'
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:32:54 +0530
+  [1m[35m (0.5ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (740.6ms)
+  Rendered companies/new.html.erb within layouts/application (744.4ms)
+Completed 500 Internal Server Error in 814ms (ActiveRecord: 3.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `class_name' for #<#<Class:0x9160f90>:0x90c13f0>
+Did you mean?  class_eval):
+    75:     
+    76:     <div class="col-sm-3" style="padding-top: 20px;">
+    77:       <div class="form-group required">
+    78:       <%= f.submit "Create Agency", :class => class_name, data: { disable_with: data_info } %>
+    79:       <%= link_to 'Back', agencies_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+    80:       </div>
+    81:     </div>
+  
+app/views/companies/_form.html.erb:78:in `block in _app_views_companies__form_html_erb___1018138902_72805850'
+app/views/companies/_form.html.erb:1:in `_app_views_companies__form_html_erb___1018138902_72805850'
+app/views/companies/new.html.erb:3:in `_app_views_companies_new_html_erb___280762044_76273570'
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:43:25 +0530
+  [1m[35m (0.8ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (670.9ms)
+  Rendered companies/new.html.erb within layouts/application (673.3ms)
+Completed 500 Internal Server Error in 729ms (ActiveRecord: 3.1ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `agencies_path' for #<#<Class:0x9bad0ac>:0x9b94160>):
+    76:     <div class="col-sm-3" style="padding-top: 20px;">
+    77:       <div class="form-group required">
+    78:       <%= f.submit "Create Agency", :class => class_name, data: { disable_with: data_info } %>
+    79:       <%= link_to 'Back', agencies_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+    80:       </div>
+    81:     </div>
+    82:   </div>
+  
+app/views/companies/_form.html.erb:79:in `block in _app_views_companies__form_html_erb___1018138902_81333300'
+app/views/companies/_form.html.erb:1:in `_app_views_companies__form_html_erb___1018138902_81333300'
+app/views/companies/new.html.erb:3:in `_app_views_companies_new_html_erb___280762044_81620190'
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:43:43 +0530
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (15.3ms)
+  Rendered companies/new.html.erb within layouts/application (24.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (4.1ms)
+Completed 200 OK in 3552ms (Views: 3547.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:45:21 +0530
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (40.6ms)
+  Rendered companies/new.html.erb within layouts/application (43.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (3.4ms)
+Completed 200 OK in 385ms (Views: 381.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:45:44 +0530
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (19.7ms)
+  Rendered companies/new.html.erb within layouts/application (25.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (7.3ms)
+Completed 200 OK in 329ms (Views: 326.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:46:24 +0530
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (19.4ms)
+  Rendered companies/new.html.erb within layouts/application (23.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.2ms)
+Completed 200 OK in 333ms (Views: 329.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:48:10 +0530
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (26.3ms)
+  Rendered companies/new.html.erb within layouts/application (30.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_messages.html.erb (2.3ms)
+  Rendered layouts/_navbar.html.erb (5.0ms)
+Completed 200 OK in 303ms (Views: 299.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:49:17 +0530
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (25.9ms)
+  Rendered companies/new.html.erb within layouts/application (29.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (3.7ms)
+Completed 200 OK in 288ms (Views: 282.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:51:01 +0530
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (24.7ms)
+  Rendered companies/new.html.erb within layouts/application (27.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (2.0ms)
+  Rendered layouts/_navbar.html.erb (5.8ms)
+Completed 200 OK in 385ms (Views: 381.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:51:24 +0530
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (11.8ms)
+  Rendered companies/new.html.erb within layouts/application (15.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (3.7ms)
+Completed 200 OK in 335ms (Views: 332.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 15:51:40 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (3.2ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (10.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.4ms)
+Completed 200 OK in 293ms (Views: 283.6ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:51:44 +0530
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (12.8ms)
+  Rendered companies/new.html.erb within layouts/application (15.0ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.4ms)
+Completed 200 OK in 302ms (Views: 298.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/companies" for 127.0.0.1 at 2018-06-27 15:52:43 +0530
+Processing by CompaniesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"m8eDU2/gZAlfmInku62qeWxstz+taDsMq6UUZHWwVUeY397BlMcQTz0UyqymIKImy2PbhxpJ4z+iFuhN30UNTQ==", "company"=>{"code"=>"A001", "name"=>"ABC", "address"=>"Magarpatta", "country"=>"India", "state"=>"Maharashtra", "district"=>"Kolhapur", "city"=>"Pune", "pin_code"=>"416114", "contact_no"=>"7709799477", "email"=>"abc@gmail.com"}, "commit"=>"Create Company"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/companies_controller.rb:30
+  [1m[36mCompany Create (2.0ms)[0m  [1m[32mINSERT INTO `companies` (`code`, `name`, `address`, `country`, `state`, `district`, `city`, `pin_code`, `email`, `contact_no`, `created_at`, `updated_at`) VALUES ('A001', 'ABC', 'Magarpatta', 'India', 'Maharashtra', 'Kolhapur', 'Pune', 416114, 'abc@gmail.com', '7709799477', '2018-06-27 10:22:43', '2018-06-27 10:22:43')[0m
+  ↳ app/controllers/companies_controller.rb:30
+  [1m[35m (87.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/companies_controller.rb:30
+Redirected to http://localhost:3000/companies/1
+Completed 302 Found in 105ms (ActiveRecord: 90.1ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2018-06-27 15:52:43 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (1.8ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (4.1ms)
+Completed 200 OK in 352ms (Views: 344.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 15:52:53 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (6.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.2ms)
+Completed 200 OK in 274ms (Views: 270.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 15:54:16 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (2.2ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (13.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (3.4ms)
+Completed 200 OK in 336ms (Views: 329.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 15:54:33 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (7.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.5ms)
+Completed 200 OK in 323ms (Views: 319.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/companies/1/edit" for 127.0.0.1 at 2018-06-27 15:54:45 +0530
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (1.2ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/edit.html.erb within layouts/application
+  Rendered companies/_form.html.erb (17.9ms)
+  Rendered companies/edit.html.erb within layouts/application (24.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_messages.html.erb (2.1ms)
+  Rendered layouts/_navbar.html.erb (6.3ms)
+Completed 200 OK in 336ms (Views: 330.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/companies/1/edit" for 127.0.0.1 at 2018-06-27 15:54:57 +0530
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/edit.html.erb within layouts/application
+  Rendered companies/_form.html.erb (32.9ms)
+  Rendered companies/edit.html.erb within layouts/application (37.8ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+  Rendered layouts/_navbar.html.erb (4.3ms)
+Completed 200 OK in 347ms (Views: 340.0ms | ActiveRecord: 2.0ms)
+
+
+Started PATCH "/companies/1" for 127.0.0.1 at 2018-06-27 15:55:01 +0530
+Processing by CompaniesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KR/HRPq/gDEUHzw/7b6xa5LVKMkWQROTDYaJET346JPk8pBzZFr/14OINoliZ4Tt7GJJsyaIt1z2+DwJeX4now==", "company"=>{"code"=>"A001", "name"=>"ABC", "address"=>"Magarpatta", "country"=>"India", "state"=>"Maharashtra", "district"=>"Kolhapur", "city"=>"Pune", "pin_code"=>"416114", "contact_no"=>"7709799477", "email"=>"abc@gmail.com"}, "commit"=>"Create Company", "id"=>"1"}
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/companies_controller.rb:44
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/companies_controller.rb:44
+Redirected to http://localhost:3000/companies/1
+Completed 302 Found in 14ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2018-06-27 15:55:01 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (3.9ms)
+Completed 200 OK in 359ms (Views: 354.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2018-06-27 15:57:42 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (6.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (3.4ms)
+Completed 200 OK in 293ms (Views: 287.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 15:59:40 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (7.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (3.6ms)
+Completed 200 OK in 369ms (Views: 365.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2018-06-27 15:59:44 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.6ms)
+Completed 200 OK in 260ms (Views: 256.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 15:59:47 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (10.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+  Rendered layouts/_navbar.html.erb (6.0ms)
+Completed 200 OK in 294ms (Views: 289.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 15:59:53 +0530
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (16.8ms)
+  Rendered companies/new.html.erb within layouts/application (20.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (3.9ms)
+Completed 200 OK in 304ms (Views: 301.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/companies" for 127.0.0.1 at 2018-06-27 16:00:36 +0530
+Processing by CompaniesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IEYZJHjgj5k987bIIAutueSqaiq/bbNuL0Ww4ZqvV7UjXkS2g8f7319/9YA9hqXmQ6UGkghMa10m9kzIMFoPvw==", "company"=>{"code"=>"A002", "name"=>"PQR", "address"=>"Warje", "country"=>"India", "state"=>"Maharashtra", "district"=>"Pune", "city"=>"Pune", "pin_code"=>"416114", "contact_no"=>"8878912791", "email"=>"pqr@gmail.com"}, "commit"=>"Create Company"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/companies_controller.rb:30
+  [1m[36mCompany Create (1.0ms)[0m  [1m[32mINSERT INTO `companies` (`code`, `name`, `address`, `country`, `state`, `district`, `city`, `pin_code`, `email`, `contact_no`, `created_at`, `updated_at`) VALUES ('A002', 'PQR', 'Warje', 'India', 'Maharashtra', 'Pune', 'Pune', 416114, 'pqr@gmail.com', '8878912791', '2018-06-27 10:30:36', '2018-06-27 10:30:36')[0m
+  ↳ app/controllers/companies_controller.rb:30
+  [1m[35m (59.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/companies_controller.rb:30
+Redirected to http://localhost:3000/companies/2
+Completed 302 Found in 71ms (ActiveRecord: 61.1ms)
+
+
+Started GET "/companies/2" for 127.0.0.1 at 2018-06-27 16:00:36 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCompany Load (1.5ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.3ms)
+Completed 200 OK in 293ms (Views: 287.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 16:00:39 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (6.9ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (3.7ms)
+Completed 200 OK in 255ms (Views: 250.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 16:03:53 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (55.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (1.3ms)
+  Rendered layouts/_navbar.html.erb (4.2ms)
+Completed 200 OK in 400ms (Views: 384.3ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2018-06-27 16:03:57 +0530
+Processing by CompaniesController#new as HTML
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (16.6ms)
+  Rendered companies/new.html.erb within layouts/application (19.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (3.5ms)
+  Rendered layouts/_navbar.html.erb (7.1ms)
+Completed 200 OK in 343ms (Views: 340.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/companies" for 127.0.0.1 at 2018-06-27 16:04:43 +0530
+Processing by CompaniesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LGEZpg2+ffP28HA9e6F9IsJ35uE0ws8XGczYBLjvuFsveUQ09pkJtZR8M3VmLHV9ZXiKWYPjFyQQfyQtEhrgUQ==", "company"=>{"code"=>"A003", "name"=>"XYZ", "address"=>"Swarget", "country"=>"India", "state"=>"Maharashtra", "district"=>"Pune", "city"=>"Pune", "pin_code"=>"427709", "contact_no"=>"7709799477", "email"=>"XYZ@gmail.com"}, "commit"=>"Create Company"}
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/companies_controller.rb:30
+  [1m[36mCompany Create (1.4ms)[0m  [1m[32mINSERT INTO `companies` (`code`, `name`, `address`, `country`, `state`, `district`, `city`, `pin_code`, `email`, `contact_no`, `created_at`, `updated_at`) VALUES ('A003', 'XYZ', 'Swarget', 'India', 'Maharashtra', 'Pune', 'Pune', 427709, 'XYZ@gmail.com', '7709799477', '2018-06-27 10:34:44', '2018-06-27 10:34:44')[0m
+  ↳ app/controllers/companies_controller.rb:30
+  [1m[35m (83.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/companies_controller.rb:30
+Redirected to http://localhost:3000/companies
+Completed 302 Found in 97ms (ActiveRecord: 86.2ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 16:04:44 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (8.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (4.0ms)
+Completed 200 OK in 284ms (Views: 280.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/companies/2" for 127.0.0.1 at 2018-06-27 16:04:48 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.5ms)
+Completed 200 OK in 299ms (Views: 293.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 16:04:51 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (3.3ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (9.2ms)
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (4.1ms)
+Completed 200 OK in 350ms (Views: 337.1ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/companies/2" for 127.0.0.1 at 2018-06-27 16:04:54 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+  Rendered layouts/_navbar.html.erb (4.6ms)
+Completed 200 OK in 279ms (Views: 273.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/companies/2" for 127.0.0.1 at 2018-06-27 16:05:25 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (3.6ms)
+Completed 200 OK in 300ms (Views: 295.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 16:05:29 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (7.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (3.6ms)
+Completed 200 OK in 305ms (Views: 301.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/companies/2" for 127.0.0.1 at 2018-06-27 16:05:32 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_messages.html.erb (1.3ms)
+  Rendered layouts/_navbar.html.erb (4.1ms)
+Completed 200 OK in 314ms (Views: 307.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/companies/2" for 127.0.0.1 at 2018-06-27 16:06:36 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_messages.html.erb (2.0ms)
+  Rendered layouts/_navbar.html.erb (4.7ms)
+Completed 200 OK in 284ms (Views: 279.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 16:06:41 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (7.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (1.7ms)
+  Rendered layouts/_navbar.html.erb (6.1ms)
+Completed 200 OK in 261ms (Views: 258.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/companies/2" for 127.0.0.1 at 2018-06-27 16:06:58 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (5.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (4.0ms)
+Completed 200 OK in 312ms (Views: 305.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 16:09:13 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (2.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (16.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (3.6ms)
+Completed 200 OK in 327ms (Views: 321.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 16:10:49 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (7.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.4ms)
+Completed 200 OK in 262ms (Views: 258.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/companies/2" for 127.0.0.1 at 2018-06-27 16:10:52 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.3ms)
+Completed 200 OK in 337ms (Views: 332.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 16:11:26 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (6.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (1.3ms)
+  Rendered layouts/_navbar.html.erb (4.2ms)
+Completed 200 OK in 276ms (Views: 272.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/companies/2" for 127.0.0.1 at 2018-06-27 16:11:29 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCompany Load (4.4ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (3.5ms)
+Completed 200 OK in 327ms (Views: 319.0ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 16:11:32 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.2ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (11.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (5.2ms)
+Completed 200 OK in 307ms (Views: 303.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 16:11:51 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  Rendered companies/index.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/vinod/workspace/Travel-/app/views/companies/index.html.erb:50: syntax error, unexpected ','
+y----------------------------, method: :destroy, data: { con
+                              ^
+/home/vinod/workspace/Travel-/app/views/companies/index.html.erb:50: syntax error, unexpected ',', expecting ')'
+ { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger
+                              ^):
+  
+app/views/companies/index.html.erb:50: syntax error, unexpected ','
+app/views/companies/index.html.erb:50: syntax error, unexpected ',', expecting ')'
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 16:11:56 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (10.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (13.9ms)
+Completed 200 OK in 313ms (Views: 309.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2018-06-27 16:12:17 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (1.4ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` WHERE `companies`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/companies_controller.rb:67
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (3.5ms)
+Completed 200 OK in 305ms (Views: 300.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-27 16:12:20 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT `companies`.* FROM `companies`[0m
+  ↳ app/views/companies/index.html.erb:33
+  Rendered companies/index.html.erb within layouts/application (8.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (3.4ms)
+Completed 200 OK in 273ms (Views: 269.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/enquiries" for 127.0.0.1 at 2018-06-27 16:14:27 +0530
+Processing by EnquiriesController#index as HTML
+  Rendering enquiries/index.html.erb within layouts/application
+  [1m[36mEnquiry Load (1.3ms)[0m  [1m[34mSELECT `enquiries`.* FROM `enquiries`[0m
+  ↳ app/views/enquiries/index.html.erb:21
+  Rendered enquiries/index.html.erb within layouts/application (9.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (5.5ms)
+Completed 200 OK in 301ms (Views: 292.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/enquiries" for 127.0.0.1 at 2018-06-27 16:18:10 +0530
+Processing by EnquiriesController#index as HTML
+  Rendering enquiries/index.html.erb within layouts/application
+  [1m[36mEnquiry Load (0.4ms)[0m  [1m[34mSELECT `enquiries`.* FROM `enquiries`[0m
+  ↳ app/views/enquiries/index.html.erb:30
+  Rendered enquiries/index.html.erb within layouts/application (5.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (3.7ms)
+Completed 200 OK in 328ms (Views: 324.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/enquiries" for 127.0.0.1 at 2018-06-27 16:29:29 +0530
+  [1m[35m (1.6ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by EnquiriesController#index as HTML
+  Rendering enquiries/index.html.erb within layouts/application
+  [1m[36mEnquiry Load (0.3ms)[0m  [1m[34mSELECT `enquiries`.* FROM `enquiries`[0m
+  ↳ app/views/enquiries/index.html.erb:29
+  Rendered enquiries/index.html.erb within layouts/application (5.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (3.7ms)
+Completed 200 OK in 281ms (Views: 277.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/enquiries/new" for 127.0.0.1 at 2018-06-27 16:29:34 +0530
+Processing by EnquiriesController#new as HTML
+  Rendering enquiries/new.html.erb within layouts/application
+  Rendered enquiries/_form.html.erb (23.3ms)
+  Rendered enquiries/new.html.erb within layouts/application (25.6ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 3.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<Enquiry:0xb07ea044>
+Did you mean?  user_id):
+    47:   <div class="row">
+    48:     <div class="col-sm-3">
+    49:       <div class="form-group required">
+    50:         <%= f.text_field :user, label:'Contact No.', placeholder: '+2290981167' %>
+    51:       </div>
+    52:     </div>
+    53: 
+  
+app/views/enquiries/_form.html.erb:50:in `block in _app_views_enquiries__form_html_erb__192725163__667626938'
+app/views/enquiries/_form.html.erb:1:in `_app_views_enquiries__form_html_erb__192725163__667626938'
+app/views/enquiries/new.html.erb:3:in `_app_views_enquiries_new_html_erb___624447106__667453558'
+Started GET "/enquiries/new" for 127.0.0.1 at 2018-06-27 16:35:04 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by EnquiriesController#new as HTML
+  Rendering enquiries/new.html.erb within layouts/application
+  Rendered enquiries/_form.html.erb (10.5ms)
+  Rendered enquiries/new.html.erb within layouts/application (13.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (3.7ms)
+Completed 200 OK in 302ms (Views: 299.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/enquiries/new" for 127.0.0.1 at 2018-06-27 16:37:19 +0530
+Processing by EnquiriesController#new as HTML
+  Rendering enquiries/new.html.erb within layouts/application
+  Rendered enquiries/_form.html.erb (10.4ms)
+  Rendered enquiries/new.html.erb within layouts/application (14.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (4.6ms)
+Completed 200 OK in 360ms (Views: 356.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/enquiries/new" for 127.0.0.1 at 2018-06-27 16:37:46 +0530
+Processing by EnquiriesController#new as HTML
+  Rendering enquiries/new.html.erb within layouts/application
+  Rendered enquiries/_form.html.erb (8.2ms)
+  Rendered enquiries/new.html.erb within layouts/application (10.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (3.6ms)
+Completed 200 OK in 269ms (Views: 266.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/enquiries" for 127.0.0.1 at 2018-06-27 16:38:23 +0530
+Processing by EnquiriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YPevBAW+BAZoEz/vSlv6VfGOsE4Q43eeQZWXQTcjfzNA8y+S/oWa2gAUy6AC0/vLVWMCvhjsZxTtqvZG7dpLwA==", "enquiry"=>{"mobile_no"=>"1234567890", "name_first"=>"Santosh", "middle_name"=>"Sadashiv", "last_name"=>"Kumbhar", "email"=>"san@gmail.com", "place"=>"4517234", "address"=>"pune"}, "commit"=>"Create Enquiry"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/enquiries_controller.rb:30
+  [1m[36mEnquiry Create (2.1ms)[0m  [1m[32mINSERT INTO `enquiries` (`mobile_no`, `name_first`, `middle_name`, `last_name`, `email`, `address`, `place`, `created_at`, `updated_at`) VALUES ('1234567890', 'Santosh', 'Sadashiv', 'Kumbhar', 'san@gmail.com', 'pune', '4517234', '2018-06-27 11:08:23', '2018-06-27 11:08:23')[0m
+  ↳ app/controllers/enquiries_controller.rb:30
+  [1m[35m (109.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/enquiries_controller.rb:30
+Redirected to http://localhost:3000/enquiries/1
+Completed 302 Found in 125ms (ActiveRecord: 111.9ms)
+
+
+Started GET "/enquiries/1" for 127.0.0.1 at 2018-06-27 16:38:23 +0530
+Processing by EnquiriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEnquiry Load (1.7ms)[0m  [1m[34mSELECT  `enquiries`.* FROM `enquiries` WHERE `enquiries`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/enquiries_controller.rb:67
+  Rendering enquiries/show.html.erb within layouts/application
+  Rendered enquiries/show.html.erb within layouts/application (18.0ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<Enquiry:0xb07cb338>
+Did you mean?  user_id):
+    37: 
+    38: <p>
+    39:   <strong>User:</strong>
+    40:   <%= @enquiry.user %>
+    41: </p>
+    42: 
+    43: <%= link_to 'Edit', edit_enquiry_path(@enquiry) %> |
+  
+app/views/enquiries/show.html.erb:40:in `_app_views_enquiries_show_html_erb__252067586__667004118'
+Started GET "/enquiries/1" for 127.0.0.1 at 2018-06-27 16:38:43 +0530
+Processing by EnquiriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEnquiry Load (1.4ms)[0m  [1m[34mSELECT  `enquiries`.* FROM `enquiries` WHERE `enquiries`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/enquiries_controller.rb:67
+  Rendering enquiries/show.html.erb within layouts/application
+  Rendered enquiries/show.html.erb within layouts/application (18.3ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<Enquiry:0xafbdd3dc>
+Did you mean?  user_id):
+    37: 
+    38: <p>
+    39:   <strong>User:</strong>
+    40:   <%= @enquiry.user %>
+    41: </p>
+    42: 
+    43: <%= link_to 'Edit', edit_enquiry_path(@enquiry) %> |
+  
+app/views/enquiries/show.html.erb:40:in `_app_views_enquiries_show_html_erb__252067586__673258278'
+Started GET "/enquiries" for 127.0.0.1 at 2018-06-27 16:38:51 +0530
+Processing by EnquiriesController#index as HTML
+  Rendering enquiries/index.html.erb within layouts/application
+  [1m[36mEnquiry Load (0.6ms)[0m  [1m[34mSELECT `enquiries`.* FROM `enquiries`[0m
+  ↳ app/views/enquiries/index.html.erb:29
+  Rendered enquiries/index.html.erb within layouts/application (7.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (5.9ms)
+Completed 200 OK in 279ms (Views: 275.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/enquiries/1" for 127.0.0.1 at 2018-06-27 16:38:55 +0530
+Processing by EnquiriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEnquiry Load (0.7ms)[0m  [1m[34mSELECT  `enquiries`.* FROM `enquiries` WHERE `enquiries`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/enquiries_controller.rb:67
+  Rendering enquiries/show.html.erb within layouts/application
+  Rendered enquiries/show.html.erb within layouts/application (19.2ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<Enquiry:0xb0013ce4>
+Did you mean?  user_id):
+    37: 
+    38: <p>
+    39:   <strong>User:</strong>
+    40:   <%= @enquiry.user %>
+    41: </p>
+    42: 
+    43: <%= link_to 'Edit', edit_enquiry_path(@enquiry) %> |
+  
+app/views/enquiries/show.html.erb:40:in `_app_views_enquiries_show_html_erb__252067586__671049978'
+Started GET "/enquiries/1" for 127.0.0.1 at 2018-06-27 16:45:25 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by EnquiriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEnquiry Load (1.7ms)[0m  [1m[34mSELECT  `enquiries`.* FROM `enquiries` WHERE `enquiries`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/enquiries_controller.rb:67
+  Rendering enquiries/show.html.erb within layouts/application
+  Rendered enquiries/show.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (13.6ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (3.8ms)
+Completed 200 OK in 315ms (Views: 308.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/enquiries/1" for 127.0.0.1 at 2018-06-27 16:45:55 +0530
+Processing by EnquiriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEnquiry Load (5.8ms)[0m  [1m[34mSELECT  `enquiries`.* FROM `enquiries` WHERE `enquiries`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/enquiries_controller.rb:67
+  Rendering enquiries/show.html.erb within layouts/application
+  Rendered enquiries/show.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (3.5ms)
+Completed 200 OK in 308ms (Views: 296.4ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/enquiries/1" for 127.0.0.1 at 2018-06-27 16:46:11 +0530
+Processing by EnquiriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEnquiry Load (0.4ms)[0m  [1m[34mSELECT  `enquiries`.* FROM `enquiries` WHERE `enquiries`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/enquiries_controller.rb:67
+  Rendering enquiries/show.html.erb within layouts/application
+  Rendered enquiries/show.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (3.8ms)
+Completed 200 OK in 326ms (Views: 320.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/enquiries/1" for 127.0.0.1 at 2018-06-27 16:46:53 +0530
+Processing by EnquiriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEnquiry Load (0.4ms)[0m  [1m[34mSELECT  `enquiries`.* FROM `enquiries` WHERE `enquiries`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/enquiries_controller.rb:67
+  Rendering enquiries/show.html.erb within layouts/application
+  Rendered enquiries/show.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (4.0ms)
+Completed 200 OK in 302ms (Views: 294.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/enquiries/1" for 127.0.0.1 at 2018-06-27 16:47:47 +0530
+Processing by EnquiriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEnquiry Load (0.6ms)[0m  [1m[34mSELECT  `enquiries`.* FROM `enquiries` WHERE `enquiries`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/enquiries_controller.rb:67
+  Rendering enquiries/show.html.erb within layouts/application
+  Rendered enquiries/show.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.4ms)
+Completed 200 OK in 335ms (Views: 328.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/enquiries/1" for 127.0.0.1 at 2018-06-27 16:48:31 +0530
+Processing by EnquiriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEnquiry Load (0.4ms)[0m  [1m[34mSELECT  `enquiries`.* FROM `enquiries` WHERE `enquiries`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/enquiries_controller.rb:67
+  Rendering enquiries/show.html.erb within layouts/application
+  Rendered enquiries/show.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (3.6ms)
+Completed 200 OK in 300ms (Views: 295.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/enquiries" for 127.0.0.1 at 2018-06-27 16:48:46 +0530
+Processing by EnquiriesController#index as HTML
+  Rendering enquiries/index.html.erb within layouts/application
+  [1m[36mEnquiry Load (0.4ms)[0m  [1m[34mSELECT `enquiries`.* FROM `enquiries`[0m
+  ↳ app/views/enquiries/index.html.erb:29
+  Rendered enquiries/index.html.erb within layouts/application (9.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (4.2ms)
+Completed 200 OK in 296ms (Views: 291.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/enquiries/1" for 127.0.0.1 at 2018-06-27 16:48:49 +0530
+Processing by EnquiriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEnquiry Load (0.5ms)[0m  [1m[34mSELECT  `enquiries`.* FROM `enquiries` WHERE `enquiries`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/enquiries_controller.rb:67
+  Rendering enquiries/show.html.erb within layouts/application
+  Rendered enquiries/show.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+  Rendered layouts/_navbar.html.erb (6.5ms)
+Completed 200 OK in 320ms (Views: 315.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/enquiries" for 127.0.0.1 at 2018-06-27 16:49:55 +0530
+Processing by EnquiriesController#index as HTML
+  Rendering enquiries/index.html.erb within layouts/application
+  [1m[36mEnquiry Load (0.5ms)[0m  [1m[34mSELECT `enquiries`.* FROM `enquiries`[0m
+  ↳ app/views/enquiries/index.html.erb:27
+  Rendered enquiries/index.html.erb within layouts/application (6.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (6.6ms)
+Completed 200 OK in 327ms (Views: 323.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/enquiries/new" for 127.0.0.1 at 2018-06-27 16:50:55 +0530
+Processing by EnquiriesController#new as HTML
+  Rendering enquiries/new.html.erb within layouts/application
+  Rendered enquiries/_form.html.erb (8.7ms)
+  Rendered enquiries/new.html.erb within layouts/application (10.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.3ms)
+Completed 200 OK in 312ms (Views: 308.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/enquiries/new" for 127.0.0.1 at 2018-06-27 16:51:14 +0530
+Processing by EnquiriesController#new as HTML
+  Rendering enquiries/new.html.erb within layouts/application
+  Rendered enquiries/_form.html.erb (11.3ms)
+  Rendered enquiries/new.html.erb within layouts/application (16.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (4.0ms)
+Completed 200 OK in 360ms (Views: 357.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/enquiries/new" for 127.0.0.1 at 2018-06-27 16:51:22 +0530
+Processing by EnquiriesController#new as HTML
+  Rendering enquiries/new.html.erb within layouts/application
+  Rendered enquiries/_form.html.erb (15.5ms)
+  Rendered enquiries/new.html.erb within layouts/application (19.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (3.3ms)
+Completed 200 OK in 336ms (Views: 332.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/enquiries/new" for 127.0.0.1 at 2018-06-27 17:10:12 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by EnquiriesController#new as HTML
+  Rendering enquiries/new.html.erb within layouts/application
+  Rendered enquiries/_form.html.erb (11.0ms)
+  Rendered enquiries/new.html.erb within layouts/application (16.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (3.8ms)
+Completed 200 OK in 342ms (Views: 338.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/enquiries/new" for 127.0.0.1 at 2018-06-27 17:35:24 +0530
+  [1m[35m (0.5ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by EnquiriesController#new as HTML
+  Rendering enquiries/new.html.erb within layouts/application
+  Rendered enquiries/_form.html.erb (10.3ms)
+  Rendered enquiries/new.html.erb within layouts/application (13.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+  Rendered layouts/_navbar.html.erb (3.7ms)
+Completed 200 OK in 364ms (Views: 361.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/enquiries/new" for 127.0.0.1 at 2018-06-27 17:36:37 +0530
+Processing by EnquiriesController#new as HTML
+  Rendering enquiries/new.html.erb within layouts/application
+  Rendered enquiries/_form.html.erb (16.3ms)
+  Rendered enquiries/new.html.erb within layouts/application (18.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (30.9ms)
+Completed 500 Internal Server Error in 332ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `username' for #<User:0xaf42336c>):
+    126:             <%= image_tag "avatar.png",class: "img-circle", alt: "User Image", size: "25x25" %>
+    127:             <!-- Click image -->
+    128:             <p>
+    129:                 <small> Name : <%= current_user.username %><br></small>
+    130:                 <small>   <br></small>
+    131:                 <small>  </small>
+    132:              
+  
+app/views/layouts/_header.html.erb:129:in `_app_views_layouts__header_html_erb__43237927__677310678'
+app/views/layouts/application.html.erb:22:in `_app_views_layouts_application_html_erb___568534433__671541548'
+Started GET "/enquiries/new" for 127.0.0.1 at 2018-06-27 17:36:51 +0530
+Processing by EnquiriesController#new as HTML
+  Rendering enquiries/new.html.erb within layouts/application
+  Rendered enquiries/_form.html.erb (19.5ms)
+  Rendered enquiries/new.html.erb within layouts/application (23.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (7.2ms)
+  Rendered layouts/_messages.html.erb (1.2ms)
+  Rendered layouts/_navbar.html.erb (5.5ms)
+Completed 200 OK in 330ms (Views: 323.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 17:36:51 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 17:36:52 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/enquiries/new" for 127.0.0.1 at 2018-06-27 17:38:44 +0530
+Processing by EnquiriesController#new as HTML
+  Rendering enquiries/new.html.erb within layouts/application
+  Rendered enquiries/_form.html.erb (9.8ms)
+  Rendered enquiries/new.html.erb within layouts/application (12.3ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (8.7ms)
+  Rendered layouts/_messages.html.erb (1.9ms)
+  Rendered layouts/_navbar.html.erb (5.7ms)
+Completed 200 OK in 337ms (Views: 333.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 17:38:45 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 17:38:45 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/employee" for 127.0.0.1 at 2018-06-27 17:57:08 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/vinod/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/employee"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/employees" for 127.0.0.1 at 2018-06-27 17:57:25 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.8ms)[0m  [1m[34mSELECT `employees`.* FROM `employees`[0m
+  ↳ app/views/employees/index.html.erb:31
+  Rendered employees/index.html.erb within layouts/application (11.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (11.8ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (3.6ms)
+Completed 200 OK in 382ms (Views: 366.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 17:57:25 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 17:57:26 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/employees/new" for 127.0.0.1 at 2018-06-27 17:57:31 +0530
+Processing by EmployeesController#new as HTML
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (53.7ms)
+  Rendered employees/new.html.erb within layouts/application (59.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (14.5ms)
+  Rendered layouts/_messages.html.erb (1.2ms)
+  Rendered layouts/_navbar.html.erb (4.4ms)
+Completed 200 OK in 474ms (Views: 390.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2018-06-27 17:57:31 +0530
+Processing by EmployeesController#new as HTML
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (22.2ms)
+  Rendered employees/new.html.erb within layouts/application (25.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (9.4ms)
+  Rendered layouts/_messages.html.erb (1.2ms)
+  Rendered layouts/_navbar.html.erb (4.5ms)
+Completed 200 OK in 339ms (Views: 336.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 17:57:32 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 17:57:32 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/employees/new" for 127.0.0.1 at 2018-06-27 17:58:01 +0530
+Processing by EmployeesController#new as HTML
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (23.0ms)
+  Rendered employees/new.html.erb within layouts/application (25.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (7.1ms)
+  Rendered layouts/_messages.html.erb (1.5ms)
+  Rendered layouts/_navbar.html.erb (5.1ms)
+Completed 200 OK in 285ms (Views: 282.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 17:58:02 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/employees" for 127.0.0.1 at 2018-06-27 17:59:01 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (2.7ms)[0m  [1m[34mSELECT `employees`.* FROM `employees`[0m
+  ↳ app/views/employees/index.html.erb:31
+  Rendered employees/index.html.erb within layouts/application (8.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (7.9ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered layouts/_navbar.html.erb (3.8ms)
+Completed 200 OK in 344ms (Views: 338.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 17:59:02 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 17:59:03 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/employees" for 127.0.0.1 at 2018-06-27 17:59:50 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT `employees`.* FROM `employees`[0m
+  ↳ app/views/employees/index.html.erb:31
+  Rendered employees/index.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (9.9ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.6ms)
+Completed 200 OK in 288ms (Views: 284.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 17:59:51 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/employees/new" for 127.0.0.1 at 2018-06-27 18:00:01 +0530
+Processing by EmployeesController#new as HTML
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (26.1ms)
+  Rendered employees/new.html.erb within layouts/application (28.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (10.3ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (4.3ms)
+Completed 200 OK in 268ms (Views: 265.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 18:00:02 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 18:00:02 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/employees" for 127.0.0.1 at 2018-06-27 18:05:10 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  Rendered employees/index.html.erb within layouts/application (8.8ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    26: 
+    27:       <tbody>
+    28:         <% i = 0 %>
+    29:         <% @companies.each do |company| %>
+    30:           <tr>
+    31:             <td><%= i = i + 1 %></td>
+    32:             <td><%= employee.code %></td>
+  
+app/views/employees/index.html.erb:29:in `_app_views_employees_index_html_erb__2327272_98145700'
+Started GET "/employees" for 127.0.0.1 at 2018-06-27 18:05:38 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (1.7ms)[0m  [1m[34mSELECT `employees`.* FROM `employees`[0m
+  ↳ app/views/employees/index.html.erb:29
+  Rendered employees/index.html.erb within layouts/application (5.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (10.2ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (3.9ms)
+Completed 200 OK in 339ms (Views: 334.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 18:05:39 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 18:05:39 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/employees" for 127.0.0.1 at 2018-06-27 18:06:06 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT `employees`.* FROM `employees`[0m
+  ↳ app/views/employees/index.html.erb:29
+  Rendered employees/index.html.erb within layouts/application (5.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (7.5ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+  Rendered layouts/_navbar.html.erb (3.9ms)
+Completed 200 OK in 281ms (Views: 278.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 18:06:07 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 18:06:08 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/employees" for 127.0.0.1 at 2018-06-27 18:07:28 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (3.7ms)[0m  [1m[34mSELECT `employees`.* FROM `employees`[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (8.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered layouts/_header.html.erb (7.2ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_navbar.html.erb (3.2ms)
+Completed 200 OK in 300ms (Views: 293.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/dist/img/user2-160x160.jpg" for 127.0.0.1 at 2018-06-27 18:07:29 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/dist/img/user2-160x160.jpg"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'

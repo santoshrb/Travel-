@@ -1,5 +1,14 @@
-<h1>New Enquiry</h1>
-
-<%= render 'form', enquiry: @enquiry %>
-
-<%= link_to 'Back', enquiries_path %>
+<!-- <h1>New Enquiry</h1> -->
+<%#= render 'form', enquiry: @enquiry %>
+<%#= link_to 'Back', enquiries_path %>
+<div class="box box-default">
+  <div class="box-header with-border">
+    <h3 class="box-title">New Enquiry</h3>
+    <div class="pull-right"></div>
+	<div class="box-body">
+		<div id="form">
+		   <%= render 'form' %>
+		</div>
+	</div>
+  </div>
+</div>

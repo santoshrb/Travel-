@@ -1,47 +1,64 @@
-<p id="notice"><%= notice %></p>
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Companies</h3>
+    <div class="pull-right">
+      <%= link_to 'New Company', new_company_path, class: 'btn btn-sm btn-primary' %>
+      <%#= link_to " Upload ", import_xl_agencies_path, class: 'fa fa-upload btn btn-xl btn-info' %>
+      <%#= link_to " Template", "/Templates/7.Agency.xls", :class=>"fa fa-download btn-xl btn btn-warning" %>
+    </div>
+  </div><!-- /.box-header -->
+  <div class="box-body">
+    <table id="example6" class="table table-bordered table-hover table-condensed">
+      <thead>
+        <tr>
+          <th>Sr.No</th>
+          <th>Code</th>
+          <th>Name</th>
+          <!-- <th>Address</th>
+          <th>Country</th>
+          <th>State</th>
+          <th>District</th>
+          <th>City</th>
+          <th>Pin code</th> -->
+          <th>Email</th>
+          <th>Contact No.</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
 
-<h1>Companies</h1>
+      <tbody>
+        <% i = 0 %>
+        <% @companies.each do |company| %>
+          <tr>
+            <td><%= i = i + 1 %></td>
+            <td><%= company.code %></td>
+            <td><%= company.name %></td>
+            <!-- <td><%#= company.address %></td>
+            <td><%#= company.country %></td>
+            <td><%#= company.state %></td>
+            <td><%#= company.district %></td>
+            <td><%#= company.city %></td>
+            <td><%#= company.pin_code %></td> -->
+            <td><%= company.email %></td>
+            <td><%= company.contact_no %></td>
+            <td><%= company.status %></td>
+            <td>
+            <%= link_to ' ', company, class: 'btn btn-xs btn-default fa fa-eye' %>
+            <%= link_to ' ', edit_company_path(company), class: 'btn btn-xs btn-success fa fa-edit' %>
+            <%= link_to ' ', company, method: :destroy, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+      <%#= link_to 'Back', root_url ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Country</th>
-      <th>State</th>
-      <th>District</th>
-      <th>City</th>
-      <th>Pin code</th>
-      <th>Email</th>
-      <th>Contact no</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @companies.each do |company| %>
-      <tr>
-        <td><%= company.code %></td>
-        <td><%= company.name %></td>
-        <td><%= company.address %></td>
-        <td><%= company.country %></td>
-        <td><%= company.state %></td>
-        <td><%= company.district %></td>
-        <td><%= company.city %></td>
-        <td><%= company.pin_code %></td>
-        <td><%= company.email %></td>
-        <td><%= company.contact_no %></td>
-        <td><%= company.status %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Company', new_company_path %>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>

@@ -1,44 +1,34 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Mobile no:</strong>
-  <%= @enquiry.mobile_no %>
-</p>
-
-<p>
-  <strong>Name first:</strong>
-  <%= @enquiry.name_first %>
-</p>
-
-<p>
-  <strong>Middle name:</strong>
-  <%= @enquiry.middle_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @enquiry.last_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @enquiry.email %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @enquiry.address %>
-</p>
-
-<p>
-  <strong>Place:</strong>
-  <%= @enquiry.place %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @enquiry.user %>
-</p>
-
-<%= link_to 'Edit', edit_enquiry_path(@enquiry) %> |
-<%= link_to 'Back', enquiries_path %>
+<div class="box box-default">
+  <div class="box-body">
+    <table id="example2" class="table table-bordered table-hover table-condensed">
+      <tbody>
+        <tr>
+          <th colspan="5">
+            <strong><center>Enquiries Detail</center></strong>
+          </th>
+        </tr>
+        <tr>
+          <%#= image_tag @agency.avatar.url(:medium),class: "profile-user-img img-responsive img-circle", alt: "User Image",size: "25x25" %>
+        </tr>
+        <tr>
+          <th>Mobile No.</th>
+          <td><%= @enquiry.mobile_no %></td>
+          <th> Name </th>
+          <td><%= @enquiry.name_first %> <%= @enquiry.middle_name %> <%= @enquiry.last_name %> </td>
+        </tr>
+        <tr>
+          <th>Email </th>
+          <td><%= @enquiry.email %></td>
+          <th>Place</th>
+          <td><%= @enquiry.place %></td>
+        </tr>
+        <tr>
+          <th>Address</th>
+          <td colspan="3"><%= @enquiry.try(:address) %></td>
+        </tr>
+      </tbody>
+    </table><br>
+    <%= link_to 'Edit', edit_enquiry_path(@enquiry), class: 'btn btn-default btn-sm fa' %> |
+    <%= link_to 'Back', enquiries_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+  </div>
+</div>

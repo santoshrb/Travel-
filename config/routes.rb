@@ -13,8 +13,6 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/user' => 'users/sessions#new'
   end
-  
-
 
   namespace :api do
     resources :user_auths,:only => [:create], defaults: {format: 'json'}
