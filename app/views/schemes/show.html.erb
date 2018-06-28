@@ -1,54 +1,47 @@
-<p id="notice"><%= notice %></p>
+<div class="box box-default">
+  <div class="box-body">
+    <table id="example2" class="table table-bordered table-hover table-condensed">
+      <tbody>
+        <tr>
+          <th colspan="5">
+            <strong><center>Scheme Detail</center></strong>
+          </th>
+        </tr>
+        <tr>
+          <%#= image_tag @agency.avatar.url(:medium),class: "profile-user-img img-responsive img-circle", alt: "User Image",size: "25x25" %>
+        </tr>
+        <tr>
+          <th>Scheme Type</th>
+          <td><%= @scheme.scheme_type %></td>
+          <th>Name</th>
+          <td><%= @scheme.name %></td>
+        </tr>
+        <tr>
+          <th>Budget </th>
+          <td><%= @scheme.budget %></td>
+          <th>Down payment</th>
+          <td><%= @scheme.down_payment %></td>
+        </tr>
+        <tr>
+          <th>Installment </th>
+          <td><%= @scheme.installment %></td>
+          <th>Intrest</th>
+          <td><%= @scheme.intrest %></td>
+        </tr>
+        <tr>
+          <th>From date </th>
+          <td><%= @scheme.from_date %></td>
+          <th>To date</th>
+          <td><%= @scheme.to_date %></td>
+        </tr>
+        <tr>
+          <th>Status</th>
+          <td><%= @scheme.status %></td>
+        </tr>
+      </tbody>
+    </table><br>
+    <%= link_to 'Edit', edit_scheme_path(@scheme), class: 'btn btn-default btn-sm fa' %> |
+    <%= link_to 'Back', schemes_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+  </div>
+</div>
 
-<p>
-  <strong>Type:</strong>
-  <%= @scheme.type %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @scheme.name %>
-</p>
-
-<p>
-  <strong>Budget:</strong>
-  <%= @scheme.budget %>
-</p>
-
-<p>
-  <strong>Down payment:</strong>
-  <%= @scheme.down_payment %>
-</p>
-
-<p>
-  <strong>Installment:</strong>
-  <%= @scheme.installment %>
-</p>
-
-<p>
-  <strong>Installment:</strong>
-  <%= @scheme.installment %>
-</p>
-
-<p>
-  <strong>Intrest:</strong>
-  <%= @scheme.intrest %>
-</p>
-
-<p>
-  <strong>From date:</strong>
-  <%= @scheme.from_date %>
-</p>
-
-<p>
-  <strong>To date:</strong>
-  <%= @scheme.to_date %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @scheme.status %>
-</p>
-
-<%= link_to 'Edit', edit_scheme_path(@scheme) %> |
-<%= link_to 'Back', schemes_path %>

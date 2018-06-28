@@ -1,67 +1,113 @@
-<%= form_with(model: scheme, local: true) do |form| %>
-  <% if scheme.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(scheme.errors.count, "error") %> prohibited this scheme from being saved:</h2>
-
-      <ul>
-      <% scheme.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= bootstrap_form_for(@scheme,html: {id: 'scheme'}) do |f| %>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :scheme_type, label:'Scheme Type', placeholder: '' %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :scheme_type %>
-    <%= form.text_field :scheme_type %>
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :name , label: 'Name',placeholder: 'Name' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :budget , label: 'Budget',placeholder: 'Budget' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :down_payment , label: 'Down Payment',placeholder: 'Down Payment' %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :installment , label: 'Installment',placeholder: 'Installment' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :installment_amount , label: 'Installment Amount',placeholder: 'Installment Amount' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :intrest , label: 'Intrest',placeholder: 'Intrest' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <%= f.text_field :from_date, label: 'From Date', class: 'from_date'%>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :budget %>
-    <%= form.text_field :budget %>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <%= f.text_field :to_date, label: 'To Date', class: 'to_date'%>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.select :status,['Active','Inactive'],{label: 'Status',include_blank: " Select Status"} %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :down_payment %>
-    <%= form.text_field :down_payment %>
-  </div>
-
-  <div class="field">
-    <%= form.label :installment %>
-    <%= form.text_field :installment %>
-  </div>
-
-  <div class="field">
-    <%= form.label :installment_amount %>
-    <%= form.text_field :installment_amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :intrest %>
-    <%= form.text_field :intrest %>
-  </div>
-
-  <div class="field">
-    <%= form.label :from_date %>
-    <%= form.date_select :from_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :to_date %>
-    <%= form.date_select :to_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.check_box :status %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row">
+    <div class="col-sm-3" style="padding-top: 20px;">
+      <div class="form-group required">
+        <%= f.submit "Create Scheme ", :class => class_name, data: { disable_with: data_info } %>
+        <%#= link_to 'Back', agencies_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+      </div>
+    </div>
   </div>
 <% end %>
+
+<script>
+$("#scheme").validate({
+    rules: {
+      "scheme[code]":{
+        required: true,
+      },
+      "scheme[name]":{
+        required: true,
+      }
+       },
+    messages: {
+      "scheme[code]":{
+        required: "Please specify code",
+      },
+       "scheme[name]":{
+        required: "Please specify name",
+      }
+       },
+    errorPlacement: function(error, element) {
+     error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
+     error.insertAfter(element.parent(element));
+    }
+   });
+</script>
+
+
