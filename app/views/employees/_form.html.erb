@@ -133,26 +133,26 @@
 
 <script>
 $("#employee").validate({
-    rules: {
-      "employee[code]":{
-        required: true,
-      },
-      "employee[name]":{
-        required: true,
-      }
-       },
-    messages: {
-      "employee[code]":{
-        required: "Please specify code",
-      },
-       "employee[name]":{
-        required: "Please specify name",
-      }
-       },
-    errorPlacement: function(error, element) {
-     error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
-     error.insertAfter(element.parent(element));
+  rules: {
+    "employee[code]":{
+      required: true,
+    },
+    "employee[name]":{
+      required: true,
     }
-   });
+     },
+  messages: {
+    "employee[code]":{
+    required: "Please specify code",
+  },
+    "employee[name]":{
+    required: "Please specify name",
+  }
+   },
+  errorPlacement: function(error, element) {
+   error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
+   error.insertAfter(element.parent(element));
+  }
+});
 </script>
 

@@ -1,0 +1,63 @@
+<%= bootstrap_form_for(@vehicle_type,html: {id: 'vehicle_type'}) do |f| %>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :code, label:'Code', placeholder: '001' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :name, label:'Name', placeholder: 'Truba' %>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="form-group required">
+        <%= f.text_field :description, label:'Description', placeholder: 'description' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.select :status,['Active','Inactive'],{label: 'Status',include_blank: " Select Employee Status"} %>
+      </div>
+    </div>
+  
+    <div class="col-sm-3" style="padding-top: 20px;">
+      <div class="form-group required">
+        <%= f.submit "Create Vehicle Type", :class => class_name, data: { disable_with: data_info } %>
+        <%#= link_to 'Back', agencies_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<script>
+$("#vehicle_type").validate({
+    rules: {
+      "vehicle_type[code]":{
+        required: true,
+      },
+      "vehicle_type[name]":{
+        required: true,
+      }
+       },
+    messages: {
+      "vehicle_type[code]":{
+        required: "Please specify code",
+      },
+       "vehicle_type[name]":{
+        required: "Please specify name",
+      }
+       },
+    errorPlacement: function(error, element) {
+     error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
+     error.insertAfter(element.parent(element));
+    }
+   });
+</script>
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_26_114507) do
+ActiveRecord::Schema.define(version: 2018_06_28_101111) do
 
   create_table "branches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "code"
@@ -79,7 +79,9 @@ ActiveRecord::Schema.define(version: 2018_06_26_114507) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "vehicle_type_id"
     t.index ["user_id"], name: "index_enquiries_on_user_id"
+    t.index ["vehicle_type_id"], name: "index_enquiries_on_vehicle_type_id"
   end
 
   create_table "schemes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -95,6 +97,8 @@ ActiveRecord::Schema.define(version: 2018_06_26_114507) do
     t.decimal "installment_amount", precision: 10
     t.string "scheme_type"
     t.string "installment"
+    t.bigint "vehicle_type_id"
+    t.index ["vehicle_type_id"], name: "index_schemes_on_vehicle_type_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -115,8 +119,19 @@ ActiveRecord::Schema.define(version: 2018_06_26_114507) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vehicle_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.text "description"
+    t.boolean "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "branches", "companies"
   add_foreign_key "employees", "branches"
   add_foreign_key "employees", "companies"
   add_foreign_key "enquiries", "users"
+  add_foreign_key "enquiries", "vehicle_types"
+  add_foreign_key "schemes", "vehicle_types"
 end

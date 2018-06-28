@@ -1,0 +1,39 @@
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Vehicle Types</h3>
+    <div class="pull-right">
+      <%= link_to 'New Vehicle Types', new_vehicle_type_path, class: 'btn btn-sm btn-primary' %>
+      <%#= link_to " Upload ", import_xl_agencies_path, class: 'fa fa-upload btn btn-xl btn-info' %> 
+      <%#= link_to " Template", "/Templates/7.Agency.xls", :class=>"fa fa-download btn-xl btn btn-warning" %>
+    </div>
+  </div><!-- /.box-header -->
+  <div class="box-body">
+    <table id="example6" class="table table-bordered table-hover table-condensed">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @vehicle_types.each do |vehicle_type| %>
+          <tr>
+            <td><%= vehicle_type.code %></td>
+            <td><%= vehicle_type.name %></td>
+            <td><%= vehicle_type.description %></td>
+            <td><%= vehicle_type.status %></td>
+            <td>
+            <%= link_to ' ', vehicle_type, class: 'btn btn-xs btn-default fa fa-eye' %>
+            <%= link_to ' ', edit_vehicle_type_path(vehicle_type), class: 'btn btn-xs btn-success fa fa-edit' %>
+            <%= link_to ' ', vehicle_type, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+      <%#= link_to 'Back', root_url ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+  </div>
+</div>

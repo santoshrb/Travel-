@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  resources :vehicle_types
   resources :schemes
-  resources :enquiries
+  resources :enquiries do
+    collection do
+      post :display_scheme
+    end
+  end
   resources :employees
   resources :branches
   resources :companies
@@ -26,5 +31,4 @@ Rails.application.routes.draw do
     get  'user_auths/schemes_list' => 'user_auths#schemes_list', defaults: {format: 'json'}
     get  'user_auths/employee_list' => 'user_auths#employee_list', defaults: {format: 'json'}
   end
-  
 end

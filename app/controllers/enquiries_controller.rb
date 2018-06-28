@@ -21,6 +21,11 @@ class EnquiriesController < ApplicationController
   def edit
   end
 
+  def display_scheme
+    vehicle_type_id = params[:enquiry][:vehicle_type_id]
+    @schemes = Scheme.where(vehicle_type_id: vehicle_type_id)
+  end
+
   # POST /enquiries
   # POST /enquiries.json
   def create

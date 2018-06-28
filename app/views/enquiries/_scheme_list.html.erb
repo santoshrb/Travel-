@@ -1,0 +1,36 @@
+<div class="ajax-progress"></div>
+<table id="example3" class="table table-bordered table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Sr.No</th>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Budget</th>
+      <th>Down payment</th>
+      <th>Installment</th>
+      <th>Installment</th>
+      <th>Intrest</th>
+      <th>From date</th>
+      <th>To date</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% i = 0 %>
+    <% @schemes.each do |scheme| %>
+      <tr>
+        <td><%= i = i + 1 %></td>
+        <td><%= scheme.scheme_type %></td>
+        <td><%= scheme.name %></td>
+        <td><%= scheme.budget %></td>
+        <td><%= scheme.down_payment %></td>
+        <td><%= scheme.installment %></td>
+        <td><%= scheme.installment %></td>
+        <td><%= scheme.intrest %></td>
+        <td><%= scheme.from_date %></td>
+        <td><%= scheme.to_date %></td>
+        <td><%= scheme.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
