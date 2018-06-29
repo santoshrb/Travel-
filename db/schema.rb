@@ -11,17 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180628101111) do
-=======
-ActiveRecord::Schema.define(version: 2018_06_29_102005) do
->>>>>>> d4604882a36b535220277de3a65e66490ff98aae
-
-  create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
-    t.string   "value",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
+ActiveRecord::Schema.define(version: 20180629102005) do
 
   create_table "branches", force: :cascade do |t|
     t.string   "code",       limit: 255
@@ -30,12 +20,12 @@ ActiveRecord::Schema.define(version: 2018_06_29_102005) do
     t.string   "email",      limit: 255
     t.string   "contact_no", limit: 255
     t.boolean  "status"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "company_id", limit: 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "company_id", limit: 4
   end
 
-  add_index "branches", ["company_id"], name: "index_branches_on_company_id", using: :btree
+  add_index "branches", ["company_id"], name: "fk_rails_9d5c1c06e3", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "code",       limit: 255
@@ -49,11 +39,10 @@ ActiveRecord::Schema.define(version: 2018_06_29_102005) do
     t.string   "email",      limit: 255
     t.string   "contact_no", limit: 255
     t.boolean  "status"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
   create_table "employees", force: :cascade do |t|
     t.string   "code",          limit: 255
     t.string   "prefix",        limit: 255
@@ -73,33 +62,14 @@ ActiveRecord::Schema.define(version: 2018_06_29_102005) do
     t.integer  "pin_code",      limit: 4
     t.string   "adhar_no",      limit: 255
     t.boolean  "status"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "company_id",    limit: 8
-    t.integer  "branch_id",     limit: 8
-=======
-  create_table "enquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "mobile_no"
-    t.string "name_first"
-    t.string "middle_name"
-    t.string "last_name"
-    t.string "email"
-    t.text "address"
-    t.string "place"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "vehicle_type_id"
-    t.bigint "scheme_id"
-    t.date "enquiry_date"
-    t.index ["scheme_id"], name: "index_enquiries_on_scheme_id"
-    t.index ["user_id"], name: "index_enquiries_on_user_id"
-    t.index ["vehicle_type_id"], name: "index_enquiries_on_vehicle_type_id"
->>>>>>> d4604882a36b535220277de3a65e66490ff98aae
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "company_id",    limit: 4
+    t.integer  "branch_id",     limit: 4
   end
 
-  add_index "employees", ["branch_id"], name: "index_employees_on_branch_id", using: :btree
-  add_index "employees", ["company_id"], name: "index_employees_on_company_id", using: :btree
+  add_index "employees", ["branch_id"], name: "fk_rails_8604ac23f2", using: :btree
+  add_index "employees", ["company_id"], name: "fk_rails_15ca1438d5", using: :btree
 
   create_table "enquiries", force: :cascade do |t|
     t.string   "mobile_no",       limit: 255
@@ -109,12 +79,15 @@ ActiveRecord::Schema.define(version: 2018_06_29_102005) do
     t.string   "email",           limit: 255
     t.text     "address",         limit: 65535
     t.string   "place",           limit: 255
-    t.integer  "user_id",         limit: 8
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.integer  "user_id",         limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "vehicle_type_id", limit: 4
+    t.integer  "scheme_id",       limit: 4
+    t.date     "enquiry_date"
   end
 
+  add_index "enquiries", ["scheme_id"], name: "fk_rails_97a38ddb44", using: :btree
   add_index "enquiries", ["user_id"], name: "index_enquiries_on_user_id", using: :btree
   add_index "enquiries", ["vehicle_type_id"], name: "fk_rails_c8404dfc83", using: :btree
 
@@ -126,8 +99,8 @@ ActiveRecord::Schema.define(version: 2018_06_29_102005) do
     t.date     "from_date"
     t.date     "to_date"
     t.boolean  "status"
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.decimal  "installment_amount",             precision: 10
     t.string   "scheme_type",        limit: 255
     t.string   "installment",        limit: 255

@@ -1,4 +1,4 @@
-class AddDateToEnquiries < ActiveRecord::Migration[5.2]
+class AddDateToEnquiries < ActiveRecord::Migration
   def change
     add_column :enquiries, :enquiry_date, :date
   end
