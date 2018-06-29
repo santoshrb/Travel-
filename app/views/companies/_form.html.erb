@@ -22,19 +22,19 @@
   <div class="row">
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :country, label:'Country', placeholder: 'Truba Consultancy Services' %>
+        <%= f.select :country,["India"], {label:'Country', include_blank: 'Please Select Country'} %>
       </div>
     </div>
 
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :state, label:'State', placeholder: 'State' %>
+        <%= f.select :state,["Maharashtra"], {label:'State', include_blank: 'Please Select State'} %>
       </div>
     </div>
 
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :district, label:'District', placeholder: 'District' %>
+        <%= f.select :district,["Mumbai","Pune"], {label:'District', include_blank: 'Please Select District'} %>
       </div>
     </div>
 

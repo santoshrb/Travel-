@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180629114446) do
+ActiveRecord::Schema.define(version: 20180629120257) do
 
   create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
     t.string   "value",      limit: 255
@@ -99,20 +99,24 @@ ActiveRecord::Schema.define(version: 20180629114446) do
   add_index "enquiries", ["vehicle_type_id"], name: "index_enquiries_on_vehicle_type_id", using: :btree
 
   create_table "schemes", force: :cascade do |t|
-    t.string   "name",               limit: 255
-    t.decimal  "budget",                           precision: 10
-    t.string   "down_payment",       limit: 255
-    t.decimal  "intrest",                          precision: 10
+    t.string   "name",                limit: 255
+    t.decimal  "budget",                            precision: 10
+    t.string   "down_payment",        limit: 255
+    t.decimal  "intrest",                           precision: 10
     t.date     "from_date"
     t.date     "to_date"
     t.boolean  "status"
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.decimal  "installment_amount",               precision: 10
-    t.string   "scheme_type",        limit: 255
-    t.string   "installment",        limit: 255
-    t.integer  "vehicle_type_id",    limit: 8
-    t.text     "description",        limit: 65535
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.decimal  "installment_amount",                precision: 10
+    t.string   "scheme_type",         limit: 255
+    t.string   "installment",         limit: 255
+    t.integer  "vehicle_type_id",     limit: 8
+    t.text     "description",         limit: 65535
+    t.string   "avatar_file_name",    limit: 255
+    t.string   "avatar_content_type", limit: 255
+    t.integer  "avatar_file_size",    limit: 4
+    t.datetime "avatar_updated_at"
   end
 
   add_index "schemes", ["vehicle_type_id"], name: "index_schemes_on_vehicle_type_id", using: :btree
