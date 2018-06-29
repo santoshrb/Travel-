@@ -1,4 +1,4 @@
-class CreateEnquiries < ActiveRecord::Migration[5.2]
+class CreateEnquiries < ActiveRecord::Migration
   def change
     create_table :enquiries do |t|
       t.string :mobile_no

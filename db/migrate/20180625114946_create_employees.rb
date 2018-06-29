@@ -1,4 +1,4 @@
-class CreateEmployees < ActiveRecord::Migration[5.2]
+class CreateEmployees < ActiveRecord::Migration
   def change
     create_table :employees do |t|
       t.string :code

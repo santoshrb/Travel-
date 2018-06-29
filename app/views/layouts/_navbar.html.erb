@@ -1,31 +1,48 @@
-<aside class="main-sidebar">
-  <section class="sidebar">
-  </section>
-</aside>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-  <%= render 'layouts/messages' %>
-  <section class="content">
-    <!-- Your Page Content Here -->
-    <%= yield %>
-  </section><!-- /.content -->
-</div><!-- /.content-wrapper -->
-  <!-- Main Footer -->
-<footer class="main-footer">
-   <!-- To the right -->
-  <div class="pull-right hidden-xs">
-          Help Line No. 020 6684900/930
-  </div>
-  <!-- Default to the left -->
-  <strong> Copyright © <%= Time.new.year %> <a href="#">HCM-ZONE</a>.</strong> All Right Reserved.| Powered By : Indiba Business Solutions.
-       <%# @comapny = current_user.company_location.company.try(:name) %>
-        <%# @location = current_user.company_location.try(:name) %>
-        <%# @manual_employee_code = current_user.try(:manual_member_code) %>
-        <%# @employee = current_user.employee %>
-        <%# @employee_name = full_name(@employee) %>
 
-        <%#= link_to "Support", "http://localhost:3002/support_requests/new?company=#{@comapny}&location=#{@location}&manual_employee_code=#{@manual_employee_code}&employee_name=#{@employee_name}", :company => current_user.company_location.company.try(:name), :user => current_user.id, :target => "_blank" %>
-</footer>
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel">
+      <div class="pull-left image">
+         <%= image_tag "avatar.png",class: "img-circle", alt: "User Image", size: "25x25" %>
+      </div>
+      <div class="pull-left info">
+      <h3 class="profile-username text-center"></h3>
+        <p>
+          <%= current_user.try(:email) %><br> 
+        </p>
+      </div>
+    </div>
+        <%= render 'sidebars/admin' %>
+     
+  </section>
+  <!-- /.sidebar -->
+</aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+
+       <%= render 'layouts/messages' %>
+        <!-- Main content -->
+        <section class="content">
+          <!-- Your Page Content Here -->
+          
+          <%= yield %>
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+          Help Line No. +91-9028013279/+91-9970868601
+        </div>
+        <!-- Default to the left -->
+        <strong> Copyright © 2018 <a href="#">Travel</a>.</strong> All Right Reserved.| Powered By : Indiba Business Solution.
+      </footer>
       <!-- Add the sidebar's background. This div must be placed
            immediately after the control sidebar -->
-<div class="control-sidebar-bg"></div>
+      <div class="control-sidebar-bg"></div>
