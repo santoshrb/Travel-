@@ -45,12 +45,12 @@
       </div>
     </div>
   </div>
-    
+    <!-- all_scheme_type -->
   <div class="row">
     <div class="col-sm-3">
-    <label>Vehicle Type</label>
-      <div class="field">
-        <%= select :enquiry, :vehicle_type_id, all_vehicle_type,{include_blank: 'Select Type'},{onchange:"var a={vehicle_type_id:$(this).val()};$('.ajax-progress').show(); $.get('/enquiries/display_scheme',a,function(response){});",class: 'form-control'} %>
+      <label> Scheme </label>
+      <div class="form-group required">
+        <%= f.select :scheme_id, all_scheme_type,{ hide_label:true,include_blank: " Select Scheme" } %>
       </div>
     </div>
 
