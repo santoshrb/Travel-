@@ -15,8 +15,6 @@
           <th>Mobile no</th>
           <th>Name</th>
           <th>Email</th>
-          <th>Address</th>
-          <th>Place</th>
           <th>User</th>
           <th>Actions</th>
         </tr>
@@ -30,9 +28,7 @@
             <td><%= enquiry.mobile_no %></td>
             <td><%= enquiry.name_first %> <%= enquiry.middle_name %> <%= enquiry.last_name %></td>
             <td><%= enquiry.email %></td>
-            <td><%= enquiry.address %></td>
-            <td><%= enquiry.place %></td>
-            <td><%#= enquiry.user %></td>
+            <td><%= enquiry.user %></td>
             <td>
             <%= link_to ' ', enquiry, class: 'btn btn-xs btn-default fa fa-eye' %>
             <%= link_to ' ', edit_enquiry_path(enquiry), class: 'btn btn-xs btn-success fa fa-edit' %>

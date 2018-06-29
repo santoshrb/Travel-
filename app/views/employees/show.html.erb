@@ -10,24 +10,28 @@
         <tr>
           <th>Code</th>
           <td><%= @employee.code %></td>
+
           <th> Name </th>
-          <td><%= @employee.prefix %><%= @employee.first_name %> <%= @employee.middle_name %> <%= @employee.last_name %> </td>
+          <td><%= @employee.prefix %> <%= @employee.first_name %> <%= @employee.middle_name %> <%= @employee.last_name %> </td>
         </tr>
         <tr>
           <th>Date Of Birth </th>
           <td><%= @employee.date_of_birth %></td>
+
           <th>Gender</th>
           <td><%= @employee.gender %></td>
         </tr>
         <tr>
           <th>Contact No. </th>
           <td><%= @employee.contact_no %></td>
+
           <th>Email</th>
           <td><%= @employee.email %></td>
         </tr>
         <tr>
           <th>Blood Group </th>
           <td><%= @employee.blood_group %></td>
+
           <th>Country</th>
           <td><%= @employee.country %></td>
         </tr>
@@ -38,24 +42,28 @@
         <tr>
           <th>State </th>
           <td><%= @employee.state %></td>
+
           <th>District</th>
           <td><%= @employee.district %></td>
         </tr>
         <tr>
           <th>City </th>
           <td><%= @employee.city %></td>
+
           <th>Pin Code</th>
           <td><%= @employee.pin_code %></td>
         </tr>
         <tr>
           <th>Adhar No. </th>
           <td><%= @employee.adhar_no %></td>
+
           <th>Company</th>
           <td><%= @employee.company.try(:name) %></td>
         </tr>
         <tr>
           <th>Branch</th>
           <td><%= @employee.branch.try(:name) %></td>
+
           <th>Status</th>
           <td><%= @employee.status %></td>
         </tr>
