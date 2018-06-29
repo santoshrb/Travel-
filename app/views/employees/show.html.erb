@@ -50,6 +50,12 @@
         <tr>
           <th>Adhar No. </th>
           <td><%= @employee.adhar_no %></td>
+          <th>Company</th>
+          <td><%= @employee.company.try(:name) %></td>
+        </tr>
+        <tr>
+          <th>Branch</th>
+          <td><%= @employee.branch.try(:name) %></td>
           <th>Status</th>
           <td><%= @employee.status %></td>
         </tr>
