@@ -8,6 +8,10 @@
           </th>
         </tr>
         <tr>
+          <th>Company</th>
+          <td><%= @branch.company.try(:name) %></td>
+        </tr>
+        <tr>
           <th>Code</th>
           <td><%= @branch.code %></td>
         </tr>

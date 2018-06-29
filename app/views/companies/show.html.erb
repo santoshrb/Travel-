@@ -41,6 +41,8 @@
           <th>Email</th>
           <td><%= @company.try(:email) %></td>
         </tr>
+        <tr><th>Status</th>
+        <td colspan="3"><%= @company.try(:status) ? "Active" : "Inactive" %></td></tr>
       </tbody>
     </table><br>
     <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-default btn-sm fa' %> |
