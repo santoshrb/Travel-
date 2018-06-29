@@ -27,6 +27,14 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+
+gem 'json', '~> 1.8', '>= 1.8.3'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+
+
 gem 'devise'
 gem 'bootstrap_form'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0'

@@ -1,4 +1,4 @@
-class ChangeColToSchemess < ActiveRecord::Migration[5.2]
+class ChangeColToSchemess < ActiveRecord::Migration
   def change
   	 add_column :schemes, :installment, :string
   end

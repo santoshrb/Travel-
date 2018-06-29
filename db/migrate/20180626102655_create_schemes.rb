@@ -1,4 +1,4 @@
-class CreateSchemes < ActiveRecord::Migration[5.2]
+class CreateSchemes < ActiveRecord::Migration
   def change
     create_table :schemes do |t|
       t.string :type
