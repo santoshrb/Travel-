@@ -21,11 +21,6 @@ class EnquiriesController < ApplicationController
   def edit
   end
 
-  def display_scheme
-    vehicle_type_id = params[:enquiry][:vehicle_type_id]
-    @schemes = Scheme.where(vehicle_type_id: vehicle_type_id)
-  end
-
   # POST /enquiries
   # POST /enquiries.json
   def create
@@ -40,6 +35,18 @@ class EnquiriesController < ApplicationController
         format.json { render json: @enquiry.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def display_scheme
+    vehicle_type_id = params[:enquiry][:vehicle_type_id]
+    @schemes = Scheme.where(vehicle_type_id: vehicle_type_id)
+    @enquiry = Enquiry.new
+  end
+
+  def scheme_list
+  end
+
+  def enquiry_create
   end
 
   # PATCH/PUT /enquiries/1

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :schemes
   resources :enquiries do
     collection do
+      get :display_scheme
       post :display_scheme
+      post :scheme_list
     end
   end
   resources :employees
