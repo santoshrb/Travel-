@@ -100,8 +100,13 @@ ActiveRecord::Schema.define(version: 20180629120257) do
     t.date     "from_date"
     t.date     "to_date"
     t.boolean  "status"
+<<<<<<< HEAD
     t.datetime "created_at"
     t.datetime "updated_at"
+=======
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+>>>>>>> 867cc8ee0dbcd5d502959fe3dffa887d763357db
     t.decimal  "installment_amount",                precision: 10
     t.string   "scheme_type",         limit: 255
     t.string   "installment",         limit: 255
