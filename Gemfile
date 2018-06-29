@@ -34,6 +34,7 @@ gem 'bootstrap_form'
 gem 'quiet_assets'
 gem 'pry'
 gem 'pry-rails', :group => :development
+gem 'rails-erd'
 # gem "whatsapp"
 # gem 'pry-rails'
 # gem 'whathor'
