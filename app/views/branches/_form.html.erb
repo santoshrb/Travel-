@@ -1,47 +1,78 @@
-<%= form_with(model: branch, local: true) do |form| %>
-  <% if branch.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(branch.errors.count, "error") %> prohibited this branch from being saved:</h2>
-
-      <ul>
-      <% branch.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= bootstrap_form_for(@branch,html: {id: 'branch'}) do |f| %>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :code, label:'Branch Code', placeholder: 'B001' %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :code %>
-    <%= form.text_field :code %>
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :name, label:'Name', placeholder: 'Truba' %>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="form-group required">
+        <%= f.text_field :address,label:'Address', placeholder: 'xyz' %>
+      </div>
+    </div>
   </div>
+  
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :email,label:'Email', placeholder: 'branch@gmail.com' %>
+      </div>
+    </div>
+  
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :contact_no, label:'Contact No.', placeholder: '+2290981167' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.select :status,['Active','Inactive'],{label: 'Status',include_blank: " Select Status"} %>
+      </div>
+    </div>
   </div>
+  
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contact_no %>
-    <%= form.text_field :contact_no %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.check_box :status %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row">
+    <div class="col-sm-3" style="padding-top: 20px;">
+      <div class="form-group required">
+        <%= f.submit "Create Branch", :class => class_name, data: { disable_with: data_info } %>
+        <%#= link_to 'Back', agencies_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+      </div>
+    </div>
   </div>
 <% end %>
+
+<script>
+$("#branch").validate({
+    rules: {
+      "branch[code]":{
+        required: true,
+      },
+      "branch[name]":{
+        required: true,
+      }
+       },
+    messages: {
+      "branch[code]":{
+        required: "Please specify code",
+      },
+       "branch[name]":{
+        required: "Please specify name",
+      }
+       },
+    errorPlacement: function(error, element) {
+     error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
+     error.insertAfter(element.parent(element));
+    }
+   });
+</script>
+
+
