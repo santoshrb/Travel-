@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180629102005) do
+ActiveRecord::Schema.define(version: 20180629114446) do
 
   create_table "branches", force: :cascade do |t|
     t.string   "code",       limit: 255
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20180629102005) do
     t.integer  "vehicle_type_id", limit: 4
     t.integer  "scheme_id",       limit: 4
     t.date     "enquiry_date"
+    t.text     "description",     limit: 65535
   end
 
   add_index "enquiries", ["scheme_id"], name: "fk_rails_97a38ddb44", using: :btree
@@ -93,18 +94,19 @@ ActiveRecord::Schema.define(version: 20180629102005) do
 
   create_table "schemes", force: :cascade do |t|
     t.string   "name",               limit: 255
-    t.decimal  "budget",                         precision: 10
+    t.decimal  "budget",                           precision: 10
     t.string   "down_payment",       limit: 255
-    t.decimal  "intrest",                        precision: 10
+    t.decimal  "intrest",                          precision: 10
     t.date     "from_date"
     t.date     "to_date"
     t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "installment_amount",             precision: 10
+    t.decimal  "installment_amount",               precision: 10
     t.string   "scheme_type",        limit: 255
     t.string   "installment",        limit: 255
     t.integer  "vehicle_type_id",    limit: 4
+    t.text     "description",        limit: 65535
   end
 
   add_index "schemes", ["vehicle_type_id"], name: "fk_rails_8115123ef3", using: :btree
