@@ -65,7 +65,7 @@
           <td><%= @employee.branch.try(:name) %></td>
 
           <th>Status</th>
-          <td><%= @employee.status %></td>
+          <td><%= @employee.status ? "Active" : "Inactive" %></td>
         </tr>
       </tbody>
     </table><br>
