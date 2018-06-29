@@ -1,94 +1,61 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Code:</strong>
-  <%= @employee.code %>
-</p>
-
-<p>
-  <strong>Prefix:</strong>
-  <%= @employee.prefix %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @employee.first_name %>
-</p>
-
-<p>
-  <strong>Middle name:</strong>
-  <%= @employee.middle_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @employee.last_name %>
-</p>
-
-<p>
-  <strong>Date of birth:</strong>
-  <%= @employee.date_of_birth %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @employee.gender %>
-</p>
-
-<p>
-  <strong>Contact no:</strong>
-  <%= @employee.contact_no %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @employee.email %>
-</p>
-
-<p>
-  <strong>Blood group:</strong>
-  <%= @employee.blood_group %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @employee.address %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @employee.country %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @employee.state %>
-</p>
-
-<p>
-  <strong>District:</strong>
-  <%= @employee.district %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @employee.city %>
-</p>
-
-<p>
-  <strong>Pin code:</strong>
-  <%= @employee.pin_code %>
-</p>
-
-<p>
-  <strong>Adhar no:</strong>
-  <%= @employee.adhar_no %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @employee.status %>
-</p>
-
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
+<div class="box box-default">
+  <div class="box-body">
+    <table id="example2" class="table table-bordered table-hover table-condensed">
+      <tbody>
+        <tr>
+          <th colspan="5">
+            <strong><center>Employee Detail</center></strong>
+          </th>
+        </tr>
+        <tr>
+          <th>Code</th>
+          <td><%= @employee.code %></td>
+          <th> Name </th>
+          <td><%= @employee.prefix %><%= @employee.first_name %> <%= @employee.middle_name %> <%= @employee.last_name %> </td>
+        </tr>
+        <tr>
+          <th>Date Of Birth </th>
+          <td><%= @employee.date_of_birth %></td>
+          <th>Gender</th>
+          <td><%= @employee.gender %></td>
+        </tr>
+        <tr>
+          <th>Contact No. </th>
+          <td><%= @employee.contact_no %></td>
+          <th>Email</th>
+          <td><%= @employee.email %></td>
+        </tr>
+        <tr>
+          <th>Blood Group </th>
+          <td><%= @employee.blood_group %></td>
+          <th>Country</th>
+          <td><%= @employee.country %></td>
+        </tr>
+        <tr>
+          <th>Address</th>
+          <td colspan="3"><%= @employee.try(:address) %></td>
+        </tr>
+        <tr>
+          <th>State </th>
+          <td><%= @employee.state %></td>
+          <th>District</th>
+          <td><%= @employee.district %></td>
+        </tr>
+        <tr>
+          <th>City </th>
+          <td><%= @employee.city %></td>
+          <th>Pin Code</th>
+          <td><%= @employee.pin_code %></td>
+        </tr>
+        <tr>
+          <th>Adhar No. </th>
+          <td><%= @employee.adhar_no %></td>
+          <th>Status</th>
+          <td><%= @employee.status %></td>
+        </tr>
+      </tbody>
+    </table><br>
+    <%= link_to 'Edit', edit_employee_path(@employee), class: 'btn btn-default btn-sm fa' %> |
+    <%= link_to 'Back', employees_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+  </div>
+</div>

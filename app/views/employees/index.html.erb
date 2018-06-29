@@ -29,7 +29,7 @@
             <td><%= employee.prefix %> <%= employee.first_name %> <%= employee.middle_name %> <%= employee.last_name %></td>
             <td><%= employee.contact_no %></td>
             <td><%= employee.email %></td>
-            <td><%= employee.status %></td>
+            <td><%= employee.status ? "Active" : "Inactive" %></td>
             <td>
             <%= link_to ' ', employee, class: 'btn btn-xs btn-default fa fa-eye' %>
             <%= link_to ' ', edit_employee_path(employee), class: 'btn btn-xs btn-success fa fa-edit' %>
