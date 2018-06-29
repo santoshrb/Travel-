@@ -15,7 +15,7 @@
           <th>Code</th>
           <th>Name</th>
           <!-- <th>Address</th> -->
-          <th>Email</th>
+         <!--  <th>Email</th> -->
           <th>Contact no</th>
           <th>Status</th>
           <th>Actions</th>
@@ -30,13 +30,13 @@
             <td><%= branch.code %></td>
             <td><%= branch.name %></td>
             <!-- <td><%#= branch.address %></td> -->
-            <td><%= branch.email %></td>
+            <!-- <td><%#= branch.email %></td> -->
             <td><%= branch.contact_no %></td>
-            <td><%= branch.status %></td>
+            <td><%= branch.status ? "Active" : "Inactive" %></td>
             <td>
             <%= link_to ' ', branch, class: 'btn btn-xs btn-default fa fa-eye' %>
             <%= link_to ' ', edit_branch_path(branch), class: 'btn btn-xs btn-success fa fa-edit' %>
-            <%= link_to ' ', branch, method: :destroy, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %></td>
+            <%#= link_to ' ', branch, method: :destroy, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %></td>
           </tr>
         <% end %>
       </tbody>

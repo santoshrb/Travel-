@@ -55,10 +55,9 @@ class BranchesController < ApplicationController
   # DELETE /branches/1.json
   def destroy
     @branch.destroy
-    respond_to do |format|
-      format.html { redirect_to branches_url, notice: 'Branch was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @branches = Branch.all
+    
+      redirect_to branches_path
   end
 
   private
@@ -69,6 +68,6 @@ class BranchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def branch_params
-      params.require(:branch).permit(:code, :name, :address, :email, :contact_no, :status)
+      params.require(:branch).permit(:company_id,:code, :name, :address, :email, :contact_no, :status)
     end
 end

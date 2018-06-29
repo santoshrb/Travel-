@@ -46,6 +46,10 @@ class EnquiriesController < ApplicationController
   def datewise_report
   end
 
+  def show_datewise_enquiry
+    @enquiries = Enquiry.all
+  end 
+
   def show_enquiry
     @enquiry = Enquiry.find(params[:enquiry_id])
     #@enquiries = Enquiry.all

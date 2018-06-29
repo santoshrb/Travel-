@@ -1,4 +1,4 @@
-class AddColToEnquiries < ActiveRecord::Migration[5.2]
+class AddColToEnquiries < ActiveRecord::Migration
   def change
   	add_reference :enquiries, :scheme, foreign_key: true
   end
