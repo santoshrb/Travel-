@@ -111,6 +111,10 @@ ActiveRecord::Schema.define(version: 20180629120257) do
     t.string   "avatar_content_type", limit: 255
     t.integer  "avatar_file_size",    limit: 4
     t.datetime "avatar_updated_at"
+    t.string   "image_file_name",     limit: 255
+    t.string   "image_content_type",  limit: 255
+    t.integer  "image_file_size",     limit: 4
+    t.datetime "image_updated_at"
   end
 
   add_index "schemes", ["vehicle_type_id"], name: "fk_rails_8115123ef3", using: :btree
