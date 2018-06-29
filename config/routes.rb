@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       post :scheme_list
       get :datewise_report
       post :show_datewise_enquiry
+      get :show_datewise_enquiry
       post :show_enquiry
       get :show_enquiry
     end
