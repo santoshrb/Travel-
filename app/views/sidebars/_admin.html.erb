@@ -4,61 +4,10 @@
   <li class="header">
     <a href="/home"> <Center>   <%#= current_user.role.name %> DASHBOARD</Center></a>
   </li>
-  <li class="treeview" id="Master">
-    <a href="#">
-      <i class="glyphicon glyphicon-th-large"></i><span> Master </span>
-      <i class="fa fa-angle-left pull-right"></i>
-    </a>
-    <ul class="treeview-menu" >
       <li><a href="/branches"><i class="fa fa-tags"></i> Branch </a></li>
       <li><a href="/vehicle_types"><i class="fa fa-tags"></i> Vehicle Type </a></li>
-    </ul>
-  </li>
-
-  <li class="treeview" id="Enquiry">
-    <a href="#">
-      <i class="fa fa-user-secret"></i><span> Enquiry </span>
-      <i class="fa fa-angle-left pull-right"></i>
-    </a>
-    <ul class="treeview-menu" >
       <li><a href="/enquiries"><i class="fa fa-tags"></i> New Enquiry </a></li>
-      <!-- <li><a href="/event_details"><i class="fa fa-tags"></i> Event List </a></li> -->
-    </ul>
-  </li> 
-
-  <li class="treeview" id="Schemes">
-    <a href="#">
-      <i class="fa fa-user-secret"></i><span> Schemes </span>
-      <i class="fa fa-angle-left pull-right"></i>
-    </a>
-    <ul class="treeview-menu" >
       <li><a href="/schemes"><i class="fa fa-tags"></i> New Schemes </a></li>
-      <!-- <li><a href="/event_details"><i class="fa fa-tags"></i> Event List </a></li> -->
-    </ul>
-  </li>
-  
-  <li class="treeview" id="Employee">
-    <a href="#">
-      <i class="fa fa-file"></i><span> Employee </span>
-      <i class="fa fa-angle-left pull-right"></i>
-    </a>
-    <ul class="treeview-menu" >
       <li><a href="/employees"><i class="fa fa-tags"></i> Create Employee </a></li>
-    </ul>
-  </li>
+    
 </ul>
-
-
-<script typgre="text/javascript">
-  <% unless session[:active_tab].nil? %>
-  document.getElementById("<%= session[:active_tab] %>").classList.add("active");
-  <%end%>
-  <% unless session[:active_tab1].nil? %>
-  document.getElementById("<%= session[:active_tab1] %>").classList.add("active");
-  <%end%>
-  <% unless session[:active_tab2].nil? %>
-  document.getElementById("<%= session[:active_tab2] %>").classList.add("active");
-  <%end%>
-</script>
-
-   
