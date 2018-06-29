@@ -9,19 +9,19 @@
 
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :name_first, label:'First Name', placeholder: 'Truba' %>
+        <%= f.text_field :name_first, label:'First Name', placeholder: 'Tanmay' %>
       </div>
     </div>
 
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :middle_name, label:'Middle Name', placeholder: 'Truba' %>
+        <%= f.text_field :middle_name, label:'Middle Name', placeholder: 'Singh' %>
       </div>
     </div>
 
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :last_name, label:'Last Name', placeholder: 'xyz' %>
+        <%= f.text_field :last_name, label:'Last Name', placeholder: 'Rathore' %>
       </div>
     </div>
   </div>
@@ -41,18 +41,21 @@
 
     <div class="col-sm-6">
       <div class="form-group required">
-        <%= f.text_field :address,label:'Address', placeholder: 'xyz.' %>
+        <%= f.text_field :address,label:'Address', placeholder: 'xyz' %>
       </div>
     </div>
   </div>
     
   <div class="row">
     <div class="col-sm-3">
+    <label>Vehicle Type</label>
       <div class="field">
         <%= select :enquiry, :vehicle_type_id, all_vehicle_type,{include_blank: 'Select Type'},{onchange:"var a={vehicle_type_id:$(this).val()};$('.ajax-progress').show(); $.get('/enquiries/display_scheme',a,function(response){});",class: 'form-control'} %>
       </div>
     </div>
 
+  <div id="scheme_list"></div>
+  
     <div class="col-sm-3" style="padding-top: 20px;">
       <div class="form-group required">
         <%= f.submit "Create Enquiry", :class => class_name, data: { disable_with: data_info } %>
@@ -61,9 +64,9 @@
     </div>
   </div>
   
-  <div id="scheme_list"></div>
 <% end %>
 
+<!-- 
 <script>
 $("#enquiry").validate({
   rules: {
@@ -87,5 +90,4 @@ $("#enquiry").validate({
    error.insertAfter(element.parent(element));
   }
 });
-</script>
-
+</script> -->

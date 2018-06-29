@@ -1,0 +1,26 @@
+<table style="border-collapse: collapse; font-size:9pt;" border=1 width=1200 cellpadding="10">
+  <thead>
+    <tr>
+      <th>Sr.No</th>
+      <th>Mobile no</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Place</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% i = 0 %>
+    <% @enquiries.each do |enquiry| %>
+      <tr>
+        <td><%= i = i + 1 %></td>
+        <td><%= enquiry.mobile_no %></td>
+        <td><%= enquiry.name_first %> <%= enquiry.middle_name %> <%= enquiry.last_name %></td>
+        <td><%= enquiry.email %></td>
+        <td><%= enquiry.address %></td>
+        <td><%= enquiry.place %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

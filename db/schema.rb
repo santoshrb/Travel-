@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180628101111) do
+=======
+ActiveRecord::Schema.define(version: 2018_06_29_102005) do
+>>>>>>> d4604882a36b535220277de3a65e66490ff98aae
 
   create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
     t.string   "value",      limit: 255
@@ -49,6 +53,7 @@ ActiveRecord::Schema.define(version: 20180628101111) do
     t.datetime "updated_at",               null: false
   end
 
+<<<<<<< HEAD
   create_table "employees", force: :cascade do |t|
     t.string   "code",          limit: 255
     t.string   "prefix",        limit: 255
@@ -72,6 +77,25 @@ ActiveRecord::Schema.define(version: 20180628101111) do
     t.datetime "updated_at",                null: false
     t.integer  "company_id",    limit: 8
     t.integer  "branch_id",     limit: 8
+=======
+  create_table "enquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "mobile_no"
+    t.string "name_first"
+    t.string "middle_name"
+    t.string "last_name"
+    t.string "email"
+    t.text "address"
+    t.string "place"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "vehicle_type_id"
+    t.bigint "scheme_id"
+    t.date "enquiry_date"
+    t.index ["scheme_id"], name: "index_enquiries_on_scheme_id"
+    t.index ["user_id"], name: "index_enquiries_on_user_id"
+    t.index ["vehicle_type_id"], name: "index_enquiries_on_vehicle_type_id"
+>>>>>>> d4604882a36b535220277de3a65e66490ff98aae
   end
 
   add_index "employees", ["branch_id"], name: "index_employees_on_branch_id", using: :btree
@@ -143,6 +167,7 @@ ActiveRecord::Schema.define(version: 20180628101111) do
   add_foreign_key "branches", "companies"
   add_foreign_key "employees", "branches"
   add_foreign_key "employees", "companies"
+  add_foreign_key "enquiries", "schemes"
   add_foreign_key "enquiries", "users"
   add_foreign_key "enquiries", "vehicle_types"
   add_foreign_key "schemes", "vehicle_types"

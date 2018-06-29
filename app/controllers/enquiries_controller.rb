@@ -21,11 +21,6 @@ class EnquiriesController < ApplicationController
   def edit
   end
 
-  def display_scheme
-    vehicle_type_id = params[:enquiry][:vehicle_type_id]
-    @schemes = Scheme.where(vehicle_type_id: vehicle_type_id)
-  end
-
   # POST /enquiries
   # POST /enquiries.json
   def create
@@ -38,6 +33,32 @@ class EnquiriesController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @enquiry.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def display_scheme
+    vehicle_type_id = params[:enquiry][:vehicle_type_id]
+    @schemes = Scheme.where(vehicle_type_id: vehicle_type_id)
+    @enquiry = Enquiry.new
+  end
+
+  def datewise_report
+  end
+
+  def datewise_enquiry
+    #enquiry_id = Enquiry.find(params[:enquiry_id])
+    @enquiries = Enquiry.all
+    respond_to do |f|
+      f.js
+      f.html
+      f.pdf do
+        render pdf: ' datewise_enquiry',
+        layout: 'pdf.html',
+        orientation: 'Landscape',
+        template: 'enquiries/datewise_enquiry.pdf.erb',
+        show_as_html: params[:debug].present?
+        #margin:  { top:1,bottom:1,left:1,right:1 }
       end
     end
   end

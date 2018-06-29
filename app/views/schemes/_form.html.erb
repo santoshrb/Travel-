@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :scheme_type, label:'Scheme Type', placeholder: '' %>
+        <%= f.select :scheme_type,['Scheme1','Scheme2'],{include_blank: "Please Select Type", label:'Scheme Type'} %>
       </div>
     </div>
 
