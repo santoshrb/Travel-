@@ -23,12 +23,22 @@
           <td><%= @enquiry.place %></td>
         </tr>
         <tr>
+          <th> Date </th>
+          <td><%= @enquiry.enquiry_date %></td>
+          <th>Scheme</th>
+          <td><%= @enquiry.scheme.try(:name) %></td>
+        </tr>
+        <tr>
           <th>Address</th>
           <td colspan="3"><%= @enquiry.try(:address) %></td>
         </tr>
+        <tr>
+          <th>Description</th>
+          <td colspan="3"><%= @enquiry.try(:description) %></td>
+        </tr>
       </tbody>
     </table><br>
-    <%= link_to " PDF ", datewise_enquiry_enquiries_path(enquiry_id: @enquiry.id,format: "pdf"), class: "btn btn-sm btn-info fa fa-print",:target => "_blank" %>
+    <%= link_to " PDF ", show_enquiry_enquiries_path(enquiry_id: @enquiry.id,format: "pdf"), class: "btn btn-sm btn-info fa fa-print",:target => "_blank" %>
     <%= link_to 'Edit', edit_enquiry_path(@enquiry), class: 'btn btn-default btn-sm fa' %> |
     <%= link_to 'Back', enquiries_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
   </div>

@@ -46,17 +46,17 @@ class EnquiriesController < ApplicationController
   def datewise_report
   end
 
-  def datewise_enquiry
-    #enquiry_id = Enquiry.find(params[:enquiry_id])
-    @enquiries = Enquiry.all
+  def show_enquiry
+    @enquiry = Enquiry.find(params[:enquiry_id])
+    #@enquiries = Enquiry.all
     respond_to do |f|
       f.js
       f.html
       f.pdf do
-        render pdf: ' datewise_enquiry',
+        render pdf: ' show_enquiry',
         layout: 'pdf.html',
         orientation: 'Landscape',
-        template: 'enquiries/datewise_enquiry.pdf.erb',
+        template: 'enquiries/show_enquiry.pdf.erb',
         show_as_html: params[:debug].present?
         #margin:  { top:1,bottom:1,left:1,right:1 }
       end
@@ -87,6 +87,15 @@ class EnquiriesController < ApplicationController
     end
   end
 
+  def datewise_report
+  end
+
+  def show_datewise_enquiry
+    from = params[:salary][:from]
+    to = params[:salary][:to]
+    @enquiries = Enquiry.where(enquiry_date: from.to_date..to.to_date)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_enquiry
@@ -95,6 +104,6 @@ class EnquiriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def enquiry_params
-      params.require(:enquiry).permit(:mobile_no, :name_first, :middle_name, :last_name, :email, :address, :place, :user)
+      params.require(:enquiry).permit(:description,:scheme_id,:enquiry_date,:mobile_no, :name_first, :middle_name, :last_name, :email, :address, :place, :user)
     end
 end

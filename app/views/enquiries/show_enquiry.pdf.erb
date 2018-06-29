@@ -1,0 +1,76 @@
+<table style="border-collapse: collapse; font-size:12pt;" border=1 width=1200 cellpadding="10" cellspacing="10">
+  <thead>
+  <tr><td colspan="2"><strong><center>Enquiry Details</center></strong></td></tr>
+    <tr>
+     <td> <strong>Mobile No. </strong></td>
+        <td><%= @enquiry.mobile_no %></td>
+    </tr>
+    <tr>
+      <td><strong>Name</strong></td>
+        <td><%= @enquiry.name_first %> <%= @enquiry.middle_name %> <%= @enquiry.last_name %></td>
+    </tr>
+    <tr>
+      <td><strong>Email</strong></td>
+        <td><%= @enquiry.email %></td>
+    </tr>
+    <tr>
+      <strong><td>Address</td></strong>
+        <td><%= @enquiry.address %></td>
+    </tr>
+    <tr>
+      <td><strong>Place</strong></td>
+        <td><%= @enquiry.place %></td>
+    </tr>
+    <tr>
+      <td><strong>Date</strong></td>
+        <td><%= @enquiry.enquiry_date %></td>
+    </tr>
+    <tr>
+      <td><strong>Description</strong></td>
+        <td><%= @enquiry.description %></td>
+    </tr>
+  </thead>
+</table>
+  <br>
+
+  <table style="border-collapse: collapse; font-size:12pt;" border=1 width=1200 cellpadding="10" cellspacing="10">
+  <thead>
+  <tr><th colspan="2"><strong><center>Scheme Details</center></strong></th></tr>
+    <tr>
+      <td><strong>Scheme</strong></td>
+        <td><%= @enquiry.scheme.try(:name) %></td>
+    </tr>
+    <tr>
+      <td><strong>Budget</strong></td>
+        <td><%= @enquiry.try(:scheme).try(:budget) %></td>
+    </tr>
+    <tr>
+      <td><strong>Down Payment</strong></td>
+        <td><%= @enquiry.try(:scheme).try(:down_payment) %></td>
+    </tr>
+    <tr>
+      <td><strong>Interest</strong></td>
+        <td><%= @enquiry.try(:scheme).try(:intrest) %></td>
+    </tr>
+    <tr>
+      <td><strong>Installment Amount</strong></td>
+        <td><%= @enquiry.try(:scheme).try(:installment_amount) %></td>
+    </tr>
+    <tr>
+      <td><strong>Scheme Type</strong></td>
+        <td><%= @enquiry.try(:scheme).try(:scheme_type) %></td>
+    </tr>
+    <tr>
+      <td><strong>Installment</strong></td>
+        <td><%= @enquiry.try(:scheme).try(:installment) %></td>
+    </tr>
+    <tr>
+      <td><strong>Vehicle Type</strong></td>
+        <td><%= @enquiry.try(:scheme).try(:vehicle_type).try(:name) %></td>
+    </tr>
+    <tr>
+      <td><strong>Description</strong></td>
+        <td><%= @enquiry.try(:scheme).try(:description) %></td>
+    </tr>
+  </thead>
+</table>

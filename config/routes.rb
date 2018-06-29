@@ -7,8 +7,9 @@ Rails.application.routes.draw do
       post :display_scheme
       post :scheme_list
       get :datewise_report
-      post :datewise_enquiry
-      get :datewise_enquiry
+      get :show_datewise_enquiry
+      post :show_enquiry
+      get :show_enquiry
     end
   end
   resources :employees
