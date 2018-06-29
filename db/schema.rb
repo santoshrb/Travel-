@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_28_101111) do
+ActiveRecord::Schema.define(version: 2018_06_29_102005) do
 
   create_table "branches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "code"
@@ -80,6 +80,9 @@ ActiveRecord::Schema.define(version: 2018_06_28_101111) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "vehicle_type_id"
+    t.bigint "scheme_id"
+    t.date "enquiry_date"
+    t.index ["scheme_id"], name: "index_enquiries_on_scheme_id"
     t.index ["user_id"], name: "index_enquiries_on_user_id"
     t.index ["vehicle_type_id"], name: "index_enquiries_on_vehicle_type_id"
   end
@@ -131,6 +134,7 @@ ActiveRecord::Schema.define(version: 2018_06_28_101111) do
   add_foreign_key "branches", "companies"
   add_foreign_key "employees", "branches"
   add_foreign_key "employees", "companies"
+  add_foreign_key "enquiries", "schemes"
   add_foreign_key "enquiries", "users"
   add_foreign_key "enquiries", "vehicle_types"
   add_foreign_key "schemes", "vehicle_types"

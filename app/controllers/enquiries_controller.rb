@@ -43,10 +43,24 @@ class EnquiriesController < ApplicationController
     @enquiry = Enquiry.new
   end
 
-  def scheme_list
+  def datewise_report
   end
 
-  def enquiry_create
+  def datewise_enquiry
+    #enquiry_id = Enquiry.find(params[:enquiry_id])
+    @enquiries = Enquiry.all
+    respond_to do |f|
+      f.js
+      f.html
+      f.pdf do
+        render pdf: ' datewise_enquiry',
+        layout: 'pdf.html',
+        orientation: 'Landscape',
+        template: 'enquiries/datewise_enquiry.pdf.erb',
+        show_as_html: params[:debug].present?
+        #margin:  { top:1,bottom:1,left:1,right:1 }
+      end
+    end
   end
 
   # PATCH/PUT /enquiries/1

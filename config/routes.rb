@@ -6,6 +6,9 @@ Rails.application.routes.draw do
       get :display_scheme
       post :display_scheme
       post :scheme_list
+      get :datewise_report
+      post :datewise_enquiry
+      get :datewise_enquiry
     end
   end
   resources :employees

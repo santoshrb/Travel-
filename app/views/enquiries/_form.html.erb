@@ -1,36 +1,93 @@
-
-<div class="box box-default">
-  <div class="box-header with-border">
-    <h3 class="box-title">Period & Rating Wise Employee</h3>
-  </div><!-- /.box-header -->
-
-  <div class="box-body">
-    <%= bootstrap_form_for(:enquiry, url: { action: 'display_scheme'},html: {id: "enquiry"},remote: true) do |f| %>
-
-    <div class="row">   
-      <div class="col-sm-4">
-      <label>Vehicle</label>
-        <div class="field">
-          <%= select :enquiry, :vehicle_type_id, all_vehicle_type,{include_blank: 'Select Type'},class: 'form-control' %>
-        </div>
+<%= bootstrap_form_for(@enquiry,html: {id: 'enquiry'}) do |f| %>
+<%#= bootstrap_form_for :enquiry,url:{action: "display_scheme"} do |f| %>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :mobile_no, label:'Mobile No.', placeholder: '0987654321' %>
       </div>
-
-      <div class="col-sm-3" style="padding-top: 20px;">
-        <div class="form-group required">
-          <%= f.submit "Create Enquiry", class: 'btn btn-success btn-sm' %>
-        </div>
-      </div>
-
     </div>
-    <br>
-  <% end %>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :name_first, label:'First Name', placeholder: 'Tanmay' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :middle_name, label:'Middle Name', placeholder: 'Singh' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :last_name, label:'Last Name', placeholder: 'Rathore' %>
+      </div>
+    </div>
+  </div>
   
-   <div class="ajax-progress"></div>
-    <div class="row">
-      <div class="col-sm-12">
-        <div id="scheme_list"></div>    
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :email,label:'Email', placeholder: 'enquiry@gmail.com' %>
       </div>
     </div>
 
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :place, label:'Pin Code', placeholder: 'Pune' %>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="form-group required">
+        <%= f.text_field :address,label:'Address', placeholder: 'xyz' %>
+      </div>
+    </div>
   </div>
+    
+  <div class="row">
+    <div class="col-sm-3">
+    <label>Vehicle Type</label>
+      <div class="field">
+        <%= select :enquiry, :vehicle_type_id, all_vehicle_type,{include_blank: 'Select Type'},{onchange:"var a={vehicle_type_id:$(this).val()};$('.ajax-progress').show(); $.get('/enquiries/display_scheme',a,function(response){});",class: 'form-control'} %>
+      </div>
+    </div>
+
+  <div id="scheme_list"></div>
+  
+    <div class="col-sm-3" style="padding-top: 20px;">
+      <div class="form-group required">
+        <%= f.submit "Create Enquiry", :class => class_name, data: { disable_with: data_info } %>
+        <%#= link_to 'Back', agencies_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+      </div>
+    </div>
   </div>
+  
+<% end %>
+
+<!-- <script>
+$("#company").validate({
+  rules: {
+    "company[code]":{
+      required: true,
+    },
+    "company[name]":{
+      required: true,
+    }
+     },
+  messages: {
+    "company[code]":{
+      required: "Please specify code",
+    },
+     "company[name]":{
+      required: "Please specify name",
+    }
+     },
+  errorPlacement: function(error, element) {
+   error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
+   error.insertAfter(element.parent(element));
+  }
+});
+</script> -->
+
