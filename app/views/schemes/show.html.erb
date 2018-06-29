@@ -8,9 +8,6 @@
           </th>
         </tr>
         <tr>
-          <%#= image_tag @agency.avatar.url(:medium),class: "profile-user-img img-responsive img-circle", alt: "User Image",size: "25x25" %>
-        </tr>
-        <tr>
           <th>Scheme Type</th>
           <td><%= @scheme.scheme_type %></td>
           <th>Name</th>
@@ -39,6 +36,14 @@
           <td><%= @scheme.status %></td>
           <th></th>
           <td></td>
+        </tr>
+        <tr>
+          <th>Image first</th>
+          <td><%= image_tag @scheme.avatar.url(:medium),class: "profile-user-img img-responsive img-sequer", alt: "User Image",size: "25x25" %>
+          </td>
+          <th>Image Second</th>
+          <td><%= image_tag @scheme.image.url(:medium),class: "profile-user-img img-responsive img-sequer", alt: "User Image",size: "25x25" %>
+          </td>
         </tr>
       </tbody>
     </table><br>

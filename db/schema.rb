@@ -101,6 +101,9 @@ ActiveRecord::Schema.define(version: 20180629120257) do
     t.date     "to_date"
     t.boolean  "status"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0c00c81c2590c6ae6fca53e770f14e040d41ff9d
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
     t.decimal  "installment_amount",                precision: 10
@@ -112,6 +115,7 @@ ActiveRecord::Schema.define(version: 20180629120257) do
     t.string   "avatar_content_type", limit: 255
     t.integer  "avatar_file_size",    limit: 4
     t.datetime "avatar_updated_at"
+<<<<<<< HEAD
 =======
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -121,6 +125,8 @@ ActiveRecord::Schema.define(version: 20180629120257) do
     t.integer  "vehicle_type_id",    limit: 4
     t.text     "description",        limit: 65535
 >>>>>>> 5e923a16eb1e3cfc2a94607845627ea3a0a3f41b
+=======
+>>>>>>> 0c00c81c2590c6ae6fca53e770f14e040d41ff9d
   end
 
   add_index "schemes", ["vehicle_type_id"], name: "fk_rails_8115123ef3", using: :btree
