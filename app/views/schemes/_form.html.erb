@@ -70,7 +70,12 @@
 
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.select :status,['Active','Inactive'],{label: 'Status',include_blank: " Select Status"} %>
+        <%= f.select :status,[['Active','true'],['Inactive','false']],{label: 'Status',include_blank: " Select Status"} %>
+      </div>
+    </div>
+     <div class="col-sm-6">
+      <div class="form-group required">
+        <%= f.text_field :description,label:'Description', placeholder: 'Duration' %>
       </div>
     </div>
   </div>
