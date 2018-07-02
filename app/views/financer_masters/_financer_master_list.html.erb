@@ -1,0 +1,28 @@
+<table id="example2" class="table table-bordered table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Contact No</th>
+      <th>Contact Person</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @financer_masters.each do |financer_master| %>
+      <tr>
+        <td><%= financer_master.code %></td>
+        <td><%= financer_master.name %></td>
+        <td><%= financer_master.contact_no %></td>
+        <td><%= financer_master.contact_person %></td>
+        <td>
+            <%= link_to '', financer_master,class: 'btn btn-xs btn-default fa fa-eye' %>
+            <%= link_to '', edit_financer_master_path(financer_master),class: 'btn btn-xs btn-success fa fa-edit',remote:true %>
+            <%= link_to '', financer_master, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-xs btn-danger fa fa-close' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

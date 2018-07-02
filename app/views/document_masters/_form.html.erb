@@ -1,0 +1,31 @@
+<%= bootstrap_form_for(@document_master,html: {id: 'document_master'}) do |f| %>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :code, label:'Code', placeholder: 'D001' %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :name, label:'Name', placeholder: 'Document' %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.text_field :description, label:'Description', placeholder: 'description' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="field">
+        <%= f.check_box :status,label:'Active' %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="actions">
+        <%= f.submit "Create Document Master",class: 'btn btn-sm btn-primary' %>
+      </div>
+    </div>
+  </div>
+<% end %>

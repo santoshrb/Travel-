@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180629120257) do
+ActiveRecord::Schema.define(version: 20180702071440) do
+
+  create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
+    t.string   "value",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "branches", force: :cascade do |t|
     t.string   "code",       limit: 255
@@ -20,12 +26,12 @@ ActiveRecord::Schema.define(version: 20180629120257) do
     t.string   "email",      limit: 255
     t.string   "contact_no", limit: 255
     t.boolean  "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "company_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "company_id", limit: 8
   end
 
-  add_index "branches", ["company_id"], name: "fk_rails_9d5c1c06e3", using: :btree
+  add_index "branches", ["company_id"], name: "index_branches_on_company_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "code",       limit: 255
@@ -39,8 +45,17 @@ ActiveRecord::Schema.define(version: 20180629120257) do
     t.string   "email",      limit: 255
     t.string   "contact_no", limit: 255
     t.boolean  "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "document_masters", force: :cascade do |t|
+    t.string   "code",        limit: 255
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.boolean  "status"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "employees", force: :cascade do |t|
@@ -62,14 +77,14 @@ ActiveRecord::Schema.define(version: 20180629120257) do
     t.integer  "pin_code",      limit: 4
     t.string   "adhar_no",      limit: 255
     t.boolean  "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "company_id",    limit: 4
-    t.integer  "branch_id",     limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "company_id",    limit: 8
+    t.integer  "branch_id",     limit: 8
   end
 
-  add_index "employees", ["branch_id"], name: "fk_rails_8604ac23f2", using: :btree
-  add_index "employees", ["company_id"], name: "fk_rails_15ca1438d5", using: :btree
+  add_index "employees", ["branch_id"], name: "index_employees_on_branch_id", using: :btree
+  add_index "employees", ["company_id"], name: "index_employees_on_company_id", using: :btree
 
   create_table "enquiries", force: :cascade do |t|
     t.string   "mobile_no",       limit: 255
@@ -79,18 +94,33 @@ ActiveRecord::Schema.define(version: 20180629120257) do
     t.string   "email",           limit: 255
     t.text     "address",         limit: 65535
     t.string   "place",           limit: 255
-    t.integer  "user_id",         limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "vehicle_type_id", limit: 4
-    t.integer  "scheme_id",       limit: 4
+    t.integer  "user_id",         limit: 8
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "vehicle_type_id", limit: 8
+    t.integer  "scheme_id",       limit: 8
     t.date     "enquiry_date"
     t.text     "description",     limit: 65535
   end
 
-  add_index "enquiries", ["scheme_id"], name: "fk_rails_97a38ddb44", using: :btree
+  add_index "enquiries", ["scheme_id"], name: "index_enquiries_on_scheme_id", using: :btree
   add_index "enquiries", ["user_id"], name: "index_enquiries_on_user_id", using: :btree
-  add_index "enquiries", ["vehicle_type_id"], name: "fk_rails_c8404dfc83", using: :btree
+  add_index "enquiries", ["vehicle_type_id"], name: "index_enquiries_on_vehicle_type_id", using: :btree
+
+  create_table "financer_masters", force: :cascade do |t|
+    t.string   "code",           limit: 255
+    t.string   "name",           limit: 255
+    t.text     "description",    limit: 65535
+    t.integer  "pin_code",       limit: 4
+    t.string   "place",          limit: 255
+    t.text     "address",        limit: 65535
+    t.string   "contact_no",     limit: 255
+    t.string   "email",          limit: 255
+    t.string   "contact_person", limit: 255
+    t.boolean  "status"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
   create_table "schemes", force: :cascade do |t|
     t.string   "name",                limit: 255
@@ -100,24 +130,35 @@ ActiveRecord::Schema.define(version: 20180629120257) do
     t.date     "from_date"
     t.date     "to_date"
     t.boolean  "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
     t.decimal  "installment_amount",                precision: 10
     t.string   "scheme_type",         limit: 255
     t.string   "installment",         limit: 255
-    t.integer  "vehicle_type_id",     limit: 4
+    t.integer  "vehicle_type_id",     limit: 8
     t.text     "description",         limit: 65535
     t.string   "avatar_file_name",    limit: 255
     t.string   "avatar_content_type", limit: 255
     t.integer  "avatar_file_size",    limit: 4
     t.datetime "avatar_updated_at"
-    t.string   "image_file_name",     limit: 255
-    t.string   "image_content_type",  limit: 255
-    t.integer  "image_file_size",     limit: 4
-    t.datetime "image_updated_at"
   end
 
-  add_index "schemes", ["vehicle_type_id"], name: "fk_rails_8115123ef3", using: :btree
+  add_index "schemes", ["vehicle_type_id"], name: "index_schemes_on_vehicle_type_id", using: :btree
+
+  create_table "showroom_masters", force: :cascade do |t|
+    t.string   "code",           limit: 255
+    t.string   "name",           limit: 255
+    t.text     "description",    limit: 65535
+    t.integer  "pin_code",       limit: 4
+    t.string   "place",          limit: 255
+    t.text     "address",        limit: 65535
+    t.string   "contact_no",     limit: 255
+    t.string   "email",          limit: 255
+    t.string   "contact_person", limit: 255
+    t.boolean  "status"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -143,8 +184,8 @@ ActiveRecord::Schema.define(version: 20180629120257) do
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
     t.boolean  "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_foreign_key "branches", "companies"

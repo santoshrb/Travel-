@@ -1,0 +1,42 @@
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Document Details</h3>
+    <div class="pull-right">
+      <%= link_to 'New Document', new_document_master_path, class: 'btn btn-sm btn-primary' %>
+    </div>
+  </div><!-- /.box-header -->
+
+  <div class="box-body">
+    <table id="example6" class="table table-bordered table-hover table-condensed">
+      <thead>
+        <tr>
+          <th>Sr. No</th>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% i = 0 %>
+        <% @document_masters.each do |document_master| %>
+          <tr>
+            <td><%= i = i + 1 %></td>
+            <td><%= document_master.code %></td>
+            <td><%= document_master.name %></td>
+            <td><%= document_master.description %></td>
+            <td><%= document_master.status ? "Active" : "Inactive" %></td>
+            <td>
+              <%= link_to ' ', document_master, class: 'btn btn-xs btn-default fa fa-eye' %>
+              <%= link_to ' ', edit_document_master_path(document_master), class: 'btn btn-xs btn-success fa fa-edit' %>
+              <%= link_to ' ', document_master, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

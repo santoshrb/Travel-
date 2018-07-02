@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  resources :showroom_masters do
+    collection do
+      get :showroom_detail
+      get :import_xl
+      post :import
+    end
+  end
+  resources :document_masters
+  resources :financer_masters do
+    collection do
+      get :financer_detail
+      get :import_xl
+      post :import
+    end
+  end
   resources :vehicle_types
   resources :schemes
   resources :enquiries do

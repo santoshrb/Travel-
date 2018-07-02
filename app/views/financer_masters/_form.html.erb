@@ -1,0 +1,92 @@
+<%= bootstrap_form_for(@financer_master,html: {id: 'financer_master'}) do |f| %>
+  
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :code, label:'Code', placeholder: 'F001' %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :name, label:'Name', placeholder: 'Financer' %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.text_field :description, label:'Description', placeholder: 'description' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="field">
+        <%= f.text_field :pin_code, label:'Pin Code', placeholder: '420016' %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="field">
+        <%= f.text_field :place, label:'Place', placeholder: 'Pune' %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.text_field :address,label:'Address', placeholder: 'xyz' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="field">
+        <%= f.text_field :contact_no, label:'Contact No.', placeholder: '+2290981167' %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="field">
+        <%= f.text_field :email,label:'Email', placeholder: 'company@gmail.com' %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="field">
+        <%= f.text_field :contact_person,label:'Contact Person', placeholder: 'Akshay' %>
+      </div>
+    </div>
+    <div class="col-sm-3" style="padding-top: 20px">
+      <div class="field">
+        <%= f.check_box :status,label:'Active' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="actions">
+        <%= f.submit "Create Financer Master", class: 'btn btn-sm btn-primary' %>
+      </div>
+    </div>
+  </div>
+    <% end %>
+
+<script>
+$("#financer_master").validate({
+    rules: {
+      "financer_master[code]":{
+        required: true,
+      },
+      "financer_master[name]":{
+        required: true,
+      }
+       },
+    messages: {
+      "financer_master[code]":{
+        required: "Please specify code",
+      },
+       "financer_master[name]":{
+        required: "Please specify name",
+      }
+       },
+    errorPlacement: function(error, element) {
+     error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
+     error.insertAfter(element.parent(element));
+    }
+   });
+</script>
+

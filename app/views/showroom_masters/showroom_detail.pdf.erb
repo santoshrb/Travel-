@@ -1,0 +1,36 @@
+<table style="border-collapse: collapse; font-size:9pt;" border=1 width=1200 cellpadding="10">
+  <thead>
+    <tr>
+    	<th>Sr. No</th>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Pin Code</th>
+      <th>Place</th>
+      <th>Address</th>
+      <th>Contact No</th>
+      <th>Email</th>
+      <th>Contact Person</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	<% i = 0 %>
+    <% @showroom_masters.each do |showroom_master| %>
+      <tr>
+        <td><%= i = i + 1 %></td>
+        <td><%= showroom_master.code %></td>
+        <td><%= showroom_master.name %></td>
+        <td><%= showroom_master.description %></td>
+        <td><%= showroom_master.pin_code %></td>
+        <td><%= showroom_master.place %></td>
+        <td><%= showroom_master.address %></td>
+        <td><%= showroom_master.contact_no %></td>
+        <td><%= showroom_master.email %></td>
+        <td><%= showroom_master.contact_person %></td>
+        <td><%= showroom_master.status ? "Active" : "Inactive" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

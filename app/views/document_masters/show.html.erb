@@ -1,0 +1,33 @@
+<div class="box box-default">
+  <div class="box-body">
+    <table id="example2" class="table table-bordered table-hover table-condensed">
+      <tbody>
+        <tr>
+          <th colspan="5">
+            <strong><center>Document Detail</center></strong>
+          </th>
+        </tr>
+        <tr>
+		  <th><strong>Code</strong></th>
+		  <td><%= @document_master.code %></td>
+		</tr>
+        <tr>
+		  <th><strong>Name</strong></th>
+		  <td><%= @document_master.name %></td>
+		</tr>
+        <tr>
+		  <th><strong>Description</strong></th>
+		  <td><%= @document_master.description %></td>
+		</tr>
+        <tr>
+		  <th><strong>Status</strong></th>
+		  <td><%= @document_master.status ? "Active" : "Inactive" %></td>
+		</tr>
+
+      </tbody>
+      </table>
+        <br>
+    <%= link_to 'Edit', edit_document_master_path(@document_master), class: 'btn btn-default btn-sm fa' %> |
+    <%= link_to 'Back', document_masters_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+  </div>
+</div>
