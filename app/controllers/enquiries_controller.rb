@@ -92,6 +92,14 @@ class EnquiriesController < ApplicationController
     from = params[:salary][:from]
     to = params[:salary][:to]
     @enquiries = Enquiry.where(enquiry_date: from.to_date..to.to_date)
+  end
+
+  def datewise_enquiry_report
+    from = params[:salary][:from]
+    to = params[:salary][:to]
+    @enquiries = Enquiry.where(enquiry_date: from.to_date..to.to_date)
+
+    
     respond_to do |f|
       f.js
       f.xls {render template: 'enquiries/show_datewise_enquiry.xls.erb'}
@@ -105,7 +113,6 @@ class EnquiriesController < ApplicationController
         #margin:  { top:1,bottom:1,left:1,right:1 }
       end
     end
-
   end
 
   private

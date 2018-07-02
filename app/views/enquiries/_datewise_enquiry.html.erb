@@ -29,9 +29,8 @@
         <% end %>
       </tbody>
     </table>
-
-    <%#= link_to " PDF ", show_datewise_enquiry_enquiries_path(:salary => {:from => params[:salary][:from], :to => params[:salary][:to],:code => 1},format: "pdf"), class: "btn btn-xl btn-info fa fa-print",:target => "_blank" %>
-    
-    <%#= link_to " XLS ", show_datewise_enquiry_enquiries_path(:salary => {:from => params[:salary][:from], :to => params[:salary][:to],:code => 1},format: "xls"), class: "btn btn-xl btn-success fa fa-print",:target => "_blank" %>
+  <br>
+    <%= link_to " Excel ",datewise_enquiry_report_enquiries_path(:salary =>{:from => params[:salary][:from],:to => params[:salary][:to]}, format: "xls"), class: "btn btn-xl btn-success fa fa-print" %>
+    <%= link_to " PDF ",datewise_enquiry_report_enquiries_path(:salary =>{:from => params[:salary][:from],:to => params[:salary][:to]}, format: "pdf"), class: "btn btn-xl btn-primary fa fa-print",:target => "_blank" %>
   </div>
 </div>
