@@ -38,6 +38,48 @@
         </tr>
       </tbody>
     </table><br>
+
+    <% if @enquiry.scheme_id == nil %>
+<% else %>
+  <table id="example2" class="table table-bordered table-hover table-condensed">
+    <thead>
+    <tr><th colspan="4"><strong><center>Scheme Details</center></strong></th></tr>
+      <tr>
+        <td><strong>Scheme</strong></td>
+          <td><%= @enquiry.scheme.try(:name) %></td>
+      
+        <td><strong>Budget</strong></td>
+          <td><%= @enquiry.try(:scheme).try(:budget) %></td>
+      </tr>
+      <tr>
+        <td><strong>Down Payment</strong></td>
+          <td><%= @enquiry.try(:scheme).try(:down_payment) %></td>
+      
+        <td><strong>Interest</strong></td>
+          <td><%= @enquiry.try(:scheme).try(:intrest) %></td>
+      </tr>
+      <tr>
+        <td><strong>Installment Amount</strong></td>
+          <td><%= @enquiry.try(:scheme).try(:installment_amount) %></td>
+      
+        <td><strong>Scheme Type</strong></td>
+          <td><%= @enquiry.try(:scheme).try(:scheme_type) %></td>
+      </tr>
+      <tr>
+        <td><strong>Installment</strong></td>
+          <td><%= @enquiry.try(:scheme).try(:installment) %></td>
+      
+        <td><strong>Vehicle Type</strong></td>
+          <td><%= @enquiry.try(:scheme).try(:vehicle_type).try(:name) %></td>
+      </tr>
+      <tr>
+        <td><strong>Description</strong></td>
+          <td colspan="3"><%= @enquiry.try(:scheme).try(:description) %></td>
+      </tr>
+    </thead>
+  </table>
+<% end %>
+<br>
     <%= link_to " PDF ", show_enquiry_enquiries_path(enquiry_id: @enquiry.id,format: "pdf"), class: "btn btn-sm btn-info fa fa-print",:target => "_blank" %>
     <%= link_to 'Edit', edit_enquiry_path(@enquiry), class: 'btn btn-default btn-sm fa' %> |
     <%= link_to 'Back', enquiries_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>

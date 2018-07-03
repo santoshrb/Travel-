@@ -35,7 +35,7 @@
 
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :place, label:'Pin Code', placeholder: 'Pune' %>
+        <%= f.text_field :place, label:'Place', placeholder: 'Pune' %>
       </div>
     </div>
 
@@ -52,8 +52,24 @@
       <div class="form-group required">
         <%= f.select :scheme_id, all_scheme_type,{ hide_label:true,include_blank: " Select Scheme" } %>
       </div>
+      </div>
+        <div class="col-sm-3">
+      <div class="form-group required">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <%= f.text_field :enquiry_date, label: 'Date', class: 'to_date'%>
+        </div>
+      </div>
     </div>
-
+     <div class="col-sm-6">
+      <div class="form-group required">
+        <%= f.text_field :description,label:'Description', placeholder: 'Duration' %>
+      </div>
+    </div>
+</div>
+<div class="row">
   <div id="scheme_list"></div>
   
     <div class="col-sm-3" style="padding-top: 20px;">

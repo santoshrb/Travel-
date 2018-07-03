@@ -1,0 +1,60 @@
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Showroom Details</h3>
+    <div class="pull-right">
+      <%= link_to " PDF ", showroom_detail_showroom_masters_path(format: "pdf"), class: "btn btn-xl btn-info fa fa-print",:target => "_blank" %>
+      
+      <%= link_to " XLS ", showroom_detail_showroom_masters_path(format: "xls"), class: "btn btn-xl btn-success fa fa-print",:target => "_blank" %>
+      
+      <%= link_to " Upload", import_xl_showroom_masters_path, class: 'fa fa-upload btn btn-xl btn-primary' %>
+      
+      <%= link_to " Template", "/Templates/2.ShowroomMaster.xls", :class=>"fa fa-download btn-xl btn btn-warning" %>
+
+      <%= link_to 'New Showroom', new_showroom_master_path, class: 'btn btn-sm btn-primary' %>
+    </div>
+  </div><!-- /.box-header -->
+  <div class="box-body">
+    <table id="example6" class="table table-bordered table-hover table-condensed">
+      <thead>
+        <tr>
+          <th>Sr. No</th>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Pin code</th>
+          <th>Place</th>
+          <th>Address</th>
+          <th>Contact no</th>
+          <th>Email</th>
+          <th>Contact person</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% i = 0 %>
+        <% @showroom_masters.each do |showroom_master| %>
+          <tr>
+            <td><%= i = i + 1 %></td>
+            <td><%= showroom_master.code %></td>
+            <td><%= showroom_master.name %></td>
+            <td><%= showroom_master.description %></td>
+            <td><%= showroom_master.pin_code %></td>
+            <td><%= showroom_master.place %></td>
+            <td><%= showroom_master.address %></td>
+            <td><%= showroom_master.contact_no %></td>
+            <td><%= showroom_master.email %></td>
+            <td><%= showroom_master.contact_person %></td>
+            <td><%= showroom_master.status ? "Active" : "Inactive" %></td>
+            <td>
+              <%= link_to ' ', showroom_master, class: 'btn btn-xs btn-default fa fa-eye' %>
+              <%= link_to ' ', edit_showroom_master_path(showroom_master), class: 'btn btn-xs btn-success fa fa-edit' %>
+              <%= link_to ' ', showroom_master, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

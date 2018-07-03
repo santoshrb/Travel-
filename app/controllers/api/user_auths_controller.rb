@@ -1,14 +1,17 @@
 class Api::UserAuthsController < ApplicationController
-  skip_before_action :load_action
-  skip_before_action :authenticate!
-  skip_before_filter :require_login
+
+    skip_before_action :load_action
+    skip_before_action :authenticate!
+    skip_before_filter :require_login
   include ActionController::MimeResponds
   include ActionController::Cookies
   include ActionView::Helpers::DateHelper
   include ApplicationHelper
   # http_basic_authenticate_with :email => "vish.hake04@gmail.com", :password => "12345678"
-   # skip_before_filter :authenticate_user!
-  skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
+
+   skip_before_filter :authenticate_user!
+   skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
+
   respond_to :json
 
   def user_sign_in

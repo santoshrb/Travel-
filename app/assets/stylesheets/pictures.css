@@ -1,0 +1,78 @@
+.preview {
+  height: 100px;
+}
+
+.thumbnail a > img {
+  display: block;
+  max-width: 100%;
+  max-height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thumbnail111 a > img {
+  display: block;
+  max-width: 100%;
+  max-height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thumbnail1 a > img {
+  display: block;
+  max-width: 10%;
+  max-height: 10%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.thumbnail .preview > img {
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.files .span3 {
+  width: 520px;
+}
+
+.files .span3 .thumbnail {
+  height: 370px;
+}
+
+.progress {
+  height: 8px;
+  margin-top: 10px;
+}
+.progress-success.progress-striped .bar {
+  background-color: #7D7D7D;
+}
+
+img {
+  max-width: none;
+}
+.form-horizontal .control-label {
+  text-align: left;
+}
+.form-horizontal input.text_field {
+  width: 300px;
+}
+.form-horizontal input.text_area {
+  width: 600px;
+}
+
+
+.stat-label3 {
+        display: inline-block;
+        position:absolute;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        border: 3px solid white;
+        border-radius: 70%;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: bold;
+}

@@ -42,11 +42,11 @@
             <td><%#= company.pin_code %></td> -->
             <!-- <td><%#= company.email %></td> -->
             <td><%= company.contact_no %></td>
-            <td><%= company.status %></td>
+            <td><%= company.status ? "Active" : "Inactive" %></td>
             <td>
             <%= link_to ' ', company, class: 'btn btn-xs btn-default fa fa-eye' %>
             <%= link_to ' ', edit_company_path(company), class: 'btn btn-xs btn-success fa fa-edit' %>
-            <%= link_to ' ', company, method: :destroy, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %></td>
+            <%#= link_to ' ', company, method: :destroy, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %></td>
           </tr>
         <% end %>
       </tbody>

@@ -43,8 +43,6 @@ class EnquiriesController < ApplicationController
     @enquiry = Enquiry.new
   end
 
-  def datewise_report
-  end
 
   def show_enquiry
     @enquiry = Enquiry.find(params[:enquiry_id])
@@ -94,6 +92,27 @@ class EnquiriesController < ApplicationController
     from = params[:salary][:from]
     to = params[:salary][:to]
     @enquiries = Enquiry.where(enquiry_date: from.to_date..to.to_date)
+  end
+
+  def datewise_enquiry_report
+    from = params[:salary][:from]
+    to = params[:salary][:to]
+    @enquiries = Enquiry.where(enquiry_date: from.to_date..to.to_date)
+
+    
+    respond_to do |f|
+      f.js
+      f.xls {render template: 'enquiries/show_datewise_enquiry.xls.erb'}
+      f.html
+      f.pdf do
+        render pdf: ' show_datewise_enquiry',
+        layout: 'pdf.html',
+        orientation: 'Landscape',
+        template: 'enquiries/show_datewise_enquiry.pdf.erb',
+        show_as_html: params[:debug].present?
+        #margin:  { top:1,bottom:1,left:1,right:1 }
+      end
+    end
   end
 
   private

@@ -1,10 +1,8 @@
 source 'https://rubygems.org'
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.8'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 # install gems
 gem 'mysql2', '~> 0.3.18'
 # Use SCSS for stylesheets
@@ -12,7 +10,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+# gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
@@ -43,18 +41,12 @@ gem 'rails-erd'
 gem "whatsapp"
 # install gems
 # gem 'mysql2', '~> 0.3.18'
-
 # gem 'json', '~> 1.8', '>= 1.8.3'
-
-# gem 'bootstrap-datepicker-rails'
-
 # pagination
 gem 'will_paginate'
-
 # for pdf generation
 gem 'wicked_pdf', '~> 1.1'
 gem 'wkhtmltopdf-binary', '~> 0.9.9.3'
-
 # gem for Xls
 gem 'rubyzip', "~> 0.9.9"
 gem 'axlsx'
@@ -65,7 +57,6 @@ gem 'rolify'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem "paperclip"
-
 # For Image resize
 gem 'rmagick'
 # For video upload

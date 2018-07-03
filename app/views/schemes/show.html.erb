@@ -34,15 +34,15 @@
         <tr>
           <th>Status</th>
           <td><%= @scheme.status %></td>
-          <th></th>
-          <td></td>
+          <th>Description</th>
+          <td><%= @scheme.description %></td>
         </tr>
         <tr>
           <th>Image first</th>
-          <td><%= image_tag @scheme.avatar.url(:medium),class: "profile-user-img img-responsive img-sequer", alt: "User Image",size: "25x25" %>
+          <td><%= image_tag @scheme.avatar.url(:medium),class: "profile-user-img img-responsive img-sequer", alt: "User Image",size: "55x55" %>
           </td>
           <th>Image Second</th>
-          <td><%= image_tag @scheme.image.url(:medium),class: "profile-user-img img-responsive img-sequer", alt: "User Image",size: "25x25" %>
+          <td><%= image_tag @scheme.image.url(:medium),class: "profile-user-img img-responsive img-sequer", alt: "User Image",size: "55x55" %>
           </td>
         </tr>
       </tbody>

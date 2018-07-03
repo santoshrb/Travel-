@@ -63,14 +63,19 @@
           <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
           </div>
-          <%= f.text_field :to_date, label: 'To Date', class: 'to_date'%>
+          <%= f.text_field :to_date, label: 'To Date', class: 'from_date'%>
         </div>
       </div>
     </div>
 
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.select :status,['Active','Inactive'],{label: 'Status',include_blank: " Select Status"} %>
+        <%= f.select :status,[['Active','true'],['Inactive','false']],{label: 'Status',include_blank: " Select Status"} %>
+      </div>
+    </div>
+     <div class="col-sm-6">
+      <div class="form-group required">
+        <%= f.text_field :description,label:'Description', placeholder: 'Duration' %>
       </div>
     </div>
   </div>
@@ -124,6 +129,13 @@ $("#scheme").validate({
      error.insertAfter(element.parent(element));
     }
    });
+
+  $('.from_date').datepicker({
+  changeYear:true,
+  changeMonth: true,
+  yearRange: '-200:-0',
+  dateFormat: 'dd-mm-yy' });
+
 </script>
 
 

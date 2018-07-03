@@ -8,6 +8,10 @@
           </th>
         </tr>
         <tr>
+          <th>Company</th>
+          <td><%= @branch.company.try(:name) %></td>
+        </tr>
+        <tr>
           <th>Code</th>
           <td><%= @branch.code %></td>
         </tr>
@@ -29,7 +33,7 @@
         </tr>
         <tr>
           <th>Status </th>
-          <td><%= @branch.status %></td>
+          <td><%= @branch.status ? "Active" : "Inactive" %></td>
         </tr>
       </tbody>
     </table><br>

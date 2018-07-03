@@ -1,0 +1,36 @@
+<table style="border-collapse: collapse; font-size:9pt;" border=1 width=1200 cellpadding="10">
+  <thead>
+    <tr>
+    	<th>Sr. No</th>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Pin Code</th>
+      <th>Place</th>
+      <th>Address</th>
+      <th>Contact No</th>
+      <th>Email</th>
+      <th>Contact Person</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	<% i = 0 %>
+    <% @financer_masters.each do |financer_master| %>
+      <tr>
+      	<td><%= i = i + 1 %></td>
+        <td><%= financer_master.code %></td>
+        <td><%= financer_master.name %></td>
+        <td><%= financer_master.description %></td>
+        <td><%= financer_master.pin_code %></td>
+        <td><%= financer_master.place %></td>
+        <td><%= financer_master.address %></td>
+        <td><%= financer_master.contact_no %></td>
+        <td><%= financer_master.email %></td>
+        <td><%= financer_master.contact_person %></td>
+        <td><%= financer_master.status ? "Active" : "Inactive" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -23,7 +23,9 @@
        <%= f.text_field :middle_name, label: 'Middle Name',placeholder: 'Middle Name' %>
       </div>
     </div>
+</div>
 
+<div class="row">
     <div class="col-sm-3">
       <div class="form-group required">
        <%= f.text_field :last_name, label: 'Last Name',placeholder: 'Last Name' %>
@@ -52,6 +54,9 @@
        <%= f.text_field :contact_no,label: 'Contact No.',placeholder: 'e.g.123456789' %>
       </div>
     </div>
+  </div>
+  
+  <div class="row">
 
     <div class="col-sm-3">
       <div class="form-group required">
@@ -115,13 +120,23 @@
 
     <div class="col-sm-3">
       <div class="form-group required">
+        <%= f.select :company_id,all_company,{label: 'Company',include_blank: " Select Company"} %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.select :branch_id,all_branch,{label: 'Branch',include_blank: " Select Branch"} %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
         <%= f.select :status,['Active','Inactive'],{label: 'Status',include_blank: " Select Employee Status"} %>
       </div>
     </div>
 
-  </div>
-
-  <div class="row">
     <div class="col-sm-3" style="padding-top: 20px;">
       <div class="form-group required">
         <%= f.submit "Create Employee", :class => class_name, data: { disable_with: data_info } %>

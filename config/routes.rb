@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  resources :showroom_masters do
+    collection do
+      get :showroom_detail
+      get :import_xl
+      post :import
+    end
+  end
+  resources :document_masters
+  resources :financer_masters do
+    collection do
+      get :financer_detail
+      get :import_xl
+      post :import
+    end
+  end
   resources :vehicle_types
   resources :schemes
   resources :enquiries do
@@ -7,7 +22,8 @@ Rails.application.routes.draw do
       post :display_scheme
       post :scheme_list
       get :datewise_report
-      get :show_datewise_enquiry
+      post :show_datewise_enquiry
+      get :datewise_enquiry_report
       post :show_enquiry
       get :show_enquiry
     end

@@ -25,14 +25,14 @@
           <td><%= @company.try(:pin_code) %></td>
         
           <th>Country</th>
-          <td><%=  @company.try(:country).try(:name) %></td>
+          <td><%=  @company.try(:country) %></td>
         </tr>
         <tr>
           <th>State</th>
-          <td><%= @company.try(:state).try(:name) %></td>
+          <td><%= @company.try(:state) %></td>
         
           <th>District</th>
-          <td><%= @company.try(:district).try(:name) %></td>
+          <td><%= @company.try(:district) %></td>
         </tr>
         <tr>
           <th>City</th>
@@ -40,6 +40,14 @@
         
           <th>Email</th>
           <td><%= @company.try(:email) %></td>
+        </tr>
+
+        <tr>
+          <th>Contact No</th>
+          <td><%= @company.contact_no %></td>
+
+          <th>Status</th>
+          <td><%= @company.try(:status) ? "Active" : "Inactive" %></td>
         </tr>
       </tbody>
     </table><br>
