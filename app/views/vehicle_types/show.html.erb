@@ -10,14 +10,16 @@
         <tr>
           <th>Code.</th>
           <td><%= @vehicle_type.code %></td>
-        </tr>
-        <tr>
+        
           <th> Name </th>
           <td><%= @vehicle_type.name %></td>
         </tr>
         <tr>
           <th>Description </th>
-          <td colspan="3"><%= @vehicle_type.description %></td>
+          <td><%= @vehicle_type.description %></td> <tr>
+          <th> Status </th>
+          <td><%= @vehicle_type.status ? "Active" : "Inactive" %></td>
+        </tr>
         </tr>
       </tbody>
     </table><br>

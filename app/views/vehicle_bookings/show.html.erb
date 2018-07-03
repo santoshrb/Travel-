@@ -89,7 +89,7 @@
 
         <tr>
           <th><strong>Status</strong></th>
-          <td colspan="3"><%= @vehicle_booking.status %></td>
+          <td colspan="3"><%= @vehicle_booking.status ? "Active" : "Inactive" %></td>
         </tr>
       </tbody>
     </table>

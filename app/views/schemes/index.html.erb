@@ -35,7 +35,7 @@
             <td><%#= scheme.installment %></td>
             <td><%#= scheme.intrest %></td> -->
 
-            <td><%= scheme.status %></td>
+            <td><%= scheme.status ? "Active" : "Inactive" %></td>
             <td>
               <%= link_to ' ', scheme, class: 'btn btn-xs btn-default fa fa-eye' %>
               <%= link_to ' ', edit_scheme_path(scheme), class: 'btn btn-xs btn-success fa fa-edit' %>

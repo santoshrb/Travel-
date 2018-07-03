@@ -67,7 +67,7 @@
               <%= link_to ' ', vehicle_booking, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %>
               <%= link_to " PDF ",bookings_detail_vehicle_bookings_path(booking_id: vehicle_booking,format: "pdf"), class: "btn btn-xs btn-info",:target => "_blank" %>
       
-              <%= link_to " XLS ",bookings_detail_vehicle_bookings_path(booking_id: vehicle_booking,format: "xls"), class: "btn btn-xs btn-primary",:target => "_blank" %>
+              <%= link_to " XLS ",bookings_detail_vehicle_bookings_path(booking_id: vehicle_booking,format: "xls"), class: "btn btn-xs btn-primary"%>
             </td>
           </tr>
         <% end %>
@@ -75,3 +75,11 @@
     </table>
   </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>
