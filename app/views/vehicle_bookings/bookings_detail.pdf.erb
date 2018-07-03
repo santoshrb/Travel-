@@ -1,0 +1,56 @@
+<table style="border-collapse: collapse; font-size:9pt;" border=1 width=1200 cellpadding="10">
+  <thead>
+    <tr>
+      <th>Sr. No</th>
+      <th>Pan Card</th>
+      <th>Adhar Card</th>
+      <th>Licence No</th>
+      <th>Light Bill</th>
+      <th>Rent Aggrement</th>
+      <th>Bs</th>
+      <th>Itr</th>
+      <th>Native light bill</th>
+      <th>Pan guarantor</th>
+      <th>Adhar guarantor</th>
+      <th>Light bill guarantor</th>
+      <th>Rent agr guarantor</th>
+      <th>Bs guarantor</th>
+      <th>Itr guarantor</th>
+      <th>Pan guarantor1</th>
+      <th>Adhar guarantor1</th>
+      <th>Light bill guarantor1</th>
+      <th>Rent agr guarantor1</th>
+      <th>Bs guarantor1</th>
+      <th>Itr guarantor1</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% i = 0 %>
+      <tr>
+        <td><%= i = i + 1 %></td>
+        <td><%= @vehicle_booking.pan %></td>
+        <td><%= @vehicle_booking.adhar %></td>
+        <td><%= @vehicle_booking.licence %></td>
+        <td><%= @vehicle_booking.light_bill %></td>
+        <td><%= @vehicle_booking.rent_agr %></td>
+        <td><%= @vehicle_booking.bs %></td>
+        <td><%= @vehicle_booking.itr %></td>
+        <td><%= @vehicle_booking.native_light_bill %></td>
+        <td><%= @vehicle_booking.pan_guarantor %></td>
+        <td><%= @vehicle_booking.adhar_guarantor %></td>
+        <td><%= @vehicle_booking.light_bill_guarantor %></td>
+        <td><%= @vehicle_booking.rent_agr_guarantor %></td>
+        <td><%= @vehicle_booking.bs_guarantor %></td>
+        <td><%= @vehicle_booking.itr_guarantor %></td>
+        <td><%= @vehicle_booking.pan_guarantor1 %></td>
+        <td><%= @vehicle_booking.adhar_guarantor1 %></td>
+        <td><%= @vehicle_booking.light_bill_guarantor1 %></td>
+        <td><%= @vehicle_booking.rent_agr_guarantor1 %></td>
+        <td><%= @vehicle_booking.bs_guarantor1 %></td>
+        <td><%= @vehicle_booking.itr_guarantor1 %></td>
+        <td><%= @vehicle_booking.status %></td>
+      </tr>
+  </tbody>
+</table>

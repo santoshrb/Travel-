@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :vehicle_bookings do
+    collection do
+      get :bookings_detail
+    end
+  end
   resources :showroom_masters do
     collection do
       get :showroom_detail

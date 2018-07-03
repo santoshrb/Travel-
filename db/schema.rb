@@ -11,13 +11,100 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180702071440) do
+ActiveRecord::Schema.define(version: 20180703054715) do
 
   create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
     t.string   "value",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "book_vehicles", force: :cascade do |t|
+    t.integer  "enquiry_id",            limit: 4
+    t.string   "pan",                   limit: 255
+    t.string   "adhar",                 limit: 255
+    t.string   "licence",               limit: 255
+    t.string   "light_bill",            limit: 255
+    t.string   "rent_agr",              limit: 255
+    t.string   "bs",                    limit: 255
+    t.string   "itr",                   limit: 255
+    t.string   "native_light_bill",     limit: 255
+    t.string   "pan_guarantor",         limit: 255
+    t.string   "adhar_guarantor",       limit: 255
+    t.string   "light_bill_guarantor",  limit: 255
+    t.string   "rent_agr_guarantor",    limit: 255
+    t.string   "bs_guarantor",          limit: 255
+    t.string   "itr_guarantor",         limit: 255
+    t.string   "pan_guarantor1",        limit: 255
+    t.string   "adhar_guarantor1",      limit: 255
+    t.string   "light_bill_guarantor1", limit: 255
+    t.string   "rent_agr_guarantor1",   limit: 255
+    t.string   "bs_guarantor1",         limit: 255
+    t.string   "itr_guarantor1",        limit: 255
+    t.boolean  "status"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "book_vehicles", ["enquiry_id"], name: "index_book_vehicles_on_enquiry_id", using: :btree
+
+  create_table "booking_vehicles", force: :cascade do |t|
+    t.integer  "enquiry_id",            limit: 4
+    t.string   "pan",                   limit: 255
+    t.string   "adhar",                 limit: 255
+    t.string   "licence",               limit: 255
+    t.string   "light_bill",            limit: 255
+    t.string   "rent_agr",              limit: 255
+    t.string   "bs",                    limit: 255
+    t.string   "itr",                   limit: 255
+    t.string   "native_light_bill",     limit: 255
+    t.string   "pan_guarantor",         limit: 255
+    t.string   "adhar_guarantor",       limit: 255
+    t.string   "light_bill_guarantor",  limit: 255
+    t.string   "rent_agr_guarantor",    limit: 255
+    t.string   "bs_guarantor",          limit: 255
+    t.string   "itr_guarantor",         limit: 255
+    t.string   "pan_guarantor1",        limit: 255
+    t.string   "adhar_guarantor1",      limit: 255
+    t.string   "light_bill_guarantor1", limit: 255
+    t.string   "rent_agr_guarantor1",   limit: 255
+    t.string   "bs_guarantor1",         limit: 255
+    t.string   "itr_guarantor1",        limit: 255
+    t.boolean  "status"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "booking_vehicles", ["enquiry_id"], name: "index_booking_vehicles_on_enquiry_id", using: :btree
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "enquiry_id",            limit: 4
+    t.string   "pan",                   limit: 255
+    t.string   "adhar",                 limit: 255
+    t.string   "licence",               limit: 255
+    t.string   "light_bill",            limit: 255
+    t.string   "rent_agr",              limit: 255
+    t.string   "bs",                    limit: 255
+    t.string   "itr",                   limit: 255
+    t.string   "native_light_bill",     limit: 255
+    t.string   "pan_guarantor",         limit: 255
+    t.string   "adhar_guarantor",       limit: 255
+    t.string   "light_bill_guarantor",  limit: 255
+    t.string   "rent_agr_guarantor",    limit: 255
+    t.string   "bs_guarantor",          limit: 255
+    t.string   "itr_guarantor",         limit: 255
+    t.string   "pan_guarantor1",        limit: 255
+    t.string   "adhar_guarantor1",      limit: 255
+    t.string   "light_bill_guarantor1", limit: 255
+    t.string   "rent_agr_guarantor1",   limit: 255
+    t.string   "bs_guarantor1",         limit: 255
+    t.string   "itr_guarantor1",        limit: 255
+    t.boolean  "status"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "bookings", ["enquiry_id"], name: "index_bookings_on_enquiry_id", using: :btree
 
   create_table "branches", force: :cascade do |t|
     t.string   "code",       limit: 255
@@ -178,6 +265,32 @@ ActiveRecord::Schema.define(version: 20180702071440) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "vehicle_bookings", force: :cascade do |t|
+    t.string   "pan",                   limit: 255
+    t.string   "adhar",                 limit: 255
+    t.string   "licence",               limit: 255
+    t.string   "light_bill",            limit: 255
+    t.string   "rent_agr",              limit: 255
+    t.string   "bs",                    limit: 255
+    t.string   "itr",                   limit: 255
+    t.string   "native_light_bill",     limit: 255
+    t.string   "pan_guarantor",         limit: 255
+    t.string   "adhar_guarantor",       limit: 255
+    t.string   "light_bill_guarantor",  limit: 255
+    t.string   "rent_agr_guarantor",    limit: 255
+    t.string   "bs_guarantor",          limit: 255
+    t.string   "itr_guarantor",         limit: 255
+    t.string   "pan_guarantor1",        limit: 255
+    t.string   "adhar_guarantor1",      limit: 255
+    t.string   "light_bill_guarantor1", limit: 255
+    t.string   "rent_agr_guarantor1",   limit: 255
+    t.string   "bs_guarantor1",         limit: 255
+    t.string   "itr_guarantor1",        limit: 255
+    t.boolean  "status"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
 
   create_table "vehicle_types", force: :cascade do |t|
     t.string   "code",        limit: 255
