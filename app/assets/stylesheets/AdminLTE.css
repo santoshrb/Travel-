@@ -645,7 +645,6 @@ a:focus {
     display: block;
     margin-left: -15px;
     margin-right: -15px;
-    color: red;
     font-size: 18px;
   }
   .sidebar-mini.sidebar-collapse .main-header .logo > .logo-lg {
@@ -3185,13 +3184,11 @@ table.text-center th {
 .login-page,
 .register-page {
   background: #d2d6de;
-  background-image: url("landing.jpg");
-  background-size: 100% 100%;
 }
 .login-box,
 .register-box {
   width: 360px;
-  margin: 9%;
+  margin: 7% auto;
 }
 @media (max-width: 768px) {
   .login-box,
@@ -3202,10 +3199,10 @@ table.text-center th {
 }
 .login-box-body,
 .register-box-body {
-  padding: 30px;
+  background: #fff;
+  padding: 20px;
   border-top: 0;
   color: #666;
-  margin-top: 10px;
 }
 .login-box-body .form-control-feedback,
 .register-box-body .form-control-feedback {
