@@ -22,7 +22,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -179,7 +179,7 @@ a:focus {
 /* Page Header */
 .page-header {
   margin: 10px 0 20px 0;
-  font-size: 22px;
+  font-size: 12px;
 }
 .page-header > small {
   color: #666;
@@ -291,7 +291,7 @@ a:focus {
   display: block;
   float: left;
   height: 50px;
-  font-size: 20px;
+  font-size: 10px;
   line-height: 50px;
   text-align: center;
   width: 230px;
@@ -315,10 +315,10 @@ a:focus {
 }
 .content-header > h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: 12px;
 }
 .content-header > h1 > small {
-  font-size: 15px;
+  font-size: 12px;
   display: inline-block;
   padding-left: 4px;
   font-weight: 300;
