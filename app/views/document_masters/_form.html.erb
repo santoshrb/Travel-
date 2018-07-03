@@ -29,3 +29,29 @@
     </div>
   </div>
 <% end %>
+
+<script>
+$("#document_master").validate({
+    rules: {
+      "document_master[code]":{
+        required: true,
+      },
+      "document_master[name]":{
+        required: true,
+      }
+       },
+    messages: {
+      "document_master[code]":{
+        required: "Please specify code",
+      },
+       "document_master[name]":{
+        required: "Please specify name",
+      }
+       },
+    errorPlacement: function(error, element) {
+     error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
+     error.insertAfter(element.parent(element));
+    }
+   });
+</script>
+

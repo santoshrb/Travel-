@@ -8,35 +8,38 @@ class ShowroomMaster < ActiveRecord::Base
    	(2..spreadsheet.last_row).each do |i| 
 
     	code = spreadsheet.cell(i,'B').to_i
-      if code == 0
-        code = spreadsheet.cell(i,'B')
-      else
-        code = spreadsheet.cell(i,'B').to_i
-      end
       name = spreadsheet.cell(i,'C')
-      description = spreadsheet.cell(i,'D')
-      pin_code = spreadsheet.cell(i,'E')
-      place = spreadsheet.cell(i,'F')
-      address = spreadsheet.cell(i,'G')
-      contact_no = spreadsheet.cell(i,'H')
-      email = spreadsheet.cell(i,'I')
-      contact_person = spreadsheet.cell(i,'J')
-    
-      @status = spreadsheet.cell(i,'K')
-      if @status == "Active"
-      	status = true
+      if code == nil || name == nil
       else
-  			status = false
-  		end 
+        if code == 0
+          code = spreadsheet.cell(i,'B')
+        else
+          code = spreadsheet.cell(i,'B').to_i
+        end
+        description = spreadsheet.cell(i,'D')
+        pin_code = spreadsheet.cell(i,'E')
+        place = spreadsheet.cell(i,'F')
+        address = spreadsheet.cell(i,'G')
+        contact_no = spreadsheet.cell(i,'H')
+        email = spreadsheet.cell(i,'I')
+        contact_person = spreadsheet.cell(i,'J')
+      
+        @status = spreadsheet.cell(i,'K')
+        if @status == "Active"
+        	status = true
+        else
+    			status = false
+    		end 
 
-      @showroom_master = ShowroomMaster.find_by(code: code)
-      if @showroom_master.nil?
-      	ShowroomMaster.create(code: code,name: name,status: status,description: description,pin_code: pin_code,
-      		address: address,place: place,contact_no: contact_no,email: email,contact_person: contact_person,status: status)     
-      else
-        @showroom_master.update(code: code,name: name,status: status,description: description,pin_code: pin_code,
-        	address: address,place: place,contact_no: contact_no,email: email,contact_person: contact_person,status: status)
-      end
+        @showroom_master = ShowroomMaster.find_by(code: code)
+        if @showroom_master.nil?
+        	ShowroomMaster.create(code: code,name: name,status: status,description: description,pin_code: pin_code,
+        		address: address,place: place,contact_no: contact_no,email: email,contact_person: contact_person,status: status)     
+        else
+          @showroom_master.update(code: code,name: name,status: status,description: description,pin_code: pin_code,
+          	address: address,place: place,contact_no: contact_no,email: email,contact_person: contact_person,status: status)
+        end
+      end#code == nil
     end#do
   end#def
 
