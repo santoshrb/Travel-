@@ -63,7 +63,7 @@
           <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
           </div>
-          <%= f.text_field :to_date, label: 'To Date', class: 'to_date'%>
+          <%= f.text_field :to_date, label: 'To Date', class: 'from_date'%>
         </div>
       </div>
     </div>
@@ -129,6 +129,13 @@ $("#scheme").validate({
      error.insertAfter(element.parent(element));
     }
    });
+
+  $('.from_date').datepicker({
+  changeYear:true,
+  changeMonth: true,
+  yearRange: '-200:-0',
+  dateFormat: 'dd-mm-yy' });
+
 </script>
 
 
