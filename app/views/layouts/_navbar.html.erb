@@ -15,7 +15,13 @@
         </p>
       </div>
     </div>
+      <% if current_user.role == "Admin" %>
         <%= render 'sidebars/admin' %>
+      <% elsif current_user.role == "Branch" %>
+        <%= render 'sidebars/branch' %>
+      <% else %>
+        <%= render 'sidebars/branch' %>
+      <% end %>
      
   </section>
   <!-- /.sidebar -->

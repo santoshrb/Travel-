@@ -30,6 +30,7 @@ class EmployeesController < ApplicationController
       if @employee.save
         format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
         format.json { render :show, status: :created, location: @employee }
+        User.create(employee_id: @employee.id,role: "Branch",password: "12345678",email: @employee.email)
       else
         format.html { render :new }
         format.json { render json: @employee.errors, status: :unprocessable_entity }
@@ -69,6 +70,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:company,:branch,:code, :prefix, :first_name, :middle_name, :last_name, :date_of_birth, :gender, :contact_no, :email, :blood_group, :address, :country, :state, :district, :city, :pin_code, :adhar_no, :status)
+      params.require(:employee).permit(:company_id,:branch_id,:code, :prefix, :first_name, :middle_name, :last_name, :date_of_birth, :gender, :contact_no, :email, :blood_group, :address, :country, :state, :district, :city, :pin_code, :adhar_no, :status)
     end
 end
