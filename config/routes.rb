@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  resources :document_lists
   resources :vehicle_bookings do
     collection do
       get :bookings_detail
+      get :booking_info
+      get :ajax_document_list
+      post :document_list_confirm
     end
   end
   resources :showroom_masters do

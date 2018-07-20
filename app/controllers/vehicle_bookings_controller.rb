@@ -10,6 +10,7 @@ class VehicleBookingsController < ApplicationController
   # GET /vehicle_bookings/1
   # GET /vehicle_bookings/1.json
   def show
+   @vehicle_booking
   end
 
   # GET /vehicle_bookings/new
@@ -30,11 +31,40 @@ class VehicleBookingsController < ApplicationController
       if @vehicle_booking.save
         format.html { redirect_to @vehicle_booking, notice: 'Vehicle booking was successfully created.' }
         format.json { render :show, status: :created, location: @vehicle_booking }
+        @document_masters = DocumentMaster.where(status: true)
+        @document_masters.each do |doc|
+          DocumentList.create(document_master_id: doc.id,vehicle_booking_id: @vehicle_booking.id,status: false)
+        end
       else
         format.html { render :new }
         format.json { render json: @vehicle_booking.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def ajax_document_list
+    @vehicle_booking_id = params[:id]
+    @document_lists = DocumentList.where(vehicle_booking_id: params[:id])
+  end
+
+  def booking_info
+    @vehicle_booking = VehicleBooking.find(params[:id])
+  end
+
+  def document_list_confirm
+    @document_list_ids = params[:document_list_ids]
+    vehicle_booking_id = params[:vehicle_booking_id]
+
+    if @document_list_ids.nil?
+      flash[:alert] = "Please Select the Checkbox"
+    else
+      @document_list_ids.each do |doc|
+        @employee = current_user.employee_id
+        DocumentList.find_by(id: doc).update(status: true,employee_id: @employee)
+        flash[:notice] = "Confirmed Successfully"
+      end 
+    end
+    redirect_to request.referrer
   end
 
   # PATCH/PUT /vehicle_bookings/1
@@ -86,6 +116,6 @@ class VehicleBookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_booking_params
-      params.require(:vehicle_booking).permit(:pan, :adhar, :licence, :light_bill, :rent_agr, :bs, :itr, :native_light_bill, :pan_guarantor, :adhar_guarantor, :light_bill_guarantor, :rent_agr_guarantor, :bs_guarantor, :itr_guarantor, :pan_guarantor1, :adhar_guarantor1, :light_bill_guarantor1, :rent_agr_guarantor1, :bs_guarantor1, :itr_guarantor1, :status)
+      params.require(:vehicle_booking).permit(:enquiry_id,:pan, :adhar, :licence, :light_bill, :rent_agr, :bs, :itr, :native_light_bill, :pan_guarantor, :adhar_guarantor, :light_bill_guarantor, :rent_agr_guarantor, :bs_guarantor, :itr_guarantor, :pan_guarantor1, :adhar_guarantor1, :light_bill_guarantor1, :rent_agr_guarantor1, :bs_guarantor1, :itr_guarantor1, :status)
     end
 end

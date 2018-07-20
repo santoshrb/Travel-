@@ -1,0 +1,61 @@
+<div class="box box-default">
+  <div class="box-body">
+  	<%= form_for :vehicle_bookings, url: { action: 'document_list_confirm',vehicle_booking_id: @vehicle_booking_id} do |f| %>
+	    <table id="example6" class="table table-bordered table-hover table-condensed">
+		   	<thead>
+		   		<tr>
+	          <th><input type="checkbox" id="selectAll" value="selectAll"></th>
+		   			<th>Sr. No</th>
+			      <th>Document master</th>
+			      <th>Status</th>
+			      <th>Employee</th>
+		   		</tr>
+		   	</thead>
+		   	<tbody>
+		   		<% i = 0 %>
+			    <% @document_lists.each do |document_list| %>
+			      <tr>
+	            <td>
+	            	<% if document_list.status == false %>
+	            		<%= check_box_tag "document_list_ids[]", document_list.id %>
+	            	<% end %>
+	            </td>
+			      	<td><%= i = i + 1 %></td>
+			        <td><%= document_list.document_master.try(:name) %></td>
+			        <td><%= document_list.status ? "Submit" : "Pending" %></td>
+			        <td><%= document_list.employee.try(:first_name) %></td>
+			      </tr>
+			    <% end %>
+			  </tbody>
+		  </table>
+		  <div class="col-sm-3">
+          <%= f.submit "Confirm",class: "btn btn-xl btn-primary fa fa-print" %>
+        </div>
+    <% end %>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>
+
+<script type="text/javascript">
+
+  
+$('#selectAll').click(function() {
+  if (this.checked) {
+    $(':checkbox').each(function() {
+      this.checked = true;                       
+    });
+  } 
+  else {
+    $(':checkbox').each(function() {
+      this.checked = false;                        
+    });
+  } 
+});
+</script>

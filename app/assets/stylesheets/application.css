@@ -13,12 +13,5 @@
 
  *= require_tree .
  *= require_self
-
- *= require_tree .
  */
  
-
-.form-group.required .control-label:after {
-  content:"*";
-  color:red;
-}

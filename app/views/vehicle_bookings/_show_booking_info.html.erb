@@ -1,0 +1,109 @@
+<div class="box box-default">
+  <div class="box-header with-border">
+	  <div class="box-tools pull-right">
+	    <%= link_to 'Edit', edit_vehicle_booking_path(@vehicle_booking), class: 'btn btn-success btn-xs fa'%> |
+	    <%= link_to 'Back', vehicle_bookings_path ,class: 'btn btn-default btn-xs fa fa-arrow-left' %>
+	  </div>
+ 	</div>
+  <div class="box-body">
+    <table id="example2" class="table table-bordered table-hover table-condensed">
+      <tbody>
+        <tr>
+          <th colspan="3">
+            <strong><center>Booking Detail</center></strong>
+          </th>
+        </tr>
+        <tr>
+          <th><strong>Enquiry</strong></th>
+          <td colspan="3"><%= @vehicle_booking.try(:enquiry).try(:mobile_no) %> - <%= @vehicle_booking.try(:enquiry).try(:name_first) %></td>
+        </tr>
+        <tr>
+          <th><strong>Pan Card</strong></th>
+          <td><%= @vehicle_booking.pan %></td>
+        
+          <th><strong>Adhar Card</strong></th>
+          <td><%= @vehicle_booking.adhar %></td>
+        </tr>
+
+        <tr>
+          <th><strong>Licence No</strong></th>
+          <td><%= @vehicle_booking.licence %></td>
+        
+          <th><strong>Light Bill</strong></th>
+          <td><%= @vehicle_booking.light_bill %></td>
+        </tr>
+
+        <tr>
+          <th><strong>Rent Aggrement</strong></th>
+          <td><%= @vehicle_booking.rent_agr %></td>
+        
+          <th><strong>BS</strong></th>
+          <td><%= @vehicle_booking.bs %></td>
+        </tr>
+
+        <tr>
+          <th><strong>ITR</strong></th>
+          <td><%= @vehicle_booking.itr %></td>
+        
+          <th><strong>Native Light Bill</strong></th>
+          <td><%= @vehicle_booking.native_light_bill %></td>
+        </tr>
+
+        <tr>
+          <th><strong>Guarantor Pan</strong></th>
+          <td><%= @vehicle_booking.pan_guarantor %></td>
+        
+          <th><strong>Guarantor Adhar</strong></th>
+          <td><%= @vehicle_booking.adhar_guarantor %></td>
+        </tr>
+
+        <tr>
+          <th><strong>Guarantor Light Bill</strong></th>
+          <td><%= @vehicle_booking.light_bill_guarantor %></td>
+        
+          <th><strong>Guarantor Rent Aggrement</strong></th>
+          <td><%= @vehicle_booking.rent_agr_guarantor %></td>
+        </tr>
+
+        <tr>
+          <th><strong>Guarantor BS</strong></th>
+          <td><%= @vehicle_booking.bs_guarantor %></td>
+       
+          <th><strong>Guarantor ITR</strong></th>
+          <td><%= @vehicle_booking.itr_guarantor %></td>
+        </tr>
+
+        <tr>
+          <th><strong>Guarantor1 Pan</strong></th>
+          <td><%= @vehicle_booking.pan_guarantor1 %></td>
+        
+          <th><strong>Guarantor1 Adhar</strong></th>
+          <td><%= @vehicle_booking.adhar_guarantor1 %></td>
+        </tr>
+
+        <tr>
+          <th><strong>Guarantor1 Light Bill</strong></th>
+          <td><%= @vehicle_booking.light_bill_guarantor1 %></td>
+        
+          <th><strong>Guarantor1 Rent Aggrement</strong></th>
+          <td><%= @vehicle_booking.rent_agr_guarantor1 %></td>
+        </tr>
+
+        <tr>
+          <th><strong>Guarantor1 BS</strong></th>
+          <td><%= @vehicle_booking.bs_guarantor1 %></td>
+       
+          <th><strong>Guarantor1 ITR</strong></th>
+          <td><%= @vehicle_booking.itr_guarantor1 %></td>
+        </tr>
+
+        <tr>
+
+          <th><strong>Status</strong></th>
+          <td colspan="3"><%= @vehicle_booking.status ? "Active" : "Inactive" %></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+  </div>
+</div>

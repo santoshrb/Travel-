@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th>Sr. No</th>
+      <th>Enquiry</th>
       <th>Pan Card</th>
       <th>Adhar Card</th>
       <th>Licence No</th>
@@ -30,6 +31,7 @@
     <% i = 0 %>
       <tr>
         <td><%= i = i + 1 %></td>
+        <td><%= @vehicle_booking.enquiry.mobile_no %> - <%= @vehicle_booking.enquiry.name_first %></td>
         <td><%= @vehicle_booking.pan %></td>
         <td><%= @vehicle_booking.adhar %></td>
         <td><%= @vehicle_booking.licence %></td>

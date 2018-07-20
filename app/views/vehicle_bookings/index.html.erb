@@ -62,12 +62,13 @@
             <td><%= vehicle_booking.itr_guarantor1 %></td> -->
             <!-- <td><%= vehicle_booking.status %></td> -->
             <td>
-              <%= link_to ' ', vehicle_booking, class: 'btn btn-xs btn-default fa fa-eye' %>
-              <%= link_to ' ', edit_vehicle_booking_path(vehicle_booking), class: 'btn btn-xs btn-success fa fa-edit' %>
-              <%= link_to ' ', vehicle_booking, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %>
-              <%= link_to " PDF ",bookings_detail_vehicle_bookings_path(booking_id: vehicle_booking,format: "pdf"), class: "btn btn-xs btn-info",:target => "_blank" %>
+             <!--  <#%= link_to ' ', vehicle_booking, class: 'btn btn-xs btn-default fa fa-eye' %>
+              <%#= link_to ' ', edit_vehicle_booking_path(vehicle_booking), class: 'btn btn-xs btn-success fa fa-edit' %>
+              <%#= link_to ' ', vehicle_booking, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %>
+              <%#= link_to " PDF ",bookings_detail_vehicle_bookings_path(booking_id: vehicle_booking,format: "pdf"), class: "btn btn-xs btn-info",:target => "_blank" %>
       
-              <%= link_to " XLS ",bookings_detail_vehicle_bookings_path(booking_id: vehicle_booking,format: "xls"), class: "btn btn-xs btn-primary"%>
+              <%#= link_to " XLS ",bookings_detail_vehicle_bookings_path(booking_id: vehicle_booking,format: "xls"), class: "btn btn-xs btn-primary"%> -->
+              <%= link_to '', vehicle_booking,class: 'btn btn-sm btn-default fa fa-eye' %>
             </td>
           </tr>
         <% end %>
