@@ -1,9 +1,11 @@
 <%= bootstrap_form_for(@enquiry,html: {id: 'enquiry'}) do |f| %>
 <%#= bootstrap_form_for :enquiry,url:{action: "display_scheme"} do |f| %>
+<%= f.hidden_field :user_id, value: current_user.id %>
   <div class="row">
     <div class="col-sm-3">
+      <label>Mobile No.</label>
       <div class="form-group required">
-        <%= f.text_field :mobile_no, label:'Mobile No.', placeholder: '0987654321' %>
+        <%= f.text_field :mobile_no, hide_label: true, placeholder: '0987654321' %>
       </div>
     </div>
 
@@ -59,7 +61,7 @@
           <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
           </div>
-          <%= f.text_field :enquiry_date, label: 'Date', class: 'to_date'%>
+          <%= f.text_field :enquiry_date, label: 'Date', class: 'enquiry_date'%>
         </div>
       </div>
     </div>
@@ -107,3 +109,10 @@ $("#enquiry").validate({
   }
 });
 </script> -->
+<script type="text/javascript">
+   $('.enquiry_date').datepicker({
+    changeYear:true,
+    changeMonth: true,
+    yearRange: '-200:+50',
+    dateFormat: 'dd-mm-yy' });
+</script>

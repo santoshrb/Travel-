@@ -7,6 +7,10 @@ class EnquiriesController < ApplicationController
     @enquiries = Enquiry.all
   end
 
+  def branchwise_enquiry
+    @branchwise_enquiries = Enquiry.where(user_id: current_user.id)
+  end
+
   # GET /enquiries/1
   # GET /enquiries/1.json
   def show
@@ -123,6 +127,6 @@ class EnquiriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def enquiry_params
-      params.require(:enquiry).permit(:description,:scheme_id,:enquiry_date,:mobile_no, :name_first, :middle_name, :last_name, :email, :address, :place, :user)
+      params.require(:enquiry).permit(:description,:scheme_id,:enquiry_date,:mobile_no, :name_first, :middle_name, :last_name, :email, :address, :place, :user_id)
     end
 end

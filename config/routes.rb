@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       get :datewise_enquiry_report
       post :show_enquiry
       get :show_enquiry
+      get :branchwise_enquiry
     end
   end
   resources :employees
