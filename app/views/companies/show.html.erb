@@ -49,6 +49,11 @@
           <th>Status</th>
           <td><%= @company.try(:status) ? "Active" : "Inactive" %></td>
         </tr>
+        <tr>
+          <th>Logo</th>
+          <td><%= image_tag @company.logo.url(:medium),class: "profile-user-img img-responsive img-sequer", alt: "User Image",size: "55x55" %></td>
+          <th colspan="2"></th>
+        </tr>
       </tbody>
     </table><br>
     <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-default btn-sm fa' %> |

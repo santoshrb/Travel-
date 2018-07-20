@@ -1,1 +1,26 @@
-_employee_dashboard.html.erb
+<div id = "myModal"></div>
+<!-- Main row --><!-- Info boxes -->
+<div class="row">
+  <div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-aqua"><i class="fa fa-industry"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-text">Enquiry</span>
+        <span class="info-box-number"><h6><font color='green'> Yesturday - <%= @enquiry_yest.try(:count) %></font></h6></span>
+        <span class="info-box-number"><h6><font color='red'> Today - <%= @enquiry_today.try(:count) %></font></h6></span>
+      </div><!-- /.info-box-content -->
+    </div><!-- /.info-box -->
+  </div><!-- /.col -->
+  <!-- fix for small devices only -->
+  <div class="clearfix visible-sm-block"></div>
+
+  <div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-green"><i class="glyphicon glyphicon-th"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-text">Booking</span>
+        <span class="info-box-number"><%= @vehicle_bookings.try(:count) %></span>
+      </div><!-- /.info-box-content -->
+    </div><!-- /.info-box -->
+  </div><!-- /.col -->
+</div><!-- /.row -->

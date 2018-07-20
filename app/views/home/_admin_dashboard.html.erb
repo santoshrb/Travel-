@@ -1,45 +1,49 @@
 <div id = "myModal"></div>
 <!-- Main row --><!-- Info boxes -->
+
 <div class="row">
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="info-box">
-      <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
-      <div class="info-box-content">
-        <span class="info-box-text">Company</span>
-        <span class="info-box-number"><%= @companies.try(:count) %></span>
-      </div><!-- /.info-box-content -->
-    </div><!-- /.info-box -->
-  </div><!-- /.col -->
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="info-box">
-      <span class="info-box-icon bg-aqua"><i class="fa fa-industry"></i></span>
-      <div class="info-box-content">
-        <span class="info-box-text">Enquiry</span>
-        <span class="info-box-number"><%=@enquiries.try(:count)%></span>
-      </div><!-- /.info-box-content -->
-    </div><!-- /.info-box -->
-  </div><!-- /.col -->
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="info-box">
-      <span class="info-box-icon bg-red"><i class="glyphicon glyphicon-th-list"></i></span>
-      <div class="info-box-content">
-        <span class="info-box-text">Scheme</span>
-        <span class="info-box-number"><%= @schemes.try(:count) %></span>
-      </div><!-- /.info-box-content -->
-    </div><!-- /.info-box -->
-  </div><!-- /.col -->
+  <div class="col-lg-4 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-aqua">
+      <div class="inner">
+        <h6>Yesturday - <%= @enquiry_yest.try(:count) %></h6>
+        <h6>Today - <%= @enquiry_today.try(:count) %></h6>
+        <p>Enquiry</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-bag"></i>
+      </div>
+      <a href="/enquiries" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+  </div><!-- ./col -->
+  <div class="col-lg-4 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-green">
+      <div class="inner">
+        <h5><%= @schemes.try(:count) %></h5>
+        <p>Scheme</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-stats-bars"></i>
+      </div>
+      <a href="/schemes" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+  </div><!-- ./col -->
 
-  <!-- fix for small devices only -->
-  <div class="clearfix visible-sm-block"></div>
 
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="info-box">
-      <span class="info-box-icon bg-green"><i class="glyphicon glyphicon-th"></i></span>
-      <div class="info-box-content">
-        <span class="info-box-text">Booking</span>
-        <span class="info-box-number"><%= @vehicle_bookings.try(:count) %></span>
-      </div><!-- /.info-box-content -->
-    </div><!-- /.info-box -->
-  </div><!-- /.col -->
+  <div class="col-lg-4 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-red">
+      <div class="inner">
+        <h5><%= @vehicle_bookings.try(:count) %></h5>
+        <p>Booking</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-pie-graph"></i>
+      </div>
+      <a href="/vehicle_bookings" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+  </div><!-- ./col -->
 </div><!-- /.row -->
+
 
