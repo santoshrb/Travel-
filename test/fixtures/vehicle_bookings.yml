@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pan: MyString
+  adhar: MyString
+  licence: MyString
+  light_bill: MyString
+  rent_agr: MyString
+  bs: MyString
+  itr: MyString
+  native_light_bill: MyString
+  pan_guarantor: MyString
+  adhar_guarantor: MyString
+  light_bill_guarantor: MyString
+  rent_agr_guarantor: MyString
+  bs_guarantor: MyString
+  itr_guarantor: MyString
+  pan_guarantor1: MyString
+  adhar_guarantor1: MyString
+  light_bill_guarantor1: MyString
+  rent_agr_guarantor1: MyString
+  bs_guarantor1: MyString
+  itr_guarantor1: MyString
+  status: false
+
+two:
+  pan: MyString
+  adhar: MyString
+  licence: MyString
+  light_bill: MyString
+  rent_agr: MyString
+  bs: MyString
+  itr: MyString
+  native_light_bill: MyString
+  pan_guarantor: MyString
+  adhar_guarantor: MyString
+  light_bill_guarantor: MyString
+  rent_agr_guarantor: MyString
+  bs_guarantor: MyString
+  itr_guarantor: MyString
+  pan_guarantor1: MyString
+  adhar_guarantor1: MyString
+  light_bill_guarantor1: MyString
+  rent_agr_guarantor1: MyString
+  bs_guarantor1: MyString
+  itr_guarantor1: MyString
+  status: false

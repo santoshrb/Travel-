@@ -33,7 +33,7 @@
         </tr>
         <tr>
           <th>Status</th>
-          <td><%= @scheme.status %></td>
+          <td><%= @scheme.status ? "Active" : "Inactive" %></td>
           <th>Description</th>
           <td><%= @scheme.description %></td>
         </tr>

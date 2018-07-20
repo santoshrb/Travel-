@@ -3,12 +3,12 @@
     <table id="example2" class="table table-bordered table-hover table-condensed">
       <tbody>
         <tr>
-          <th colspan="5">
+          <th>
             <strong><center>Vehicle Detail</center></strong>
           </th>
         </tr>
         <tr>
-          <th>Code.</th>
+          <th>Code</th>
           <td><%= @vehicle_type.code %></td>
         </tr>
         <tr>
@@ -17,7 +17,11 @@
         </tr>
         <tr>
           <th>Description </th>
-          <td colspan="3"><%= @vehicle_type.description %></td>
+          <td><%= @vehicle_type.description %></td>
+        </tr>
+        <tr>
+          <th> Status </th>
+          <td><%= @vehicle_type.status ? "Active" : "Inactive" %></td>
         </tr>
       </tbody>
     </table><br>

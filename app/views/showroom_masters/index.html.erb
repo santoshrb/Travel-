@@ -1,6 +1,6 @@
 <div class="box">
   <div class="box-header">
-    <h3 class="box-title">Showroom Details</h3>
+    <h3 class="box-title"><strong> Showroom Details</strong></h3>
     <div class="pull-right">
       <%= link_to " PDF ", showroom_detail_showroom_masters_path(format: "pdf"), class: "btn btn-xl btn-info fa fa-print",:target => "_blank" %>
       
@@ -20,14 +20,14 @@
           <th>Sr. No</th>
           <th>Code</th>
           <th>Name</th>
-          <th>Description</th>
+          <!-- <th>Description</th>
           <th>Pin code</th>
           <th>Place</th>
-          <th>Address</th>
-          <th>Contact no</th>
-          <th>Email</th>
-          <th>Contact person</th>
-          <th>Status</th>
+          <th>Address</th> -->
+          <th>Contact No</th>
+          <!-- <th>Email</th> -->
+          <th>Contact Person</th>
+          <!-- <th>Status</th> -->
           <th>Actions</th>
         </tr>
       </thead>
@@ -39,14 +39,14 @@
             <td><%= i = i + 1 %></td>
             <td><%= showroom_master.code %></td>
             <td><%= showroom_master.name %></td>
-            <td><%= showroom_master.description %></td>
-            <td><%= showroom_master.pin_code %></td>
-            <td><%= showroom_master.place %></td>
-            <td><%= showroom_master.address %></td>
+            <!-- <td><%= showroom_master.description %></td>
+            <td><%#= showroom_master.pin_code %></td>
+            <td><%#= showroom_master.place %></td>
+            <td><%#= showroom_master.address %></td> -->
             <td><%= showroom_master.contact_no %></td>
-            <td><%= showroom_master.email %></td>
+            <!-- <td><%#= showroom_master.email %></td> -->
             <td><%= showroom_master.contact_person %></td>
-            <td><%= showroom_master.status ? "Active" : "Inactive" %></td>
+            <!-- <td><%#= showroom_master.status ? "Active" : "Inactive" %></td> -->
             <td>
               <%= link_to ' ', showroom_master, class: 'btn btn-xs btn-default fa fa-eye' %>
               <%= link_to ' ', edit_showroom_master_path(showroom_master), class: 'btn btn-xs btn-success fa fa-edit' %>
@@ -58,3 +58,11 @@
     </table>
   </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: 
+  document_master_id: 
+  vehicle_booking_id: 
+  status: false
+
+two:
+  employee_id: 
+  document_master_id: 
+  vehicle_booking_id: 
+  status: false

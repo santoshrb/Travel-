@@ -16,7 +16,7 @@
           <th>Name</th>
           <th>Budget</th>
           <th>Down Payment</th>
-          <th>Status</th>
+          <th>Status </th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -35,7 +35,7 @@
             <td><%#= scheme.installment %></td>
             <td><%#= scheme.intrest %></td> -->
 
-            <td><%= scheme.status %></td>
+            <td><%= scheme.status ? "Active" : "Inactive" %></td>
             <td>
               <%= link_to ' ', scheme, class: 'btn btn-xs btn-default fa fa-eye' %>
               <%= link_to ' ', edit_scheme_path(scheme), class: 'btn btn-xs btn-success fa fa-edit' %>
@@ -48,3 +48,10 @@
       <%#= link_to 'Back', root_url ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
   </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>

@@ -13,7 +13,7 @@
         <tr>
           <th>Sr.No</th>
           <th>Date</th>
-          <th>Mobile no</th>
+          <th>Mobile No</th>
           <th>Name</th>
           <th>Email</th>
           <th>Actions</th>
@@ -40,3 +40,10 @@
       <%#= link_to 'Back', root_url ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
   </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>

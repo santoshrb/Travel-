@@ -1,6 +1,8 @@
 class Enquiry < ApplicationRecord
   belongs_to :vehicle_type
   belongs_to :scheme
+  belongs_to :vehicle_booking
+
   validates :name_first, presence:true
   validates :mobile_no, presence:true,uniqueness:{case_sensitive:false}
 end

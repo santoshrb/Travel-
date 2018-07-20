@@ -1,0 +1,58 @@
+<table id="example6" class="table table-bordered table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Sr. No</th>
+      <th>Enquiry</th>
+      <th>Pan Card</th>
+      <th>Adhar Card</th>
+      <th>Licence No</th>
+      <th>Light Bill</th>
+      <th>Rent Aggrement</th>
+      <th>BS</th>
+      <th>ITR</th>
+      <th>Native light bill</th>
+      <th>Pan Guarantor</th>
+      <th>Adhar Guarantor</th>
+      <th>Light bill Guarantor</th>
+      <th>Rent agr Guarantor</th>
+      <th>BS Guarantor</th>
+      <th>ITR Guarantor</th>
+      <th>Pan Guarantor1</th>
+      <th>Adhar Guarantor1</th>
+      <th>Light bill Guarantor1</th>
+      <th>Rent agr Guarantor1</th>
+      <th>BS Guarantor1</th>
+      <th>ITR Guarantor1</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% i = 0 %>
+      <tr>
+        <td><%= i = i + 1 %></td>
+        <td><%= @vehicle_booking.enquiry.mobile_no %> - <%= @vehicle_booking.enquiry.name_first %></td>
+        <td><%= @vehicle_booking.pan %></td>
+        <td><%= @vehicle_booking.adhar %></td>
+        <td><%= @vehicle_booking.licence %></td>
+        <td><%= @vehicle_booking.light_bill %></td>
+        <td><%= @vehicle_booking.rent_agr %></td>
+        <td><%= @vehicle_booking.bs %></td>
+        <td><%= @vehicle_booking.itr %></td>
+        <td><%= @vehicle_booking.native_light_bill %></td>
+        <td><%= @vehicle_booking.pan_guarantor %></td>
+        <td><%= @vehicle_booking.adhar_guarantor %></td>
+        <td><%= @vehicle_booking.light_bill_guarantor %></td>
+        <td><%= @vehicle_booking.rent_agr_guarantor %></td>
+        <td><%= @vehicle_booking.bs_guarantor %></td>
+        <td><%= @vehicle_booking.itr_guarantor %></td>
+        <td><%= @vehicle_booking.pan_guarantor1 %></td>
+        <td><%= @vehicle_booking.adhar_guarantor1 %></td>
+        <td><%= @vehicle_booking.light_bill_guarantor1 %></td>
+        <td><%= @vehicle_booking.rent_agr_guarantor1 %></td>
+        <td><%= @vehicle_booking.bs_guarantor1 %></td>
+        <td><%= @vehicle_booking.itr_guarantor1 %></td>
+        <td><%= @vehicle_booking.status %></td>
+      </tr>
+  </tbody>
+</table>
