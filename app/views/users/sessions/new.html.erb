@@ -10,18 +10,18 @@
   <div class="login-logo">
 
   <!-- <= image_tag "redefine_logo.jpg",size: "120x120" %> -->
-  <!-- <= image_tag "spark.jpg",size: "270x100" %> -->
+  <%#= image_tag "logo.jpeg",size: "170x120" %>
 <!--   <= image_tag "span_pumps_logo.jpg",size: "120x120" %> -->
 
-  <%# t = Company.first %>
-  <%# company_logo = t.company_logo.url %>
-  <%#= image_tag company_logo ,size: "210x100" %>   
+  <% t = Company.first %>
+  <% logo = t.logo.url %>
+  <%= image_tag logo ,size: "170x120" %>   
 
   </div><!-- /.login-logo -->
 
   <p><center><strong>Welcome To BSC Agency </strong></center></p>
   <div class="login-box-body">
-    <p class="login-box-msg"><center> Login in to the portal</center></p>
+    <p class="login-box-msg"><center> Login in to the <%=t.name%> portal</center></p>
  
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group has-feedback">

@@ -42,13 +42,13 @@ Rails.application.routes.draw do
   resources :companies
   #devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "home#index"
+  root 'home#index'
   resources :home
   
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions', passwords: 'users/passwords' }
 
-  devise_scope :user do
-    get '/user' => 'users/sessions#new'
+  devise_scope :users do
+    get '/users' => 'users/sessions#new'
   end
 
   namespace :api do
