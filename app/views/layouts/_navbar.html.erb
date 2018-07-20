@@ -11,7 +11,7 @@
       <div class="pull-left info">
       <h3 class="profile-username text-center"></h3>
         <p>
-          <%= current_user.try(:email) %><br> 
+           <%= current_user.employee.try(:prefix) %> <%= current_user.employee.try(:first_name) %><br>
         </p>
       </div>
     </div>

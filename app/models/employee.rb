@@ -1,6 +1,7 @@
 class Employee < ApplicationRecord
 	belongs_to :company
 	belongs_to :branch
+	has_many :users
 	has_many :document_lists
 	validates :first_name, presence:true
 	validates :last_name, presence:true
