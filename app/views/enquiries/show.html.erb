@@ -82,6 +82,10 @@
 <br>
     <%= link_to " PDF ", show_enquiry_enquiries_path(enquiry_id: @enquiry.id,format: "pdf"), class: "btn btn-sm btn-info fa fa-print",:target => "_blank" %>
     <%= link_to 'Edit', edit_enquiry_path(@enquiry), class: 'btn btn-default btn-sm fa' %> |
-    <%= link_to 'Back', enquiries_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+    <% if current_user.role == "Admin" %>
+      <%= link_to 'Back', enquiries_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+    <% else %>
+      <%= link_to 'Back', branchwise_enquiry_enquiries_path ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+    <% end %>
   </div>
 </div>
