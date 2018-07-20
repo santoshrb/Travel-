@@ -4,5 +4,6 @@
   <% elsif current_user.try(:role) == 'Branch' %>
     <%= render 'branch_dashboard' %>
   <% else %>
-    <%=  %>
+    <%= render 'branch_dashboard' %>
   <% end %>
+  
