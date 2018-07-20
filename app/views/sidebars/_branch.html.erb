@@ -1,0 +1,18 @@
+<!-- Optionally, you can add icons to the links -->
+<!-- sidebar menu: : style can be found in sidebar.less -->
+<ul class="sidebar-menu">
+  <li class="header">
+    <a href="/home"><Center><%#= current_user.role.name %> DASHBOARD</Center></a>
+  </li>
+
+
+  <li><a href="/enquiries"><i class="fa fa-tags"></i> Enquiry </a></li>
+  <li><a href="/schemes"><i class="fa fa-tags"></i> Schemes </a></li>
+  <li><a href="/vehicle_bookings"><i class="fa fa-tags"></i> Booking </a></li>
+  <li class="treeview" id="master">
+    <a href=""><i class="fa fa-user-plus"></i> <span> Reports</span> <i class="fa fa-angle-left pull-right"></i></a> 
+    <ul class="treeview-menu" >
+      <li><a href="/enquiries/datewise_report"><i class="fa fa-tags"></i> Enquiry Datewise </a></li>
+    </ul>
+  </li>
+</ul>

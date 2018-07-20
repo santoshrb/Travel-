@@ -1,43 +1,143 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row">
+<div class="col-md-5">
+  <!-- Profile Image -->
+  <div class="box box-primary">
+    <div class="box-body box-profile">
+      <!-- <= image_tag current_user.avatar.url(:medium),class: "profile-user-img img-responsive img-circle", alt: "User Image",size: "25x25" %> -->
+      <%  @users = User.where(employee_id: current_user.employee_id).pluck(:employee_id) %>
+      <%  @members1 = User.where(employee_id: current_user.employee_id) %>
+      <% @employees = Employee.where(id: @users) %>
+      <% @employees.each do |e| %>
+      <% @members1.each do |m| %>
+      <% if e.gender == "Male" && m.avatar_file_name == nil  %>
+        <%= image_tag "avatar5.png",size: "25x25",class: "profile-user-img img-responsive img-circle", alt: "User Image",size: "25x25" %>
+     <!-- < image_tag("avatar5.png") %> -->
+      <% elsif e.gender == "Female" && m.avatar_file_name == nil  %>
+        <%= image_tag "avatar2.png",size: "25x25",class: "profile-user-img img-responsive img-circle", alt: "User Image",size: "25x25" %>
+     <!-- < image_tag("avatar2.png") %> -->
+      <%else%>
+      <%= image_tag current_user.avatar.url(:medium),class: "profile-user-img img-responsive img-circle", alt: "User Image",size: "25x25" %>
+      <%end%>
+      <%end%>
+      <%end%>
+      <h3 class="profile-username text-center"></h3>
+        <table class="table table-bordered table-hover table-condensed">
+        <tbody>
+      <tr>
+        <td>Email</td>
+          <td>
+            <% if current_user.role.try(:name) == 'Employee' %>
+             <%= current_user.email%>
+            <% else %>
+             <%= current_user.email %>
+            <% end %></td>
+      </tr>
+      <tr>
+          <td>ID</td>
+          <td>
+          <small><%= current_user.employee_id%></small>
+          </td>
+      </tr>
+      <tr>
+            <td>Name</td>
+            <td>
+              <%= current_user.employee.try(:first_name)%> <%= current_user.employee.try(:last_name)%>
+             </td>
+      </tr>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+       </tbody></table>
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+  <!-- About Me Box -->
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">About Me</h3>
+    </div><!-- /.box-header -->
+    <div class="box-body">
+      Date of Birth : <%= current_user.employee.try(:date_of_birth) %><br>
+      Designation :<br>
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+</div><!-- /.col -->
+<div class="col-md-7">
+  <div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+     <!--  <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
+      <li><a href="#timeline" data-toggle="tab">Timeline</a></li> -->
+      <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
+    </ul>
+    <div class="tab-content">
+      <!-- <div class="active tab-pane" id="settings"> -->
+        <!-- Post -->
+        
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+        
+      <!-- </div> --><!-- /.tab-pane -->
+     <!--  <div class="tab-pane" id="timeline"> -->
+        <!-- The timeline -->
+        <!-- <ul class="timeline timeline-inverse"> -->
+          <!-- timeline time label -->
+          
+        <!-- </ul>
+      </div> --><!-- /.tab-pane -->
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+      <div class="active tab-pane" id="settings">
+        
+      <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  
+      <div class="row"> 
+         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+          <div class="col-sm-6">
+            <div class="form-group required">
+              <%= f.password_field :current_password, label: "Current Password", autocomplete: "off" %>
+            </div>
+          </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+          <div class="col-sm-6">
+            <div class="form-group required">
+             <%= f.email_field :email, autofocus: true%>
+             </div>
+          </div>
+      </div>
+       <div class="row"> 
+          <div class="col-sm-6">
+            <div class="field">
+             <%= f.password_field :password, label: "New Password", autocomplete: "off" %>
+           </div>
+          </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+          <div class="col-sm-6">
+            <div class="field">
+              <%= f.password_field :password_confirmation, label: "Confirm Password", autocomplete: "off" %>
+            </div>
+          </div>
+       </div>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+        <div class="row"> 
+          <div class="col-sm-6">
+            <div class="field">
+              <label>Profile Picture</label>
+              <%= f.file_field :avatar,hide_label: true%>
+            </div>
+          </div>
+        
+           <div class="col-sm-6">
+           <label></label>
+            <div class="actions">
+              <%= f.submit "Update Profile",:class => class_name, data: { disable_with: data_info } %> |
+              <%= link_to 'Back', root_url,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
+            </div>
+         
+          </div>
+        </div>
+      <% end %>
+      
+      </div><!-- /.tab-pane -->
+    </div><!-- /.tab-content -->
+  </div><!-- /.nav-tabs-custom -->
+ </div><!-- /.col -->
+</div><!-- /.row -->
