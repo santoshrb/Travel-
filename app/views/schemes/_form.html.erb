@@ -14,13 +14,13 @@
 
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :budget , label: 'Budget',placeholder: 'Budget' %>
+        <%= f.text_field :budget , label: 'Budget',placeholder: '1700000' %>
       </div>
     </div>
 
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :down_payment , label: 'Down Payment',placeholder: 'Down Payment' %>
+        <%= f.text_field :down_payment , label: 'Down Payment',placeholder: '300000' %>
       </div>
     </div>
   </div>
@@ -28,19 +28,39 @@
   <div class="row">
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :installment , label: 'Installment',placeholder: 'Installment' %>
+        <%= f.text_field :installment , label: 'EMI(Months)',placeholder: '32' %>
       </div>
     </div>
 
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :installment_amount , label: 'Installment Amount',placeholder: 'Installment Amount' %>
+        <%= f.text_field :intrest , label: 'Intrest(%)',placeholder: '20%' %>
       </div>
     </div>
 
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :intrest , label: 'Intrest',placeholder: 'Intrest' %>
+        <%= f.text_field :installment_amount , label: 'EMI Amount',placeholder: 'EMI Amount',readonly: true %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :total_amount , label: 'Total Amount',placeholder: 'Total Amount',readonly: true %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :interest , label: 'Interest Amount',placeholder: 'Interest Amount',readonly: true %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :emi_amount , label: 'Installment Amount',placeholder: 'Installment Amount',readonly: true %>
       </div>
     </div>
 
@@ -50,53 +70,53 @@
           <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
           </div>
-          <%= f.text_field :from_date, label: 'From Date', class: 'from_date'%>
+          <%= f.text_field :from_date, label: 'From Date', class: 'birth_date'%>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="row">
+ 
     <div class="col-sm-3">
       <div class="form-group required">
         <div class="input-group">
           <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
           </div>
-          <%= f.text_field :to_date, label: 'To Date', class: 'from_date'%>
+          <%= f.text_field :to_date, label: 'To Date', class: 'birth_date'%>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="row">
 
     <div class="col-sm-3">
       <div class="form-group required">
         <%= f.select :status,[['Active','true'],['Inactive','false']],{label: 'Status',include_blank: " Select Status"} %>
       </div>
     </div>
+
      <div class="col-sm-6">
       <div class="form-group required">
         <%= f.text_field :description,label:'Description', placeholder: 'Duration' %>
       </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-3">
       <label>Image 1 Upload(only jpeg,jpg,png)</label>
       <div class="field">
         <%= f.file_field :avatar,hide_label: true %>
       </div>
     </div>
-
-    <div class="col-sm-6">
-      <label>Image 2 Upload(only jpeg,jpg,png)</label>
-      <div class="field">
-        <%= f.file_field :image,hide_label: true %>
-      </div>
-    </div>
   </div>
 
   <div class="row">
+    <div class="col-sm-6">
+      <label>Image 2 Upload(only jpeg,jpg,png)</label>
+      <div class="field">
+        <%= f.file_field :image1,hide_label: true %>
+      </div>
+    </div>
+
     <div class="col-sm-3" style="padding-top: 20px;">
       <div class="form-group required">
         <%= f.submit "Create Scheme ", :class => class_name, data: { disable_with: data_info } %>
@@ -107,35 +127,173 @@
 <% end %>
 
 <script>
-$("#scheme").validate({
-    rules: {
-      "scheme[code]":{
-        required: true,
-      },
-      "scheme[name]":{
-        required: true,
-      }
-       },
-    messages: {
-      "scheme[code]":{
-        required: "Please specify code",
-      },
-       "scheme[name]":{
-        required: "Please specify name",
-      }
-       },
-    errorPlacement: function(error, element) {
-     error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
-     error.insertAfter(element.parent(element));
-    }
-   });
+  $(function(){
 
-  $('.from_date').datepicker({
-  changeYear:true,
-  changeMonth: true,
-  yearRange: '-200:-0',
-  dateFormat: 'dd-mm-yy' });
+//interest
+    $('#scheme_intrest').on('input', function() {
+      var scheme_intrest = parseFloat($('#scheme_intrest').val());
+      var scheme_installment = parseFloat($('#scheme_installment').val());
+      var scheme_down_payment = parseFloat($('#scheme_down_payment').val());
+      var scheme_budget = parseFloat($('#scheme_budget').val());
+      var ans="";
+      var total_amount="";
+      var interest="";
+      var emi_amount="";
 
+      if (isNaN(scheme_intrest) || isNaN(scheme_installment) || isNaN(scheme_down_payment) || isNaN(scheme_budget)) {
+        ans = ""
+      }
+      else{           
+        budget_val = scheme_budget - scheme_down_payment
+        period = scheme_installment/12
+        rate = scheme_intrest/100
+        total = budget_val* period * rate
+        final = (total + budget_val)/scheme_installment
+        ans = final.toFixed(2)
+        total_amount = total + budget_val
+        interest = total
+        emi_amount = budget_val
+      }
+      $('#scheme_installment_amount').val(ans);
+      $('#scheme_total_amount').val(total_amount);
+      $('#scheme_interest').val(interest);
+      $('#scheme_emi_amount').val(emi_amount);
+    });
+
+
+//installment(same as interest all this calculated)
+     $('#scheme_installment').on('input', function() {
+      var scheme_intrest = parseFloat($('#scheme_intrest').val());
+      var scheme_installment = parseFloat($('#scheme_installment').val());
+      var scheme_down_payment = parseFloat($('#scheme_down_payment').val());
+      var scheme_budget = parseFloat($('#scheme_budget').val());
+      var ans="";
+      var total_amount="";
+      var interest="";
+      var emi_amount="";
+
+      if (isNaN(scheme_intrest) || isNaN(scheme_installment) || isNaN(scheme_down_payment) || isNaN(scheme_budget)) {
+        ans = ""
+      }
+      else{           
+        budget_val = scheme_budget - scheme_down_payment
+        period = scheme_installment/12
+        rate = scheme_intrest/100
+        total = budget_val* period * rate
+        final = (total + budget_val)/scheme_installment
+        ans = final.toFixed(2)
+        total_amount = total + budget_val
+        interest = total
+        emi_amount = budget_val
+      }
+      $('#scheme_installment_amount').val(ans);
+      $('#scheme_total_amount').val(total_amount);
+      $('#scheme_interest').val(interest);
+      $('#scheme_emi_amount').val(emi_amount);
+    });
+
+//down_payment
+    $('#scheme_down_payment').on('input', function() {
+      var scheme_intrest = parseFloat($('#scheme_intrest').val());
+      var scheme_installment = parseFloat($('#scheme_installment').val());
+      var scheme_down_payment = parseFloat($('#scheme_down_payment').val());
+      var scheme_budget = parseFloat($('#scheme_budget').val());
+      var ans="";
+      var total_amount="";
+      var interest="";
+      var emi_amount="";
+
+      if (isNaN(scheme_intrest) || isNaN(scheme_installment) || isNaN(scheme_down_payment) || isNaN(scheme_budget)) {
+        ans = ""
+      }
+      else{           
+        budget_val = scheme_budget - scheme_down_payment
+        period = scheme_installment/12
+        rate = scheme_intrest/100
+        total = budget_val* period * rate
+        final = (total + budget_val)/scheme_installment
+        ans = final.toFixed(2)
+        total_amount = total + budget_val
+        interest = total
+        emi_amount = budget_val
+      }
+      $('#scheme_installment_amount').val(ans);
+      $('#scheme_total_amount').val(total_amount);
+      $('#scheme_interest').val(interest);
+      $('#scheme_emi_amount').val(emi_amount);
+    });
+
+
+// budget
+    $('#scheme_budget').on('input', function() {
+      var scheme_intrest = parseFloat($('#scheme_intrest').val());
+      var scheme_installment = parseFloat($('#scheme_installment').val());
+      var scheme_down_payment = parseFloat($('#scheme_down_payment').val());
+      var scheme_budget = parseFloat($('#scheme_budget').val());
+      var ans="";
+      var total_amount="";
+      var interest="";
+      var emi_amount="";
+
+      if (isNaN(scheme_intrest) || isNaN(scheme_installment) || isNaN(scheme_down_payment) || isNaN(scheme_budget)) {
+        ans = ""
+      }
+      else{           
+        budget_val = scheme_budget - scheme_down_payment
+        period = scheme_installment/12
+        rate = scheme_intrest/100
+        total = budget_val* period * rate
+        final = (total + budget_val)/scheme_installment
+        ans = final.toFixed(2)
+        total_amount = total + budget_val
+        interest = total
+        emi_amount = budget_val
+      }
+      $('#scheme_installment_amount').val(ans);
+      $('#scheme_total_amount').val(total_amount);
+      $('#scheme_interest').val(interest);
+      $('#scheme_emi_amount').val(emi_amount);
+    });
+
+
+    $("#scheme").validate({
+      rules: {
+        "scheme[code]":{
+          required: true,
+        },
+        "scheme[name]":{
+          required: true,
+        }
+         },
+      messages: {
+        "scheme[code]":{
+          required: "Please specify code",
+        },
+         "scheme[name]":{
+          required: "Please specify name",
+        }
+         },
+      errorPlacement: function(error, element) {
+       error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
+       error.insertAfter(element.parent(element));
+      }
+    });
+
+    $('.from_date').datepicker({
+    changeYear:true,
+    changeMonth: true,
+    yearRange: '-200:-0',
+    dateFormat: 'dd-mm-yy' });
+
+  });
 </script>
 
-
+<script type="text/javascript">
+  $(function(){
+    $('.birth_date').datepicker({
+    changeYear:true,
+    changeMonth: true,
+    yearRange: '-200:+1',
+    dateFormat: 'dd-mm-yy' });
+  }); 
+</script>

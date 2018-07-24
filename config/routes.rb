@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get :booking_info
       get :ajax_document_list
       post :document_list_confirm
+      get :branchwise_booking
     end
   end
   resources :showroom_masters do

@@ -69,7 +69,9 @@ class EnquiriesController < ApplicationController
   # PATCH/PUT /enquiries/1.json
   def update
     respond_to do |format|
+        user_id = enquiry_params["user_id"].to_i
       if @enquiry.update(enquiry_params)
+        @enquiry.update(user_id: user_id)
         format.html { redirect_to @enquiry, notice: 'Enquiry was successfully updated.' }
         format.json { render :show, status: :ok, location: @enquiry }
       else
