@@ -7,6 +7,10 @@ class VehicleBookingsController < ApplicationController
     @vehicle_bookings = VehicleBooking.all
   end
 
+  def branchwise_booking
+    enquiry = Enquiry.where(user_id: current_user.id).pluck(:id)
+    @branchwise_bookings = VehicleBooking.where(enquiry_id: enquiry)
+  end
   # GET /vehicle_bookings/1
   # GET /vehicle_bookings/1.json
   def show
