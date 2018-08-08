@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  resources :document_lists
+  resources :vehicle_bookings do
+    collection do
+      get :bookings_detail
+      get :booking_info
+      get :ajax_document_list
+      post :document_list_confirm
+      get :branchwise_booking
+    end
+  end
   resources :showroom_masters do
     collection do
       get :showroom_detail
@@ -26,6 +36,7 @@ Rails.application.routes.draw do
       get :datewise_enquiry_report
       post :show_enquiry
       get :show_enquiry
+      get :branchwise_enquiry
     end
   end
   resources :employees
@@ -33,13 +44,13 @@ Rails.application.routes.draw do
   resources :companies
   #devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "home#index"
+  root 'home#index'
   resources :home
   
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions', passwords: 'users/passwords' }
 
-  devise_scope :user do
-    get '/user' => 'users/sessions#new'
+  devise_scope :users do
+    get '/users' => 'users/sessions#new'
   end
 
   namespace :api do

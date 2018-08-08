@@ -1,0 +1,10 @@
+<%= link_to 'Booking Details',booking_info_vehicle_bookings_path(id: @vehicle_booking.id),class: 'btn btn-sm btn-primary ', remote:true%>
+<%= link_to 'Document List',ajax_document_list_vehicle_bookings_path(id: @vehicle_booking.id),class: 'btn btn-sm btn-primary ', remote:true%>
+
+<div id="message">
+</div>
+
+<div id='info'>
+<%= render 'show_booking_info'%>
+</div>
+

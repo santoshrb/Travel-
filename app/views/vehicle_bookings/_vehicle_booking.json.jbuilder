@@ -1,0 +1,2 @@
+json.extract! vehicle_booking, :id, :pan, :adhar, :licence, :light_bill, :rent_agr, :bs, :itr, :native_light_bill, :pan_guarantor, :adhar_guarantor, :light_bill_guarantor, :rent_agr_guarantor, :bs_guarantor, :itr_guarantor, :pan_guarantor1, :adhar_guarantor1, :light_bill_guarantor1, :rent_agr_guarantor1, :bs_guarantor1, :itr_guarantor1, :status, :created_at, :updated_at
+json.url vehicle_booking_url(vehicle_booking, format: :json)

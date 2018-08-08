@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Document Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Document master</th>
+      <th>Vehicle booking</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @document_lists.each do |document_list| %>
+      <tr>
+        <td><%= document_list.employee %></td>
+        <td><%= document_list.document_master %></td>
+        <td><%= document_list.vehicle_booking %></td>
+        <td><%= document_list.status %></td>
+        <td><%= link_to 'Show', document_list %></td>
+        <td><%= link_to 'Edit', edit_document_list_path(document_list) %></td>
+        <td><%= link_to 'Destroy', document_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Document list', new_document_list_path %>

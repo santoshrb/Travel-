@@ -1,4 +1,5 @@
 class DocumentMaster < ActiveRecord::Base
-  # validates :code, presence:true,uniqueness:{case_sensitive:false}
+	has_many :document_lists
+  validates :code, presence:true,uniqueness:{case_sensitive:false}
   # validates :name, presence:true
 end

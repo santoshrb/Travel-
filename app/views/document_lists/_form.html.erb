@@ -1,0 +1,21 @@
+<%= form_for(@document_list) do |f| %>
+  
+  <!-- <div class="field">
+    <%#= f.text_field :employee_id %>
+  </div> -->
+  <div class="field">
+    <%= f.label :document_master_id %><br>
+    <%= f.text_field :document_master_id %>
+  </div>
+  <div class="field">
+    <%= f.label :vehicle_booking_id %><br>
+    <%= f.text_field :vehicle_booking_id %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.check_box :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

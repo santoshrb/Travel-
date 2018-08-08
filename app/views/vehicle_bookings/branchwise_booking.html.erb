@@ -1,0 +1,86 @@
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title"><strong>Booking Details</strong></h3>
+    <div class="pull-right">
+    <%= link_to 'New Booking', new_vehicle_booking_path, class: 'btn btn-sm btn-primary' %>
+    </div>
+  </div><!-- /.box-header -->
+  <div class="box-body">
+    <table id="example6" class="table table-bordered table-hover table-condensed">
+      <thead>
+        <tr>
+          <th>Sr. No</th>
+          <th>Pan Card</th>
+          <th>Adhar Card</th>
+          <th>Licence No</th>
+          <th>Light Bill</th>
+          <th>Rent Aggrement</th>
+          <!-- <th>BS</th>
+          <th>ITR</th>
+          <th>Native light bill</th>
+          <th>Pan Guarantor</th>
+          <th>Adhar Guarantor</th>
+          <th>Light bill Guarantor</th>
+          <th>Rent agr Guarantor</th>
+          <th>BS Guarantor</th>
+          <th>ITR Guarantor</th>
+          <th>Pan Guarantor1</th>
+          <th>Adhar Guarantor1</th>
+          <th>Light bill Guarantor1</th>
+          <th>Rent agr Guarantor1</th>
+          <th>BS Guarantor1</th>
+          <th>ITR Guarantor1</th>
+          <th>Status</th> -->
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% i = 0 %>
+        <% @branchwise_bookings.each do |vehicle_booking| %>
+          <tr>
+            <td><%= i = i + 1 %></td>
+            <td><%= vehicle_booking.pan %></td>
+            <td><%= vehicle_booking.adhar %></td>
+            <td><%= vehicle_booking.licence %></td>
+            <td><%= vehicle_booking.light_bill %></td>
+            <td><%= vehicle_booking.rent_agr %></td>
+            <!-- <td><%= vehicle_booking.bs %></td>
+            <td><%= vehicle_booking.itr %></td>
+            <td><%= vehicle_booking.native_light_bill %></td>
+            <td><%= vehicle_booking.pan_guarantor %></td>
+            <td><%= vehicle_booking.adhar_guarantor %></td>
+            <td><%= vehicle_booking.light_bill_guarantor %></td>
+            <td><%= vehicle_booking.rent_agr_guarantor %></td>
+            <td><%= vehicle_booking.bs_guarantor %></td>
+            <td><%= vehicle_booking.itr_guarantor %></td>
+            <td><%= vehicle_booking.pan_guarantor1 %></td>
+            <td><%= vehicle_booking.adhar_guarantor1 %></td>
+            <td><%= vehicle_booking.light_bill_guarantor1 %></td>
+            <td><%= vehicle_booking.rent_agr_guarantor1 %></td>
+            <td><%= vehicle_booking.bs_guarantor1 %></td>
+            <td><%= vehicle_booking.itr_guarantor1 %></td> -->
+            <!-- <td><%= vehicle_booking.status %></td> -->
+            <td>
+             <!--  <#%= link_to ' ', vehicle_booking, class: 'btn btn-xs btn-default fa fa-eye' %>
+              <%#= link_to ' ', edit_vehicle_booking_path(vehicle_booking), class: 'btn btn-xs btn-success fa fa-edit' %>
+              <%#= link_to ' ', vehicle_booking, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %>
+              <%#= link_to " PDF ",bookings_detail_vehicle_bookings_path(booking_id: vehicle_booking,format: "pdf"), class: "btn btn-xs btn-info",:target => "_blank" %>
+      
+              <%#= link_to " XLS ",bookings_detail_vehicle_bookings_path(booking_id: vehicle_booking,format: "xls"), class: "btn btn-xs btn-primary"%> -->
+              <%= link_to '', vehicle_booking,class: 'btn btn-sm btn-default fa fa-eye' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>

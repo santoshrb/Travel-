@@ -1,0 +1,50 @@
+<div id = "myModal"></div>
+<!-- Main row --><!-- Info boxes -->
+
+<div class="row">
+  <div class="col-lg-4 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-aqua">
+      <div class="inner">
+        <h6>Yesturday - <%= @enquiry_yest.try(:count) %></h6>
+        <h6>Today - <%= @enquiry_today.try(:count) %></h6>
+        <p>Enquiry</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-bag"></i>
+      </div>
+      <a href="/enquiries/branchwise_enquiry" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+  </div><!-- ./col -->
+
+  <div class="col-lg-4 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-red">
+      <div class="inner">
+        <h5><%= @vehicle_bookings.try(:count) %></h5>
+        <p>Booking</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-pie-graph"></i>
+      </div>
+      <a href="/vehicle_bookings/branchwise_booking" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+  </div><!-- ./col -->
+
+  <div class="col-lg-4 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-green">
+      <div class="inner">
+        <p><b>Enquiry List</b></p>
+        <h6><%= @branch_todays_enquiry.try(:first).try(:user).try(:employee).try(:first_name) %> - <%= @branch_todays_enquiry.try(:count) %></h6>
+          
+      </div>
+      <div class="icon">
+        <i class="ion ion-stats-bars"></i>
+      </div>
+      <a href="/enquiries" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+  </div><!-- ./col -->
+</div><!-- /.row -->
+
+

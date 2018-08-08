@@ -16,33 +16,45 @@
         <tr>
           <th>Budget </th>
           <td><%= @scheme.budget %></td>
-          <th>Down payment</th>
+          <th>Down Payment</th>
           <td><%= @scheme.down_payment %></td>
         </tr>
         <tr>
-          <th>Installment </th>
+          <th>EMI(Months) </th>
           <td><%= @scheme.installment %></td>
-          <th>Intrest</th>
+          <th>Intrest(%)</th>
           <td><%= @scheme.intrest %></td>
         </tr>
         <tr>
-          <th>From date </th>
+          <th>EMI Amount</th>
+          <td><%= @scheme.installment_amount %></td>
+          <th>Total Amount</th>
+          <td><%= @scheme.total_amount %></td>
+        </tr>
+        <tr>
+          <th>Interest Amount</th>
+          <td><%= @scheme.interest %></td>
+          <th>Installment Amount </th>
+          <td><%= @scheme.emi_amount %></td>
+        </tr>
+        <tr>
+          <th>From Date </th>
           <td><%= @scheme.from_date %></td>
-          <th>To date</th>
+          <th>To Date</th>
           <td><%= @scheme.to_date %></td>
         </tr>
         <tr>
           <th>Status</th>
-          <td><%= @scheme.status %></td>
+          <td><%= @scheme.status ? "Active" : "Inactive" %></td>
           <th>Description</th>
-          <td><%= @scheme.description %></td>
+          <td colspan="3"><%= @scheme.description %></td>
         </tr>
         <tr>
-          <th>Image first</th>
+          <th>Image First</th>
           <td><%= image_tag @scheme.avatar.url(:medium),class: "profile-user-img img-responsive img-sequer", alt: "User Image",size: "55x55" %>
           </td>
           <th>Image Second</th>
-          <td><%= image_tag @scheme.image.url(:medium),class: "profile-user-img img-responsive img-sequer", alt: "User Image",size: "55x55" %>
+          <td><%= image_tag @scheme.image1.url(:medium),class: "profile-user-img img-responsive img-sequer", alt: "User Image",size: "55x55" %>
           </td>
         </tr>
       </tbody>

@@ -1,0 +1,6 @@
+<% if DocumentList.exists?(vehicle_booking_id: params[:id]) %>
+<%@document_list = DocumentList.find_by_vehicle_booking_id(params[:id])%>
+$('#info').html("<%= j render 'document_lists/show_document_list' %>")
+<%else%>
+$('#info').html("<%=  %>")
+<%end%>

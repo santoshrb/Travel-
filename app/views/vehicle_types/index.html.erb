@@ -25,7 +25,7 @@
             <td><%= vehicle_type.code %></td>
             <td><%= vehicle_type.name %></td>
             <td><%= vehicle_type.description %></td>
-            <td><%= vehicle_type.status %></td>
+            <td><%= vehicle_type.status ? "Active" : "Inactive" %></td>
             <td>
             <%= link_to ' ', vehicle_type, class: 'btn btn-xs btn-default fa fa-eye' %>
             <%= link_to ' ', edit_vehicle_type_path(vehicle_type), class: 'btn btn-xs btn-success fa fa-edit' %>
@@ -37,3 +37,11 @@
       <%#= link_to 'Back', root_url ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
   </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>
