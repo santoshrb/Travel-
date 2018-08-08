@@ -32,7 +32,7 @@ class Api::UserAuthsController < ApplicationController
       logger.info("User #{email} failed signin, password \"#{password}\" is invalid")
       render :status=>401, :json=>{:status=>"Failure",:message=>"Invalid password."}
     else
-      render :status=>200, :json=>{ :member_id => @user.id}
+      render :status=>200, :json=>{ :member_id => @user.id, :role => @user.role }
     end
   end
 

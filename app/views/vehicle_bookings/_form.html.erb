@@ -5,7 +5,10 @@
         <%= f.select :enquiry_id,all_enquiry,{label: 'Enquiry',include_blank: " Select Enquiry"} %>
       </div>
     </div>
-  </div>
+  </div><br>
+   <div class="row">
+   <div class="col-sm-12" style="color: Red;"><center><strong>Customer Details</strong></center></div> <hr>
+   </div>
   <div class="row">
     <div class="col-sm-3">
       <div class="form-group required">
@@ -49,7 +52,10 @@
         <%= f.text_field :native_light_bill, label:'Native Light Bill', placeholder: 'eg: 18486875' %>
       </div>
     </div>
-  </div>
+  </div><br>
+   <div class="row">
+     <div class="col-sm-12" style="color: Red;" ><center><strong>Guarantor Details</strong></center></div> <hr>
+     </div>
   <div class="row">
     <div class="col-sm-3">
       <div class="field">
@@ -84,7 +90,14 @@
       </div>
     </div>
 
-    <div class="col-sm-3">
+   
+  </div><br>
+
+   <div class="row">
+     <div class="col-sm-12" style="color: Red;"><center> <strong>Guarantor1 Details</strong> </center></div> <hr>
+     </div>
+  <div class="row">
+     <div class="col-sm-3">
       <div class="field">
         <%= f.text_field :pan_guarantor1, label:'Guarantor1 Pan Card', placeholder: 'BLSKX0917H' %>
       </div>
@@ -94,8 +107,7 @@
         <%= f.text_field :adhar_guarantor1, label:'Guarantor1 Adhar Card', placeholder: '422192174617' %>
       </div>
     </div>
-  </div>
-  <div class="row">
+
     <div class="col-sm-3">
       <div class="field">
         <%= f.text_field :light_bill_guarantor1, label:'Guarantor1 Light Bill', placeholder: 'eg: 74217898' %>
@@ -106,7 +118,10 @@
         <%= f.text_field :rent_agr_guarantor1, label:'Guarantor1 Rent Aggrement', placeholder: 'Guarantor1 Rent Aggrement agr' %>
       </div>
     </div>
-    <div class="col-sm-3">
+   
+  </div>
+  <div class="row">
+   <div class="col-sm-3">
       <div class="field">
         <%= f.text_field :bs_guarantor1, label:'Guarantor1 BS', placeholder: 'Guarantor1 BS' %>
       </div>
@@ -116,14 +131,12 @@
         <%= f.text_field :itr_guarantor1, label:'Guarantor1 ITR', placeholder: 'Guarantor1 ITR' %>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3" style="margin-top: 20px">
       <div class="field">
         <%= f.check_box :status,label:'Active' %>
       </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-3" style="margin-top: 20px">
       <div class="actions">
         <%= f.submit "Create Booking", class: 'btn btn-sm btn-primary' %>
       </div>
