@@ -7,6 +7,6 @@ class Employee < ApplicationRecord
 	#validates :last_name, presence:true
 	# validates :code, presence:true,uniqueness:{case_sensitive:false}
 	#validates :email, presence:true
-	# validates :company_id, presence:true
+	validates :company_id, presence:true
 	# validates :branch_id, presence:true
 end
