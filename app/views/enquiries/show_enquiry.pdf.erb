@@ -1,4 +1,4 @@
-<table style="border-collapse: collapse; font-size:12pt;" border=1 width=1200 cellpadding="10" cellspacing="10">
+<table style="border-collapse: collapse; font-size:12pt;" border=1 width=1200 cellpadding="10" cellspacing="5">
   <tbody>
     <tr>
       <th colspan="5">
@@ -6,38 +6,36 @@
       </th>
     </tr>
     <tr>
-      <th>Mobile No.</th>
+      <td><strong> Mobile No.</strong></td>
       <td><%= @enquiry.mobile_no %></td>
-      <th> Name </th>
+      <td><strong>  Name </strong></td>
       <td><%= @enquiry.name_first %> <%= @enquiry.middle_name %> <%= @enquiry.last_name %> </td>
     </tr>
     <tr>
-      <th>Email </th>
+      <td><strong> Email </strong></td>
       <td><%= @enquiry.email %></td>
-      <th>Place</th>
+      <td><strong> Place</strong></td>
       <td><%= @enquiry.place %></td>
     </tr>
     <tr>
-      <th> Date </th>
+      <td><strong>  Date </strong></td>
       <td><%= @enquiry.enquiry_date %></td>
-      <th>Scheme</th>
+      <td><strong> Scheme</strong></td>
       <td><%= @enquiry.scheme.try(:name) %></td>
     </tr>
     <tr>
-      <th>Address</th>
+      <td><strong> Address</strong></td>
       <td colspan="3"><%= @enquiry.try(:address) %></td>
     </tr>
     <tr>
-      <th>Description</th>
+      <td><strong> Description</strong></td>
       <td colspan="3"><%= @enquiry.try(:description) %></td>
     </tr>
   </tbody>
-</table><br>
 
 <% if @enquiry.scheme_id == nil %>
 <% else %>
-  <table style="border-collapse: collapse; font-size:12pt;" border=1 width=1200 cellpadding="10" cellspacing="10">
-    <thead>
+ 
       <tr><th colspan="4"><strong><center>Scheme Detail</center></strong></th></tr>
       <tr>
         <td><strong>Scheme</strong></td>
