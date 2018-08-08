@@ -64,5 +64,6 @@ Rails.application.routes.draw do
     post 'user_auths/create_scheme' => 'user_auths#create_scheme', defaults: {format: 'json'}
     get  'user_auths/schemes_list' => 'user_auths#schemes_list', defaults: {format: 'json'}
     get  'user_auths/employee_list' => 'user_auths#employee_list', defaults: {format: 'json'}
+    get  'user_auths/enquiry_wise_schemes' => 'user_auths#enquiry_wise_schemes', defaults: {format: 'json'}
   end
 end

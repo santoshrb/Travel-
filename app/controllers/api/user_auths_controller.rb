@@ -35,7 +35,7 @@ class Api::UserAuthsController < ApplicationController
       logger.info("User #{email} failed signin, password \"#{password}\" is invalid")
       render :status=>401, :json=>{:status=>"Failure",:message=>"Invalid password."}
     else
-      render :status=>200, :json=>{ :member_id => @user.id}
+      render :status=>200, :json=>{ :member_id => @user.id, :role => @user.role}
     end
   end
 
@@ -68,10 +68,11 @@ class Api::UserAuthsController < ApplicationController
     city= params[:city]
     adhar_no = params[:adhar_no]
     status = params[:status]
-
+    company_id = params[:company_id]
+    branch_id = params[:branch_id]
     @employee1 = Employee.create(code: code,prefix: prefix, first_name: first_name, middle_name: middle_name, last_name: last_name, gender: gender, email: email,
      contact_no: contact_no,blood_group: blood_group,date_of_birth: date_of_birth, address: address, pin_code: pin_code, country: country,state: state,
-     district: district, city: city,adhar_no: adhar_no,status: status)
+     district: district, city: city,adhar_no: adhar_no,status: status, company_id: company_id, branch_id: branch_id)
     render :status=>200, :json=>{:status=> "Employee Created successfully!"}
   end
 
@@ -100,13 +101,13 @@ class Api::UserAuthsController < ApplicationController
     to_date = params[:to_date]
     status = params[:status]
     @scheme = Scheme.create(scheme_type: scheme_type, name: name, budget: budget, down_payment: down_payment, installment: installment,
-          installment_amount: installment_amount, intrest: intrest, from_date: from_date, from_date: from_date)
+          installment_amount: installment_amount, intrest: intrest, from_date: from_date)
       render :status=>200, :json=>{:status=> "Scheme Created successfully!"}
   end
 
   def enquiry_list
   	all_enquiry_list = Enquiry.all
-    render :json => all_enquiry_list.present? ? all_enquiry_list.collect{|d| {:id => d.try(:id),:mobile_no => d.try(:mobile_no), :name_first => d.try(:name_first), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :place => d.try(:place), :address => d.try(:address), :email => d.try(:email), :user_id => d.try(:user_id)}} : []
+    render :json => all_enquiry_list.present? ? all_enquiry_list.collect{|d| {:id => d.try(:id),:mobile_no => d.try(:mobile_no), :name_first => d.try(:name_first), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :place => d.try(:place), :address => d.try(:address), :email => d.try(:email), :user_id => d.try(:user_id), :scheme_id => d.try(:scheme_id), :scheme_name => d.try(:scheme).try(:name) }} : []
   end
 
   def schemes_list
@@ -116,7 +117,13 @@ class Api::UserAuthsController < ApplicationController
 
   def employee_list
     all_employee_list = Employee.all
-    render :json => all_employee_list.present? ? all_employee_list.collect{|d| {:id => d.try(:id),:code => d.try(:code), :prefix => d.try(:prefix), :first_name => d.try(:first_name), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :gender => d.try(:gender), :email => d.try(:email), :contact_no => d.try(:contact_no), :blood_group => d.try(:blood_group), :date_of_birth => d.try(:date_of_birth), :address => d.try(:address), :pin_code => d.try(:pin_code), :country => d.try(:country), :state => d.try(:state), :district => d.try(:district), :adhar_no => d.try(:adhar_no), :city => d.try(:city), :status => d.try(:status)}} : []
+    render :json => all_employee_list.present? ? all_employee_list.collect{|d| {:id => d.try(:id),:code => d.try(:code), :prefix => d.try(:prefix), :first_name => d.try(:first_name), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :gender => d.try(:gender), :email => d.try(:email), :contact_no => d.try(:contact_no), :blood_group => d.try(:blood_group), :date_of_birth => d.try(:date_of_birth), :address => d.try(:address), :pin_code => d.try(:pin_code), :country => d.try(:country), :state => d.try(:state), :district => d.try(:district), :adhar_no => d.try(:adhar_no), :city => d.try(:city), :status => d.try(:status), :company => d.try(:company).try(:name), :branch => d.try(:branch).try(:name) }} : []
   end
-  
+
+  def enquiry_wise_schemes
+    scheme_id = params[:scheme_id]
+    scheme = Scheme.where(scheme_id)
+    render :json => scheme.present? ? scheme.collect{|d| {:id => d.try(:id),:scheme_type => d.try(:scheme_type), :name => d.try(:name), :budget => d.try(:budget), :down_payment => d.try(:down_payment), :installment => d.try(:installment), :installment_amount => d.try(:installment_amount), :intrest => d.try(:intrest), :from_date => d.try(:from_date), :to_date => d.try(:to_date), :status => d.try(:status)}} : []
+  end
+
 end
