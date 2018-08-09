@@ -193,10 +193,31 @@ class Api::UserAuthsController < ApplicationController
     place = params[:place]
     address = params[:address]
     contact_no = params[:contact_no]
+    email = params[:email]
     contact_person = params[:contact_person]
     status = params[:status]
-    FinancerMaster.create(code: code, name: name, description: description, pin_code: pin_code, place: place, address: address, contact_no: contact_no, contact_person: contact_person, status: status)
+    FinancerMaster.create(code: code, name: name, description: description, pin_code: pin_code, place: place, address: address, contact_no: contact_no, email: email, contact_person: contact_person, status: status)
     render :status=>200, :json=>{:status=> "Financer Master was successfully created."}
+  end
+
+  def create_showroom_master
+    code = params[:code]
+    name = params[:name]
+    description = params[:description]
+    pin_code = params[:pin_code]
+    place = params[:place]
+    address = params[:address]
+    contact_no = params[:contact_no]
+    email = params[:email]
+    contact_person = params[:contact_person]
+    status = params[:status]
+    ShowroomMaster.create(code: code, name: name, description: description, pin_code: pin_code, place: place, address: address, contact_no: contact_no, email: email, contact_person: contact_person, status: status)
+    render :status=>200, :json=>{:status=> "Showroom Master was successfully created."}
+  end
+
+  def all_showroom_master
+    @showroom_master = ShowroomMaster.all
+    render :json => @showroom_master.present? ? @showroom_master.collect{|fm| {:id => fm.try(:id), :code => fm.try(:code), :name => fm.try(:name), :description => fm.try(:description), :pin_code => fm.try(:pin_code), :place => fm.try(:place), :address => fm.try(:address), :contact_no => fm.try(:contact_no), :email => fm.try(:email), :contact_person => fm.try(:contact_person), :status => fm.try(:status) }} : []
   end
 end
 

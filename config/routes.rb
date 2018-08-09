@@ -74,5 +74,7 @@ Rails.application.routes.draw do
     get  'user_auths/all_document_master' => 'user_auths#all_document_master', defaults: {format: 'json'}
     post 'user_auths/create_financer_master' => 'user_auths#create_financer_master', defaults: {format: 'json'}
     get  'user_auths/all_financer_master' => 'user_auths#all_financer_master', defaults: {format: 'json'}
+    post 'user_auths/create_showroom_master' => 'user_auths#create_showroom_master', defaults: {format: 'json'}
+    get  'user_auths/all_showroom_master' => 'user_auths#all_showroom_master', defaults: {format: 'json'}
   end
 end
