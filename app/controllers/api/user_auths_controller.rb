@@ -128,7 +128,7 @@ class Api::UserAuthsController < ApplicationController
 
   def all_vehical_type
     all_vehicle_type = VehicleType.where(status: true)
-    render :json => all_vehicle_type.present? ? all_vehicle_type.collect{|vt| :id => vt.try(:id), :code => vt.try(:code), :name => vt.try(:name), :description => vt.try(:description), :status => vt.try(:status) }} : []
+    render :json => all_vehicle_type.present? ? all_vehicle_type.collect{|vt| {:id => vt.try(:id), :code => vt.try(:code), :name => vt.try(:name), :description => vt.try(:description), :status => vt.try(:status) }} : []
   end
 
   def create_branch
@@ -142,7 +142,5 @@ class Api::UserAuthsController < ApplicationController
     Branch.create(code: code, name: name, address: address, email: email, contact_no: contact_no, status: status, company_id: company)
     render :status=>200, :json=>{:status=> "Branch was successfully created"}
   end
-
-
-
 end
+

@@ -61,6 +61,17 @@ class SchemesController < ApplicationController
     end
   end
 
+  def import
+    file = params[:file]
+    if file.nil?
+      flash[:alert] = "Please Select File!"
+      redirect_to import_xl_schemes_path
+    else
+      Scheme.import(params[:file])
+      redirect_to schemes_path, notice: "File imported."
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_scheme

@@ -67,6 +67,5 @@ Rails.application.routes.draw do
     get  'user_auths/enquiry_wise_schemes' => 'user_auths#enquiry_wise_schemes', defaults: {format: 'json'}
     get  'user_auths/all_vehical_type' => 'user_auths#all_vehical_type', defaults: {format: 'json'}
     post 'user_auths/create_branch' => 'user_auths#create_branch', defaults: {format: 'json'}
-    
   end
 end
