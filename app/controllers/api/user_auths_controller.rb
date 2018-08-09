@@ -151,5 +151,19 @@ class Api::UserAuthsController < ApplicationController
     VehicleType.create(code: code, name: name, description: description, status: status)
     render :status=>200, :json=>{:status=> "Vehicle type was successfully created."}
   end
+
+  def create_document_list
+    employee_id = params[:employee_id]
+    document_master_id = params[:document_master_id]
+    vehicle_booking_id = params[:vehicle_booking_id]
+    status = params[:status]
+    DocumentList.create(employee_id: employee_id, document_master_id: document_master_id, vehicle_booking_id: vehicle_booking_id, status: status)
+    render :status=>200, :json=>{:status=> "Document list was successfully created."}
+  end
+
+  def all_document_list
+    @document_list = DocumentList.all
+    render :json => @document_list.present? ? @document_list.collect{|dl| { :id => dl.try(:id), :employee_id => dl.try(:employee_id), prefix: dl.try(:employee).try(:prefix), first_name: dl.try(:employee).try(:first_name), middle_name: dl.try(:employee).try(:middle_name), last_name: dl.try(:employee).try(:last_name), :document_master_id => dl.try(:document_master).try(:name), :vehicle_booking_id => dl.try(:vehicle_booking_id), :status => dl.try(:status)  }} : []
+  end
 end
 

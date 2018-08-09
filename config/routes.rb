@@ -68,5 +68,7 @@ Rails.application.routes.draw do
     get  'user_auths/all_vehical_type' => 'user_auths#all_vehical_type', defaults: {format: 'json'}
     post 'user_auths/create_branch' => 'user_auths#create_branch', defaults: {format: 'json'}
     post 'user_auths/create_vehicle' => 'user_auths#create_vehicle', defaults: {format: 'json'}
+    post 'user_auths/create_document_list' => 'user_auths#create_document_list', defaults: {format: 'json'}
+    get  'user_auths/all_document_list' => 'user_auths#all_document_list', defaults: {format: 'json'}
   end
 end
