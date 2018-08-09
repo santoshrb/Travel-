@@ -142,5 +142,14 @@ class Api::UserAuthsController < ApplicationController
     Branch.create(code: code, name: name, address: address, email: email, contact_no: contact_no, status: status, company_id: company)
     render :status=>200, :json=>{:status=> "Branch was successfully created"}
   end
+
+  def create_vehicle
+    code = params[:code]
+    name = params[:name]
+    description = params[:description]
+    status = params[:status]
+    VehicleType.create(code: code, name: name, description: description, status: status)
+    render :status=>200, :json=>{:status=> "Vehicle type was successfully created."}
+  end
 end
 
