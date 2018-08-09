@@ -165,5 +165,19 @@ class Api::UserAuthsController < ApplicationController
     @document_list = DocumentList.all
     render :json => @document_list.present? ? @document_list.collect{|dl| { :id => dl.try(:id), :employee_id => dl.try(:employee_id), prefix: dl.try(:employee).try(:prefix), first_name: dl.try(:employee).try(:first_name), middle_name: dl.try(:employee).try(:middle_name), last_name: dl.try(:employee).try(:last_name), :document_master_id => dl.try(:document_master).try(:name), :vehicle_booking_id => dl.try(:vehicle_booking_id), :status => dl.try(:status)  }} : []
   end
+
+  def create_document_master
+    code = params[:code]
+    name = params[:name]
+    description = params[:description]
+    status = params[:status]
+    DocumentMaster.create(code: code, name: name, description: description, status: status)
+    render :status=>200, :json=>{:status=> "Document Master was successfully created."}
+  end
+
+  def all_document_master
+    document_master = DocumentMaster.all
+    render :json => document_master.present? ? document_master.collect{|vt| {:id => vt.try(:id), :code => vt.try(:code), :name => vt.try(:name), :description => vt.try(:description), :status => vt.try(:status) }} : []
+  end
 end
 
