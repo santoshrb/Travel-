@@ -1,0 +1,42 @@
+<table id="example6" class="table table-bordered table-hover table-condensed">
+  <thead>
+    <tr>
+    	<th>Sr.No</th>
+      <th>Vehicle Type</th>
+      <th>Name</th>
+      <th>Budget</th>
+      <th>Down Payment</th>
+      <th>EMI(Months) </th>
+      <th>Intrest(%)</th>
+      <th>EMI Amount</th>
+      <th>Total Amount</th>
+      <th>Installment Amount</th>
+      <th>From Date</th>
+      <th>To Date</th>
+      <th>Description</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	<% i = 0 %>
+    <% @schemes.each do |scheme| %>
+      <tr>
+      	<td><%= i = i + 1 %></td>
+        <td><%= scheme.vehicle_type.name rescue nil %></td>
+        <td><%= scheme.name rescue nil %></td>
+        <td><%= scheme.budget %></td>
+        <td><%= scheme.down_payment %></td>
+        <td><%= scheme.installment %></td>
+        <td><%= scheme.interest %></td>
+        <td><%= scheme.emi_amount %></td>
+        <td><%= scheme.total_amount %></td>
+        <td><%= scheme.installment_amount %></td>
+        <td><%= scheme.from_date %></td>
+        <td><%= scheme.to_date %></td>
+        <td><%= scheme.description %></td>
+        <td><%= scheme.status ? "Active" : "Inactive" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -33,6 +33,8 @@ class VehicleBookingsController < ApplicationController
 
     respond_to do |format|
       if @vehicle_booking.save
+        enquiry = Enquiry.find_by(id: @vehicle_booking.enquiry_id)
+        enquiry.update(status: 'Booked')
         format.html { redirect_to @vehicle_booking, notice: 'Vehicle booking was successfully created.' }
         format.json { render :show, status: :created, location: @vehicle_booking }
         @document_masters = DocumentMaster.where(status: true)

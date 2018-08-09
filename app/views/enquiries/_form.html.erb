@@ -1,6 +1,7 @@
 <%= bootstrap_form_for(@enquiry,html: {id: 'enquiry'}) do |f| %>
 <%#= bootstrap_form_for :enquiry,url:{action: "display_scheme"} do |f| %>
 <%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :status, value: 'Interested' %>
   <div class="row">
     <div class="col-sm-3">
       <label>Mobile No.</label>
@@ -67,7 +68,7 @@
     </div>
      <div class="col-sm-6">
       <div class="form-group required">
-        <%= f.text_field :description,label:'Description', placeholder: 'Duration' %>
+        <%= f.text_field :description,label:'Description', placeholder: 'Description' %>
       </div>
     </div>
 </div>

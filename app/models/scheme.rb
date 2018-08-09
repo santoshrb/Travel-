@@ -15,43 +15,53 @@ class Scheme < ApplicationRecord
   	has_attached_file :image1, styles: { medium: '300x300>', thumb: '100x100>' }, default_url: 'missing.png'
   	validates_attachment_content_type :image1, content_type: /\Aimage\/.*\Z/
 
-  	def import
+  	def self.import(file)
   		spreadsheet = open_spreadsheet(file)
 	   	(2..spreadsheet.last_row).each do |i| 
 
-	    	code = spreadsheet.cell(i,'B')
-	      name = spreadsheet.cell(i,'C')
-	    
-	      if code == nil || name == nil
-	      else
-	        if code == 0
-	          code = spreadsheet.cell(i,'B').to_i
-	        else
-	          code = spreadsheet.cell(i,'B')
-	        end
-	        description = spreadsheet.cell(i,'D')
-	        pin_code = spreadsheet.cell(i,'E')
-	        place = spreadsheet.cell(i,'F')
-	        address = spreadsheet.cell(i,'G')
-	        contact_no = spreadsheet.cell(i,'H')
-	        email = spreadsheet.cell(i,'I')
-	        contact_person = spreadsheet.cell(i,'J')
-	      
-	        @status = spreadsheet.cell(i,'K')
-	        if @status == "Active"
-	        	status = true
-	        else
-	    			status = false
-	    		end 
+	    	vehicle_type = spreadsheet.cell(i,'B')
+	    	scheme_name = spreadsheet.cell(i,'C')
 
-	        @financer_master = FinancerMaster.find_by(name: name)
-	        if @financer_master.nil?
-	        	FinancerMaster.create(code: code,name: name,status: status,description: description,pin_code: pin_code,address: address,place: place,contact_no: contact_no,email: email,contact_person: contact_person,status: status)     
-	        else
-	          @financer_master.update(code: code,name: name,status: status,description: description,pin_code: pin_code,
-	          	address: address,place: place,contact_no: contact_no,email: email,contact_person: contact_person,status: status)
-	        end
-	      end#if code == nil
+	    	if vehicle_type == nil || scheme_name == nil
+	      else
+		    	@vehicle_type = VehicleType.find_by(name: vehicle_type)
+		    	if @vehicle_type.nil?
+		    	  create_new = VehicleType.create(name: vehicle_type,status: true)
+		    	  new_type = create_new.id
+		    	else
+		    		new_type = @vehicle_type.id
+		    	end
+
+		     
+		        budget = spreadsheet.cell(i,'D')
+		        down_payment = spreadsheet.cell(i,'E')
+		        emi = spreadsheet.cell(i,'F')
+		        interest = spreadsheet.cell(i,'G')
+		        emi_amount = spreadsheet.cell(i,'H')
+		        total_amount = spreadsheet.cell(i,'I')
+		        interest_amount = spreadsheet.cell(i,'J')
+		        installment_amount = spreadsheet.cell(i,'K')
+		        from_date = spreadsheet.cell(i,'L')
+		        to_date = spreadsheet.cell(i,'M')
+		        @status = spreadsheet.cell(i,'N')
+		        description = spreadsheet.cell(i,'O')
+		        if @status == "Active"
+		        	status = true
+		        else
+		    			status = false
+		    		end 
+byebug
+		        @scheme = Scheme.find_by(name: scheme_name)
+		        if @scheme.nil?
+		        	Scheme.create(vehicle_type_id: new_type,name: scheme_name,budget: budget,down_payment: down_payment,installment: emi,intrest: interest,emi_amount: emi_amount,
+		        		total_amount: total_amount,installment_amount: installment_amount,from_date: from_date,to_date: to_date,status: status,
+		        		description: description)     
+		        else
+		          @scheme.update(vehicle_type_id: new_type,name: scheme_name,budget: budget,down_payment: down_payment,installment: emi,intrest: interest,emi_amount: emi_amount,
+		          	total_amount: total_amount,installment_amount: installment_amount,from_date: from_date,to_date: to_date,status: status,
+		          	description: description)
+		        end#@scheme.nil?
+		    end#if vehicle_type.nil?
 	    end#do
   	end
 

@@ -9,9 +9,9 @@
         </tr>
         <tr>
           <th>Vehicle Type</th>
-          <td><%= @scheme.vehicle_type.name %></td>
+          <td><%= @scheme.vehicle_type.name rescue nil %></td>
           <th>Name</th>
-          <td><%= @scheme.name %></td>
+          <td><%= @scheme.name rescue nil %></td>
         </tr>
         <tr>
           <th>Budget </th>
@@ -23,7 +23,7 @@
           <th>EMI(Months) </th>
           <td><%= @scheme.installment %></td>
           <th>Intrest(%)</th>
-          <td><%= @scheme.intrest %></td>
+          <td><%= @scheme.interest %></td>
         </tr>
         <tr>
           <th>EMI Amount</th>
@@ -32,10 +32,8 @@
           <td><%= @scheme.total_amount %></td>
         </tr>
         <tr>
-          <th>Interest Amount</th>
-          <td><%= @scheme.interest %></td>
           <th>Installment Amount </th>
-          <td><%= @scheme.emi_amount %></td>
+          <td colspan="3"><%= @scheme.emi_amount %></td>
         </tr>
         <tr>
           <th>From Date </th>
