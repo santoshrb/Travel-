@@ -2,27 +2,28 @@
   <div class="row">
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :code, label:'Code', placeholder: '001' %>
+        <%= f.text_field :code, label:'Code', placeholder: 'V_001' %>
       </div>
     </div>
 
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.text_field :name, label:'Name', placeholder: 'Truba' %>
+        <%= f.text_field :name, label:'Name', placeholder: 'Car' %>
       </div>
     </div>
 
     <div class="col-sm-6">
       <div class="form-group required">
-        <%= f.text_field :description, label:'Description', placeholder: 'description' %>
+        <%= f.text_field :description, label:'Description', placeholder: 'Description' %>
       </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3" style="padding-top: 20px;">
       <div class="form-group required">
-        <%= f.select :status,['Active','Inactive'],{label: 'Status',include_blank: " Select Employee Status"} %>
+        <%= f.check_box :status,label: 'Active' %>
+        <%#= f.select :status,['Active','Inactive'],{label: 'Status',include_blank: " Select Employee Status"} %>
       </div>
     </div>
   
