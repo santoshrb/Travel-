@@ -26,7 +26,7 @@
         <% @schemes.each do |scheme| %>
           <tr>
             <td><%= i = i + 1 %></td>
-            <td><%= scheme.vehicle_type.name %></td>
+            <td><%= scheme.try(:vehicle_type).try(:name) %></td>
             <td><%= scheme.name %></td>
             <td><%= scheme.budget %></td>
             <td><%= scheme.down_payment %></td>

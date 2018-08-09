@@ -179,5 +179,24 @@ class Api::UserAuthsController < ApplicationController
     document_master = DocumentMaster.all
     render :json => document_master.present? ? document_master.collect{|vt| {:id => vt.try(:id), :code => vt.try(:code), :name => vt.try(:name), :description => vt.try(:description), :status => vt.try(:status) }} : []
   end
+
+  def all_financer_master
+    @financer_master = FinancerMaster.all
+    render :json => @financer_master.present? ? @financer_master.collect{|fm| {:id => fm.try(:id), :code => fm.try(:code), :name => fm.try(:name), :description => fm.try(:description), :pin_code => fm.try(:pin_code), :place => fm.try(:place), :address => fm.try(:address), :contact_no => fm.try(:contact_no), :email => fm.try(:email), :contact_person => fm.try(:contact_person), :status => fm.try(:status) }} : []
+  end
+
+  def create_financer_master
+    code = params[:code]
+    name = params[:name]
+    description = params[:description]
+    pin_code = params[:pin_code]
+    place = params[:place]
+    address = params[:address]
+    contact_no = params[:contact_no]
+    contact_person = params[:contact_person]
+    status = params[:status]
+    FinancerMaster.create(code: code, name: name, description: description, pin_code: pin_code, place: place, address: address, contact_no: contact_no, contact_person: contact_person, status: status)
+    render :status=>200, :json=>{:status=> "Financer Master was successfully created."}
+  end
 end
 
