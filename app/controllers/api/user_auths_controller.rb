@@ -126,7 +126,7 @@ class Api::UserAuthsController < ApplicationController
     render :json => scheme.present? ? scheme.collect{|d| {:id => d.try(:id),:scheme_type => d.try(:scheme_type), :name => d.try(:name), :budget => d.try(:budget), :down_payment => d.try(:down_payment), :installment => d.try(:installment), :installment_amount => d.try(:installment_amount), :intrest => d.try(:intrest), :from_date => d.try(:from_date), :to_date => d.try(:to_date), :status => d.try(:status)}} : []
   end
 
-  def all_vehicle_type
+  def all_vehical_type
     all_vehicle_type = VehicleType.where(status: true)
     render :json => all_vehicle_type.present? ? all_vehicle_type.collect{|vt| {:id => vt.try(:id), :code => vt.try(:code), :name => vt.try(:name), :description => vt.try(:description), :status => vt.try(:status) }} : []
   end

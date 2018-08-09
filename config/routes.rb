@@ -65,7 +65,13 @@ Rails.application.routes.draw do
     get  'user_auths/schemes_list' => 'user_auths#schemes_list', defaults: {format: 'json'}
     get  'user_auths/employee_list' => 'user_auths#employee_list', defaults: {format: 'json'}
     get  'user_auths/enquiry_wise_schemes' => 'user_auths#enquiry_wise_schemes', defaults: {format: 'json'}
+<<<<<<< HEAD
     get  'user_auths/all_vehicle_type' => 'user_auths#all_vehicle_type', defaults: {format: 'json'}
     post 'user_auths/create_branch' => 'user_auths#create_branch', defaults: {format: 'json'}    
+=======
+    get  'user_auths/all_vehical_type' => 'user_auths#all_vehical_type', defaults: {format: 'json'}
+    post 'user_auths/create_branch' => 'user_auths#create_branch', defaults: {format: 'json'}
+    
+>>>>>>> 248c82ee41cc8154545adf6bd0f25eb124447277
   end
 end
