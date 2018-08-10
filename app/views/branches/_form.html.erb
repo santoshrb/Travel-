@@ -41,7 +41,7 @@
 
     <div class="col-sm-3">
       <div class="form-group required">
-        <%= f.select :status,['Active','Inactive'],{label: 'Status',include_blank: " Select Status"} %>
+        <%= f.check_box :status,label:'Active' %>
       </div>
     </div>
   </div>

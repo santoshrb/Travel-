@@ -23,7 +23,7 @@
 			      	<td><%= i = i + 1 %></td>
 			        <td><%= document_list.document_master.try(:name) %></td>
 			        <td><%= document_list.status ? "Submit" : "Pending" %></td>
-			        <td><%= document_list.employee.try(:first_name) %></td>
+			        <td><%= document_list.employee.try(:prefix) %> <%= document_list.employee.try(:first_name) %> <%= document_list.employee.try(:middle_name) %> <%= document_list.employee.try(:last_name) %></td>
 			      </tr>
 			    <% end %>
 			  </tbody>

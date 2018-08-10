@@ -84,7 +84,11 @@ class VehicleBookingsController < ApplicationController
         if enquiry.nil?
           @vehicle_booking.update(enquiry_id: updated_enquiry)
         else
-          @vehicle_booking.update(enquiry_id: enquiry)
+          if updated_enquiry == ""
+            @vehicle_booking.update(enquiry_id: enquiry)
+          else
+            @vehicle_booking.update(enquiry_id: updated_enquiry)
+          end
         end
         format.html { redirect_to @vehicle_booking, notice: 'Vehicle booking was successfully updated.' }
         format.json { render :show, status: :ok, location: @vehicle_booking }

@@ -1,13 +1,14 @@
 <table style="border-collapse: collapse; font-size:9pt;" border=1 width=1200 cellpadding="10">
   <thead>
-    
-    <td colspan="11"><center> 
-      <% if current_user.employee.company.logo == nil %>
-      <% else %>
-        <center> <%= wicked_pdf_image_tag current_user.employee.company.logo.url, :size => "120x80" %></center>
-      <%end%> 
-        <strong><%=current_user.employee.company.try(:name)%></strong> <br> <%= current_user.employee.company.try(:address)%></center>
-    </td>
+    <tr>
+      <td colspan="11"><center> 
+        <% if current_user.employee.company.logo == nil %>
+        <% else %>
+          <center> <%= wicked_pdf_image_tag current_user.employee.company.logo.url, :size => "120x80" %></center>
+        <%end%> 
+          <strong><%=current_user.employee.company.try(:name)%></strong> <br> <%= current_user.employee.company.try(:address)%></center>
+      </td>
+    </tr>
     <tr>
     	<th>Sr. No</th>
       <th>Code</th>
