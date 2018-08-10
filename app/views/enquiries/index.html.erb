@@ -30,12 +30,16 @@
             <td><%= enquiry.name_first %> <%= enquiry.middle_name %> <%= enquiry.last_name %></td>
             <td><%= enquiry.email %></td>
             <td>
-            <%= link_to ' ', enquiry, class: 'btn btn-xs btn-default fa fa-eye' %>
-            <% if enquiry.status == "Booked" %>
-            <% else %>
-            <%= link_to ' ', edit_enquiry_path(enquiry), class: 'btn btn-xs btn-success fa fa-edit' %>
-            <% end %>
-            <%#= link_to ' ', enquiry, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %></td>
+              <%= link_to ' ', enquiry, class: 'btn btn-xs btn-default fa fa-eye' %>
+              <% if enquiry.status == "Booked" %>
+                <small class="label label-primary">Booked</small>
+                <%= link_to " ", show_enquiry_enquiries_path(enquiry_id: enquiry.id,format: "pdf"), class: "btn btn-xs btn-info fa fa-print",:target => "_blank" %>
+              <% else %>
+                <%= link_to ' ', edit_enquiry_path(enquiry), class: 'btn btn-xs btn-success fa fa-edit' %>
+                <%= link_to " ", show_enquiry_enquiries_path(enquiry_id: enquiry.id,format: "pdf"), class: "btn btn-xs btn-info fa fa-print",:target => "_blank" %>
+              <% end %>
+              <%#= link_to ' ', enquiry, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %>
+            </td>
           </tr>
         <% end %>
       </tbody>

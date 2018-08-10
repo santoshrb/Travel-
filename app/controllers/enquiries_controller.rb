@@ -57,7 +57,7 @@ class EnquiriesController < ApplicationController
       f.pdf do
         render pdf: ' show_enquiry',
         layout: 'pdf.html',
-        orientation: 'Landscape',
+        orientation: 'portrait',
         template: 'enquiries/show_enquiry.pdf.erb',
         show_as_html: params[:debug].present?
         #margin:  { top:1,bottom:1,left:1,right:1 }

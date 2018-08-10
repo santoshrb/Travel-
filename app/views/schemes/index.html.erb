@@ -33,11 +33,10 @@
             <td><%= scheme.name rescue nil %></td>
             <td><%= scheme.budget %></td>
             <td><%= scheme.down_payment %></td>
-<!--             <td><%#= scheme.down_payment %></td>
+<!--        <td><%#= scheme.down_payment %></td>
             <td><%#= scheme.installment %></td>
             <td><%#= scheme.installment %></td>
             <td><%#= scheme.intrest %></td> -->
-
             <td><%= scheme.status ? "Active" : "Inactive" %></td>
             <td>
               <%= link_to ' ', scheme, class: 'btn btn-xs btn-default fa fa-eye' %>

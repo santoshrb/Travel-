@@ -54,11 +54,16 @@ class SchemesController < ApplicationController
   # DELETE /schemes/1
   # DELETE /schemes/1.json
   def destroy
-    @scheme.destroy
-    respond_to do |format|
-      format.html { redirect_to schemes_url, notice: 'Scheme was successfully destroyed.' }
-      format.json { head :no_content }
+    if Enquiry.exists?(scheme_id: @scheme.id)
+      flash[:alert] = "Can not delete this Scheme,Its used in Enquiry"
+    else
+      @scheme.destroy
+      flash[:notice] = 'Scheme was successfully destroyed'
     end
+      respond_to do |format|
+        format.html { redirect_to schemes_url }
+        format.json { head :no_content }
+      end
   end
 
   def scheme_detail

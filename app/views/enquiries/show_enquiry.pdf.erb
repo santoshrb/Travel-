@@ -1,10 +1,10 @@
-<table style="border-collapse: collapse; font-size:12pt;" border=1 width=1200 cellpadding="10" cellspacing="5">
+<table style="border-collapse: collapse; font-size:10pt;" border=1 width=1200 cellpadding="10" cellspacing="5">
   <tbody>
   <tr>
     <td colspan="27"><center> 
       <% if @enquiry.user.employee.company.logo == nil %>
       <% else %>
-        <center> <%= wicked_pdf_image_tag @enquiry.user.employee.company.logo.url, :size => "90x50" %></center>
+        <center> <%= wicked_pdf_image_tag @enquiry.user.employee.company.logo.url, :size => "120x80" %></center>
       <%end%> 
         <strong><%=@enquiry.user.employee.company.try(:name)%></strong> <br> <%= @enquiry.user.employee.company.try(:address)%></center>
     </td>
