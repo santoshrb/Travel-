@@ -24,6 +24,7 @@ class VehicleBookingsController < ApplicationController
 
   # GET /vehicle_bookings/1/edit
   def edit
+    @vehicle_booking = VehicleBooking.find(params[:id])
   end
 
   # POST /vehicle_bookings
@@ -77,7 +78,14 @@ class VehicleBookingsController < ApplicationController
   # PATCH/PUT /vehicle_bookings/1.json
   def update
     respond_to do |format|
+      enquiry = @vehicle_booking.enquiry_id
       if @vehicle_booking.update(vehicle_booking_params)
+        updated_enquiry = vehicle_booking_params['enquiry_id']
+        if enquiry.nil?
+          @vehicle_booking.update(enquiry_id: updated_enquiry)
+        else
+          @vehicle_booking.update(enquiry_id: enquiry)
+        end
         format.html { redirect_to @vehicle_booking, notice: 'Vehicle booking was successfully updated.' }
         format.json { render :show, status: :ok, location: @vehicle_booking }
       else
