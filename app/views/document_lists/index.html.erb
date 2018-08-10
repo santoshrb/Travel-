@@ -6,8 +6,8 @@
   <thead>
     <tr>
       <th>Employee</th>
-      <th>Document master</th>
-      <th>Vehicle booking</th>
+      <th>Document List</th>
+      <th>Vehicle Booking</th>
       <th>Status</th>
       <th colspan="3"></th>
     </tr>
@@ -16,8 +16,8 @@
   <tbody>
     <% @document_lists.each do |document_list| %>
       <tr>
-        <td><%= document_list.employee %></td>
-        <td><%= document_list.document_master %></td>
+        <td><%= document_list.employee.prefix rescue nil %> <%= document_list.employee.first_name rescue nil %> <%= document_list.employee.middle_name rescue nil %> <%= document_list.employee.last_name rescue nil %></td>
+        <td><%= document_list.document_master rescue nil %></td>
         <td><%= document_list.vehicle_booking %></td>
         <td><%= document_list.status %></td>
         <td><%= link_to 'Show', document_list %></td>

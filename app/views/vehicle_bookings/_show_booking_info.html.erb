@@ -13,13 +13,16 @@
     <table id="example2" class="table table-bordered table-hover table-condensed">
       <tbody>
         <tr>
-          <th colspan="3">
-            <strong><center>Booking Detail</center></strong>
+          <th colspan="4" style="color: Red;">
+            <strong><center>Customer Details</center></strong>
           </th>
         </tr>
         <tr>
-          <th><strong>Enquiry</strong></th>
-          <td colspan="3"><%= @vehicle_booking.try(:enquiry).try(:mobile_no) %> - <%= @vehicle_booking.try(:enquiry).try(:name_first) %></td>
+          <th><strong>Name</strong></th>
+          <td><%= @vehicle_booking.try(:enquiry).try(:name_first) %> <%= @vehicle_booking.try(:enquiry).try(:middle_name) %> <%= @vehicle_booking.try(:enquiry).try(:last_name) %></td>
+
+          <th><strong>Mobile No</strong></th>
+          <td><%= @vehicle_booking.try(:enquiry).try(:mobile_no) %></td>
         </tr>
         <tr>
           <th><strong>Pan Card</strong></th>
@@ -54,6 +57,12 @@
         </tr>
 
         <tr>
+          <th colspan="4" style="color: Red;">
+            <strong><center>Guarantor Details</center></strong>
+          </th>
+        </tr>
+
+        <tr>
           <th><strong>Guarantor Pan</strong></th>
           <td><%= @vehicle_booking.pan_guarantor %></td>
         
@@ -75,6 +84,12 @@
        
           <th><strong>Guarantor ITR</strong></th>
           <td><%= @vehicle_booking.itr_guarantor %></td>
+        </tr>
+
+        <tr>
+          <th colspan="4" style="color: Red;">
+            <strong><center>Guarantor1 Details</center></strong>
+          </th>
         </tr>
 
         <tr>

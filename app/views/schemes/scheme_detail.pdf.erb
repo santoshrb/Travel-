@@ -1,0 +1,51 @@
+<table style="border-collapse: collapse; font-size:9pt;" border=1 width=1200 cellpadding="10">
+  <thead>
+    <tr>
+      <td colspan="27"><center> 
+        <% if current_user.employee.company.logo == nil %>
+        <% else %>
+          <center> <%= wicked_pdf_image_tag current_user.employee.company.logo.url, :size => "90x50" %></center>
+        <%end%> 
+          <strong><%=current_user.employee.company.try(:name)%></strong> <br> <%= current_user.employee.company.try(:address)%></center>
+      </td>
+    </tr> 
+    <tr>
+    	<th>Sr.No</th>
+      <th>Vehicle Type</th>
+      <th>Name</th>
+      <th>Budget</th>
+      <th>Down Payment</th>
+      <th>EMI(Months) </th>
+      <th>Intrest(%)</th>
+      <th>EMI Amount</th>
+      <th>Total Amount</th>
+      <th>Installment Amount</th>
+      <th>From Date</th>
+      <th>To Date</th>
+      <th>Description</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	<% i = 0 %>
+    <% @schemes.each do |scheme| %>
+      <tr>
+      	<td><%= i = i + 1 %></td>
+        <td><%= scheme.vehicle_type.name rescue nil %></td>
+        <td><%= scheme.name rescue nil %></td>
+        <td><%= scheme.budget %></td>
+        <td><%= scheme.down_payment %></td>
+        <td><%= scheme.installment %></td>
+        <td><%= scheme.interest %></td>
+        <td><%= scheme.emi_amount %></td>
+        <td><%= scheme.total_amount %></td>
+        <td><%= scheme.installment_amount %></td>
+        <td><%= scheme.from_date %></td>
+        <td><%= scheme.to_date %></td>
+        <td><%= scheme.description %></td>
+        <td><%= scheme.status ? "Active" : "Inactive" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

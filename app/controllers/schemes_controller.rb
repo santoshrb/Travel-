@@ -61,6 +61,23 @@ class SchemesController < ApplicationController
     end
   end
 
+  def scheme_detail
+    @schemes = Scheme.all
+    respond_to do |f|
+      f.js
+      f.xls {render template: 'schemes/scheme_detail.xls.erb'}
+      f.html
+      f.pdf do
+        render pdf: ' scheme_detail',
+        layout: 'pdf.html',
+        orientation: 'Landscape',
+        template: 'schemes/scheme_detail.pdf.erb',
+        show_as_html: params[:debug].present?
+        #margin:  { top:1,bottom:1,left:1,right:1 }
+      end
+    end
+  end
+
   def import
     file = params[:file]
     if file.nil?

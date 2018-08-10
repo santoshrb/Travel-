@@ -1,7 +1,7 @@
 class Enquiry < ApplicationRecord
   belongs_to :vehicle_type
   belongs_to :scheme
-  belongs_to :vehicle_booking
+  has_many :vehicle_bookings
 	belongs_to :user
 
   validates :name_first, presence:true

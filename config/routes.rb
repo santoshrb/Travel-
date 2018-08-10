@@ -25,7 +25,13 @@ Rails.application.routes.draw do
     end
   end
   resources :vehicle_types
-  resources :schemes
+  resources :schemes do
+    collection do
+      get :scheme_detail
+      get :import_xl
+      post :import
+    end
+  end
   resources :enquiries do
     collection do
       get :display_scheme
