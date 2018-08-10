@@ -35,7 +35,7 @@ class Api::UserAuthsController < ApplicationController
       logger.info("User #{email} failed signin, password \"#{password}\" is invalid")
       render :status=>401, :json=>{:status=>"Failure",:message=>"Invalid password."}
     else
-      render :status=>200, :json=>{ :member_id => @user.id, :role => @user.role}
+      render :status=>200, :json=>{ :member_id => @user.id, :role => @user.role, :gender => @user.try(:employee).try(:gender)}
     end
   end
 
@@ -46,7 +46,7 @@ class Api::UserAuthsController < ApplicationController
 
   def branch_list
   	all_branch_list = Branch.all
-    render :json => all_branch_list.present? ? all_branch_list.collect{|d| {:id => d.try(:id),:code => d.try(:code), :name => d.try(:name), :address => d.try(:address), :email => d.try(:email), :contact_no => d.try(:contact_no), :status => d.try(:status)}} : []
+    render :json => all_branch_list.present? ? all_branch_list.collect{|d| {:id => d.try(:id),:code => d.try(:code), :name => d.try(:name), :address => d.try(:address), :email => d.try(:email), :contact_no => d.try(:contact_no), :status => d.try(:status), :company => d.try(:company).try(:name)}} : []
   end
 
   def create_employee1
@@ -107,16 +107,16 @@ class Api::UserAuthsController < ApplicationController
 
   def enquiry_list
   	all_enquiry_list = Enquiry.all
-    render :json => all_enquiry_list.present? ? all_enquiry_list.collect{|d| {:id => d.try(:id),:mobile_no => d.try(:mobile_no), :name_first => d.try(:name_first), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :place => d.try(:place), :address => d.try(:address), :email => d.try(:email), :user_id => d.try(:user_id), :scheme_id => d.try(:scheme_id), :scheme_name => d.try(:scheme).try(:name) }} : []
+    render :json => all_enquiry_list.present? ? all_enquiry_list.collect{|d| {:id => d.try(:id),:mobile_no => d.try(:mobile_no), :name_first => d.try(:name_first), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :place => d.try(:place), :address => d.try(:address), :email => d.try(:email), :user_id => d.try(:user_id), :scheme_id => d.try(:scheme_id), :scheme_name => d.try(:scheme).try(:name), :enquiry_date => d.try(:enquiry_date), :description => d.try(:description) }} : []
   end
 
   def schemes_list
-    all_schemes_list = Scheme.all
+    all_schemes_list = Scheme.where(status: true)
     render :json => all_schemes_list.present? ? all_schemes_list.collect{|d| {:id => d.try(:id),:scheme_type => d.try(:scheme_type), :name => d.try(:name), :budget => d.try(:budget), :down_payment => d.try(:down_payment), :installment => d.try(:installment), :installment_amount => d.try(:installment_amount), :intrest => d.try(:intrest), :from_date => d.try(:from_date), :to_date => d.try(:to_date), :status => d.try(:status)}} : []
   end
 
   def employee_list
-    all_employee_list = Employee.all
+    all_employee_list = Employee.where(status: true)
     render :json => all_employee_list.present? ? all_employee_list.collect{|d| {:id => d.try(:id),:code => d.try(:code), :prefix => d.try(:prefix), :first_name => d.try(:first_name), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :gender => d.try(:gender), :email => d.try(:email), :contact_no => d.try(:contact_no), :blood_group => d.try(:blood_group), :date_of_birth => d.try(:date_of_birth), :address => d.try(:address), :pin_code => d.try(:pin_code), :country => d.try(:country), :state => d.try(:state), :district => d.try(:district), :adhar_no => d.try(:adhar_no), :city => d.try(:city), :status => d.try(:status), :company => d.try(:company).try(:name), :branch => d.try(:branch).try(:name) }} : []
   end
 
@@ -218,6 +218,12 @@ class Api::UserAuthsController < ApplicationController
   def all_showroom_master
     @showroom_master = ShowroomMaster.all
     render :json => @showroom_master.present? ? @showroom_master.collect{|fm| {:id => fm.try(:id), :code => fm.try(:code), :name => fm.try(:name), :description => fm.try(:description), :pin_code => fm.try(:pin_code), :place => fm.try(:place), :address => fm.try(:address), :contact_no => fm.try(:contact_no), :email => fm.try(:email), :contact_person => fm.try(:contact_person), :status => fm.try(:status) }} : []
+  end
+
+  def current_employee
+    employee_id = params[:employee_id]
+    employee = Employee.where(id: employee_id)
+    render :json => employee.present? ? employee.collect{|d| {:id => d.try(:id),:code => d.try(:code), :prefix => d.try(:prefix), :first_name => d.try(:first_name), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :gender => d.try(:gender), :email => d.try(:email), :contact_no => d.try(:contact_no), :blood_group => d.try(:blood_group), :date_of_birth => d.try(:date_of_birth), :address => d.try(:address), :pin_code => d.try(:pin_code), :country => d.try(:country), :state => d.try(:state), :district => d.try(:district), :adhar_no => d.try(:adhar_no), :city => d.try(:city), :status => d.try(:status), :company => d.try(:company).try(:name), :branch => d.try(:branch).try(:name) }} : []
   end
 end
 
