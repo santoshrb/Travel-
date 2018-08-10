@@ -71,5 +71,17 @@ Rails.application.routes.draw do
     get  'user_auths/schemes_list' => 'user_auths#schemes_list', defaults: {format: 'json'}
     get  'user_auths/employee_list' => 'user_auths#employee_list', defaults: {format: 'json'}
     get  'user_auths/enquiry_wise_schemes' => 'user_auths#enquiry_wise_schemes', defaults: {format: 'json'}
+    get  'user_auths/all_vehical_type' => 'user_auths#all_vehical_type', defaults: {format: 'json'}
+    post 'user_auths/create_branch' => 'user_auths#create_branch', defaults: {format: 'json'}
+    post 'user_auths/create_vehicle' => 'user_auths#create_vehicle', defaults: {format: 'json'}
+    post 'user_auths/create_document_list' => 'user_auths#create_document_list', defaults: {format: 'json'}
+    get  'user_auths/all_document_list' => 'user_auths#all_document_list', defaults: {format: 'json'}
+    post 'user_auths/create_document_master' => 'user_auths#create_document_master', defaults: {format: 'json'}
+    get  'user_auths/all_document_master' => 'user_auths#all_document_master', defaults: {format: 'json'}
+    post 'user_auths/create_financer_master' => 'user_auths#create_financer_master', defaults: {format: 'json'}
+    get  'user_auths/all_financer_master' => 'user_auths#all_financer_master', defaults: {format: 'json'}
+    post 'user_auths/create_showroom_master' => 'user_auths#create_showroom_master', defaults: {format: 'json'}
+    get  'user_auths/all_showroom_master' => 'user_auths#all_showroom_master', defaults: {format: 'json'}
+    get  'user_auths/current_employee' => 'user_auths#current_employee', defaults: {format: 'json'}
   end
 end
