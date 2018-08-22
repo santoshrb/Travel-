@@ -225,5 +225,34 @@ class Api::UserAuthsController < ApplicationController
     employee = Employee.where(id: employee_id)
     render :json => employee.present? ? employee.collect{|d| {:id => d.try(:id),:code => d.try(:code), :prefix => d.try(:prefix), :first_name => d.try(:first_name), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :gender => d.try(:gender), :email => d.try(:email), :contact_no => d.try(:contact_no), :blood_group => d.try(:blood_group), :date_of_birth => d.try(:date_of_birth), :address => d.try(:address), :pin_code => d.try(:pin_code), :country => d.try(:country), :state => d.try(:state), :district => d.try(:district), :adhar_no => d.try(:adhar_no), :city => d.try(:city), :status => d.try(:status), :company => d.try(:company).try(:name), :branch => d.try(:branch).try(:name) }} : []
   end
+
+  def create_booking
+    employee_id = params[:employee_id]
+    pan_card = params[:pan_card]
+    adhar_card = params[:adhar_card]
+    licence_no = params[:licence_no]
+    light_bill = params[:light_bill]
+    rent_aggrement = params[:rent_aggrement]
+    bs = params[:bs]
+    itr = params[:itr]
+    native_light_bill = params[:native_light_bill]
+    guarantor_pan = params[:guarantor_pan]
+    guarantor_adhar = params[:guarantor_adhar]
+    guarantor_light_bill = params[:guarantor_light_bill]
+    garantor_rent_aggrement = params[:garantor_rent_aggrement]
+    guarantor_BS = params[:guarantor_BS]
+    guarantor_ITR = params[:guarantor_ITR]
+    guarantor1_pancard = params[:guarantor1_pancard]
+    guarantor1_adharcard = params[:guarantor1_adharcard]
+    guarantor1_lightbill = params[:guarantor1_lightbill]
+    guarantor1_rent_aggrement = params[:guarantor1_rent_aggrement]
+    guarantor1_BS = params[:guarantor1_BS]
+    guarantor1_ITR = params[:guarantor1_ITR]
+    status = params[:status]
+    enquiry = enquiry[:enquiry_id]
+    @vehicle_booking = VehicleBooking.create(pan: pan_card, adhar: adhar_card, licence: licence_no, light_bill: light_bill, rent_agr: rent_aggrement, bs: bs, itr: itr, native_light_bill: native_light_bill, pan_guarantor: guarantor_pan, adhar_guarantor: guarantor_adhar, light_bill_guarantor: guarantor1_lightbill, rent_agr_guarantor: garantor_rent_aggrement, bs_guarantor: guarantor_BS, itr_guarantor: guarantor_ITR, pan_guarantor1: guarantor1_pancard, adhar_guarantor1: guarantor1_adharcard, light_bill_guarantor1: guarantor1_lightbill, rent_agr_guarantor1: guarantor1_rent_aggrement, bs_guarantor1: guarantor1_BS, itr_guarantor1: guarantor1_ITR, status: status, enquiry_id: enquiry)
+    render :status=>200, :json=>{:status=> "Vehicle booking was successfully created."}
+  end
+
 end
 
