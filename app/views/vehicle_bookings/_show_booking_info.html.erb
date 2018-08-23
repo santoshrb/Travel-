@@ -1,7 +1,7 @@
 <div class="box box-default">
   <div class="box-header with-border">
 	  <div class="box-tools pull-right">
-	    <%= link_to 'Edit', edit_vehicle_booking_path(@vehicle_booking), class: 'btn btn-success btn-xs fa'%> |
+	    <%#= link_to 'Edit', edit_vehicle_booking_path(@vehicle_booking), class: 'btn btn-success btn-xs fa'%> 
       <% if current_user.role == "Admin" %>
 	      <%= link_to 'Back', vehicle_bookings_path ,class: 'btn btn-default btn-xs fa fa-arrow-left' %>
       <% else %>
