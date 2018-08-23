@@ -250,7 +250,12 @@ class Api::UserAuthsController < ApplicationController
     guarantor1_ITR = params[:guarantor1_ITR]
     status = params[:status]
     enquiry = enquiry[:enquiry_id]
-    @vehicle_booking = VehicleBooking.create(pan: pan_card, adhar: adhar_card, licence: licence_no, light_bill: light_bill, rent_agr: rent_aggrement, bs: bs, itr: itr, native_light_bill: native_light_bill, pan_guarantor: guarantor_pan, adhar_guarantor: guarantor_adhar, light_bill_guarantor: guarantor1_lightbill, rent_agr_guarantor: garantor_rent_aggrement, bs_guarantor: guarantor_BS, itr_guarantor: guarantor_ITR, pan_guarantor1: guarantor1_pancard, adhar_guarantor1: guarantor1_adharcard, light_bill_guarantor1: guarantor1_lightbill, rent_agr_guarantor1: guarantor1_rent_aggrement, bs_guarantor1: guarantor1_BS, itr_guarantor1: guarantor1_ITR, status: status, enquiry_id: enquiry)
+    @vehicle_booking = VehicleBooking.create(pan: pan_card, adhar: adhar_card, licence: licence_no, light_bill: light_bill,
+      rent_agr: rent_aggrement, bs: bs, itr: itr, native_light_bill: native_light_bill, pan_guarantor: guarantor_pan, 
+      adhar_guarantor: guarantor_adhar, light_bill_guarantor: guarantor_light_bill, rent_agr_guarantor: garantor_rent_aggrement,
+      bs_guarantor: guarantor_BS, itr_guarantor: guarantor_ITR, pan_guarantor1: guarantor1_pancard, adhar_guarantor1: guarantor1_adharcard,
+      light_bill_guarantor1: guarantor1_lightbill, rent_agr_guarantor1: guarantor1_rent_aggrement, bs_guarantor1: guarantor1_BS, 
+      itr_guarantor1: guarantor1_ITR, status: status, enquiry_id: enquiry)
     render :status=>200, :json=>{:status=> "Vehicle booking was successfully created."}
   end
 
