@@ -85,8 +85,11 @@ class Api::UserAuthsController < ApplicationController
     address = params[:address]
     place = params[:place]
     user_id = params[:user_id]
-    @enquiry = Enquiry.create(mobile_no: mobile_no, name_first: name_first, middle_name: middle_name, last_name: last_name, email: email,address: address, place: place, user_id: user_id)
-  	  render :status=>200, :json=>{:status=> "Enquiry Created successfully!"}
+    date = params[:date]
+    scheme_id = params[:scheme_id]
+    description = params[:description]
+    @enquiry = Enquiry.create(mobile_no: mobile_no, name_first: name_first, middle_name: middle_name, last_name: last_name,  email: email,address: address, place: place, user_id: user_id, enquiry_date: date, scheme_id: scheme_id, description: description, status: true)
+ 	  render :status=>200, :json=>{:status=> "Enquiry Created successfully!"}
   end
 
    def create_scheme
@@ -100,9 +103,8 @@ class Api::UserAuthsController < ApplicationController
     from_date = params[:from_date]
     to_date = params[:to_date]
     status = params[:status]
-    @scheme = Scheme.create(scheme_type: scheme_type, name: name, budget: budget, down_payment: down_payment, installment: installment,
-          installment_amount: installment_amount, intrest: intrest, from_date: from_date)
-      render :status=>200, :json=>{:status=> "Scheme Created successfully!"}
+    @scheme = Scheme.create(scheme_type: scheme_type, name: name, budget: budget, down_payment: down_payment, installment: installment, installment_amount: installment_amount, intrest: intrest, from_date: from_date)
+    render :status=>200, :json=>{:status=> "Scheme Created successfully!"}
   end
 
   def enquiry_list
@@ -276,4 +278,3 @@ class Api::UserAuthsController < ApplicationController
     render :json => all_enquiry.present? ? all_enquiry.collect{|d| {:id => d.try(:id), :mobile_no => d.try(:mobile_no), :name_first => d.try(:name_first) }} : []
   end
 end
-
