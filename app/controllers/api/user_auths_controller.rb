@@ -79,9 +79,19 @@ class Api::UserAuthsController < ApplicationController
   def create_enquiry
     mobile_no = params[:mobile_no]
     name_first = params[:first_name]
-    middle_name = params[:middle_name]
+    middle = params[:middle_name]
+    if middle == "undefined"
+      middle_name = " "
+    else
+      middle_name = middle
+    end
     last_name = params[:last_name]
-    email = params[:email]
+    email1 = params[:email]
+    if email1 == "undefined"
+      email = " "
+    else
+      email = email1
+    end
     address = params[:address]
     place = params[:place]
     user_id = params[:user_id]
@@ -92,7 +102,7 @@ class Api::UserAuthsController < ApplicationController
  	  render :status=>200, :json=>{:status=> "Enquiry Created successfully!"}
   end
 
-   def create_scheme
+  def create_scheme
     scheme_type = params[:scheme_type]
     name = params[:name]
     budget = params[:budget]
