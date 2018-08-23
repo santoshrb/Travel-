@@ -254,5 +254,10 @@ class Api::UserAuthsController < ApplicationController
     render :status=>200, :json=>{:status=> "Vehicle booking was successfully created."}
   end
 
+  def enquiry_type
+    @booking = VehicleBooking.all.pluck(:enquiry_id)
+    all_enquiry = Enquiry.where.not(id: @booking)
+    render :json => all_enquiry.present? ? all_enquiry.collect{|e| {:id => d.try(:id), :mobile_no => d.try(:mobile_no), :name_first => d.try(:name_first) }} : []
+  end
 end
 
