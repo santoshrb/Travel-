@@ -118,12 +118,12 @@ class Api::UserAuthsController < ApplicationController
   end
 
   def enquiry_list
-  	all_enquiry_list = Enquiry.all
+  	all_enquiry_list = Enquiry.all.order("id DESC")
     render :json => all_enquiry_list.present? ? all_enquiry_list.collect{|d| {:id => d.try(:id),:mobile_no => d.try(:mobile_no), :name_first => d.try(:name_first), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :place => d.try(:place), :address => d.try(:address), :email => d.try(:email), :user_id => d.try(:user_id), :scheme_id => d.try(:scheme_id), :scheme_name => d.try(:scheme).try(:name), :enquiry_date => d.try(:enquiry_date), :description => d.try(:description) }} : []
   end
 
   def schemes_list
-    all_schemes_list = Scheme.where(status: true)
+    all_schemes_list = Scheme.where(status: true).order("id DESC")
     render :json => all_schemes_list.present? ? all_schemes_list.collect{|d| {:id => d.try(:id),:scheme_type => d.try(:scheme_type), :name => d.try(:name), :budget => d.try(:budget), :down_payment => d.try(:down_payment), :installment => d.try(:installment), :installment_amount => d.try(:installment_amount), :intrest => d.try(:intrest), :from_date => d.try(:from_date), :to_date => d.try(:to_date), :status => d.try(:status), :vehicle_type => d.try(:vehicle_type).try(:name)}} : []
   end
 
