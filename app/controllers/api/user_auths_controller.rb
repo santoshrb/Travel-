@@ -118,7 +118,7 @@ class Api::UserAuthsController < ApplicationController
 
   def enquiry_list
   	all_enquiry_list = Enquiry.all.order("id DESC")
-    render :json => all_enquiry_list.present? ? all_enquiry_list.collect{|d| {:id => d.try(:id),:mobile_no => d.try(:mobile_no), :name_first => d.try(:name_first), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :place => d.try(:place), :address => d.try(:address), :email => d.try(:email), :user_id => d.try(:user_id), :scheme_id => d.try(:scheme_id), :scheme_name => d.try(:scheme).try(:name), :enquiry_date => d.try(:enquiry_date), :description => d.try(:description) }} : []
+    render :json => all_enquiry_list.present? ? all_enquiry_list.collect{|d| {:id => d.try(:id),:mobile_no => d.try(:mobile_no), :name_first => d.try(:name_first), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :place => d.try(:place), :address => d.try(:address), :email => d.try(:email), :user_id => d.try(:user_id), :scheme_id => d.try(:scheme_id), :scheme_name => d.try(:scheme).try(:name), :enquiry_date => d.try(:enquiry_date), :description => d.try(:description), :employee_name => d.try(:user).try(:employee).try(:first_name) }} : []
   end
 
   def schemes_list
