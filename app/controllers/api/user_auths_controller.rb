@@ -249,7 +249,7 @@ class Api::UserAuthsController < ApplicationController
     guarantor1_BS = params[:guarantor1_BS]
     guarantor1_ITR = params[:guarantor1_ITR]
     status = params[:status]
-    enquiry = enquiry[:enquiry_id]
+    enquiry = params[:enquiry_id]
     @vehicle_booking = VehicleBooking.create(pan: pan_card, adhar: adhar_card, licence: licence_no, light_bill: light_bill,
       rent_agr: rent_aggrement, bs: bs, itr: itr, native_light_bill: native_light_bill, pan_guarantor: guarantor_pan, 
       adhar_guarantor: guarantor_adhar, light_bill_guarantor: guarantor_light_bill, rent_agr_guarantor: garantor_rent_aggrement,
