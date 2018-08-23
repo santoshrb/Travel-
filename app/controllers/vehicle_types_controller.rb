@@ -4,6 +4,7 @@ class VehicleTypesController < ApplicationController
   # GET /vehicle_types
   # GET /vehicle_types.json
   def index
+    @vehicle_type = VehicleType.new
     @vehicle_types = VehicleType.all
   end
 
@@ -15,6 +16,7 @@ class VehicleTypesController < ApplicationController
   # GET /vehicle_types/new
   def new
     @vehicle_type = VehicleType.new
+    @vehicle_types = VehicleType.all
   end
 
   # GET /vehicle_types/1/edit
@@ -25,40 +27,34 @@ class VehicleTypesController < ApplicationController
   # POST /vehicle_types.json
   def create
     @vehicle_type = VehicleType.new(vehicle_type_params)
+    @vehicle_types = VehicleType.all
 
-    respond_to do |format|
+    
       if @vehicle_type.save
-        format.html { redirect_to @vehicle_type, notice: 'Vehicle type was successfully created.' }
-        format.json { render :show, status: :created, location: @vehicle_type }
+        @vehicle_type = VehicleType.new
+        flash.now[:alert] = 'Vehicle Type Created Successfully!'
       else
-        format.html { render :new }
-        format.json { render json: @vehicle_type.errors, status: :unprocessable_entity }
+        flash.now[:alert] = 'Vehicle Type Already Exist.'
       end
-    end
+  
+     redirect_to new_vehicle_type_path
   end
 
   # PATCH/PUT /vehicle_types/1
   # PATCH/PUT /vehicle_types/1.json
   def update
-    respond_to do |format|
-      if @vehicle_type.update(vehicle_type_params)
-        format.html { redirect_to @vehicle_type, notice: 'Vehicle type was successfully updated.' }
-        format.json { render :show, status: :ok, location: @vehicle_type }
-      else
-        format.html { render :edit }
-        format.json { render json: @vehicle_type.errors, status: :unprocessable_entity }
-      end
-    end
+    @vehicle_type.update(vehicle_type_params)
+    @vehicle_type = VehicleType.new
+    @vehicle_types = VehicleType.all
+    flash.now[:alert] = 'Vehicle Type Updated Successfully'
+    redirect_to new_vehicle_type_path
   end
 
   # DELETE /vehicle_types/1
   # DELETE /vehicle_types/1.json
   def destroy
     @vehicle_type.destroy
-    respond_to do |format|
-      format.html { redirect_to vehicle_types_url, notice: 'Vehicle type was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @vehicle_types = VehicleType.all
   end
 
   private
