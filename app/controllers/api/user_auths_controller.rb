@@ -133,7 +133,7 @@ class Api::UserAuthsController < ApplicationController
 
   def enquiry_wise_schemes
     scheme_id = params[:scheme_id]
-    scheme = Scheme.where(scheme_id)
+    scheme = Scheme.where(id: scheme_id)
     render :json => scheme.present? ? scheme.collect{|d| {:id => d.try(:id),:scheme_type => d.try(:scheme_type), :name => d.try(:name), :budget => d.try(:budget), :down_payment => d.try(:down_payment), :installment => d.try(:installment), :installment_amount => d.try(:installment_amount), :intrest => d.try(:intrest), :from_date => d.try(:from_date), :to_date => d.try(:to_date), :status => d.try(:status), :vehicle_type => d.try(:vehicle_type).try(:name), :description => d.try(:description) }} : []
   end
 
