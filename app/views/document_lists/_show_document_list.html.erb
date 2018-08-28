@@ -9,6 +9,7 @@
 			      <th>Document List</th>
 			      <th>Status</th>
 			      <th>Employee</th>
+			      <th>Action</th>
 		   		</tr>
 		   	</thead>
 		   	<tbody>
@@ -24,6 +25,13 @@
 			        <td><%= document_list.document_master.try(:name) %></td>
 			        <td><%= document_list.status ? "Submit" : "Pending" %></td>
 			        <td><%= document_list.employee.try(:prefix) %> <%= document_list.employee.try(:first_name) %> <%= document_list.employee.try(:middle_name) %> <%= document_list.employee.try(:last_name) %></td>
+			        <td>
+	            	<% if document_list.status == false %>
+	            		<%= link_to '', confirm_document_vehicle_bookings_path(document_list), class: 'btn btn-xs btn-info fa fa-check' %>
+	            	<% else %>
+	            		<small class="label label-primary">Confirmed</small>
+	            	<% end %>
+	   					</td>
 			      </tr>
 			    <% end %>
 			  </tbody>

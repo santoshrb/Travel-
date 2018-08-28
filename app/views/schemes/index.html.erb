@@ -7,7 +7,9 @@
       <%= link_to " XLS ", scheme_detail_schemes_path(format: "xls"), class: "btn btn-sm btn-success fa fa-print",:target => "_blank" %>
       <%= link_to " Upload ", import_xl_schemes_path, class: 'fa fa-upload btn btn-sm btn-primary' %> 
       <%= link_to " Template", "/Templates/3.Scheme.xls", :class=>"fa fa-download btn-sm btn btn-warning" %>
-      <%= link_to 'New Scheme', new_scheme_path, class: 'btn btn-sm btn-primary' %>
+      <% if current_user.role == "Admin" %>
+        <%= link_to 'New Scheme', new_scheme_path, class: 'btn btn-sm btn-primary' %>
+      <% end %>
     </div>
   </div><!-- /.box-header -->
   <div class="box-body">
@@ -40,8 +42,10 @@
             <td><%= scheme.status ? "Active" : "Inactive" %></td>
             <td>
               <%= link_to ' ', scheme, class: 'btn btn-xs btn-default fa fa-eye' %>
-              <%= link_to ' ', edit_scheme_path(scheme), class: 'btn btn-xs btn-success fa fa-edit' %>
-              <%= link_to ' ', scheme, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %>
+              <% if current_user.role == "Admin" %>
+                <%= link_to ' ', edit_scheme_path(scheme), class: 'btn btn-xs btn-success fa fa-edit' %>
+                <%= link_to ' ', scheme, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %>
+              <% end %>
             </td>
           </tr>
         <% end %>

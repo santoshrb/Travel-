@@ -1,0 +1,35 @@
+
+    <table id="example6" class="table table-bordered table-hover table-condensed">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @vehicle_types.each do |vehicle_type| %>
+          <tr>
+            <td><%= vehicle_type.code %></td>
+            <td><%= vehicle_type.name %></td>
+            <td><%= vehicle_type.description %></td>
+            <td><%= vehicle_type.status ? "Active" : "Inactive" %></td>
+            <td>
+            <%#= link_to ' ', vehicle_type, class: 'btn btn-xs btn-default fa fa-eye' %>
+            <%= link_to ' ', edit_vehicle_type_path(vehicle_type), class: 'btn btn-xs btn-success fa fa-edit',remote:true  %>
+            <%= link_to ' ', vehicle_type, method: :delete, data: { confirm: 'Are you sure?',remote:true }, class: 'btn btn-xs btn-danger fa fa-trash' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>
