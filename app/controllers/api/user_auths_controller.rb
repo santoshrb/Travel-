@@ -271,14 +271,16 @@ class Api::UserAuthsController < ApplicationController
   end
 
   def vehicle_booking_list
-    booking = VehicleBooking.all
+    employee = params[:member_id]
+    from_date = params[:fromdate]
+    booking = VehicleBooking.where(date: from_date.to_date..to_date.to_date)
     render :json => booking.present? ? booking.collect{|d| {:id => d.try(:id), :pan => d.try(:pan), :adhar => d.try(:adhar), :licence => d.try(:licence),
       :light_bill => d.try(:light_bill), :rent_agr => d.try(:rent_agr), :bs => d.try(:bs), :itr => d.try(:itr), :native_light_bill => d.try(:native_light_bill),
       :pan_guarantor => d.try(:pan_guarantor), :adhar_guarantor => d.try(:adhar_guarantor), :light_bill_guarantor => d.try(:light_bill_guarantor),
       :rent_agr_guarantor => d.try(:rent_agr_guarantor), :bs_guarantor => d.try(:bs_guarantor), :itr_guarantor => d.try(:itr_guarantor), 
       :pan_guarantor1 => d.try(:pan_guarantor1), :adhar_guarantor1 => d.try(:adhar_guarantor1), :light_bill_guarantor1 => d.try(:light_bill_guarantor1), 
       :rent_agr_guarantor1 => d.try(:rent_agr_guarantor1), :bs_guarantor1 => d.try(:bs_guarantor1), :itr_guarantor1 => d.try(:itr_guarantor1),
-      :status => d.try(:status), :enquiry_id => d.try(:enquiry).try(:name_first), :vehicle_type_id => d.try(:vehicle_type).try(:name), :phone_number => d.try(:enquiry).try(:mobile_no) }} : []
+      :status => d.try(:status), :enquiry_id => d.try(:enquiry).try(:name_first), :vehicle_type_id => d.try(:vehicle_type).try(:name), :phone_number => d.try(:enquiry).try(:mobile_no), :date => d.try(:date) }} : []
   end
 
   def enquiry_type
@@ -295,13 +297,15 @@ class Api::UserAuthsController < ApplicationController
 
   def particular_vehicle_booking_list
     employee = params[:member_id]
-    booking = VehicleBooking.where(user_id: employee)
+    from_date = params[:fromdate]
+    to_date = params[:todate]
+    booking = VehicleBooking.where(user_id: employee, date: from_date.to_date..to_date.to_date)
     render :json => booking.present? ? booking.collect{|d| {:id => d.try(:id), :pan => d.try(:pan), :adhar => d.try(:adhar), :licence => d.try(:licence),
       :light_bill => d.try(:light_bill), :rent_agr => d.try(:rent_agr), :bs => d.try(:bs), :itr => d.try(:itr), :native_light_bill => d.try(:native_light_bill),
       :pan_guarantor => d.try(:pan_guarantor), :adhar_guarantor => d.try(:adhar_guarantor), :light_bill_guarantor => d.try(:light_bill_guarantor),
       :rent_agr_guarantor => d.try(:rent_agr_guarantor), :bs_guarantor => d.try(:bs_guarantor), :itr_guarantor => d.try(:itr_guarantor), 
       :pan_guarantor1 => d.try(:pan_guarantor1), :adhar_guarantor1 => d.try(:adhar_guarantor1), :light_bill_guarantor1 => d.try(:light_bill_guarantor1), 
       :rent_agr_guarantor1 => d.try(:rent_agr_guarantor1), :bs_guarantor1 => d.try(:bs_guarantor1), :itr_guarantor1 => d.try(:itr_guarantor1),
-      :status => d.try(:status), :enquiry_id => d.try(:enquiry).try(:name_first), :vehicle_type_id => d.try(:vehicle_type).try(:name), :phone_number => d.try(:enquiry).try(:mobile_no) }} : []
+      :status => d.try(:status), :enquiry_id => d.try(:enquiry).try(:name_first), :vehicle_type_id => d.try(:vehicle_type).try(:name), :phone_number => d.try(:enquiry).try(:mobile_no), :date => d.try(:date) }} : []
   end
 end

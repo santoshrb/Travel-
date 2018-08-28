@@ -56,7 +56,20 @@
         <%= f.text_field :native_light_bill, label:'Native Light Bill', placeholder: 'eg: 18486875' %>
       </div>
     </div>
-  </div><br>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <%= f.text_field :date, label:'Date', placeholder: 'Date',class: 'request_date form-control' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
    <div class="row">
      <div class="col-sm-12" style="color: Red;" ><center><strong>Guarantor Details</strong></center></div> <hr>
      </div>
@@ -147,6 +160,16 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(function(){
+    $('.request_date').datepicker({
+    changeYear:true,
+    changeMonth: true,
+    yearRange: '-200:+1',
+    dateFormat: 'dd-mm-yy' });
+  });
+</script>
 
 <script>
 $("#vehicle_booking").validate({

@@ -31,7 +31,6 @@ class VehicleBookingsController < ApplicationController
   # POST /vehicle_bookings.json
   def create
     @vehicle_booking = VehicleBooking.new(vehicle_booking_params)
-
     respond_to do |format|
       if @vehicle_booking.save
         enquiry = Enquiry.find_by(id: @vehicle_booking.enquiry_id)
