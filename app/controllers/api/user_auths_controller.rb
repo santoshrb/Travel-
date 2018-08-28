@@ -286,4 +286,22 @@ class Api::UserAuthsController < ApplicationController
     all_enquiry = Enquiry.where.not(id: @booking)
     render :json => all_enquiry.present? ? all_enquiry.collect{|d| {:id => d.try(:id), :mobile_no => d.try(:mobile_no), :name_first => d.try(:name_first) }} : []
   end
+
+  def particular_enquiry_list
+    employee = params[:member_id]
+    all_enquiry_list = Enquiry.where(user_id: employee).order("id DESC")
+    render :json => all_enquiry_list.present? ? all_enquiry_list.collect{|d| {:id => d.try(:id),:mobile_no => d.try(:mobile_no), :name_first => d.try(:name_first), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :place => d.try(:place), :address => d.try(:address), :email => d.try(:email), :user_id => d.try(:user_id), :scheme_id => d.try(:scheme_id), :scheme_name => d.try(:scheme).try(:name), :enquiry_date => d.try(:enquiry_date), :description => d.try(:description), :employee_name => d.try(:user).try(:employee).try(:first_name) }} : []
+  end
+
+  def particular_vehicle_booking_list
+    vehicle_booking_id = params[:vehicle_booking_id]
+    booking = VehicleBooking.where(id: vehicle_booking_id)
+    render :json => booking.present? ? booking.collect{|d| {:id => d.try(:id), :pan => d.try(:pan), :adhar => d.try(:adhar), :licence => d.try(:licence),
+      :light_bill => d.try(:light_bill), :rent_agr => d.try(:rent_agr), :bs => d.try(:bs), :itr => d.try(:itr), :native_light_bill => d.try(:native_light_bill),
+      :pan_guarantor => d.try(:pan_guarantor), :adhar_guarantor => d.try(:adhar_guarantor), :light_bill_guarantor => d.try(:light_bill_guarantor),
+      :rent_agr_guarantor => d.try(:rent_agr_guarantor), :bs_guarantor => d.try(:bs_guarantor), :itr_guarantor => d.try(:itr_guarantor), 
+      :pan_guarantor1 => d.try(:pan_guarantor1), :adhar_guarantor1 => d.try(:adhar_guarantor1), :light_bill_guarantor1 => d.try(:light_bill_guarantor1), 
+      :rent_agr_guarantor1 => d.try(:rent_agr_guarantor1), :bs_guarantor1 => d.try(:bs_guarantor1), :itr_guarantor1 => d.try(:itr_guarantor1),
+      :status => d.try(:status), :enquiry_id => d.try(:enquiry).try(:name_first), :vehicle_type_id => d.try(:vehicle_type).try(:name), :phone_number => d.try(:enquiry).try(:mobile_no) }} : []
+  end
 end

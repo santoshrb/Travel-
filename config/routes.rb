@@ -86,5 +86,8 @@ Rails.application.routes.draw do
     post 'user_auths/create_booking' => 'user_auths#create_booking', defaults: {format: 'json'}
     get  'user_auths/vehicle_booking_list' => 'user_auths#vehicle_booking_list', defaults: {format: 'json'}
     get  'user_auths/enquiry_type' => 'user_auths#enquiry_type', defaults: {format: 'json'}
+    get  'user_auths/particular_enquiry_list' => 'user_auths#particular_enquiry_list', defaults: {format: 'json'}
+    get  'user_auths/particular_vehicle_booking_list' => 'user_auths#particular_vehicle_booking_list', defaults: {format: 'json'}
+    
   end
 end
