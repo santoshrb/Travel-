@@ -1,14 +1,19 @@
 <%#= render 'form', vehicle_type: @vehicle_type %>
 <%#= link_to 'Back', vehicle_types_path %>
 
+
 <div class="box box-default">
   <div class="box-header with-border">
-    <h3 class="box-title">New Vehicle Type</h3>
-    <div class="pull-right"></div>
+    <h3 class="box-title">Vehicle Type</h3>
+  </div><!-- /.box-header -->
 	<div class="box-body">
 		<div id="form">
-		   <%= render 'form' %>
+			<%= render 'form' %>	
 		</div>
-	</div>
-  </div>
-</div>
+		
+		<div id="vehicle_type_list">
+			<%= render 'vehicle_type_list' %>
+		</div>
+		
+	</div><!-- /.box-body -->
+</div><!-- /.box -->

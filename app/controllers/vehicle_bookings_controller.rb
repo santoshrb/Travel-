@@ -74,6 +74,14 @@ class VehicleBookingsController < ApplicationController
     redirect_to request.referrer
   end
 
+  def confirm_document
+    document_list = DocumentList.find(params[:format])
+    @employee = current_user.employee_id
+    DocumentList.find_by(id: document_list.id).update(status: true,employee_id: @employee)
+    flash[:notice] = "Confirmed Successfully"
+    redirect_to request.referrer
+  end
+
   # PATCH/PUT /vehicle_bookings/1
   # PATCH/PUT /vehicle_bookings/1.json
   def update
