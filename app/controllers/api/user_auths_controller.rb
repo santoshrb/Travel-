@@ -238,7 +238,7 @@ class Api::UserAuthsController < ApplicationController
   end
 
   def create_booking
-    employee_id = params[:employee_id]
+    employee_id = params[:member_id]
     pan_card = params[:pan_card]
     adhar_card = params[:adhar_card]
     licence_no = params[:licence_no]
