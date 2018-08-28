@@ -261,18 +261,20 @@ class Api::UserAuthsController < ApplicationController
     guarantor1_ITR = params[:guarantor1_ITR]
     status = params[:status]
     enquiry = params[:enquiry_id]
+    date = params[:date]
     @vehicle_booking = VehicleBooking.create(user_id: employee_id, pan: pan_card, adhar: adhar_card, licence: licence_no, light_bill: light_bill,
       rent_agr: rent_aggrement, bs: bs, itr: itr, native_light_bill: native_light_bill, pan_guarantor: guarantor_pan, 
       adhar_guarantor: guarantor_adhar, light_bill_guarantor: guarantor_light_bill, rent_agr_guarantor: garantor_rent_aggrement,
       bs_guarantor: guarantor_BS, itr_guarantor: guarantor_ITR, pan_guarantor1: guarantor1_pancard, adhar_guarantor1: guarantor1_adharcard,
       light_bill_guarantor1: guarantor1_lightbill, rent_agr_guarantor1: guarantor1_rent_aggrement, bs_guarantor1: guarantor1_BS, 
-      itr_guarantor1: guarantor1_ITR, status: status, enquiry_id: enquiry)
+      itr_guarantor1: guarantor1_ITR, status: status, enquiry_id: enquiry, date: date)
     render :status=>200, :json=>{:status=> "Vehicle booking was successfully created."}
   end
 
   def vehicle_booking_list
     employee = params[:member_id]
     from_date = params[:fromdate]
+    to_date = params[:todate]
     booking = VehicleBooking.where(date: from_date.to_date..to_date.to_date)
     render :json => booking.present? ? booking.collect{|d| {:id => d.try(:id), :pan => d.try(:pan), :adhar => d.try(:adhar), :licence => d.try(:licence),
       :light_bill => d.try(:light_bill), :rent_agr => d.try(:rent_agr), :bs => d.try(:bs), :itr => d.try(:itr), :native_light_bill => d.try(:native_light_bill),
