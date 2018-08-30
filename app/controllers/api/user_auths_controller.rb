@@ -72,6 +72,7 @@ class Api::UserAuthsController < ApplicationController
     @employee1 = Employee.create(code: code,prefix: prefix, first_name: first_name, middle_name: middle_name, last_name: last_name, gender: gender, email: email,
      contact_no: contact_no,blood_group: blood_group,date_of_birth: date_of_birth, address: address, pin_code: pin_code, country: country,state: state,
      district: district, city: city,adhar_no: adhar_no,status: status, company_id: company_id, branch_id: branch_id)
+    User.create(employee_id: @employee1.id,role: "Branch",password: "12345678",email: email)
     render :status=>200, :json=>{:status=> "Employee Created successfully!"}
   end
 
@@ -232,9 +233,11 @@ class Api::UserAuthsController < ApplicationController
   end
 
   def current_employee
-    employee_id = params[:employee_id]
-    employee = Employee.where(id: employee_id)
-    render :json => employee.present? ? employee.collect{|d| {:id => d.try(:id),:code => d.try(:code), :prefix => d.try(:prefix), :first_name => d.try(:first_name), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :gender => d.try(:gender), :email => d.try(:email), :contact_no => d.try(:contact_no), :blood_group => d.try(:blood_group), :date_of_birth => d.try(:date_of_birth), :address => d.try(:address), :pin_code => d.try(:pin_code), :country => d.try(:country), :state => d.try(:state), :district => d.try(:district), :adhar_no => d.try(:adhar_no), :city => d.try(:city), :status => d.try(:status), :company => d.try(:company).try(:name), :branch => d.try(:branch).try(:name) }} : []
+    user_id = params[:employee_id]
+    u = User.find(user_id)
+    emp = u.employee_id
+    d = Employee.find(emp)
+    render :status=>200, :json=>{ :id => d.try(:id),:code => d.try(:code), :prefix => d.try(:prefix), :first_name => d.try(:first_name), :middle_name => d.try(:middle_name), :last_name => d.try(:last_name), :gender => d.try(:gender), :email => d.try(:email), :contact_no => d.try(:contact_no), :blood_group => d.try(:blood_group), :date_of_birth => d.try(:date_of_birth), :address => d.try(:address), :pin_code => d.try(:pin_code), :country => d.try(:country), :state => d.try(:state), :district => d.try(:district), :adhar_no => d.try(:adhar_no), :city => d.try(:city), :status => d.try(:status), :company => d.try(:company).try(:name), :branch => d.try(:branch).try(:name) }
   end
 
   def create_booking
@@ -309,5 +312,12 @@ class Api::UserAuthsController < ApplicationController
       :pan_guarantor1 => d.try(:pan_guarantor1), :adhar_guarantor1 => d.try(:adhar_guarantor1), :light_bill_guarantor1 => d.try(:light_bill_guarantor1), 
       :rent_agr_guarantor1 => d.try(:rent_agr_guarantor1), :bs_guarantor1 => d.try(:bs_guarantor1), :itr_guarantor1 => d.try(:itr_guarantor1),
       :status => d.try(:status), :enquiry_id => d.try(:enquiry).try(:name_first), :vehicle_type_id => d.try(:vehicle_type).try(:name), :phone_number => d.try(:enquiry).try(:mobile_no), :date => d.try(:date) }} : []
+  end
+
+  def date_wise_schemes_list
+    from_date = params[:fromdate]
+    to_date = params[:todate]    
+    all_schemes_list = Scheme.where(status: true).where("? BETWEEN from_date AND to_date", to_date).order("id DESC")
+    render :json => all_schemes_list.present? ? all_schemes_list.collect{|d| {:id => d.try(:id),:scheme_type => d.try(:scheme_type), :name => d.try(:name), :budget => d.try(:budget), :down_payment => d.try(:down_payment), :installment => d.try(:installment), :installment_amount => d.try(:installment_amount), :intrest => d.try(:intrest), :from_date => d.try(:from_date), :to_date => d.try(:to_date), :status => d.try(:status), :vehicle_type => d.try(:vehicle_type).try(:name)}} : []
   end
 end
