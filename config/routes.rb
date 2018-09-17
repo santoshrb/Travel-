@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :booking_communications 
   resources :document_lists
   resources :vehicle_bookings do
     collection do
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
       get :ajax_document_list
       post :document_list_confirm
       get :branchwise_booking
+      get :ajax_communication_detail
     end
   end
   resources :showroom_masters do

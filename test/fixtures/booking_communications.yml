@@ -1,0 +1,71 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle_booking_id: 
+  variant: MyString
+  vc_number: MyString
+  quality: MyString
+  company_name: MyString
+  designation: MyString
+  customer_po_no: MyString
+  insurance: MyString
+  registration: MyString
+  delivery_location: MyString
+  expected_delivery: 2018-09-17
+  sales_person: MyString
+  ex_showroom_price: MyString
+  insurance_amount: MyString
+  registration_amount: MyString
+  accessories_vat_amount: MyString
+  txtenaea_warranty_amount: MyString
+  amc_amount: MyString
+  exchange_amount: MyString
+  exchange_discount: MyString
+  logistics_charges: MyString
+  corporate_offer: MyString
+  taxes_levies: MyString
+  tatoal_recevivable_amount: MyString
+  finance_by: MyString
+  finance_amount: MyString
+  down_payment: MyString
+  emi_amount: MyString
+  car_model: MyString
+  make: MyString
+  year_of_manufacture: MyString
+  varluation_amount: MyString
+  special_insurance: MyText
+
+two:
+  vehicle_booking_id: 
+  variant: MyString
+  vc_number: MyString
+  quality: MyString
+  company_name: MyString
+  designation: MyString
+  customer_po_no: MyString
+  insurance: MyString
+  registration: MyString
+  delivery_location: MyString
+  expected_delivery: 2018-09-17
+  sales_person: MyString
+  ex_showroom_price: MyString
+  insurance_amount: MyString
+  registration_amount: MyString
+  accessories_vat_amount: MyString
+  txtenaea_warranty_amount: MyString
+  amc_amount: MyString
+  exchange_amount: MyString
+  exchange_discount: MyString
+  logistics_charges: MyString
+  corporate_offer: MyString
+  taxes_levies: MyString
+  tatoal_recevivable_amount: MyString
+  finance_by: MyString
+  finance_amount: MyString
+  down_payment: MyString
+  emi_amount: MyString
+  car_model: MyString
+  make: MyString
+  year_of_manufacture: MyString
+  varluation_amount: MyString
+  special_insurance: MyText

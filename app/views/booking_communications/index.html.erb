@@ -1,0 +1,91 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Booking Communications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vehicle booking</th>
+      <th>Variant</th>
+      <th>Vc number</th>
+      <th>Quality</th>
+      <th>Company name</th>
+      <th>Designation</th>
+      <th>Customer po no</th>
+      <th>Insurance</th>
+      <th>Registration</th>
+      <th>Delivery location</th>
+      <th>Expected delivery</th>
+      <th>Sales person</th>
+      <th>Ex showroom price</th>
+      <th>Insurance amount</th>
+      <th>Registration amount</th>
+      <th>Accessories vat amount</th>
+      <th>Txtenaea warranty amount</th>
+      <th>Amc amount</th>
+      <th>Exchange amount</th>
+      <th>Exchange discount</th>
+      <th>Logistics charges</th>
+      <th>Corporate offer</th>
+      <th>Taxes levies</th>
+      <th>Tatoal recevivable amount</th>
+      <th>Finance by</th>
+      <th>Finance amount</th>
+      <th>Down payment</th>
+      <th>Emi amount</th>
+      <th>Car model</th>
+      <th>Make</th>
+      <th>Year of manufacture</th>
+      <th>Varluation amount</th>
+      <th>Special insurance</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @booking_communications.each do |booking_communication| %>
+      <tr>
+        <td><%= booking_communication.vehicle_booking %></td>
+        <td><%= booking_communication.variant %></td>
+        <td><%= booking_communication.vc_number %></td>
+        <td><%= booking_communication.quality %></td>
+        <td><%= booking_communication.company_name %></td>
+        <td><%= booking_communication.designation %></td>
+        <td><%= booking_communication.customer_po_no %></td>
+        <td><%= booking_communication.insurance %></td>
+        <td><%= booking_communication.registration %></td>
+        <td><%= booking_communication.delivery_location %></td>
+        <td><%= booking_communication.expected_delivery %></td>
+        <td><%= booking_communication.sales_person %></td>
+        <td><%= booking_communication.ex_showroom_price %></td>
+        <td><%= booking_communication.insurance_amount %></td>
+        <td><%= booking_communication.registration_amount %></td>
+        <td><%= booking_communication.accessories_vat_amount %></td>
+        <td><%= booking_communication.txtenaea_warranty_amount %></td>
+        <td><%= booking_communication.amc_amount %></td>
+        <td><%= booking_communication.exchange_amount %></td>
+        <td><%= booking_communication.exchange_discount %></td>
+        <td><%= booking_communication.logistics_charges %></td>
+        <td><%= booking_communication.corporate_offer %></td>
+        <td><%= booking_communication.taxes_levies %></td>
+        <td><%= booking_communication.tatoal_recevivable_amount %></td>
+        <td><%= booking_communication.finance_by %></td>
+        <td><%= booking_communication.finance_amount %></td>
+        <td><%= booking_communication.down_payment %></td>
+        <td><%= booking_communication.emi_amount %></td>
+        <td><%= booking_communication.car_model %></td>
+        <td><%= booking_communication.make %></td>
+        <td><%= booking_communication.year_of_manufacture %></td>
+        <td><%= booking_communication.varluation_amount %></td>
+        <td><%= booking_communication.special_insurance %></td>
+        <td><%= link_to 'Show', booking_communication %></td>
+        <td><%= link_to 'Edit', edit_booking_communication_path(booking_communication) %></td>
+        <td><%= link_to 'Destroy', booking_communication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Booking communication', new_booking_communication_path %>

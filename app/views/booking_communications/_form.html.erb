@@ -1,0 +1,218 @@
+<div class="box box-default">
+  <div class="box-header with-border">
+    <strong> <font color='#0077b3'> BOOKING COMMUNICATION </font></strong>
+  </div><!-- /.box-header -->
+  <div class="box-body">
+<%= bootstrap_form_for(@booking_communication,html: {id: 'booking_communication'}) do |f| %>
+  <%= f.hidden_field :vehicle_booking_id, value: @vehicle_booking_id %>
+  <br>
+   <div class="row">
+    <div class="col-sm-12" style="color: Red;"><center><strong>Booking Details</strong></center></div> <hr>
+   </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="field">
+          <%= f.text_field :variant, label:'Model/Variant/Color' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :vc_number, label:'VC Number' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :quality, label:'Quality' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :company_name, label:'Company Name' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :designation, label:'Designation' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="field">
+          <%= f.text_field :customer_po_no, label:'Customer/Company P.O No.' %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="field">
+          <%= f.text_field :insurance, label:'Insurance(TMI/In House/Other)' %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="field">
+          <%= f.text_field :registration, label:'Registration(TMI/In House/Other)' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="field">
+          <%= f.text_field :delivery_location, label:'Delivery Location' %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="field">
+          <%= f.text_field :expected_delivery, label:'Expected Delivery Date' %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="field">
+          <%= f.text_field :sales_person, label:'Sales Person/Customer Advisor' %>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col-sm-12" style="color: Red;"><center><strong>Commercial Details</strong></center></div> <hr>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :ex_showroom_price, label:'Ex-Showroom Price' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :insurance_amount, label:'Insurance Amount' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :registration_amount, label:'Registration Amount' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :accessories_vat_amount, label:'Accessories + VAS Amount' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :txtenaea_warranty_amount, label:'Extended Warranty Amount' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :amc_amount, label:'AMC Amount' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :exchange_amount, label:'Exchange Amount' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :exchange_discount, label:'Exchange Discount(If Applicable)' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :logistics_charges, label:'Logistics & Handling Charges' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :corporate_offer, label:'Corporate Offer(If Applicable)' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :taxes_levies, label:'Taxes & Levies' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :tatoal_recevivable_amount, label:'Receivable Amount' %>
+        </div>
+      </div>
+    </div>
+
+    <br>
+   <div class="row">
+    <div class="col-sm-12" style="color: Red;"><center><strong>Financing Details</strong></center></div> <hr>
+   </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :finance_by, label:'Finance By' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :finance_amount, label:'Finance Amount' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :down_payment, label:'Margin Money/Down Payment' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :emi_amount, label:'Tenure & EMI Amount' %>
+        </div>
+      </div>
+    </div>
+
+    <br>
+   <div class="row">
+   <div class="col-sm-12" style="color: Red;"><center><strong>Exchange Details</strong></center></div> <hr>
+   </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :car_model, label:'Car Model' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :make, label:'Make' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :year_of_manufacture, label:'Year Of Manufacture' %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.text_field :varluation_amount, label:'Variation Amount' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="field">
+          <%= f.text_field :special_insurance, label:'Special Insurance(if any)' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="actions">
+          <%= f.submit "Create Booking Communication", class: "btn btn-sm btn-primary" %>
+        </div>
+      </div>
+    </div>
+<% end %>
+</div>
+</div>

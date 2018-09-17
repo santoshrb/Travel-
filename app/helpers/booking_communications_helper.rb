@@ -1,0 +1,2 @@
+module BookingCommunicationsHelper
+end

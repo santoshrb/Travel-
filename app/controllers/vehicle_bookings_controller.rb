@@ -53,6 +53,13 @@ class VehicleBookingsController < ApplicationController
     @document_lists = DocumentList.where(vehicle_booking_id: params[:id])
   end
 
+  def ajax_communication_detail
+    
+    @booking_communication = BookingCommunication.new
+    @vehicle_booking_id = params[:id]
+    @booking_communications = BookingCommunication.where(vehicle_booking_id: params[:id])
+  end
+
   def booking_info
     @vehicle_booking = VehicleBooking.find(params[:id])
   end
