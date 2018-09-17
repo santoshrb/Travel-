@@ -4,7 +4,7 @@ class EnquiriesController < ApplicationController
   # GET /enquiries
   # GET /enquiries.json
   def index
-    @enquiries = Enquiry.all
+    @enquiries = Enquiry.all.order.('enquiry_date desc' )
   end
 
   def branchwise_enquiry
