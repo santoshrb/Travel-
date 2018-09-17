@@ -1,0 +1,6 @@
+<% if BookingCommunication.exists?(vehicle_booking_id: params[:id]) %>
+<%@booking_communication = BookingCommunication.find_by_vehicle_booking_id(params[:id])%>
+$('#info').html("<%= j render 'booking_communications/show_bookings' %>")
+<%else%>
+$('#info').html("<%=  j render 'booking_communications/form'%>")
+<%end%>
