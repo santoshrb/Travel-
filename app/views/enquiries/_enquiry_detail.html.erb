@@ -1,0 +1,111 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <div class="modal-body">
+
+	    <table id="example2" class="table table-bordered table-hover table-condensed">
+	      <tbody>
+	        <tr>
+	          <th colspan="5">
+	            <strong><center>Enquiry Detail</center></strong>
+	          </th>
+	        </tr>
+	        <tr>
+	          <%#= image_tag @agency.avatar.url(:medium),class: "profile-user-img img-responsive img-circle", alt: "User Image",size: "25x25" %>
+	        </tr>
+	        <tr>
+	          <th>Mobile No.</th>
+	          <td><%= @enquiry.mobile_no %></td>
+	          <th> Name </th>
+	          <td><%= @enquiry.name_first %> <%= @enquiry.middle_name %> <%= @enquiry.last_name %> </td>
+	        </tr>
+	        <tr>
+	          <th>Email </th>
+	          <td><%= @enquiry.email %></td>
+	          <th>Place</th>
+	          <td><%= @enquiry.place %></td>
+	        </tr>
+	        <tr>
+	          <th> Date </th>
+	          <td><%= @enquiry.enquiry_date %></td>
+	          <th>Scheme</th>
+	          <td><%= @enquiry.scheme.try(:name) %></td>
+	        </tr>
+	        <tr>
+	          <th>Address</th>
+	          <td colspan="3"><%= @enquiry.try(:address) %></td>
+	        </tr>
+	        <tr>
+	          <th>Description</th>
+	          <td colspan="3"><%= @enquiry.try(:description) %></td>
+	        </tr>
+	      </tbody>
+	    </table><br>
+
+	    <% if @enquiry.scheme_id == nil %>
+			<% else %>
+			  <table id="example2" class="table table-bordered table-hover table-condensed">
+			    <thead>
+			    <tr><th colspan="4"><strong><center>Scheme Detail</center></strong></th></tr>
+			      <tr>
+			        <td><strong>Scheme</strong></td>
+			          <td><%= @enquiry.scheme.try(:name) %></td>
+			      
+			        <td><strong>Budget</strong></td>
+			          <td><%= @enquiry.try(:scheme).try(:budget) %></td>
+			      </tr>
+			      <tr>
+			        <td><strong>Down Payment</strong></td>
+			          <td><%= @enquiry.try(:scheme).try(:down_payment) %></td>
+			      
+			        <td><strong>Interest</strong></td>
+			          <td><%= @enquiry.try(:scheme).try(:intrest) %></td>
+			      </tr>
+			      <tr>
+			        <td><strong>Installment Amount</strong></td>
+			          <td><%= @enquiry.try(:scheme).try(:installment_amount) %></td>
+			      
+			        <td><strong>Scheme Type</strong></td>
+			          <td><%= @enquiry.try(:scheme).try(:scheme_type) %></td>
+			      </tr>
+			      <tr>
+			        <td><strong>Installment</strong></td>
+			          <td><%= @enquiry.try(:scheme).try(:installment) %></td>
+			      
+			        <td><strong>Vehicle Type</strong></td>
+			          <td><%= @enquiry.try(:scheme).try(:vehicle_type).try(:name) %></td>
+			      </tr>
+			      <tr>
+			        <td><strong>Description</strong></td>
+			          <td colspan="3"><%= @enquiry.try(:scheme).try(:description) %></td>
+			      </tr>
+			    </thead>
+			  </table>
+			<% end %>
+			<br>
+
+		 	<table id="example2" class="table table-bordered table-hover table-condensed">
+		    <thead>
+		    <tr><th colspan="4"><strong><center>Enquiry By</center></strong></th></tr>
+		      <tr>
+		        <td><strong>Employee ID</strong></td>
+		          <td><%= @enquiry.user.employee.try(:code) %></td>
+		      
+		        <td><strong>Employee Name</strong></td>
+		          <td><%= @enquiry.user.employee.try(:first_name) %> <%= @enquiry.user.employee.try(:middle_name) %> <%= @enquiry.user.employee.try(:last_name) %></td>
+		      </tr>
+		      <tr>
+		        <td><strong>Contact No.</strong></td>
+		          <td colspan="3"><%= @enquiry.try(:user).try(:employee).try(:contac_no) %></td>
+		      
+		      </tr>
+		    </thead>
+	  	</table>
+			<br>
+	    <%= link_to " PDF ", show_enquiry_enquiries_path(enquiry_id: @enquiry.id,format: "pdf"), class: "btn btn-sm btn-info",:target => "_blank" %>
+	    
+	  </div>
+	</div>
+</div>

@@ -25,12 +25,14 @@
         <% @enquiries.each do |enquiry| %>
           <tr>
             <td><%= i = i + 1 %></td>
-            <td><%= enquiry.enquiry_date %></td>
+            <td><%= enquiry.enquiry_date.strftime("%d-%m-%y") %></td>
             <td><%= enquiry.mobile_no %></td>
             <td><%= enquiry.name_first %> <%= enquiry.middle_name %> <%= enquiry.last_name %></td>
             <td><%= enquiry.scheme.try(:name) %></td>
             <td>
-              <%= link_to ' ', enquiry, class: 'btn btn-xs btn-default fa fa-eye' %>
+              <%= link_to ' ',show_enquiry_detail_enquiries_path(enquiry_id: enquiry.id),class: 'btn btn-default btn-xs fa fa-eye',remote: true %>
+
+              <%#= link_to ' ', enquiry, class: 'btn btn-xs btn-default fa fa-eye' %>
               <% if enquiry.status == "Booked" %>
                 <small class="label label-primary">Booked</small>
                 <%= link_to " ", show_enquiry_enquiries_path(enquiry_id: enquiry.id,format: "pdf"), class: "btn btn-xs btn-info fa fa-print",:target => "_blank" %>
@@ -47,6 +49,8 @@
       <%#= link_to 'Back', root_url ,class: 'btn btn-default btn-sm fa fa-arrow-left' %>
   </div>
 </div>
+
+    <div id="show_enquiry_detail" class="modal fade"></div>
 <script type="text/javascript">
 $(document).ready(function() {
     $('#example6').DataTable( {
