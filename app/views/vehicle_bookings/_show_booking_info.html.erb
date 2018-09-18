@@ -14,10 +14,10 @@
       <tbody>
         <tr>
           <th><strong>Enquiry By</strong></th>
-          <td colspan="3"><%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:prefix) %> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:first_name) %> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:last_name) %></td>
+          <td colspan="3"><%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:prefix) %> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:first_name) %> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:middle_name) %> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:last_name) %></td>
         </tr>
         <tr>
-          <th><strong>Executive</strong></th>
+          <th><strong>Executive/Booking</strong></th>
           <td><%= @vehicle_booking.try(:executive).try(:prefix) %> <%= @vehicle_booking.try(:executive).try(:first_name) %> <%= @vehicle_booking.try(:executive).try(:last_name) %></td>
 
           <% emp = Employee.find_by(id: @vehicle_booking.user_id) %>
