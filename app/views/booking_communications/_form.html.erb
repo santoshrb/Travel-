@@ -7,7 +7,7 @@
   <%= f.hidden_field :vehicle_booking_id, value: @vehicle_booking_id %>
   <br>
    <div class="row">
-    <div class="col-sm-12" style="color: Red;"><center><strong>Booking Details</strong></center></div> <hr>
+    <div class="col-sm-12"><center><font color='#0077b3'><strong>Booking Details</strong></font></center></div> <hr>
    </div>
 
     <div class="row">
@@ -74,9 +74,41 @@
       </div>
     </div>
 
+     <br>
+    <div class="row">
+      <div class="col-sm-2" style="padding-top: 10px;"><center><font color='#0077b3'><strong>Value Added Services</strong></font></center></div>
+
+      <div class="col-sm-2">
+        <div class="field">
+          <%= f.check_box :accessories, label:'Accessories/VAS' %>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="field">
+          <%= f.check_box :extended_warranty, label:'Extended Warranty' %>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="field">
+          <%= f.check_box :amc, label:'AMC' %>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="field">
+          <%= f.check_box :other, label:'Other' %>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="field">
+          <%= f.check_box :other1, label:'Other' %>
+        </div>
+      </div>
+    </div>
+
+
     <br>
     <div class="row">
-      <div class="col-sm-12" style="color: Red;"><center><strong>Commercial Details</strong></center></div> <hr>
+      <div class="col-sm-12"><center><font color='#0077b3'><strong>Commercial Details</strong></font></center></div> <hr>
     </div>
     <div class="row">
       <div class="col-sm-3">
@@ -147,7 +179,7 @@
 
     <br>
    <div class="row">
-    <div class="col-sm-12" style="color: Red;"><center><strong>Financing Details</strong></center></div> <hr>
+    <div class="col-sm-12"><center><font color='#0077b3'><strong>Financing Details</strong></font></center></div> <hr>
    </div>
     <div class="row">
       <div class="col-sm-3">
@@ -174,7 +206,7 @@
 
     <br>
    <div class="row">
-   <div class="col-sm-12" style="color: Red;"><center><strong>Exchange Details</strong></center></div> <hr>
+   <div class="col-sm-12"><center><font color='#0077b3'><strong>Exchange Details</strong></font></center></div> <hr>
    </div>
     <div class="row">
       <div class="col-sm-3">
