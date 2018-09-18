@@ -19,20 +19,22 @@ class BookingCommunicationsController < ApplicationController
 
   # GET /booking_communications/1/edit
   def edit
+    @vehicle_booking_id = @booking_communication.vehicle_booking_id
   end
 
   # POST /booking_communications
   # POST /booking_communications.json
   def create
-    @booking_communication = BookingCommunication.new(booking_communication_params)
 
+    @booking_communication = BookingCommunication.new(booking_communication_params)
+    @booking_communications = BookingCommunication.all
     respond_to do |format|
       if @booking_communication.save
-        format.html { redirect_to @booking_communication, notice: 'Booking communication was successfully created.' }
-        format.json { render :show, status: :created, location: @booking_communication }
+        #@booking_communication = BookingCommunication.new
+        format.js { @flag = true }
       else
-        format.html { render :new }
-        format.json { render json: @booking_communication.errors, status: :unprocessable_entity }
+        flash.now[:alert] = 'Booking Already Exist.'
+        format.js { @flag = false }
       end
     end
   end
@@ -42,11 +44,13 @@ class BookingCommunicationsController < ApplicationController
   def update
     respond_to do |format|
       if @booking_communication.update(booking_communication_params)
-        format.html { redirect_to @booking_communication, notice: 'Booking communication was successfully updated.' }
-        format.json { render :show, status: :ok, location: @booking_communication }
+        # format.html { redirect_to @booking_communication, notice: 'Booking communication was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @booking_communication }
+        format.js { @flag = true }
       else
-        format.html { render :edit }
-        format.json { render json: @booking_communication.errors, status: :unprocessable_entity }
+        format.js { @flag = false }
+        # format.html { render :edit }
+        # format.json { render json: @booking_communication.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,12 +59,29 @@ class BookingCommunicationsController < ApplicationController
   # DELETE /booking_communications/1.json
   def destroy
     @booking_communication.destroy
-    respond_to do |format|
-      format.html { redirect_to booking_communications_url, notice: 'Booking communication was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @booking_communications = BookingCommunication.all
+    # respond_to do |format|
+    #   format.html { redirect_to booking_communications_url, notice: 'Booking communication was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
+  # def bank_master
+  #    @banks = Bank.all
+  #    respond_to do |f|
+  #     f.js
+  #     f.xls {render template: 'banks/bank_master.xls.erb'}
+  #     f.html
+  #     f.pdf do
+  #       render pdf: ' bank_master',
+  #       layout: 'pdf.html',
+  #       orientation: 'Landscape',
+  #       template: 'banks/bank_master.pdf.erb',
+  #       show_as_html: params[:debug].present?
+  #       #margin:  { top:1,bottom:1,left:1,right:1 }
+  #           end
+  #         end
+  #   end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_booking_communication

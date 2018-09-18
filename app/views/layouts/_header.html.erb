@@ -122,8 +122,9 @@
             <%= image_tag "avatar.png",class: "img-circle", alt: "User Image", size: "25x25" %>
             <!-- Click image -->
             <p>
-                <small> Name : <%#= current_user.username %><br></small>
-                <small>   <br></small>
+                <small> ID :  <%= current_user.employee.try(:code) %> <br></small>
+                <small> Name : <%= current_user.employee.try(:prefix) %> <%= current_user.employee.try(:first_name) %>  <%= current_user.employee.try(:last_name) %><br></small>
+                
                 <small>  </small>
              
               <!-- <small>Member since <%= current_user.created_at%></small> -->
@@ -133,10 +134,10 @@
           <li class="user-body">
             <div class="col-xs-6 text-center">
               <!-- <a href="#">Followers</a> -->
-              <small>System Role :</small>
+              <small>System Role : </small>
             </div>
             <div class="col-xs-6 text-left">
-           <%= current_user.try(:role).try(:name) %>
+           <%= current_user.try(:role) %>
             </div>
            <!--  <div class="col-xs-4 text-center">
               <a href="#">Friends</a>
