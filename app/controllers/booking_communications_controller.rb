@@ -69,6 +69,6 @@ class BookingCommunicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_communication_params
-      params.require(:booking_communication).permit(:vehicle_booking_id, :variant, :vc_number, :quality, :company_name, :designation, :customer_po_no, :insurance, :registration, :delivery_location, :expected_delivery, :sales_person, :ex_showroom_price, :insurance_amount, :registration_amount, :accessories_vat_amount, :txtenaea_warranty_amount, :amc_amount, :exchange_amount, :exchange_discount, :logistics_charges, :corporate_offer, :taxes_levies, :tatoal_recevivable_amount, :finance_by, :finance_amount, :down_payment, :emi_amount, :car_model, :make, :year_of_manufacture, :varluation_amount, :special_insurance)
+      params.require(:booking_communication).permit(:accessories,:extended_warranty,:amc,:other,:other1,:vehicle_booking_id, :variant, :vc_number, :quality, :company_name, :designation, :customer_po_no, :insurance, :registration, :delivery_location, :expected_delivery, :sales_person, :ex_showroom_price, :insurance_amount, :registration_amount, :accessories_vat_amount, :txtenaea_warranty_amount, :amc_amount, :exchange_amount, :exchange_discount, :logistics_charges, :corporate_offer, :taxes_levies, :tatoal_recevivable_amount, :finance_by, :finance_amount, :down_payment, :emi_amount, :car_model, :make, :year_of_manufacture, :varluation_amount, :special_insurance)
     end
 end
