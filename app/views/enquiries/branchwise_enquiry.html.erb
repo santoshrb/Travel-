@@ -15,7 +15,7 @@
           <th>Date</th>
           <th>Mobile No</th>
           <th>Name</th>
-          <th>Email</th>
+          <th>Scheme</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -28,7 +28,7 @@
             <td><%= enquiry.enquiry_date %></td>
             <td><%= enquiry.mobile_no %></td>
             <td><%= enquiry.name_first %> <%= enquiry.middle_name %> <%= enquiry.last_name %></td>
-            <td><%= enquiry.email %></td>
+            <td><%= enquiry.scheme.try(:name) %></td>
             <td>
             <%= link_to ' ', enquiry, class: 'btn btn-xs btn-default fa fa-eye' %>
             <%= link_to ' ', edit_enquiry_path(enquiry), class: 'btn btn-xs btn-success fa fa-edit' %>

@@ -8,7 +8,7 @@ class EnquiriesController < ApplicationController
   end
 
   def branchwise_enquiry
-    @branchwise_enquiries = Enquiry.where(user_id: current_user.id)
+    @branchwise_enquiries = Enquiry.where(user_id: current_user.id).order('id desc')
   end
 
   # GET /enquiries/1

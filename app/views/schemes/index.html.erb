@@ -4,10 +4,10 @@
     <div class="pull-right">
       <%= link_to " PDF ", scheme_detail_schemes_path(format: "pdf"), class: "btn btn-sm btn-info fa fa-print",:target => "_blank" %>
       
+      <% if current_user.role == "Admin" %>
       <%= link_to " XLS ", scheme_detail_schemes_path(format: "xls"), class: "btn btn-sm btn-success fa fa-print",:target => "_blank" %>
       <%= link_to " Upload ", import_xl_schemes_path, class: 'fa fa-upload btn btn-sm btn-primary' %> 
       <%= link_to " Template", "/Templates/3.Scheme.xls", :class=>"fa fa-download btn-sm btn btn-warning" %>
-      <% if current_user.role == "Admin" %>
         <%= link_to 'New Scheme', new_scheme_path, class: 'btn btn-sm btn-primary' %>
       <% end %>
     </div>
