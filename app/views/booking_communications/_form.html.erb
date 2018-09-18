@@ -3,7 +3,7 @@
     <strong> <font color='#0077b3'> BOOKING COMMUNICATION </font></strong>
   </div><!-- /.box-header -->
   <div class="box-body">
-<%= bootstrap_form_for(@booking_communication,html: {id: 'booking_communication'}) do |f| %>
+<%= bootstrap_form_for(@booking_communication,html: {id: 'booking_communication'},remote:true) do |f| %>
   <%= f.hidden_field :vehicle_booking_id, value: @vehicle_booking_id %>
   <br>
    <div class="row">
