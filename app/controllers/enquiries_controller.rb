@@ -41,6 +41,11 @@ class EnquiriesController < ApplicationController
     end
   end
 
+  def show_enquiry_detail
+    enquiry_id = params[:enquiry_id]
+    @enquiry = Enquiry.find_by(id: enquiry_id)
+  end
+
   def display_scheme
     vehicle_type_id = params[:enquiry][:vehicle_type_id]
     @schemes = Scheme.where(vehicle_type_id: vehicle_type_id)
