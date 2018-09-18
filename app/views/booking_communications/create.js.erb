@@ -1,0 +1,7 @@
+
+<%if @flag == true %>
+	<%# @booking_communication = @booking_communication.save %>
+  $("#info").html("<%= j render 'show_bookings' %>");      
+<%else%>
+  $("#info").html("<%= j render 'booking_communications/form' %>");
+<%end%>
