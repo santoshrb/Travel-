@@ -12,7 +12,8 @@
 
    <tr>
       <th colspan="5">
-        <strong><center>Enquiry Detail</center></strong>
+        <strong><center>Enquiry : 
+          <%=@enquiry.user.employee.try(:first_name)%><%= @enquiry.user.employee.try(:middle_name)%>  <%= @enquiry.user.employee.try(:last_name)%></center></strong>
       </th>
     </tr>
     <tr>
@@ -87,3 +88,5 @@
     </thead>
   </table>
 <% end %>
+
+<br>
