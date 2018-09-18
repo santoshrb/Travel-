@@ -4,11 +4,11 @@ class EnquiriesController < ApplicationController
   # GET /enquiries
   # GET /enquiries.json
   def index
-    @enquiries = Enquiry.all.order('enquiry_date desc' )
+    @enquiries = Enquiry.all.order('id desc' )
   end
 
   def branchwise_enquiry
-    @branchwise_enquiries = Enquiry.where(user_id: current_user.id)
+    @branchwise_enquiries = Enquiry.where(user_id: current_user.id).order('id desc')
   end
 
   # GET /enquiries/1
@@ -39,6 +39,11 @@ class EnquiriesController < ApplicationController
         format.json { render json: @enquiry.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def show_enquiry_detail
+    enquiry_id = params[:enquiry_id]
+    @enquiry = Enquiry.find_by(id: enquiry_id)
   end
 
   def display_scheme

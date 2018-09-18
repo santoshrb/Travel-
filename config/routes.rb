@@ -46,6 +46,7 @@ Rails.application.routes.draw do
       post :show_enquiry
       get :show_enquiry
       get :branchwise_enquiry
+      get :show_enquiry_detail
     end
   end
   resources :employees

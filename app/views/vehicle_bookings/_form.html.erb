@@ -9,9 +9,16 @@
         <%#= select :salary,:enquiry_id, all_enquiry, {label: 'New Reporting Manager',include_blank: " Select Reporting Manager"},{:class=>"select2 select2-hidden-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
       </div>
     </div>
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.select :executive_id, all_employee, {label: 'Employee ',include_blank: " Select Employee"},{:class=>"select2 select2-view-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
+
+        <%#= f.select :executive_id, all_employee, {include_blank: "Select Executive"},{:class=>"select2 select2-hidden-accessible",:style=>"width: 100%;",:tabindex=>"-1"} %>
+      </div>
+    </div>
   </div><br>
    <div class="row">
-   <div class="col-sm-12" style="color: Red;"><center><strong>Customer Details</strong></center></div> <hr>
+   <div class="col-sm-12"><center><font color='#0077b3'><strong>Customer Details</strong></font></center></div> <hr>
    </div>
   <div class="row">
     <div class="col-sm-3">
@@ -71,7 +78,7 @@
   </div>
   <br>
    <div class="row">
-     <div class="col-sm-12" style="color: Red;" ><center><strong>Guarantor Details</strong></center></div> <hr>
+     <div class="col-sm-12"><center><font color='#0077b3'><strong>Guarantor Details</strong></font></center></div> <hr>
      </div>
   <div class="row">
     <div class="col-sm-3">
@@ -111,7 +118,7 @@
   </div><br>
 
    <div class="row">
-     <div class="col-sm-12" style="color: Red;"><center> <strong>Guarantor1 Details</strong> </center></div> <hr>
+     <div class="col-sm-12"><center><font color='#0077b3'><strong>Guarantor1 Details</strong></font> </center></div> <hr>
      </div>
   <div class="row">
      <div class="col-sm-3">
@@ -169,6 +176,7 @@
     yearRange: '-200:+1',
     dateFormat: 'dd-mm-yy' });
   });
+ 
 </script>
 
 <script>
@@ -196,3 +204,10 @@ $("#vehicle_booking").validate({
    });
 </script>
 
+<script type="text/javascript">
+  
+$(document).ready(function() {
+  $(".select2").select2();
+});
+
+</script>

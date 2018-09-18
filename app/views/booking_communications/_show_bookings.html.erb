@@ -7,7 +7,7 @@
 
 <table id="example6" class="table table-bordered table-hover table-condensed">
   <thead>
-<tr><th colspan="4"><center>Booking Details</center> </th></tr>
+<tr><th colspan="4"><font color='#0077b3'><center>Booking Details</center></font></th></tr>
 <tr>
   <td><strong>Model/Variant/Color </strong></td>
   <td><%= @booking_communication.variant %></td>
@@ -53,9 +53,31 @@
   <td colspan="3"><%= @booking_communication.sales_person %></td>
 </tr>
 
+<tr>
+  <th colspan="4"><font color='#0077b3'><center>Value Added Services</center></font></th>
+</tr>
+<tr>
+  <td><strong>Accessories/VAS </strong></td>
+  <td><%= @booking_communication.accessories ? "Yes" : "No" %></td>
+
+  <td><strong>Extended Warranty </strong></td>
+  <td><%= @booking_communication.extended_warranty ? "Yes" : "No" %></td>
+</tr>
+<tr>
+
+  <td><strong>AMC </strong></td>
+  <td><%= @booking_communication.amc ? "Yes" : "No" %></td>
+
+  <td><strong>Other </strong></td>
+  <td><%= @booking_communication.other ? "Yes" : "No" %></td>
+</tr>
+<tr>
+  <td><strong>Other </strong></td>
+  <td colspan="3"><%= @booking_communication.other1 ? "Yes" : "No" %></td>
+</tr>
 
 <tr>
-	<th colspan="4"><center>Commercial Detail</center> </th>
+	<th colspan="4"><font color='#0077b3'><center>Commercial Detail</center></font></th>
 </tr>
 <tr>
   <td><strong>Ex-Showroom Price </strong></td>
@@ -100,7 +122,7 @@
 </tr>
 
 
-<tr><th colspan="4"><center> Financing Details </center></th></tr>
+<tr><th colspan="4"><font color='#0077b3'><center> Financing Details </center></font></th></tr>
 <tr>
   <td><strong>Finance By </strong></td>
   <td><%= @booking_communication.finance_by %></td>
@@ -116,7 +138,7 @@
   <td><%= @booking_communication.emi_amount %></td>
 </tr>
 
-<tr><th colspan="4"><center> Exchange Details</center></th></tr>
+<tr><th colspan="4"><font color='#0077b3'><center> Exchange Details</center></font></th></tr>
 <tr>
   <td><strong>Car Model </strong></td>
   <td><%= @booking_communication.car_model %></td>
@@ -133,7 +155,7 @@
 </tr>
 
 <tr>
-  <td colspan="4"><strong><center>Special Instruction(If Any) </center></strong></td>
+  <th colspan="4"><font color='#0077b3'><center>Special Instruction(If Any) </center></font></th>
   </tr><tr>
   <td colspan="4"><%= @booking_communication.special_insurance %></td>
 </tr>

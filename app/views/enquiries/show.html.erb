@@ -80,6 +80,24 @@
   </table>
 <% end %>
 <br>
+ <table id="example2" class="table table-bordered table-hover table-condensed">
+    <thead>
+    <tr><th colspan="4"><strong><center>Enquiry By</center></strong></th></tr>
+      <tr>
+        <td><strong>Employee ID</strong></td>
+          <td><%= @enquiry.user.employee.try(:code) %></td>
+      
+        <td><strong>Employee Name</strong></td>
+          <td><%= @enquiry.user.employee.try(:first_name) %> <%= @enquiry.user.employee.try(:middle_name) %> <%= @enquiry.user.employee.try(:last_name) %></td>
+      </tr>
+      <tr>
+        <td><strong>Contact No.</strong></td>
+          <td colspan="3"><%= @enquiry.try(:user).try(:employee).try(:contac_no) %></td>
+      
+      </tr>
+    </thead>
+  </table>
+<br>
     <%= link_to " PDF ", show_enquiry_enquiries_path(enquiry_id: @enquiry.id,format: "pdf"), class: "btn btn-sm btn-info",:target => "_blank" %>
     
     <% if current_user.role == "Admin" %>

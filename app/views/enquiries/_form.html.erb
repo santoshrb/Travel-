@@ -85,11 +85,13 @@
   
 <% end %>
 
-<!-- 
+
+
 <script>
 $("#enquiry").validate({
   rules: {
     "enquiry[mobile_no]":{
+      maxlength: 10,
       required: true,
     },
     "enquiry[name_first]":{
@@ -98,7 +100,7 @@ $("#enquiry").validate({
      },
   messages: {
     "enquiry[mobile_no]":{
-      required: "Please specify mobile_no",
+      required: "Please specify correct Mobile No ",
     },
      "enquiry[name_first]":{
       required: "Please specify name_first",
@@ -109,7 +111,7 @@ $("#enquiry").validate({
    error.insertAfter(element.parent(element));
   }
 });
-</script> -->
+</script>
 <script type="text/javascript">
    $('.enquiry_date').datepicker({
     changeYear:true,
