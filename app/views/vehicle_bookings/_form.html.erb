@@ -38,31 +38,33 @@
     </div>
     <div class="col-sm-3">
       <div class="field">
-        <%= f.text_field :light_bill, label:'Light Bill', placeholder: 'eg: 18486877' %>
+        <%= f.text_field :light_bill, label:'Consumer Number', placeholder: 'eg: 14932' %>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-3">
       <div class="field">
-        <%= f.text_field :rent_agr, label:'Rent Aggrement', placeholder: 'Rent Aggrement' %>
+        <%= f.text_field :bs, label:'Unit', placeholder: 'Unit' %>
       </div>
     </div>
     <div class="col-sm-3">
       <div class="field">
-        <%= f.text_field :bs, label:'BS', placeholder: 'BS' %>
+        <%= f.text_field :rent_agr, label:'Current Address', placeholder: 'Current Address' %>
       </div>
     </div>
     <div class="col-sm-3">
       <div class="field">
-        <%= f.text_field :itr, label:'ITR', placeholder: 'ITR' %>
+        <%= f.text_field :native_light_bill, label:'Permanent Address' %>
       </div>
     </div>
+  
     <div class="col-sm-3">
       <div class="field">
-        <%= f.text_field :native_light_bill, label:'Native Light Bill', placeholder: 'eg: 18486875' %>
+        <%= f.text_field :itr, label:'Firm Name', placeholder: 'Firm Name' %>
       </div>
     </div>
+    
   </div>
   <div class="row">
     <div class="col-sm-3">
@@ -93,26 +95,32 @@
     </div>
     <div class="col-sm-3">
       <div class="field">
-        <%= f.text_field :light_bill_guarantor, label:'Guarantor Light Bill', placeholder: 'eg: 18487765' %>
+        <%= f.text_field :light_bill_guarantor, label:'Consumer Number', placeholder: 'eg: 14356' %>
       </div>
     </div>
     <div class="col-sm-3">
       <div class="field">
-        <%= f.text_field :rent_agr_guarantor, label:'Guarantor Rent Aggrement', placeholder: 'Guarantor Rent Aggrement' %>
+        <%= f.text_field :guarantor_unit, label:'Unit' %>
       </div>
     </div>
+    
   </div>
   <div class="row">
-    <div class="col-sm-3">
+  <div class="col-sm-3">
       <div class="field">
-        <%= f.text_field :bs_guarantor, label:'Guarantor BS', placeholder: 'Guarantor BS' %>
+        <%= f.text_field :rent_agr_guarantor, label:'Current Address'%>
       </div>
     </div>
     <div class="col-sm-3">
       <div class="field">
-        <%= f.text_field :itr_guarantor, label:'Guarantor ITR', placeholder: 'Guarantor ITR' %>
+        <%= f.text_field :bs_guarantor, label:'Mobile Number' %>
       </div>
     </div>
+   <!--  <div class="col-sm-3">
+      <div class="field">
+        <%#= f.text_field :itr_guarantor, label:'Mobile Number' %>
+      </div>
+    </div> -->
 
    
   </div><br>
@@ -134,32 +142,43 @@
 
     <div class="col-sm-3">
       <div class="field">
-        <%= f.text_field :light_bill_guarantor1, label:'Guarantor1 Light Bill', placeholder: 'eg: 74217898' %>
+        <%= f.text_field :light_bill_guarantor1, label:'Consumer Number', placeholder: 'eg: 12322' %>
       </div>
     </div>
+
     <div class="col-sm-3">
       <div class="field">
-        <%= f.text_field :rent_agr_guarantor1, label:'Guarantor1 Rent Aggrement', placeholder: 'Guarantor1 Rent Aggrement agr' %>
+        <%= f.text_field :guarantor1_unit, label:'Unit' %>
       </div>
     </div>
+
    
   </div>
   <div class="row">
-   <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :bs_guarantor1, label:'Guarantor1 BS', placeholder: 'Guarantor1 BS' %>
-      </div>
-    </div>
+
     <div class="col-sm-3">
       <div class="field">
-        <%= f.text_field :itr_guarantor1, label:'Guarantor1 ITR', placeholder: 'Guarantor1 ITR' %>
+        <%= f.text_field :rent_agr_guarantor1, label:'Current Address' %>
       </div>
     </div>
+
+   <div class="col-sm-3">
+      <div class="field">
+        <%= f.text_field :bs_guarantor1, label:'Mobile Number'%>
+      </div>
+    </div>
+  <!--   <div class="col-sm-3">
+      <div class="field">
+        <%#= f.text_field :itr_guarantor1, label:'Mobile Number' %>
+      </div>
+    </div> -->
     <div class="col-sm-3" style="margin-top: 20px">
       <div class="field">
         <%= f.check_box :status,label:'Active' %>
       </div>
     </div>
+  </div>
+  <div class="row">
     <div class="col-sm-3" style="margin-top: 20px">
       <div class="actions">
         <%= f.submit "Create Booking", class: 'btn btn-sm btn-primary' %>
