@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle_booking_id: 
+  financer: MyString
+  contact_person: MyString
+  contact_no: MyString
+  status: MyString
+
+two:
+  vehicle_booking_id: 
+  financer: MyString
+  contact_person: MyString
+  contact_no: MyString
+  status: MyString
