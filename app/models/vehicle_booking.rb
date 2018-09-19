@@ -1,5 +1,6 @@
 class VehicleBooking < ActiveRecord::Base
-	  belongs_to :enquiry
+	belongs_to :enquiry
+	belongs_to :agent
 	has_many :document_lists
 	has_many :booking_communications
 	belongs_to :executive, class_name: 'Employee'
