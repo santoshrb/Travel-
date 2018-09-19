@@ -10,11 +10,12 @@
       <thead>
         <tr>
           <th>Sr. No</th>
+           <th>Name</th>
+          <th>Mobile No</th>
           <th>Pan Card</th>
           <th>Adhar Card</th>
           <th>Licence No</th>
-          <th>Light Bill</th>
-          <th>Rent Aggrement</th>
+         
           <!-- <th>BS</th>
           <th>ITR</th>
           <th>Native light bill</th>
@@ -40,11 +41,13 @@
         <% @branchwise_bookings.each do |vehicle_booking| %>
           <tr>
             <td><%= i = i + 1 %></td>
+             <td><%= vehicle_booking.enquiry.name_first rescue nil %> <%= vehicle_booking.enquiry.middle_name rescue nil %> <%= vehicle_booking.enquiry.last_name rescue nil %></td>
+            <td><%= vehicle_booking.enquiry.mobile_no rescue nil %></td>
             <td><%= vehicle_booking.pan %></td>
             <td><%= vehicle_booking.adhar %></td>
-            <td><%= vehicle_booking.licence %></td>
+            <td><%= vehicle_booking.licence %></td><!-- 
             <td><%= vehicle_booking.light_bill %></td>
-            <td><%= vehicle_booking.rent_agr %></td>
+            <td><%= vehicle_booking.rent_agr %></td> -->
             <!-- <td><%= vehicle_booking.bs %></td>
             <td><%= vehicle_booking.itr %></td>
             <td><%= vehicle_booking.native_light_bill %></td>

@@ -14,15 +14,19 @@
       <tbody>
         <tr>
           <th><strong>Enquiry By</strong></th>
-          <td colspan="3"><%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:prefix) %> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:first_name) %> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:middle_name) %> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:last_name) %></td>
+          <td><%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:prefix) %> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:first_name) %> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:middle_name) %> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:last_name) %></td>
+             <th><strong>Executive/Booking</strong></th>
+          <td><%= @vehicle_booking.try(:executive).try(:prefix) %> <%= @vehicle_booking.try(:executive).try(:first_name) %> <%= @vehicle_booking.try(:executive).try(:last_name) %></td>
         </tr>
         <tr>
-          <th><strong>Executive/Booking</strong></th>
-          <td><%= @vehicle_booking.try(:executive).try(:prefix) %> <%= @vehicle_booking.try(:executive).try(:first_name) %> <%= @vehicle_booking.try(:executive).try(:last_name) %></td>
+         
 
           <% emp = Employee.find_by(id: @vehicle_booking.user_id) %>
           <th><strong>Created By</strong></th>
           <td><%=emp.try(:prefix) %> <%= emp.try(:first_name) %> <%= emp.try(:last_name) %></td>
+
+           <th><strong>Agent Name</strong></th>
+          <td> <%= @vehicle_booking.try(:agent).try(:first_name) %> <%= @vehicle_booking.try(:agent).try(:middel_name) %> <%= @vehicle_booking.try(:agent).try(:last_name) %> <%= @vehicle_booking.try(:agent).try(:mobile_no) %></td>
         </tr>
         <tr>
           <th colspan="4"><font color='#0077b3'><center>Customer Details</center></font>
