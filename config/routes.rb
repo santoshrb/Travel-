@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :agents
   resources :booking_communications 
   resources :document_lists
   resources :vehicle_bookings do

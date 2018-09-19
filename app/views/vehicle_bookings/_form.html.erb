@@ -16,6 +16,13 @@
         <%#= f.select :executive_id, all_employee, {include_blank: "Select Executive"},{:class=>"select2 select2-hidden-accessible",:style=>"width: 100%;",:tabindex=>"-1"} %>
       </div>
     </div>
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.select :agent_id, all_agent, {label: 'Agent ',include_blank: " Select Agent"},{:class=>"select2 select2-view-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
+
+        <%#= f.select :executive_id, all_employee, {include_blank: "Select Executive"},{:class=>"select2 select2-hidden-accessible",:style=>"width: 100%;",:tabindex=>"-1"} %>
+      </div>
+    </div>
   </div><br>
    <div class="row">
    <div class="col-sm-12"><center><font color='#0077b3'><strong>Customer Details</strong></font></center></div> <hr>
