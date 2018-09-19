@@ -31,6 +31,8 @@ class VehicleBookingsController < ApplicationController
   # POST /vehicle_bookings.json
   def create
     @vehicle_booking = VehicleBooking.new(vehicle_booking_params)
+    @vehicle_bookings = VehicleBooking.all
+    
     respond_to do |format|
       if @vehicle_booking.save
         enquiry = Enquiry.find_by(id: @vehicle_booking.enquiry_id)
@@ -104,11 +106,9 @@ class VehicleBookingsController < ApplicationController
             @vehicle_booking.update(enquiry_id: updated_enquiry)
           end
         end
-        format.html { redirect_to @vehicle_booking, notice: 'Vehicle booking was successfully updated.' }
-        format.json { render :show, status: :ok, location: @vehicle_booking }
+        format.js { @flag = true }
       else
-        format.html { render :edit }
-        format.json { render json: @vehicle_booking.errors, status: :unprocessable_entity }
+        format.js { @flag = false }
       end
     end
   end

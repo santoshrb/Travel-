@@ -1,37 +1,63 @@
-<%= form_for(@agent) do |f| %>
-  <% if @agent.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@agent.errors.count, "error") %> prohibited this agent from being saved:</h2>
-
-      <ul>
-      <% @agent.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= bootstrap_form_for(@agent,html: {id: 'agent'}) do |f| %>
+  
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :first_name,hide_label:true, placeholder: 'Vikram' %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <div class="col-sm-3"> 
+      <div class="field">
+        <%= f.text_field :middel_name,hide_label:true, placeholder: 'Singh' %>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="field">
+        <%= f.text_field :last_name,hide_label:true, placeholder: 'Chauhan' %>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="field">
+        <%= f.text_field :mobile_number,hide_label:true, placeholder: 'e.g. 8422098721' %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :middel_name %><br>
-    <%= f.text_field :middel_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :mobile_number %><br>
-    <%= f.text_field :mobile_number %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.check_box :status %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="col-sm-3"> 
+      <div class="field">
+        <%= f.check_box :status, label: 'Active' %>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="actions">
+        <%= f.submit "Create Agent" , class: "btn btn-sm btn-primary" %>
+      </div>
+    </div>
   </div>
 <% end %>
+
+<script>
+$("#agent").validate({
+    rules: {
+      "agent[first_name]":{
+        required: true,
+      },
+      "agent[mobile_number]":{
+        required: true,
+      }
+       },
+    messages: {
+      "agent[first_name]":{
+        required: "Please specify Name",
+      },
+       "agent[mobile_number]":{
+        required: "Please specify Mobile Number",
+      }
+       },
+    errorPlacement: function(error, element) {
+     error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
+     error.insertAfter(element.parent(element));
+    }
+   });
+</script>
+

@@ -27,7 +27,7 @@
           <th>Contact No</th>
           <!-- <th>Email</th> -->
           <th>Contact Person</th>
-          <!-- <th>Status</th> -->
+          <th>Branch</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -46,7 +46,7 @@
             <td><%= showroom_master.contact_no %></td>
             <!-- <td><%#= showroom_master.email %></td> -->
             <td><%= showroom_master.contact_person %></td>
-            <!-- <td><%#= showroom_master.status ? "Active" : "Inactive" %></td> -->
+            <td><%= showroom_master.try(:branch).try(:name) %></td> 
             <td>
               <%= link_to ' ', showroom_master, class: 'btn btn-xs btn-default fa fa-eye' %>
               <%= link_to ' ', edit_showroom_master_path(showroom_master), class: 'btn btn-xs btn-success fa fa-edit' %>

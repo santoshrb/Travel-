@@ -4,7 +4,7 @@ class AgentsController < ApplicationController
   # GET /agents
   # GET /agents.json
   def index
-    @agents = Agent.all
+    @agent = Agent.new
   end
 
   # GET /agents/1
@@ -15,6 +15,7 @@ class AgentsController < ApplicationController
   # GET /agents/new
   def new
     @agent = Agent.new
+    @agents = Agent.all
   end
 
   # GET /agents/1/edit
@@ -25,40 +26,36 @@ class AgentsController < ApplicationController
   # POST /agents.json
   def create
     @agent = Agent.new(agent_params)
+    @agents = Agent.all
 
-    respond_to do |format|
+    #respond_to do |format|
       if @agent.save
-        format.html { redirect_to @agent, notice: 'Agent was successfully created.' }
-        format.json { render :show, status: :created, location: @agent }
+        @agent = Agent.new
+        # format.js { @flag = true }
+        # format.html { redirect_to new_agent_path, notice: 'Branch was successfully created.' }
+        # format.json { render :show, status: :created, location: @agent }
       else
-        format.html { render :new }
-        format.json { render json: @agent.errors, status: :unprocessable_entity }
+        # flash.now[:alert] = 'Agent Already Exist.'
+        # format.js { @flag = false }
       end
-    end
+    #end 
+    redirect_to new_agent_path
   end
 
   # PATCH/PUT /agents/1
   # PATCH/PUT /agents/1.json
   def update
-    respond_to do |format|
-      if @agent.update(agent_params)
-        format.html { redirect_to @agent, notice: 'Agent was successfully updated.' }
-        format.json { render :show, status: :ok, location: @agent }
-      else
-        format.html { render :edit }
-        format.json { render json: @agent.errors, status: :unprocessable_entity }
-      end
-    end
+    @agent.update(agent_params)
+    @agent = Agent.new
+    @agents = Agent.all
+    redirect_to new_agent_path
   end
 
   # DELETE /agents/1
   # DELETE /agents/1.json
   def destroy
     @agent.destroy
-    respond_to do |format|
-      format.html { redirect_to agents_url, notice: 'Agent was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @agents = Agent.all
   end
 
   private
