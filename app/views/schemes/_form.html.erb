@@ -110,13 +110,39 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-6">
-      <label>Image 2 Upload(only jpeg,jpg,png)</label>
+    <div class="col-sm-3">
+      <label>Image 2</label>
       <div class="field">
         <%= f.file_field :image1,hide_label: true %>
       </div>
     </div>
+    <div class="col-sm-3">
+      <label>Image 3</label>
+      <div class="field">
+        <%= f.file_field :image2,hide_label: true %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <label>Image 4</label>
+      <div class="field">
+        <%= f.file_field :image3,hide_label: true %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <label>Image 5</label>
+      <div class="field">
+        <%= f.file_field :image4,hide_label: true %>
+      </div>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-sm-3">
+      <label>Image 6</label>
+      <div class="field">
+        <%= f.file_field :image5,hide_label: true %>
+      </div>
+    </div>
     <div class="col-sm-3" style="padding-top: 20px;">
       <div class="form-group required">
         <%= f.submit "Create Scheme ", :class => class_name, data: { disable_with: data_info } %>
