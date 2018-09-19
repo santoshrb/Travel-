@@ -4,166 +4,186 @@
     <h3 class="box-title">Booking Communication</h3>
     <div class="pull-right">
       <%= link_to 'Edit', edit_booking_communication_path(@booking_communication),class: 'btn btn-xs btn-success fa fa-edit', remote:true %>
+      <%#= link_to " PDF ", booking_communication_detail_booking_communications_path(id: @booking_communication.id, format: "pdf"), class: "btn btn-xl btn-info fa fa-print",:target => "_blank" %>
+    
+      <%#= link_to " XLS ", booking_communication_detail_booking_communications_path(id: @booking_communication.id, format: "xls"), class: "btn btn-xl btn-success fa fa-print",:target => "_blank" %>
+
     </div>
-	<div class="box-body">
+	  <div class="box-body">
 
-<table id="example6" class="table table-bordered table-hover table-condensed">
-  <thead>
-<tr><th colspan="4"><font color='#0077b3'><center>Booking Details</center></font></th></tr>
-<tr>
-  <td><strong>Model/Variant/Color </strong></td>
-  <td><%= @booking_communication.variant %></td>
+      <table id="example6" class="table table-bordered table-hover table-condensed">
+        <thead>
+          <tr>
+            <th colspan="4"><font color='#0077b3'><center>Customer Details</center></font></th>
+          </tr>
+          <tr>
+            <th><strong>Name</strong></th>
+            <td><%= @booking_communication.vehicle_booking.try(:enquiry).try(:name_first) %> <%= @booking_communication.vehicle_booking.try(:enquiry).try(:middle_name) %> <%= @booking_communication.vehicle_booking.try(:enquiry).try(:last_name) %></td>
 
-  <td><strong>VC Number </strong></td>
-  <td><%= @booking_communication.vc_number %></td>
-</tr>
+            <th><strong>Date</strong></th>
+            <td><%= @booking_communication.vehicle_booking.try(:date) %></td>
+          </tr>
 
-<tr>
-  <td><strong>Quality </strong></td>
-  <td><%= @booking_communication.quality %></td>
+          <tr><th colspan="4"><font color='#0077b3'><center>Booking Details</center></font></th></tr>
+          <tr>
+            <td><strong>Model/Variant/Color </strong></td>
+            <td><%= @booking_communication.variant %></td>
 
-  <td><strong>Company Name </strong></td>
-  <td><%= @booking_communication.company_name %></td>
-</tr>
+            <td><strong>VC Number </strong></td>
+            <td><%= @booking_communication.vc_number %></td>
+          </tr>
 
-<tr>
-  <td><strong>Designation </strong></td>
-  <td><%= @booking_communication.designation %></td>
+          <tr>
+            <td><strong>Quality </strong></td>
+            <td><%= @booking_communication.quality %></td>
 
-  <td><strong>Customer/Company P.O No </strong></td>
-  <td><%= @booking_communication.customer_po_no %></td>
-</tr>
+            <td><strong>Company Name </strong></td>
+            <td><%= @booking_communication.company_name %></td>
+          </tr>
 
-<tr>
-  <td><strong>Insurance(TMI/In House/Other) </strong></td>
-  <td><%= @booking_communication.insurance %></td>
+          <tr>
+            <td><strong>Designation </strong></td>
+            <td><%= @booking_communication.designation %></td>
 
-  <td><strong>Registration(TMI/In House/Other) </strong></td>
-  <td><%= @booking_communication.registration %></td>
-</tr>
+            <td><strong>Customer/Company P.O No </strong></td>
+            <td><%= @booking_communication.customer_po_no %></td>
+          </tr>
 
-<tr>
-  <td><strong>Delivery Location </strong></td>
-  <td><%= @booking_communication.delivery_location %></td>
+          <tr>
+            <td><strong>Insurance(TMI/In House/Other) </strong></td>
+            <td><%= @booking_communication.insurance %></td>
 
-  <td><strong>Expected Delivery Date</strong></td>
-  <td><%= @booking_communication.expected_delivery %></td>
-</tr>
+            <td><strong>Registration(TMI/In House/Other) </strong></td>
+            <td><%= @booking_communication.registration %></td>
+          </tr>
 
-<tr>
-  <td><strong>Sales Person/Customer Advisor </strong></td>
-  <td colspan="3"><%= @booking_communication.sales_person %></td>
-</tr>
+          <tr>
+            <td><strong>Delivery Location </strong></td>
+            <td><%= @booking_communication.delivery_location %></td>
 
-<tr>
-  <th colspan="4"><font color='#0077b3'><center>Value Added Services</center></font></th>
-</tr>
-<tr>
-  <td><strong>Accessories/VAS </strong></td>
-  <td><%= @booking_communication.accessories ? "Yes" : "No" %></td>
+            <td><strong>Expected Delivery Date</strong></td>
+            <td><%= @booking_communication.expected_delivery %></td>
+          </tr>
 
-  <td><strong>Extended Warranty </strong></td>
-  <td><%= @booking_communication.extended_warranty ? "Yes" : "No" %></td>
-</tr>
-<tr>
+          <tr>
+            <td><strong>Sales Person/Customer Advisor </strong></td>
+            <td colspan="3"><%= @booking_communication.sales_person %></td>
+          </tr>
 
-  <td><strong>AMC </strong></td>
-  <td><%= @booking_communication.amc ? "Yes" : "No" %></td>
+          <tr>
+            <th colspan="4"><font color='#0077b3'><center>Value Added Services</center></font></th>
+          </tr>
+          <tr>
+            <td><strong>Accessories/VAS </strong></td>
+            <td><%= @booking_communication.accessories ? "Yes" : "No" %></td>
 
-  <td><strong>Other </strong></td>
-  <td><%= @booking_communication.other ? "Yes" : "No" %></td>
-</tr>
-<tr>
-  <td><strong>Other </strong></td>
-  <td colspan="3"><%= @booking_communication.other1 ? "Yes" : "No" %></td>
-</tr>
+            <td><strong>Extended Warranty </strong></td>
+            <td><%= @booking_communication.extended_warranty ? "Yes" : "No" %></td>
+          </tr>
+          <tr>
 
-<tr>
-	<th colspan="4"><font color='#0077b3'><center>Commercial Detail</center></font></th>
-</tr>
-<tr>
-  <td><strong>Ex-Showroom Price </strong></td>
-  <td><%= @booking_communication.ex_showroom_price %></td>
+            <td><strong>AMC </strong></td>
+            <td><%= @booking_communication.amc ? "Yes" : "No" %></td>
 
-  <td><strong>Insurance Amount </strong></td>
-  <td><%= @booking_communication.insurance_amount %></td>
-</tr>
-<tr>
+            <td><strong>Other </strong></td>
+            <td><%= @booking_communication.other ? "Yes" : "No" %></td>
+          </tr>
+          <tr>
+            <td><strong>Other </strong></td>
+            <td colspan="3"><%= @booking_communication.other1 ? "Yes" : "No" %></td>
+          </tr>
 
-  <td><strong>Registration Amount </strong></td>
-  <td><%= @booking_communication.registration_amount %></td>
+          <tr>
+          	<th colspan="4"><font color='#0077b3'><center>Commercial Detail</center></font></th>
+          </tr>
+          <tr>
+            <td><strong>Ex-Showroom Price </strong></td>
+            <td><%= @booking_communication.ex_showroom_price %></td>
 
-  <td><strong>Accessories + VAS Amount </strong></td>
-  <td><%= @booking_communication.accessories_vat_amount %></td>
-</tr>
-<tr>
-  <td><strong>Extended Warranty Amount </strong></td>
-  <td><%= @booking_communication.txtenaea_warranty_amount %></td>
+            <td><strong>Insurance Amount </strong></td>
+            <td><%= @booking_communication.insurance_amount %></td>
+          </tr>
+          <tr>
 
-  <td><strong>AMC Amount </strong></td>
-  <td><%= @booking_communication.amc_amount %></td>
-</tr>
-<tr>
-  <td><strong>Exchange Amount </strong></td>
-  <td><%= @booking_communication.exchange_amount %></td>
+            <td><strong>Registration Amount </strong></td>
+            <td><%= @booking_communication.registration_amount %></td>
 
-  <td><strong>Exchange Discount(If Applicable) </strong></td>
-  <td><%= @booking_communication.exchange_discount %></td>
-<tr>
-  <td><strong>Logistics & Handling Charges </strong></td>
-  <td><%= @booking_communication.logistics_charges %></td>
+            <td><strong>Accessories + VAS Amount </strong></td>
+            <td><%= @booking_communication.accessories_vat_amount %></td>
+          </tr>
+          <tr>
+            <td><strong>Extended Warranty Amount </strong></td>
+            <td><%= @booking_communication.txtenaea_warranty_amount %></td>
 
-  <td><strong>Corporate Offer(If Applicable) </strong></td>
-  <td><%= @booking_communication.corporate_offer %></td>
-<tr>
-  <td><strong>Taxes & Levies </strong></td>
-  <td><%= @booking_communication.taxes_levies %></td>
+            <td><strong>AMC Amount </strong></td>
+            <td><%= @booking_communication.amc_amount %></td>
+          </tr>
+          <tr>
+            <td><strong>Exchange Amount </strong></td>
+            <td><%= @booking_communication.exchange_amount %></td>
 
-  <td><strong>Total Receivable Amount </strong></td>
-  <td><%= @booking_communication.tatoal_recevivable_amount %></td>
-</tr>
+            <td><strong>Exchange Discount(If Applicable) </strong></td>
+            <td><%= @booking_communication.exchange_discount %></td>
+          </tr>
+          <tr>
+            <td><strong>Logistics & Handling Charges </strong></td>
+            <td><%= @booking_communication.logistics_charges %></td>
+
+            <td><strong>Corporate Offer(If Applicable) </strong></td>
+            <td><%= @booking_communication.corporate_offer %></td>
+          </tr>
+          <tr>
+            <td><strong>Taxes & Levies </strong></td>
+            <td><%= @booking_communication.taxes_levies %></td>
+
+            <td><strong>Total Receivable Amount </strong></td>
+            <td><%= @booking_communication.tatoal_recevivable_amount %></td>
+          </tr>
 
 
-<tr><th colspan="4"><font color='#0077b3'><center> Financing Details </center></font></th></tr>
-<tr>
-  <td><strong>Finance By </strong></td>
-  <td><%= @booking_communication.finance_by %></td>
+          <tr><th colspan="4"><font color='#0077b3'><center> Financing Details </center></font></th></tr>
+          <tr>
+            <td><strong>Finance By </strong></td>
+            <td><%= @booking_communication.finance_by %></td>
 
-  <td><strong>Finance Amount </strong></td>
-  <td><%= @booking_communication.finance_amount %></td>
+            <td><strong>Finance Amount </strong></td>
+            <td><%= @booking_communication.finance_amount %></td>
+          </tr>
 
-<tr>
-  <td><strong>Margin Money/Down Payment </strong></td>
-  <td><%= @booking_communication.down_payment %></td>
+          <tr>
+            <td><strong>Margin Money/Down Payment </strong></td>
+            <td><%= @booking_communication.down_payment %></td>
 
-  <td><strong>Tenure & EMI Amount </strong></td>
-  <td><%= @booking_communication.emi_amount %></td>
-</tr>
+            <td><strong>Tenure & EMI Amount </strong></td>
+            <td><%= @booking_communication.emi_amount %></td>
+          </tr>
 
-<tr><th colspan="4"><font color='#0077b3'><center> Exchange Details</center></font></th></tr>
-<tr>
-  <td><strong>Car Model </strong></td>
-  <td><%= @booking_communication.car_model %></td>
+          <tr><th colspan="4"><font color='#0077b3'><center> Exchange Details</center></font></th></tr>
+          <tr>
+            <td><strong>Car Model </strong></td>
+            <td><%= @booking_communication.car_model %></td>
 
-  <td><strong>Make </strong></td>
-  <td><%= @booking_communication.make %></td>
-</tr>
-<tr>
-  <td><strong>Year Of Manufacture </strong></td>
-  <td><%= @booking_communication.year_of_manufacture %></td>
+            <td><strong>Make </strong></td>
+            <td><%= @booking_communication.make %></td>
+          </tr>
+          <tr>
+            <td><strong>Year Of Manufacture </strong></td>
+            <td><%= @booking_communication.year_of_manufacture %></td>
 
-  <td><strong>Variation Amount </strong></td>
-  <td><%= @booking_communication.varluation_amount %></td>
-</tr>
+            <td><strong>Variation Amount </strong></td>
+            <td><%= @booking_communication.varluation_amount %></td>
+          </tr>
 
-<tr>
-  <th colspan="4"><font color='#0077b3'><center>Special Instruction(If Any) </center></font></th>
-  </tr><tr>
-  <td colspan="4"><%= @booking_communication.special_insurance %></td>
-</tr>
+          <tr>
+            <th colspan="4"><font color='#0077b3'><center>Special Instruction(If Any) </center></font></th>
+            </tr><tr>
+            <td colspan="4"><%= @booking_communication.special_insurance %></td>
+          </tr>
 
-<%#= link_to 'Edit', edit_booking_communication_path(@booking_communication) %> 
-<%#= link_to 'Back', booking_communications_path %>
-</thead>
-</table>
-</tr></tr></tr></thead></table></div></div></div>
+          <%#= link_to 'Edit', edit_booking_communication_path(@booking_communication) %> 
+          <%#= link_to 'Back', booking_communications_path %>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
