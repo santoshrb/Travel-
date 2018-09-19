@@ -21,6 +21,7 @@
 		      <th>Name</th>
 		      <th>Contact No</th>
 		      <th>Contact Person</th>
+		      <th>Branch</th>
 		      <th>Action</th>
 		    </tr>
 		  </thead>
@@ -34,6 +35,7 @@
 		        <td><%= financer_master.name %></td>
 		        <td><%= financer_master.contact_no %></td>
 		        <td><%= financer_master.contact_person %></td>
+		        <td><%= financer_master.try(:branch).try(:name) %></td>
 		        <td>
               <%= link_to ' ', financer_master, class: 'btn btn-xs btn-default fa fa-eye' %>
               <%= link_to ' ', edit_financer_master_path(financer_master), class: 'btn btn-xs btn-success fa fa-edit' %>

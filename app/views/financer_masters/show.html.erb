@@ -44,6 +44,10 @@
           <td><%= @financer_master.contact_person %></td>
         </tr>
         <tr>
+        <th>Branch</th>
+        <td><%= @financer_master.try(:branch).try(:name) %></td>
+        </tr>
+        <tr>
           <th><strong>Status</strong></th>
           <td><%= @financer_master.status ? "Active" : "Inactive" %></td>
         </tr>

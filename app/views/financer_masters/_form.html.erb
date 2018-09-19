@@ -1,5 +1,13 @@
 <%= bootstrap_form_for(@financer_master,html: {id: 'financer_master'}) do |f| %>
   
+   <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+       <%= f.select :branch_id, all_branch, {label: 'Branch ',include_blank: " Select Branch"},{:class=>"select2 select2-view-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
+
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-3">
       <div class="form-group required">
