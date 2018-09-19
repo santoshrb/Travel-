@@ -1,0 +1,35 @@
+<table id="example6" class="table table-bordered table-hover table-condensed'">
+  <thead>
+    <tr> 
+      <th>First name</th>
+      <th>Middel name</th>
+      <th>Last name</th>
+      <th>Mobile number</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @agents.each do |agent| %>
+      <tr>
+        <td><%= agent.first_name %></td>
+        <td><%= agent.middel_name %></td>
+        <td><%= agent.last_name %></td>
+        <td><%= agent.mobile_number %></td>
+        <td><%= agent.status ? "Active" : "Inactive" %></td>
+        <td>
+          <%= link_to '', edit_agent_path(agent),class: 'btn btn-xs btn-success fa fa-edit',remote:true %>
+          <%= link_to '',  agent, method: :delete, data: { confirm: 'Are you sure?',remote:true },class: 'btn btn-xs btn-danger fa fa-close' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>
