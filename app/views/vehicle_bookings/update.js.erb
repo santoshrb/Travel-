@@ -1,0 +1,5 @@
+<%if @flag == true %>
+  $("#info").html("<%= j render 'show_booking_info' %>");      
+<%else%>
+  $("#info").html("<%= j render 'vehicle_bookings/form' %>");
+<%end%>
