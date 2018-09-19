@@ -7,5 +7,7 @@ class Enquiry < ApplicationRecord
   validates :name_first, presence:true
   validates :mobile_no, presence:true,uniqueness:{case_sensitive:false}
   validates :scheme_id, presence:true
+  validates :enquiry_date, presence:true
+  
   #validates :email, presence:true,uniqueness:{case_sensitive:false}
 end

@@ -96,6 +96,9 @@ $("#enquiry").validate({
     },
     "enquiry[name_first]":{
       required: true,
+    },
+    "enquiry[enquiry_date]":{
+      required: true,
     }
      },
   messages: {
@@ -104,6 +107,9 @@ $("#enquiry").validate({
     },
      "enquiry[name_first]":{
       required: "Please specify name_first",
+    },
+     "enquiry[enquiry_date]":{
+      required: "Please specify Date",
     }
      },
   errorPlacement: function(error, element) {
