@@ -8,6 +8,15 @@
       <table style="border-collapse: collapse; font-size:9pt;" border=1 width=1200 cellpadding="10">
         <thead>
           <tr>
+            <td colspan="4"><center> 
+              <% if @booking_communication.try(:vehicle_booking).try(:enquiry).try(:user).try(:employee).try(:company).logo == nil %>
+              <% else %>
+                <center> <%= wicked_pdf_image_tag @booking_communication.try(:vehicle_booking).try(:enquiry).try(:user).try(:employee).try(:company).logo.url, :size => "120x80" %></center>
+              <%end%> 
+            </td>
+          </tr> 
+
+          <tr>
             <th colspan="4"><font color='#0077b3'><center>Customer Details</center></font></th>
           </tr>
           <tr>

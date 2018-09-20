@@ -5,6 +5,16 @@
   <div class="box-body">
   <table style="border-collapse: collapse; font-size:9pt;" border=1 width=1200 cellpadding="10">
     <tbody>
+      <tr>
+        <td colspan="4"><center> 
+          <% if @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:company).logo == nil %>
+          <% else %>
+            <center> <%= wicked_pdf_image_tag @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:company).logo.url, :size => "120x80" %></center>
+          <%end%> 
+            <strong><%=@vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:company).try(:name)%></strong> <br> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:company).try(:address)%></center>
+        </td>
+      </tr> 
+
         <tr>
           <th><strong>Enquiry By</strong></th>
           <td><%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:prefix) %> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:first_name) %> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:middle_name) %> <%= @vehicle_booking.try(:enquiry).try(:user).try(:employee).try(:last_name) %></td>

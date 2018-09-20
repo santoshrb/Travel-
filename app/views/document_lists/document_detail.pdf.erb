@@ -12,24 +12,33 @@
     }
 </style>
 <table style="border-collapse: collapse; font-size:9pt;" border=1 width=1000 cellpadding="10">
-		   	<thead>
-		   		<tr>
-		   			<th>Sr. No</th>
-			      <th>Document List</th>
-			      <th>Status</th>
-			      <th>Employee</th>
-		   		</tr>
-		   	</thead>
-		   	<tbody>
-		   		<% i = 0 %>
-			    <% @document_lists.each do |document_list| %>
-			      <tr>
-			      	<td><%= i = i + 1 %></td>
-			        <td><%= document_list.document_master.try(:name) %></td>
-			        <td><%= document_list.status ? "Submit" : "Pending" %></td>
-			        <td><%= document_list.employee.try(:prefix) %> <%= document_list.employee.try(:first_name) %> <%= document_list.employee.try(:middle_name) %> <%= document_list.employee.try(:last_name) %></td>
-			        
-			      </tr>
-			    <% end %>
-			  </tbody>
-		  </table>
+ 	<thead>
+      <tr>
+        <td colspan="4"><center> 
+          <% if current_user.try(:employee).try(:company).logo == nil %>
+          <% else %>
+            <center> <%= wicked_pdf_image_tag current_user.try(:employee).try(:company).logo.url, :size => "120x80" %></center>
+          <%end%> 
+            <strong><%=current_user.try(:employee).try(:company).try(:name)%></strong> <br> <%= current_user.try(:employee).try(:company).try(:address)%></center>
+        </td>
+      </tr> 
+ 		<tr>
+ 			<th>Sr. No</th>
+      <th>Document List</th>
+      <th>Status</th>
+      <th>Employee</th>
+ 		</tr>
+ 	</thead>
+ 	<tbody>
+ 		<% i = 0 %>
+    <% @document_lists.each do |document_list| %>
+      <tr>
+      	<td><%= i = i + 1 %></td>
+        <td><%= document_list.document_master.try(:name) %></td>
+        <td><%= document_list.status ? "Submit" : "Pending" %></td>
+        <td><%= document_list.employee.try(:prefix) %> <%= document_list.employee.try(:first_name) %> <%= document_list.employee.try(:middle_name) %> <%= document_list.employee.try(:last_name) %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
