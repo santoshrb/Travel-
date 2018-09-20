@@ -1,0 +1,53 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <div class="modal-body">
+
+    <table id="example2" class="table table-bordered table-hover table-condensed">
+      <tbody>
+        <tr>
+          <th colspan="5">
+            <strong><center>Showroom Detail</center></strong>
+          </th>
+        </tr>
+        <tr>
+          <th><strong>Code</strong></th>
+          <td><%= @showroom_master.code %></td>
+        </tr>
+          <th><strong>Name</strong></th>
+          <td><%= @showroom_master.name %></td>
+        </tr>
+          <th><strong>Description</strong></th>
+          <td><%= @showroom_master.description %></td>
+        </tr>
+          <th><strong>Pin Code</strong></th>
+          <td><%= @showroom_master.pin_code %></td>
+        </tr>
+          <th><strong>Place</strong></th>
+          <td><%= @showroom_master.place %></td>
+        </tr>
+          <th><strong>Address</strong></th>
+          <td><%= @showroom_master.address %></td>
+        </tr>
+          <th><strong>Contact No</strong></th>
+          <td><%= @showroom_master.code %></td>
+        </tr>
+          <th><strong>Email</strong></th>
+          <td><%= @showroom_master.email %></td>
+        </tr>
+          <th><strong>Contact Person</strong></th>
+          <td><%= @showroom_master.contact_person %></td>
+        </tr>
+        </tr>
+          <th><strong>Status</strong></th>
+          <td><%= @showroom_master.status ? "Active" : "Inactive" %></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+      <%#= link_to " PDF ", showroom_detail_showroom_masters_path(format: "pdf"), class: "btn btn-xl btn-info fa fa-print",:target => "_blank" %>
+      </div>
+  </div>
+</div>

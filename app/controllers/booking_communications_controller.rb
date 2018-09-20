@@ -67,7 +67,7 @@ class BookingCommunicationsController < ApplicationController
   end
 
   def booking_communication_detail
-    @booking_communications = BookingCommunication.all
+    @booking_communication = BookingCommunication.find(params[:id])
       respond_to do |f|
         f.js
         f.xls {render template: 'booking_communications/booking_communication_detail.xls.erb'}

@@ -24,7 +24,7 @@ class VehicleBookingsController < ApplicationController
 
   # GET /vehicle_bookings/1/edit
   def edit
-    @vehicle_booking = VehicleBooking.find(params[:id])
+    #@vehicle_booking = VehicleBooking.find(params[:format])
   end
 
   # POST /vehicle_bookings
@@ -33,21 +33,28 @@ class VehicleBookingsController < ApplicationController
     @vehicle_booking = VehicleBooking.new(vehicle_booking_params)
     @vehicle_bookings = VehicleBooking.all
     
-    respond_to do |format|
+    #respond_to do |format|
       if @vehicle_booking.save
         enquiry = Enquiry.find_by(id: @vehicle_booking.enquiry_id)
         enquiry.update(status: 'Booked')
-        format.html { redirect_to @vehicle_booking, notice: 'Vehicle booking was successfully created.' }
-        format.json { render :show, status: :created, location: @vehicle_booking }
+        
         @document_masters = DocumentMaster.where(status: true)
         @document_masters.each do |doc|
           DocumentList.create(document_master_id: doc.id,vehicle_booking_id: @vehicle_booking.id,status: false)
         end
+         # format.html { redirect_to @vehicle_booking, notice: 'Vehicle booking was successfully created.' }
+         # format.json { render :show, status: :created, location: @vehicle_booking }
+
+        #format.js { @flag = true }
+        redirect_to vehicle_bookings_path
       else
-        format.html { render :new }
-        format.json { render json: @vehicle_booking.errors, status: :unprocessable_entity }
+        flash.now[:alert] = 'Booking Already Exist.'
+        redirect_to vehicle_bookings_path
+        #format.js { @flag = false }
+        # format.html { render :new }
+        # format.json { render json: @vehicle_booking.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   def ajax_document_list
@@ -93,7 +100,7 @@ class VehicleBookingsController < ApplicationController
   # PATCH/PUT /vehicle_bookings/1
   # PATCH/PUT /vehicle_bookings/1.json
   def update
-    respond_to do |format|
+    #respond_to do |format|
       enquiry = @vehicle_booking.enquiry_id
       if @vehicle_booking.update(vehicle_booking_params)
         updated_enquiry = vehicle_booking_params['enquiry_id']
@@ -106,11 +113,13 @@ class VehicleBookingsController < ApplicationController
             @vehicle_booking.update(enquiry_id: updated_enquiry)
           end
         end
-        format.js { @flag = true }
+        redirect_to vehicle_bookings_path
+        #format.js { @flag = true }
       else
-        format.js { @flag = false }
+        #format.js { @flag = false }
+        redirect_to vehicle_bookings_path
       end
-    end
+    #end
   end
 
   # DELETE /vehicle_bookings/1
@@ -123,17 +132,17 @@ class VehicleBookingsController < ApplicationController
     end
   end
 
-  def bookings_detail
+  def vehicle_booking_detail
     @vehicle_booking = VehicleBooking.find(params[:booking_id])
     respond_to do |f|
       f.js
-      f.xls {render template: 'vehicle_bookings/bookings_detail.xls.erb'}
+      f.xls {render template: 'vehicle_bookings/vehicle_booking_detail.xls.erb'}
       f.html
       f.pdf do
-        render pdf: ' bookings_detail',
+        render pdf: ' vehicle_booking_detail',
         layout: 'pdf.html',
         orientation: 'Landscape',
-        template: 'vehicle_bookings/bookings_detail.pdf.erb',
+        template: 'vehicle_bookings/vehicle_booking_detail.pdf.erb',
         show_as_html: params[:debug].present?
         #margin:  { top:1,bottom:1,left:1,right:1 }
       end

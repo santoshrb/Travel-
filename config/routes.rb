@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
   resources :agents
-  resources :booking_communications 
-  resources :document_lists
+  resources :booking_communications do
+    collection do
+      get :booking_communication_detail
+    end
+  end
+  resources :document_lists do 
+    collection do
+      get :document_detail
+    end
+  end
   resources :vehicle_bookings do
     collection do
       get :confirm_document
@@ -11,6 +19,7 @@ Rails.application.routes.draw do
       post :document_list_confirm
       get :branchwise_booking
       get :ajax_communication_detail
+      get :vehicle_booking_detail
     end
   end
   resources :showroom_masters do
@@ -18,6 +27,7 @@ Rails.application.routes.draw do
       get :showroom_detail
       get :import_xl
       post :import
+      get :show_showroom_detail
     end
   end
   resources :document_masters
@@ -26,6 +36,7 @@ Rails.application.routes.draw do
       get :financer_detail
       get :import_xl
       post :import
+      get :show_financer_detail
     end
   end
   resources :vehicle_types

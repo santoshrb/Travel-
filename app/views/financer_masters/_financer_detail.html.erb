@@ -1,0 +1,62 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <div class="modal-body">
+
+    <table id="example2" class="table table-bordered table-hover table-condensed">
+      <tbody>
+        <tr>
+          <th colspan="5">
+            <strong><center>Financer Detail</center></strong>
+          </th>
+        </tr>
+        <tr>
+          <th><strong>Code</strong></th>
+          <td><%= @financer_master.code %></td>
+        </tr>
+        <tr>
+          <th><strong>Name</strong></th>
+          <td><%= @financer_master.name %></td>
+        </tr>
+        <tr>
+          <th><strong>Description</strong></th>
+          <td><%= @financer_master.description %></td>
+        </tr>
+        <tr>
+          <th><strong>Pin Code</strong></th>
+          <td><%= @financer_master.pin_code %></td>
+        </tr>
+        <tr>
+          <th><strong>Place</strong></th>
+          <td><%= @financer_master.place %></td>
+        </tr>
+        <tr>
+          <th><strong>Address</strong></th>
+          <td><%= @financer_master.address %></td>
+        </tr>
+        <tr>
+          <th><strong>Contact No</strong></th>
+          <td><%= @financer_master.contact_no %></td>
+        </tr>
+        <tr>
+          <th><strong>Email</strong></th>
+          <td><%= @financer_master.email %></td>
+        </tr>
+        <tr>
+          <th><strong>Contact Person</strong></th>
+          <td><%= @financer_master.contact_person %></td>
+        </tr>
+        <tr>
+          <th><strong>Status</strong></th>
+          <td><%= @financer_master.status ? "Active" : "Inactive" %></td>
+        </tr>
+      </tbody>
+    </table><br>
+
+	    <%#= link_to " PDF ", financer_detail_financer_masters_path(format: "pdf"), class: "btn btn-xl btn-info fa fa-print",:target => "_blank" %>
+	    
+	  </div>
+	</div>
+</div>

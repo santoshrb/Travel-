@@ -1,198 +1,204 @@
-<%= bootstrap_form_for(@vehicle_booking,html: {id: 'vehicle_booking'}) do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.employee_id %>
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="form-group required">
-        <%#= f.select :enquiry_id,all_enquiry,{label: 'Enquiry',include_blank: "Select Enquiry"} %>
-        <%= f.select :enquiry_id, all_enquiry, {include_blank: "Select Enquiry",label: "Enquiry"},{:class=>"select2 select2-view-accessible",:style=>"width: 100%;",:tabindex=>"-1"}%>   
+<div class="box box-default">
+  <div class="box-header with-border">
+    <div class="box-body">
+      <%= bootstrap_form_for(@vehicle_booking,html: {id: 'vehicle_booking'}) do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.employee_id %>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group required">
+              <%#= f.select :enquiry_id,all_enquiry,{label: 'Enquiry',include_blank: "Select Enquiry"} %>
+              <%= f.select :enquiry_id, all_enquiry, {include_blank: "Select Enquiry",label: "Enquiry"},{:class=>"select2 select2-view-accessible",:style=>"width: 100%;",:tabindex=>"-1"}%>   
 
-        <%#= select :salary,:enquiry_id, all_enquiry, {label: 'New Reporting Manager',include_blank: " Select Reporting Manager"},{:class=>"select2 select2-hidden-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="form-group required">
-        <%= f.select :executive_id, all_employee, {label: 'Employee ',include_blank: " Select Employee"},{:class=>"select2 select2-view-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
-
-        <%#= f.select :executive_id, all_employee, {include_blank: "Select Executive"},{:class=>"select2 select2-hidden-accessible",:style=>"width: 100%;",:tabindex=>"-1"} %>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="form-group required">
-        <%= f.select :agent_id, all_agent, {label: 'Agent ',include_blank: " Select Agent"},{:class=>"select2 select2-view-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
-
-        <%#= f.select :executive_id, all_employee, {include_blank: "Select Executive"},{:class=>"select2 select2-hidden-accessible",:style=>"width: 100%;",:tabindex=>"-1"} %>
-      </div>
-    </div>
-  </div><br>
-   <div class="row">
-   <div class="col-sm-12"><center><font color='#0077b3'><strong>Customer Details</strong></font></center></div> <hr>
-   </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="form-group required">
-        <%= f.text_field :pan, label:'Pan Card', placeholder: 'BACLC0423K' %>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="form-group required">
-        <%= f.text_field :adhar, label:'Adhar Card', placeholder: '332142174615' %>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :licence, label:'Licence No', placeholder: 'MH12201308800' %>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :light_bill, label:'Consumer Number', placeholder: 'eg: 14932' %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :bs, label:'Unit', placeholder: 'Unit' %>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :rent_agr, label:'Current Address', placeholder: 'Current Address' %>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :native_light_bill, label:'Permanent Address' %>
-      </div>
-    </div>
-  
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :itr, label:'Firm Name', placeholder: 'Firm Name' %>
-      </div>
-    </div>
-    
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="form-group required">
-        <div class="input-group">
-          <div class="input-group-addon">
-            <i class="fa fa-calendar"></i>
+              <%#= select :salary,:enquiry_id, all_enquiry, {label: 'New Reporting Manager',include_blank: " Select Reporting Manager"},{:class=>"select2 select2-hidden-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
+            </div>
           </div>
-          <%= f.text_field :date, label:'Date', placeholder: 'Date',class: 'request_date form-control' %>
+          <div class="col-sm-3">
+            <div class="form-group required">
+              <%= f.select :executive_id, all_employee, {label: 'Employee ',include_blank: " Select Employee"},{:class=>"select2 select2-view-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
+
+              <%#= f.select :executive_id, all_employee, {include_blank: "Select Executive"},{:class=>"select2 select2-hidden-accessible",:style=>"width: 100%;",:tabindex=>"-1"} %>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group required">
+              <%= f.select :agent_id, all_agent, {label: 'Agent ',include_blank: " Select Agent"},{:class=>"select2 select2-view-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
+
+              <%#= f.select :executive_id, all_employee, {include_blank: "Select Executive"},{:class=>"select2 select2-hidden-accessible",:style=>"width: 100%;",:tabindex=>"-1"} %>
+            </div>
+          </div>
+        </div><br>
+         <div class="row">
+         <div class="col-sm-12"><center><font color='#0077b3'><strong>Customer Details</strong></font></center></div> <hr>
+         </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group required">
+              <%= f.text_field :pan, label:'Pan Card', placeholder: 'BACLC0423K' %>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group required">
+              <%= f.text_field :adhar, label:'Adhar Card', placeholder: '332142174615' %>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :licence, label:'Licence No', placeholder: 'MH12201308800' %>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :light_bill, label:'Consumer Number', placeholder: 'eg: 14932' %>
+            </div>
+          </div>
         </div>
-      </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :bs, label:'Unit', placeholder: 'Unit' %>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :rent_agr, label:'Current Address', placeholder: 'Current Address' %>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :native_light_bill, label:'Permanent Address' %>
+            </div>
+          </div>
+        
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :itr, label:'Firm Name', placeholder: 'Firm Name' %>
+            </div>
+          </div>
+          
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group required">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+                <%= f.text_field :date, label:'Date', placeholder: 'Date',class: 'request_date form-control' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+         <div class="row">
+           <div class="col-sm-12"><center><font color='#0077b3'><strong>Guarantor Details</strong></font></center></div> <hr>
+           </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :pan_guarantor, label:'Guarantor Pan', placeholder: 'BCSPX0217H' %>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :adhar_guarantor, label:'Guarantor Adhar', placeholder: '332292174615' %>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :light_bill_guarantor, label:'Consumer Number', placeholder: 'eg: 14356' %>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :guarantor_unit, label:'Unit' %>
+            </div>
+          </div>
+          
+        </div>
+        <div class="row">
+        <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :rent_agr_guarantor, label:'Current Address'%>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :bs_guarantor, label:'Mobile Number' %>
+            </div>
+          </div>
+         <!--  <div class="col-sm-3">
+            <div class="field">
+              <%#= f.text_field :itr_guarantor, label:'Mobile Number' %>
+            </div>
+          </div> -->
+
+         
+        </div><br>
+
+         <div class="row">
+           <div class="col-sm-12"><center><font color='#0077b3'><strong>Guarantor1 Details</strong></font> </center></div> <hr>
+           </div>
+        <div class="row">
+           <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :pan_guarantor1, label:'Guarantor1 Pan Card', placeholder: 'BLSKX0917H' %>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :adhar_guarantor1, label:'Guarantor1 Adhar Card', placeholder: '422192174617' %>
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :light_bill_guarantor1, label:'Consumer Number', placeholder: 'eg: 12322' %>
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :guarantor1_unit, label:'Unit' %>
+            </div>
+          </div>
+
+         
+        </div>
+        <div class="row">
+
+          <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :rent_agr_guarantor1, label:'Current Address' %>
+            </div>
+          </div>
+
+         <div class="col-sm-3">
+            <div class="field">
+              <%= f.text_field :bs_guarantor1, label:'Mobile Number'%>
+            </div>
+          </div>
+        <!--   <div class="col-sm-3">
+            <div class="field">
+              <%#= f.text_field :itr_guarantor1, label:'Mobile Number' %>
+            </div>
+          </div> -->
+          <div class="col-sm-3" style="margin-top: 20px">
+            <div class="field">
+              <%= f.check_box :status,label:'Active' %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3" style="margin-top: 20px">
+            <div class="actions">
+              <%= f.submit "Create Booking", class: 'btn btn-sm btn-primary' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-  <br>
-   <div class="row">
-     <div class="col-sm-12"><center><font color='#0077b3'><strong>Guarantor Details</strong></font></center></div> <hr>
-     </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :pan_guarantor, label:'Guarantor Pan', placeholder: 'BCSPX0217H' %>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :adhar_guarantor, label:'Guarantor Adhar', placeholder: '332292174615' %>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :light_bill_guarantor, label:'Consumer Number', placeholder: 'eg: 14356' %>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :guarantor_unit, label:'Unit' %>
-      </div>
-    </div>
-    
-  </div>
-  <div class="row">
-  <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :rent_agr_guarantor, label:'Current Address'%>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :bs_guarantor, label:'Mobile Number' %>
-      </div>
-    </div>
-   <!--  <div class="col-sm-3">
-      <div class="field">
-        <%#= f.text_field :itr_guarantor, label:'Mobile Number' %>
-      </div>
-    </div> -->
-
-   
-  </div><br>
-
-   <div class="row">
-     <div class="col-sm-12"><center><font color='#0077b3'><strong>Guarantor1 Details</strong></font> </center></div> <hr>
-     </div>
-  <div class="row">
-     <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :pan_guarantor1, label:'Guarantor1 Pan Card', placeholder: 'BLSKX0917H' %>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :adhar_guarantor1, label:'Guarantor1 Adhar Card', placeholder: '422192174617' %>
-      </div>
-    </div>
-
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :light_bill_guarantor1, label:'Consumer Number', placeholder: 'eg: 12322' %>
-      </div>
-    </div>
-
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :guarantor1_unit, label:'Unit' %>
-      </div>
-    </div>
-
-   
-  </div>
-  <div class="row">
-
-    <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :rent_agr_guarantor1, label:'Current Address' %>
-      </div>
-    </div>
-
-   <div class="col-sm-3">
-      <div class="field">
-        <%= f.text_field :bs_guarantor1, label:'Mobile Number'%>
-      </div>
-    </div>
-  <!--   <div class="col-sm-3">
-      <div class="field">
-        <%#= f.text_field :itr_guarantor1, label:'Mobile Number' %>
-      </div>
-    </div> -->
-    <div class="col-sm-3" style="margin-top: 20px">
-      <div class="field">
-        <%= f.check_box :status,label:'Active' %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3" style="margin-top: 20px">
-      <div class="actions">
-        <%= f.submit "Create Booking", class: 'btn btn-sm btn-primary' %>
-      </div>
-    </div>
-  </div>
-<% end %>
+</div>
 
 <script type="text/javascript">
   $(function(){
@@ -203,31 +209,6 @@
     dateFormat: 'dd-mm-yy' });
   });
  
-</script>
-
-<script>
-$("#vehicle_booking").validate({
-    rules: {
-      "vehicle_booking[pan]":{
-        required: true,
-      },
-      "vehicle_booking[adhar]":{
-        required: true,
-      }
-       },
-    messages: {
-      "vehicle_booking[pan]":{
-        required: "Please specify pan",
-      },
-       "vehicle_booking[adhar]":{
-        required: "Please specify Adhar",
-      }
-       },
-    errorPlacement: function(error, element) {
-     error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
-     error.insertAfter(element.parent(element));
-    }
-   });
 </script>
 
 <script type="text/javascript">

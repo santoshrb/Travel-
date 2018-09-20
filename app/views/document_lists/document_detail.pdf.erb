@@ -1,0 +1,35 @@
+<style>
+    th {
+        text-align: left;
+    }
+    tr {
+        page-break-inside: avoid;
+    }
+    div.alwaysbreak { page-break-before: always; }
+    div.nobreak:before { clear:both; }
+    div.nobreak{ page-break-inside: avoid;
+      /* http://code.google.com/p/wkhtmltopdf/issues/detail?id=9#c21 */
+    }
+</style>
+<table style="border-collapse: collapse; font-size:9pt;" border=1 width=1000 cellpadding="10">
+		   	<thead>
+		   		<tr>
+		   			<th>Sr. No</th>
+			      <th>Document List</th>
+			      <th>Status</th>
+			      <th>Employee</th>
+		   		</tr>
+		   	</thead>
+		   	<tbody>
+		   		<% i = 0 %>
+			    <% @document_lists.each do |document_list| %>
+			      <tr>
+			      	<td><%= i = i + 1 %></td>
+			        <td><%= document_list.document_master.try(:name) %></td>
+			        <td><%= document_list.status ? "Submit" : "Pending" %></td>
+			        <td><%= document_list.employee.try(:prefix) %> <%= document_list.employee.try(:first_name) %> <%= document_list.employee.try(:middle_name) %> <%= document_list.employee.try(:last_name) %></td>
+			        
+			      </tr>
+			    <% end %>
+			  </tbody>
+		  </table>

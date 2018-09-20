@@ -1,7 +1,7 @@
 
-// <%if @flag == true %>
-// 	<%# @booking_communication = @booking_communication.save %>
-//   $("#info").html("<%= j render 'show_booking_info' %>");      
-// <%else%>
-//   $("#info").html("<%= j render 'vehicle_bookings/form' %>");
-// <%end%>
+<%if @flag == true %>
+	<%# @booking_communication = @booking_communication.save %>
+  $("#info").html("<%= j render 'show_booking_info' %>");      
+<%else%>
+  $("#info").html("<%= j render 'vehicle_bookings/form' %>");
+<%end%>

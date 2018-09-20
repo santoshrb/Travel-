@@ -61,6 +61,10 @@ class ShowroomMastersController < ApplicationController
     end
   end
 
+  def show_showroom_detail
+    @showroom_master = ShowroomMaster.find(params[:showroom_master_id])
+  end
+
   def showroom_detail
     @showroom_masters = ShowroomMaster.all
     respond_to do |f|

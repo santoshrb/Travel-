@@ -48,7 +48,9 @@
             <td><%= showroom_master.contact_person %></td>
             <!-- <td><%#= showroom_master.status ? "Active" : "Inactive" %></td> -->
             <td>
-              <%= link_to ' ', showroom_master, class: 'btn btn-xs btn-default fa fa-eye' %>
+            <%= link_to ' ',show_showroom_detail_showroom_masters_path(showroom_master_id: showroom_master.id),class: 'btn btn-default btn-xs fa fa-eye',remote: true %>
+
+              <%#= link_to ' ', showroom_master, class: 'btn btn-xs btn-default fa fa-eye' %>
               <%= link_to ' ', edit_showroom_master_path(showroom_master), class: 'btn btn-xs btn-success fa fa-edit' %>
               <%= link_to ' ', showroom_master, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %>
             </td>
@@ -58,6 +60,7 @@
     </table>
   </div>
 </div>
+    <div id="show_showroom_detail" class="modal fade"></div>
 
 <script type="text/javascript">
 $(document).ready(function() {

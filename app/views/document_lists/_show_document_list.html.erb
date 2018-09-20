@@ -1,5 +1,8 @@
 <div class="box box-default">
   <div class="box-body">
+  	<div class="pull-right">
+      <%= link_to " PDF ", document_detail_document_lists_path(vehicle_booking_id: @vehicle_booking_id, format: "pdf"), class: "btn btn-xs btn-info",:target => "_blank" %>
+    </div>
   	<%= form_for :vehicle_bookings, url: { action: 'document_list_confirm',vehicle_booking_id: @vehicle_booking_id} do |f| %>
 	    <table id="example6" class="table table-bordered table-hover table-condensed">
 		   	<thead>

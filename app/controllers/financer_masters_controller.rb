@@ -62,6 +62,10 @@ class FinancerMastersController < ApplicationController
     end
   end
 
+  def show_financer_detail
+    @financer_master = FinancerMaster.find(params[:financer_master_id])
+  end
+
   def financer_detail
     @financer_masters = FinancerMaster.all
     respond_to do |f|
