@@ -29,7 +29,7 @@
             <td><%= document_master.description %></td>
             <td><%= document_master.status ? "Active" : "Inactive" %></td>
             <td>
-              <%= link_to ' ', document_master, class: 'btn btn-xs btn-default fa fa-eye' %>
+              <%#= link_to ' ', document_master, class: 'btn btn-xs btn-default fa fa-eye' %>
               <%= link_to ' ', edit_document_master_path(document_master), class: 'btn btn-xs btn-success fa fa-edit' %>
               <%= link_to ' ', document_master, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger fa fa-trash' %>
             </td>

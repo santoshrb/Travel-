@@ -1,7 +1,7 @@
 class ShowroomMaster < ActiveRecord::Base
   validates :code, presence:true,uniqueness:{case_sensitive:false}
   validates :name, presence:true
-
+  belongs_to :branch
 
   def self.import(file)
    	spreadsheet = open_spreadsheet(file)

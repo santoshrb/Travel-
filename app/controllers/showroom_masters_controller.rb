@@ -100,6 +100,6 @@ class ShowroomMastersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def showroom_master_params
-      params.require(:showroom_master).permit(:code, :name, :description, :pin_code, :place, :address, :contact_no, :email, :contact_person, :status)
+      params.require(:showroom_master).permit(:branch_id, :code, :name, :description, :pin_code, :place, :address, :contact_no, :email, :contact_person, :status)
     end
 end

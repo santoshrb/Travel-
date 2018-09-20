@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :file_processes
   resources :agents
   resources :booking_communications do
     collection do
