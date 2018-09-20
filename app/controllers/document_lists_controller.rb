@@ -61,6 +61,24 @@ class DocumentListsController < ApplicationController
     end
   end
 
+  def document_detail
+    @vehicle_booking_id = params[:vehicle_booking_id]
+    @document_lists = DocumentList.where(vehicle_booking_id: @vehicle_booking_id)
+    respond_to do |f|
+      f.js
+      f.xls {render template: 'document_lists/document_detail.xls.erb'}
+      f.html
+      f.pdf do
+        render pdf: ' document_detail',
+        layout: 'pdf.html',
+        orientation: 'Landscape',
+        template: 'document_lists/document_detail.pdf.erb',
+        show_as_html: params[:debug].present?
+        #margin:  { top:1,bottom:1,left:1,right:1 }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_document_list

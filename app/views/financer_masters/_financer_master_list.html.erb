@@ -17,7 +17,9 @@
         <td><%= financer_master.contact_no %></td>
         <td><%= financer_master.contact_person %></td>
         <td>
-            <%= link_to '', financer_master,class: 'btn btn-xs btn-default fa fa-eye' %>
+            <%= link_to ' ',show_financer_detail_financer_masters_path(financer_master_id: financer_master.id),class: 'btn btn-default btn-xs fa fa-eye',remote: true %>
+
+            <%#= link_to '', financer_master,class: 'btn btn-xs btn-default fa fa-eye' %>
             <%= link_to '', edit_financer_master_path(financer_master),class: 'btn btn-xs btn-success fa fa-edit',remote:true %>
             <%= link_to '', financer_master, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-xs btn-danger fa fa-close' %>
         </td>
@@ -26,6 +28,7 @@
   </tbody>
 </table>
 
+    <div id="show_financer_detail" class="modal fade"></div>
 <script type="text/javascript">
 $(document).ready(function() {
     $('#example6').DataTable( {

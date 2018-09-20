@@ -1,18 +1,21 @@
 
 <div class="box box-default">
   <div class="box-header with-border">
-    <h3 class="box-title">Booking Communication</h3>
-    <div class="pull-right">
-      <%= link_to 'Edit', edit_booking_communication_path(@booking_communication),class: 'btn btn-xs btn-success fa fa-edit', remote:true %>
-      <%= link_to " PDF ", booking_communication_detail_booking_communications_path(id: @booking_communication.id, format: "pdf"), class: "btn btn-xs btn-info",:target => "_blank" %>
+   <!--  <h3 class="box-title"><center> Booking Communication</center></h3> -->
     
-      <%#= link_to " XLS ", booking_communication_detail_booking_communications_path(id: @booking_communication.id, format: "xls"), class: "btn btn-xl btn-success fa fa-print",:target => "_blank" %>
-
-    </div>
 	  <div class="box-body">
 
-      <table id="example6" class="table table-bordered table-hover table-condensed">
+      <table style="border-collapse: collapse; font-size:9pt;" border=1 width=1200 cellpadding="10">
         <thead>
+          <tr>
+            <td colspan="4"><center> 
+              <% if @booking_communication.try(:vehicle_booking).try(:enquiry).try(:user).try(:employee).try(:company).logo == nil %>
+              <% else %>
+                <center> <%= wicked_pdf_image_tag @booking_communication.try(:vehicle_booking).try(:enquiry).try(:user).try(:employee).try(:company).logo.url, :size => "120x80" %></center>
+              <%end%> 
+            </td>
+          </tr> 
+
           <tr>
             <th colspan="4"><font color='#0077b3'><center>Customer Details</center></font></th>
           </tr>
