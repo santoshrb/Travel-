@@ -2,6 +2,12 @@
   <div class="row">
     <div class="col-sm-3">
       <div class="form-group required">
+        <%= f.select :branch_id,all_branch,{include_blank: "Please Select Branch", label:'Branch'} %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
         <%= f.select :vehicle_type_id,all_vehicle_type,{include_blank: "Please Select Type", label:'Vehicle Type'} %>
       </div>
     </div>
@@ -17,15 +23,15 @@
         <%= f.text_field :budget , label: 'Budget',placeholder: '1700000' %>
       </div>
     </div>
+  </div>
 
+  <div class="row">
     <div class="col-sm-3">
       <div class="form-group required">
         <%= f.text_field :down_payment , label: 'Down Payment',placeholder: '300000' %>
       </div>
     </div>
-  </div>
 
-  <div class="row">
     <div class="col-sm-3">
       <div class="form-group required">
         <%= f.text_field :installment , label: 'EMI(Months)',placeholder: '32' %>
@@ -43,15 +49,15 @@
         <%= f.text_field :installment_amount , label: 'EMI Amount',placeholder: 'EMI Amount',readonly: true %>
       </div>
     </div>
+  </div>
 
+  <div class="row">
     <div class="col-sm-3">
       <div class="form-group required">
         <%= f.text_field :total_amount , label: 'Total Amount',placeholder: 'Total Amount',readonly: true %>
       </div>
     </div>
-  </div>
-
-  <div class="row">
+    
     <div class="col-sm-3">
       <div class="form-group required">
         <%= f.text_field :interest , label: 'Interest Amount',placeholder: 'Interest Amount',readonly: true %>
@@ -74,7 +80,9 @@
         </div>
       </div>
     </div>
- 
+  </div>
+
+  <div class="row">
     <div class="col-sm-3">
       <div class="form-group required">
         <div class="input-group">
@@ -85,9 +93,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="row">
 
     <div class="col-sm-3">
       <div class="form-group required">
@@ -101,15 +106,16 @@
       </div>
     </div>
 
+  </div>
+
+  <div class="row">
     <div class="col-sm-3">
       <label>Image 1 Upload(only jpeg,jpg,png)</label>
       <div class="field">
         <%= f.file_field :avatar,hide_label: true %>
       </div>
     </div>
-  </div>
 
-  <div class="row">
     <div class="col-sm-3">
       <label>Image 2</label>
       <div class="field">
@@ -128,15 +134,16 @@
         <%= f.file_field :image3,hide_label: true %>
       </div>
     </div>
+  </div>
+
+  <div class="row">
     <div class="col-sm-3">
       <label>Image 5</label>
       <div class="field">
         <%= f.file_field :image4,hide_label: true %>
       </div>
     </div>
-  </div>
 
-  <div class="row">
     <div class="col-sm-3">
       <label>Image 6</label>
       <div class="field">

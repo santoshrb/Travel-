@@ -7,7 +7,8 @@
       <% if current_user.role == "Admin" %>
       <%= link_to " XLS ", scheme_detail_schemes_path(format: "xls"), class: "btn btn-sm btn-success fa fa-print",:target => "_blank" %>
       <%= link_to " Upload ", import_xl_schemes_path, class: 'fa fa-upload btn btn-sm btn-primary' %> 
-      <%= link_to " Template", "/Templates/3.Scheme.xls", :class=>"fa fa-download btn-sm btn btn-warning" %>
+
+      <%= link_to " Template", "/Templates/4.Scheme Detail.xls", :class=>"fa fa-download btn-xl btn btn-warning" %>
         <%= link_to 'New Scheme', new_scheme_path, class: 'btn btn-sm btn-primary' %>
       <% end %>
     </div>
@@ -17,6 +18,7 @@
       <thead>
         <tr>
           <th>Sr.No</th>
+          <th>Branch</th>
           <th>Vehicle Type</th>
           <th>Scheme</th>
           <th>Budget</th>
@@ -31,6 +33,7 @@
         <% @schemes.each do |scheme| %>
           <tr>
             <td><%= i = i + 1 %></td>
+            <td><%= scheme.branch.try(:name) %></td>
             <td><%= scheme.vehicle_type.name rescue nil %></td>
             <td><%= scheme.name rescue nil %></td>
             <td><%= scheme.budget %></td>
