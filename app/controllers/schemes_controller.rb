@@ -4,7 +4,12 @@ class SchemesController < ApplicationController
   # GET /schemes
   # GET /schemes.json
   def index
-    @schemes = Scheme.all
+    if current_user.role == "Branch"
+      employee = Employee.find_by(id: current_user.employee_id)
+      @schemes = Scheme.where(branch_id: employee.branch_id)
+    else
+      @schemes = Scheme.all
+    end
   end
 
   # GET /schemes/1
@@ -102,6 +107,6 @@ class SchemesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def scheme_params
-      params.require(:scheme).permit(:image2,:image3,:image4,:image5,:vehicle_type_id,:emi_amount,:total_amount,:interest,:avatar, :image1, :description,:scheme_type, :name, :budget, :down_payment, :installment_amount, :installment, :intrest, :from_date, :to_date, :status)
+      params.require(:scheme).permit(:branch_id,:image2,:image3,:image4,:image5,:vehicle_type_id,:emi_amount,:total_amount,:interest,:avatar, :image1, :description,:scheme_type, :name, :budget, :down_payment, :installment_amount, :installment, :intrest, :from_date, :to_date, :status)
     end
 end

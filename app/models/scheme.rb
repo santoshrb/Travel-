@@ -1,6 +1,7 @@
 class Scheme < ApplicationRecord
 	belongs_to :vehicle_type
 	has_many :enquiries
+	belongs_to :branch
 	validates :name, presence:true,uniqueness:{case_sensitive:false}
 	validates :vehicle_type, presence:true
 	validates :budget, presence:true
@@ -27,11 +28,13 @@ class Scheme < ApplicationRecord
   		spreadsheet = open_spreadsheet(file)
 	   	(2..spreadsheet.last_row).each do |i| 
 
-	    	vehicle_type = spreadsheet.cell(i,'B')
-	    	scheme_name = spreadsheet.cell(i,'C')
+	    	branch = spreadsheet.cell(i,'B')
+	    	vehicle_type = spreadsheet.cell(i,'C')
+	    	scheme_name = spreadsheet.cell(i,'D')
+	    	@branch = Branch.find_by(name: branch)
 
-	    	if vehicle_type == nil || scheme_name == nil
-	      else
+	    	if vehicle_type == nil || scheme_name == nil || branch == nil || @branch == nil
+	      	else
 		    	@vehicle_type = VehicleType.find_by(name: vehicle_type)
 		    	if @vehicle_type.nil?
 		    	  create_new = VehicleType.create(name: vehicle_type,status: true)
@@ -41,31 +44,31 @@ class Scheme < ApplicationRecord
 		    	end
 
 		     
-		        budget = spreadsheet.cell(i,'D')
-		        down_payment = spreadsheet.cell(i,'E')
-		        emi = spreadsheet.cell(i,'F')
-		        interest = spreadsheet.cell(i,'G')
-		        emi_amount = spreadsheet.cell(i,'H')
-		        total_amount = spreadsheet.cell(i,'I')
-		        interest_amount = spreadsheet.cell(i,'J')
-		        installment_amount = spreadsheet.cell(i,'K')
-		        from_date = spreadsheet.cell(i,'L')
-		        to_date = spreadsheet.cell(i,'M')
-		        @status = spreadsheet.cell(i,'N')
-		        description = spreadsheet.cell(i,'O')
+		        budget = spreadsheet.cell(i,'E')
+		        down_payment = spreadsheet.cell(i,'F')
+		        emi = spreadsheet.cell(i,'G')
+		        interest = spreadsheet.cell(i,'H')
+		        emi_amount = spreadsheet.cell(i,'I')
+		        total_amount = spreadsheet.cell(i,'J')
+		        interest_amount = spreadsheet.cell(i,'K')
+		        installment_amount = spreadsheet.cell(i,'L')
+		        from_date = spreadsheet.cell(i,'M')
+		        to_date = spreadsheet.cell(i,'N')
+		        @status = spreadsheet.cell(i,'O')
+		        description = spreadsheet.cell(i,'P')
 		        if @status == "Active"
 		        	status = true
 		        else
 		    			status = false
 		    		end 
-byebug
+
 		        @scheme = Scheme.find_by(name: scheme_name)
 		        if @scheme.nil?
-		        	Scheme.create(vehicle_type_id: new_type,name: scheme_name,budget: budget,down_payment: down_payment,installment: emi,intrest: interest,emi_amount: emi_amount,
+		        	Scheme.create(branch_id: @branch.id,vehicle_type_id: new_type,name: scheme_name,budget: budget,down_payment: down_payment,installment: emi,intrest: interest,emi_amount: emi_amount,
 		        		total_amount: total_amount,installment_amount: installment_amount,from_date: from_date,to_date: to_date,status: status,
 		        		description: description)     
 		        else
-		          @scheme.update(vehicle_type_id: new_type,name: scheme_name,budget: budget,down_payment: down_payment,installment: emi,intrest: interest,emi_amount: emi_amount,
+		          @scheme.update(branch_id: @branch.id,vehicle_type_id: new_type,name: scheme_name,budget: budget,down_payment: down_payment,installment: emi,intrest: interest,emi_amount: emi_amount,
 		          	total_amount: total_amount,installment_amount: installment_amount,from_date: from_date,to_date: to_date,status: status,
 		          	description: description)
 		        end#@scheme.nil?
