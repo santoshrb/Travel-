@@ -20,10 +20,10 @@
           <th>Sr.No</th>
           <th>Branch</th>
           <th>Vehicle Type</th>
-          <th>Scheme</th>
+          <th>Scheme</th><!-- 
           <th>Budget</th>
           <th>Down Payment</th>
-          <th>Status </th>
+          <th>Status </th> -->
           <th>Actions</th>
         </tr>
       </thead>
@@ -36,13 +36,13 @@
             <td><%= scheme.branch.try(:name) %></td>
             <td><%= scheme.vehicle_type.name rescue nil %></td>
             <td><%= scheme.name rescue nil %></td>
-            <td><%= scheme.budget %></td>
-            <td><%= scheme.down_payment %></td>
+           <!--  <td><%#= scheme.budget %></td>
+            <td><%#= scheme.down_payment %></td> -->
 <!--        <td><%#= scheme.down_payment %></td>
             <td><%#= scheme.installment %></td>
             <td><%#= scheme.installment %></td>
             <td><%#= scheme.intrest %></td> -->
-            <td><%= scheme.status ? "Active" : "Inactive" %></td>
+            <!-- <td><%#= scheme.status ? "Active" : "Inactive" %></td> -->
             <td>
               <%= link_to ' ', scheme, class: 'btn btn-xs btn-default fa fa-eye' %>
               <% if current_user.role == "Admin" %>
