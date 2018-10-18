@@ -106,5 +106,6 @@ Rails.application.routes.draw do
     get  'user_auths/particular_enquiry_list' => 'user_auths#particular_enquiry_list', defaults: {format: 'json'}
     get  'user_auths/particular_vehicle_booking_list' => 'user_auths#particular_vehicle_booking_list', defaults: {format: 'json'}
     get  'user_auths/date_wise_schemes_list' => 'user_auths#date_wise_schemes_list', defaults: {format: 'json'}
+    get  'user_auths/agent_list' => 'user_auths#agent_list', defaults: {format: 'json'}
   end
 end

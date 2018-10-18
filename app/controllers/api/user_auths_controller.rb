@@ -265,6 +265,7 @@ class Api::UserAuthsController < ApplicationController
     status = params[:status]
     enquiry = params[:enquiry_id]
     date = params[:date]
+    agent_id = params[:agent_id]
     @vehicle_booking = VehicleBooking.create(user_id: employee_id, pan: pan_card, adhar: adhar_card, licence: licence_no, light_bill: light_bill,
       rent_agr: rent_aggrement, bs: bs, itr: itr, native_light_bill: native_light_bill, pan_guarantor: guarantor_pan, 
       adhar_guarantor: guarantor_adhar, light_bill_guarantor: guarantor_light_bill, rent_agr_guarantor: garantor_rent_aggrement,
@@ -319,5 +320,10 @@ class Api::UserAuthsController < ApplicationController
     to_date = params[:todate]    
     all_schemes_list = Scheme.where(status: true).where("? BETWEEN from_date AND to_date", to_date).order("id DESC")
     render :json => all_schemes_list.present? ? all_schemes_list.collect{|d| {:id => d.try(:id),:scheme_type => d.try(:scheme_type), :name => d.try(:name), :budget => d.try(:budget), :down_payment => d.try(:down_payment), :installment => d.try(:installment), :installment_amount => d.try(:installment_amount), :intrest => d.try(:intrest), :from_date => d.try(:from_date), :to_date => d.try(:to_date), :status => d.try(:status), :vehicle_type => d.try(:vehicle_type).try(:name)}} : []
+  end
+
+  def agent_list
+    @agent = Agent.all
+    render :json => @agent.present? ? @agent.collect{|a| {:id => a.try(:id), :first_name => a.try(:first_name), :middel_name => a.try(:middel_name), :last_name => a.try(:last_name), :mobile_number => a.try(:mobile_number), :status => a.try(:status) }} : []
   end
 end
