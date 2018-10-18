@@ -8,32 +8,35 @@
           </th>
         </tr>
         <tr>
+          <th>Branch</th>
+          <td><%= @scheme.branch.try(:name) %></td>
+
           <th>Vehicle Type</th>
           <td><%= @scheme.vehicle_type.name rescue nil %></td>
+        </tr>
+        <tr>
           <th>Scheme</th>
           <td><%= @scheme.name rescue nil %></td>
-        </tr>
-        <tr>
           <th>Budget </th>
           <td><%= @scheme.budget %></td>
+        </tr>
+        <tr>
           <th>Down Payment</th>
           <td><%= @scheme.down_payment %></td>
-        </tr>
-        <tr>
           <th>EMI(Months) </th>
           <td><%= @scheme.installment %></td>
+        </tr>
+        <tr>
           <th>Intrest(%)</th>
           <td><%= @scheme.interest %></td>
-        </tr>
-        <tr>
           <th>EMI Amount</th>
           <td><%= @scheme.installment_amount %></td>
-          <th>Total Amount</th>
-          <td><%= @scheme.total_amount %></td>
         </tr>
         <tr>
+          <th>Total Amount</th>
+          <td><%= @scheme.total_amount %></td>
           <th>Installment Amount </th>
-          <td colspan="3"><%= @scheme.emi_amount %></td>
+          <td><%= @scheme.emi_amount %></td>
         </tr>
         <tr>
           <th>From Date </th>

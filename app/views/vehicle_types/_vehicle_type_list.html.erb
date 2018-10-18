@@ -2,6 +2,7 @@
     <table id="example6" class="table table-bordered table-hover table-condensed">
       <thead>
         <tr>
+          <th>Brand</th>.
           <th>Code</th>
           <th>Name</th>
           <th>Description</th>
@@ -13,6 +14,7 @@
       <tbody>
         <% @vehicle_types.each do |vehicle_type| %>
           <tr>
+            <td><%= vehicle_type.brand %></td>
             <td><%= vehicle_type.code %></td>
             <td><%= vehicle_type.name %></td>
             <td><%= vehicle_type.description %></td>

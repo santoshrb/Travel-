@@ -2,6 +2,12 @@
   <div class="row">
     <div class="col-sm-3">
       <div class="form-group required">
+        <%= f.text_field :brand, label:'Brand', placeholder: 'Honda' %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group required">
         <%= f.text_field :code, label:'Code', placeholder: 'V_001' %>
       </div>
     </div>
@@ -11,15 +17,15 @@
         <%= f.text_field :name, label:'Name', placeholder: 'Car' %>
       </div>
     </div>
+  </div>
 
+  <div class="row">
     <div class="col-sm-6">
       <div class="form-group required">
         <%= f.text_field :description, label:'Description', placeholder: 'Description' %>
       </div>
     </div>
-  </div>
-
-  <div class="row">
+    
     <div class="col-sm-3" style="padding-top: 20px;">
       <div class="form-group required">
         <%= f.check_box :status,label: 'Active' %>

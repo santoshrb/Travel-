@@ -11,6 +11,7 @@
     </tr> 
     <tr>
     	<th>Sr.No</th>
+      <th>Branch</th>
       <th>Vehicle Type</th>
       <th>Name</th>
       <th>Budget</th>
@@ -32,6 +33,7 @@
     <% @schemes.each do |scheme| %>
       <tr>
       	<td><%= i = i + 1 %></td>
+        <td><%= scheme.branch.try(:name) %></td>
         <td><%= scheme.vehicle_type.name rescue nil %></td>
         <td><%= scheme.name rescue nil %></td>
         <td><%= scheme.budget %></td>
