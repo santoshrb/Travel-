@@ -113,5 +113,14 @@ Rails.application.routes.draw do
     get  'user_auths/particular_enquiry_list' => 'user_auths#particular_enquiry_list', defaults: {format: 'json'}
     get  'user_auths/particular_vehicle_booking_list' => 'user_auths#particular_vehicle_booking_list', defaults: {format: 'json'}
     get  'user_auths/date_wise_schemes_list' => 'user_auths#date_wise_schemes_list', defaults: {format: 'json'}
+    get  'user_auths/agent_list' => 'user_auths#agent_list', defaults: {format: 'json'}
+    post  'user_auths/create_agent' => 'user_auths#create_agent', defaults: {format: 'json'}
+    get  'user_auths/destroy_agent' => 'user_auths#destroy_agent', defaults: {format: 'json'}
+    get  'user_auths/destroy_financer' => 'user_auths#destroy_financer', defaults: {format: 'json'}
+    get  'user_auths/destroy_showroom' => 'user_auths#destroy_showroom', defaults: {format: 'json'}
+    get  'user_auths/destroy_schemes' => 'user_auths#destroy_schemes', defaults: {format: 'json'}
+    get  'user_auths/destroy_vehicle' => 'user_auths#destroy_vehicle', defaults: {format: 'json'}
+    get  'user_auths/destroy_document' => 'user_auths#destroy_document', defaults: {format: 'json'}
+    get  'user_auths/particular_date_wise_schemes_list' => 'user_auths#particular_date_wise_schemes_list', defaults: {format: 'json'}
   end
 end
