@@ -1,0 +1,47 @@
+<div class="box">
+  <div class="box-body">
+
+<table id="example6" class="table table-bordered table-hover table-condensed'">
+  <thead>
+    <tr> 
+      <th>Sr. No</th>
+      <th>Date</th>
+      <th>Vehicle booking</th>
+      <!-- <th>Payment type</th> -->
+      <th>Amount</th>
+      <!-- <th>Receipt no</th> -->
+      <th>Employee</th>
+     <!--  <th>Vendor name</th>
+      <th>Contact no</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <% i = 0 %>
+    <% @inwords.each do |inword| %>
+      <tr>
+      	<td><%= i = i + 1 %></td>
+        <td><%= inword.date %></td>
+        <td><%= inword.vehicle_booking.enquiry.name_first %> <%= inword.vehicle_booking.enquiry.last_name %> - <%= inword.vehicle_booking.enquiry.mobile_no %></td>
+        <!-- <td><%#= inword.payment_type %></td> -->
+        <td><%= inword.amount %></td>
+        <!-- <td><%#= inword.receipt_no %></td> -->
+        <td><%= inword.employee.prefix %> <%= inword.employee.first_name %> <%= inword.employee.last_name %></td>
+        <!-- <td><%#= inword.vendor_name %></td>
+        <td><%#= inword.contact_no %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  <br>
+    <%= link_to " Excel ",show_datewise_inword_inwords_path(:salary =>{:from => params[:salary][:from],:to => params[:salary][:to]}, format: "xls"), class: "btn btn-xl btn-success fa fa-print" %>
+    <%= link_to " PDF ",show_datewise_inword_inwords_path(:salary =>{:from => params[:salary][:from],:to => params[:salary][:to]}, format: "pdf"), class: "btn btn-xl btn-primary fa fa-print",:target => "_blank" %>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>

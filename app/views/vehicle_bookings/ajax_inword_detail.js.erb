@@ -1,0 +1,6 @@
+<% if Inword.exists?(vehicle_booking_id: params[:id]) %>
+<%@document_list = Inword.find_by_vehicle_booking_id(params[:id])%>
+$('#info').html("<%= j render 'inwords/show_inword_list' %>")
+<%else%>
+$('#info').html("<%= j render 'inwords/form' %>")
+<%end%>

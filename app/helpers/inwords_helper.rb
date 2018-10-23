@@ -1,0 +1,2 @@
+module InwordsHelper
+end

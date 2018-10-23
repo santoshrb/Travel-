@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-10-23
+  vehicle_booking_id: 
+  payment_type: MyString
+  amount: 9.99
+  receipt_no: MyString
+  employee_id: 
+  vendor_name: MyString
+  contact_no: MyString
+
+two:
+  date: 2018-10-23
+  vehicle_booking_id: 
+  payment_type: MyString
+  amount: 9.99
+  receipt_no: MyString
+  employee_id: 
+  vendor_name: MyString
+  contact_no: MyString

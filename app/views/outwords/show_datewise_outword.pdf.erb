@@ -1,0 +1,36 @@
+<table style="border-collapse: collapse; font-size:9pt;" border=1 width=1200 cellpadding="10">
+  <thead>
+    <tr>
+      <td colspan="7"><center> 
+        <% if current_user.employee.company.logo == nil %>
+        <% else %>
+          <center> <%= wicked_pdf_image_tag current_user.employee.company.logo.url, :size => "120x80" %></center>
+        <%end%> 
+          <strong><%=current_user.employee.company.try(:name)%></strong> <br> <%= current_user.employee.company.try(:address)%></center>
+      </td>
+    </tr> 
+    <tr> 
+      <th>Sr. No</th>
+      <th>Date</th>
+      <th>Employee</th>
+      <th>Amount</th>
+      <th>Handover to</th>
+      <th>Handover</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% i = 0 %>
+    <% @outwords.each do |outword| %>
+      <tr>
+        <td><%= i = i + 1 %></td>
+        <td><%= outword.date %></td>
+        <td><%= outword.employee.prefix %> <%= outword.employee.first_name %> <%= outword.employee.last_name %></td>
+        <td><%= outword.amount %></td>
+        <td><%= outword.handover_to %></td>
+        <td><%= outword.handover_id %></td>
+        <td><%= outword.purpose %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

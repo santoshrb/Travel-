@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  resources :inwords do
+    collection do
+      get :show_inword_detail
+      get :datewise_inword
+      post :show_datewise_inword
+      get :show_datewise_inword
+    end
+  end
+  resources :outwords do
+    collection do
+      get :show_outword_detail
+      get :datewise_outword
+      post :show_datewise_outword
+      get :show_datewise_outword
+    end
+  end
   resources :roles
   resources :file_processes
   resources :agents
@@ -22,6 +38,7 @@ Rails.application.routes.draw do
       get :branchwise_booking
       get :ajax_communication_detail
       get :vehicle_booking_detail
+      get :ajax_inword_detail
     end
   end
   resources :showroom_masters do

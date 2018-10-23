@@ -1,0 +1,85 @@
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Datewise Outword Report</h3>
+  </div><!-- /.box-header -->
+  <div class="box-body">
+  <%= bootstrap_form_for(:salary, url: { action: 'show_datewise_outword'},html: {id: "salary"},remote: true) do |f| %>
+  	<div class="row">
+      <div class="col-sm-3">
+        <div class="form-group required">
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-calendar"></i>
+            </div>
+            <%= text_field :salary,:from,label: "From",placeholder: "From Date",class: 'request_date form-control'%>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="form-group required">
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-calendar"></i>
+            </div>
+            <%= text_field :salary,:to,label: "To",placeholder: "To Date",class: 'request_date form-control'%>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-sm-3">
+        <div class="actions">
+          <%= f.submit "Sumbit" ,class: 'btn btn-primary btn-sm', id: "buttonCtc" %>
+        </div>
+      </div>
+    <% end %>
+
+      <div class="ajax-progress"></div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div id="datewise_outword"></div>    
+        </div>
+      </div>
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+
+
+<script type="text/javascript">
+  $("#buttonCtc").click(function(){
+    $('.ajax-progress').show();
+    $("#advance_salary").submit();
+  })
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    $('.request_date').datepicker({
+    changeYear:true,
+    changeMonth: true,
+    yearRange: '-200:+1',
+    dateFormat: 'dd-mm-yy' });
+  }); 
+
+$("#salary").validate({
+    rules: {
+      "salary[from]":{
+        required: true,
+      },
+      "salary[to]":{
+        required: true,
+      }
+       },
+    messages: {
+      "salary[from]":{
+        required: "Please Specify From",
+      },
+       "salary[to]":{
+        required: "Please Select To",
+      }
+       },
+    errorPlacement: function(error, element) {
+     error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
+     error.insertAfter(element.parent(element));
+    }
+   });
+</script>

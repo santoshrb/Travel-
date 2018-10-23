@@ -1,0 +1,42 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <div class="modal-body">
+    	<table id="example2" class="table table-bordered table-hover table-condensed">
+	      <tbody>
+	        <tr>
+	          <th colspan="5">
+	            <strong><center>Inword Detail</center></strong>
+	          </th>
+	        </tr>
+	        <tr>
+	          <th>Date</th>
+	          <td><%= @inword.date %></td>
+	          <th> Employee </th>
+	          <td><%= @inword.employee.prefix %> <%= @inword.employee.first_name %> <%= @inword.employee.middle_name %> <%= @inword.employee.last_name %> </td>
+	        </tr>
+	        <tr>
+	          <th>Vehicle Booking </th>
+	          <td><%= @inword.vehicle_booking.enquiry.name_first %> <%= @inword.vehicle_booking.enquiry.last_name %> - <%= @inword.vehicle_booking.enquiry.mobile_no %></td>
+	          <th>Payment Type</th>
+	          <td><%= @inword.payment_type %></td>
+	        </tr>
+	        <tr>
+	          <th> Amount </th>
+	          <td><%= @inword.amount %></td>
+	          <th> Receipt No </th>
+	          <td><%= @inword.receipt_no %></td>
+	        </tr>
+	        <tr>
+	          <th> Vendor Name </th>
+	          <td><%= @inword.vendor_name %></td>
+	          <th> Contact No </th>
+	          <td><%= @inword.contact_no %></td>
+	        </tr>
+	      </tbody>
+	    </table>
+		</div>
+	</div>
+</div>

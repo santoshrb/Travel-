@@ -62,6 +62,12 @@ class VehicleBookingsController < ApplicationController
     @document_lists = DocumentList.where(vehicle_booking_id: params[:id])
   end
 
+  def ajax_inword_detail
+    @inword = Inword.new
+    @vehicle_booking_id = params[:id]
+    @inword_lists = Inword.where(vehicle_booking_id: params[:id])
+  end
+
   def ajax_communication_detail
     
     @booking_communication = BookingCommunication.new

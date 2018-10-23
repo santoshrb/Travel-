@@ -1,0 +1,6 @@
+<%if @flag == true %>
+$("#form").html("<%= j render 'form' %>");
+$("#inword_list").html("<%= j render 'inword_list' %>");
+<%else%>
+  $("#form").html("<%= j render 'form' %>");
+<%end%>

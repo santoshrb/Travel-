@@ -63,21 +63,18 @@ class EmployeesController < ApplicationController
   end
 
   def assign_role
-    if current_user.role.name == 'GroupAdmin'
       @employees = Employee.joins('LEFT JOIN users on users.employee_id = employees.id where users.employee_id is null')
-    elsif current_user.role.name == 'Admin'
-      @employees = Employee.joins("LEFT JOIN users on users.employee_id = employees.id where users.employee_id is null and employees.company_id = #{current_user.company_location.company_id}")
-    elsif current_user.role.name == 'Branch'
-      @employees = Employee.joins("LEFT JOIN users on users.employee_id = employees.id where users.employee_id is null and employees.company_location_id = #{current_user.company_location_id}")
-    else
-    end
+    
   end
 
   def submit_form
-    @employee_ids = params[:employee_ids]
+    employee_id = params[:login][:employee_id]
     role_id = params[:role_id]
-    employee = Employee.find(params['login']['employee_id'])
-    User.create(email: )
+    employee = Employee.find_by(id: employee_id)
+    #employee = Employee.find(params['login']['employee_id'])
+    User.create(contact_no: employee.contact_no,email: employee.email,password: "12345678",role_id: role_id,employee_id: employee_id)
+    flash[:notice] = "Role assigned successfully!"
+    redirect_to assign_role_employees_path
   end#def
 
   private

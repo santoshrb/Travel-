@@ -1,0 +1,76 @@
+<%= bootstrap_form_for(@outword,html: {id: 'outword'}) do |f| %>
+<%= f.hidden_field :employee_id,value: current_user.employee_id %>
+
+   <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group required">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <%= f.text_field :date,hide_label:true, placeholder: "01/01/2018", class: 'enquiry_date'%>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="field">
+        <%= f.text_field :amount,hide_label:true, placeholder: 'Amount' %>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="field">
+        <%= f.text_field :handover_to,hide_label:true, placeholder: 'Handover To' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-9"> 
+      <div class="field">
+        <%= f.text_field :purpose,hide_label:true, placeholder: 'Purpose' %>
+      </div>
+    </div>
+<!-- 
+    <div class="field">
+      <%#= f.text_field :handover_id_id %>
+    </div> -->
+    <div class="col-sm-3"> 
+      <div class="actions">
+        <%= f.submit "Create Outword" , class: "btn btn-sm btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+   $('.enquiry_date').datepicker({
+    changeYear:true,
+    changeMonth: true,
+    yearRange: '-200:+50',
+    dateFormat: 'dd-mm-yy' });
+</script>
+
+<script>
+$("#agent").validate({
+    rules: {
+      "agent[date]":{
+        required: true,
+      },
+      "agent[handover_to]":{
+        required: true,
+      }
+       },
+    messages: {
+      "agent[date]":{
+        required: "Please specify Date",
+      },
+       "agent[handover_to]":{
+        required: "Please specify Handover To",
+      }
+       },
+    errorPlacement: function(error, element) {
+     error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
+     error.insertAfter(element.parent(element));
+    }
+   });
+</script>

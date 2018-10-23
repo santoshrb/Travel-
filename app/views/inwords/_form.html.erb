@@ -1,0 +1,69 @@
+<div class="box box-default">
+  <div class="box-header with-border">
+    <div class="box-body">
+
+<%= bootstrap_form_for(@inword,html: {id: 'inword'}) do |f| %>
+<%= f.hidden_field :employee_id,value: current_user.employee_id %>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <%= f.text_field :date,hide_label:true, placeholder: "01/01/2018", class: 'enquiry_date'%>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="field">
+       <%= f.select :vehicle_booking_id, all_vehicle_booking, {hide_label:true,include_blank: " Select Vehicle"},{:class=> "select2 select2-view-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="field">
+        <%= f.text_field :payment_type,hide_label:true, placeholder: 'Payment Type' %>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="field">
+        <%= f.text_field :amount,hide_label:true, placeholder: 'Amount' %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-4"> 
+      <div class="field">
+        <%= f.text_field :receipt_no,hide_label:true, placeholder: 'Receipt No' %>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="field">
+        <%= f.text_field :vendor_name,hide_label:true, placeholder: 'Vendor' %>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="field">
+        <%= f.text_field :contact_no,hide_label:true, placeholder: 'Contact No' %>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="actions">
+        <%= f.submit "Create Inword" , class: "btn btn-sm btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+   $('.enquiry_date').datepicker({
+    changeYear:true,
+    changeMonth: true,
+    yearRange: '-200:+50',
+    dateFormat: 'dd-mm-yy' });
+</script>

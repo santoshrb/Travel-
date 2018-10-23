@@ -1,0 +1,27 @@
+<table id="example6" class="table table-bordered table-hover table-condensed'">
+  <thead>
+    <tr> 
+      <th>Sr. No</th>
+      <th>Date</th>
+      <th>Employee</th>
+      <th>Amount</th>
+      <th>Handover to</th>
+      <th>Handover</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% i = 0 %>
+    <% @outwords.each do |outword| %>
+      <tr>
+        <td><%= i = i + 1 %></td>
+        <td><%= outword.date %></td>
+        <td><%= outword.employee.prefix %> <%= outword.employee.first_name %> <%= outword.employee.last_name %></td>
+        <td><%= outword.amount %></td>
+        <td><%= outword.handover_to %></td>
+        <td><%= outword.handover_id %></td>
+        <td><%= outword.purpose %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

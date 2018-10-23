@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-10-23
+  employee_id: 
+  amount: 9.99
+  handover_to: MyString
+  handover_id_id: 
+  purpose: MyText
+
+two:
+  date: 2018-10-23
+  employee_id: 
+  amount: 9.99
+  handover_to: MyString
+  handover_id_id: 
+  purpose: MyText

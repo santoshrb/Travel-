@@ -15,12 +15,27 @@
         </p>
       </div>
     </div>
-      <% if current_user.role == "Admin" %>
+      <% if current_user.role.name == "GroupAdmin" %>
         <%= render 'sidebars/admin' %>
-      <% elsif current_user.role == "Branch" %>
+      <% elsif current_user.role.name == "Admin" %>
+        <%= render 'sidebars/admin' %>
+      <% elsif current_user.role.name == "Branch" %>
         <%= render 'sidebars/branch' %>
+      <% elsif current_user.role.name == "Tele Team Lead" %>
+        <%= render 'sidebars/tele_team_lead' %>
+      <% elsif current_user.role.name == "Sales Team Lead" %>
+        <%= render 'sidebars/sales_team_lead' %>
+      <% elsif current_user.role.name == "Finance Executive" %>
+        <%= render 'sidebars/finance_executive' %>
+      <% elsif current_user.role.name == "Accountant" %>
+        <%= render 'sidebars/accountant' %>
+      <% elsif current_user.role.name == "Delivery Executive" %>
+        <%= render 'sidebars/delivery_executive' %>
+      <% elsif current_user.role.name == "Tellecaller" %>
+        <%= render 'sidebars/telecaller' %>
+
       <% else %>
-        <%= render 'sidebars/branch' %>
+        <%= render 'sidebars/telecaller' %>
       <% end %>
      
   </section>

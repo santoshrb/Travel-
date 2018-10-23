@@ -1,0 +1,42 @@
+<table id="example6" class="table table-bordered table-hover table-condensed'">
+  <thead>
+    <tr> 
+      <th>Sr. No</th>
+      <th>Date</th>
+      <th>Employee</th>
+      <th>Amount</th>
+      <th>Handover to</th>
+      <!-- <th>Handover</th> -->
+      <!-- <th>Purpose</th> -->
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% i = 0 %>
+    <% @outwords.each do |outword| %>
+      <tr>
+        <td><%= i = i + 1 %></td>
+        <td><%= outword.date %></td>
+        <td><%= outword.employee.prefix %> <%= outword.employee.first_name %> <%= outword.employee.last_name %></td>
+        <td><%= outword.amount %></td>
+        <td><%= outword.handover_to %></td>
+       <!--  <td><%#= outword.handover_id %></td> -->
+        <!-- <td><%#= outword.purpose %></td> -->
+        <td>
+          <%= link_to ' ',show_outword_detail_outwords_path(outword_id: outword.id),class: 'btn btn-default btn-xs fa fa-eye',remote: true %>
+          <%= link_to '', edit_outword_path(outword),class: 'btn btn-xs btn-success fa fa-edit',remote:true %>
+          <%= link_to '',  outword, method: :delete, data: { confirm: 'Are you sure?',remote:true },class: 'btn btn-xs btn-danger fa fa-close' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+    <div id="show_outword_detail" class="modal fade"></div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>

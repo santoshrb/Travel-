@@ -3,6 +3,11 @@
 <%else%>
 <%= link_to 'Booking Details',booking_info_vehicle_bookings_path(id: @vehicle_booking.id),class: 'btn btn-sm btn-info ', remote:true%>
 <%end%>
+<% if Inword.exists?(vehicle_booking_id: @vehicle_booking.id)%>
+<%= link_to 'Inword Detail',ajax_inword_detail_vehicle_bookings_path(id: @vehicle_booking.id),class: 'btn btn-sm btn-primary ', remote:true%>
+<%else%>
+<%= link_to 'Inword Detail',ajax_inword_detail_vehicle_bookings_path(id: @vehicle_booking.id),class: 'btn btn-sm btn-info ', remote:true%>
+<%end%>
 <% if BookingCommunication.exists?(vehicle_booking_id: @vehicle_booking.id)%>
 <%= link_to 'Communication Detail',ajax_communication_detail_vehicle_bookings_path(id: @vehicle_booking.id),class: 'btn btn-sm btn-primary ', remote:true%>
 <%else%>

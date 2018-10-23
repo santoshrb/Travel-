@@ -1,19 +1,23 @@
 
-  <% if current_user.try(:role) == 'Admin' %>
+  <% if current_user.try(:role).name == 'GroupAdmin' %>
     <%= render 'admin_dashboard' %>
-  <% elsif current_user.try(:role) == 'Branch' %>
+  <% elsif current_user.try(:role).name == 'Admin' %>
+    <%= render 'admin_dashboard' %>
+  <% elsif current_user.try(:role).name == 'Branch' %>
     <%= render 'branch_dashboard' %>
-  <% elsif current_user.try(:role) == 'Tele Team Lead' %>
+  <% elsif current_user.try(:role).name == 'Tele Team Lead' %>
     <%= render 'tele_team_lead_dashboard' %>
-  <% elsif current_user.try(:role) == 'Sales Team Lead' %>
+  <% elsif current_user.try(:role).name == 'Sales Team Lead' %>
     <%= render 'tele_team_lead_dashboard' %>
-  <% elsif current_user.try(:role) == 'Finance Executive' %>
+  <% elsif current_user.try(:role).name == 'Finance Executive' %>
     <%= render 'finance_executive_dashboard' %>
-  <% elsif current_user.try(:role) == 'Accountant' %>
+  <% elsif current_user.try(:role).name == 'Accountant' %>
     <%= render 'accountant_dashboard' %>
-  <% elsif current_user.try(:role) == 'Delivery Executive' %>
+  <% elsif current_user.try(:role).name == 'Delivery Executive' %>
     <%= render 'delivery_executive_dashboard' %>
+  <% elsif current_user.try(:role).name == 'Tellecaller' %>
+    <%= render 'telecaller_dashboard' %>
   <% else %>
-    <%= render 'branch_dashboard' %>
+    <%= render 'telecaller_dashboard' %>
   <% end %>
   
