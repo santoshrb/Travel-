@@ -18,12 +18,12 @@
     </div>
     <div class="col-sm-3"> 
       <div class="field">
-       <%= f.select :vehicle_booking_id, all_vehicle_booking, {hide_label:true,include_blank: " Select Vehicle"},{:class=> "select2 select2-view-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
+       <%= f.select :vehicle_booking_id, all_vehicle_booking, {hide_label:true,include_blank: " Select Customer"},{:class=> "select2 select2-view-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
       </div>
     </div>
     <div class="col-sm-3"> 
       <div class="field">
-        <%= f.text_field :payment_type,hide_label:true, placeholder: 'Payment Type' %>
+        <%= f.select :payment_type,['Downpayment','Booking Amount','ITR','Udyog Adhar'],{hide_label:true, placeholder: 'Payment Type'} %>
       </div>
     </div>
     <div class="col-sm-3"> 
