@@ -194,7 +194,7 @@ class Api::UserAuthsController < ApplicationController
 
   def all_financer_master
     @financer_master = FinancerMaster.all
-    render :json => @financer_master.present? ? @financer_master.collect{|fm| {:id => fm.try(:id), :code => fm.try(:code), :name => fm.try(:name), :description => fm.try(:description), :pin_code => fm.try(:pin_code), :place => fm.try(:place), :address => fm.try(:address), :contact_no => fm.try(:contact_no), :email => fm.try(:email), :contact_person => fm.try(:contact_person), :status => fm.try(:status) }} : []
+    render :json => @financer_master.present? ? @financer_master.collect{|fm| {:id => fm.try(:id), :code => fm.try(:code), :name => fm.try(:name), :description => fm.try(:description), :pin_code => fm.try(:pin_code), :place => fm.try(:place), :address => fm.try(:address), :contact_no => fm.try(:contact_no), :email => fm.try(:email), :contact_person => fm.try(:contact_person), :status => fm.try(:status),:branch_id => fm.try(:branch_id), :branch => fm.try(:branch).try(:name)  }} : []
   end
 
   def create_financer_master
@@ -208,7 +208,8 @@ class Api::UserAuthsController < ApplicationController
     email = params[:email]
     contact_person = params[:contact_person]
     status = params[:status]
-    FinancerMaster.create(code: code, name: name, description: description, pin_code: pin_code, place: place, address: address, contact_no: contact_no, email: email, contact_person: contact_person, status: status)
+    branch_id = params[:branch_id]
+    FinancerMaster.create(code: code, name: name, description: description, pin_code: pin_code, place: place, address: address, contact_no: contact_no, email: email, contact_person: contact_person, status: status, branch_id: branch_id)
     render :status=>200, :json=>{:status=> "Financer Master was successfully created."}
   end
 
@@ -223,13 +224,14 @@ class Api::UserAuthsController < ApplicationController
     email = params[:email]
     contact_person = params[:contact_person]
     status = params[:status]
-    ShowroomMaster.create(code: code, name: name, description: description, pin_code: pin_code, place: place, address: address, contact_no: contact_no, email: email, contact_person: contact_person, status: status)
+    branch_id  = params[:branch_id]
+    ShowroomMaster.create(code: code, name: name, description: description, pin_code: pin_code, place: place, address: address, contact_no: contact_no, email: email, contact_person: contact_person, status: status, branch_id: branch_id)
     render :status=>200, :json=>{:status=> "Showroom Master was successfully created."}
   end
 
   def all_showroom_master
     @showroom_master = ShowroomMaster.all
-    render :json => @showroom_master.present? ? @showroom_master.collect{|fm| {:id => fm.try(:id), :code => fm.try(:code), :name => fm.try(:name), :description => fm.try(:description), :pin_code => fm.try(:pin_code), :place => fm.try(:place), :address => fm.try(:address), :contact_no => fm.try(:contact_no), :email => fm.try(:email), :contact_person => fm.try(:contact_person), :status => fm.try(:status) }} : []
+    render :json => @showroom_master.present? ? @showroom_master.collect{|fm| {:id => fm.try(:id), :code => fm.try(:code), :name => fm.try(:name), :description => fm.try(:description), :pin_code => fm.try(:pin_code), :place => fm.try(:place), :address => fm.try(:address), :contact_no => fm.try(:contact_no), :email => fm.try(:email), :contact_person => fm.try(:contact_person), :status => fm.try(:status), :branch => fm.try(:branch).try(:name), :branch_id => fm.try(:branch_id)  }} : []
   end
 
   def current_employee
@@ -242,37 +244,49 @@ class Api::UserAuthsController < ApplicationController
 
   def create_booking
     employee_id = params[:member_id]
-    pan_card = params[:pan_card]
-    adhar_card = params[:adhar_card]
-    licence_no = params[:licence_no]
+    pan_card = params[:pan]
+    adhar_card = params[:adhar]
+    licence_no = params[:licence]
     light_bill = params[:light_bill]
-    rent_aggrement = params[:rent_aggrement]
+    rent_aggrement = params[:rent_agr]
     bs = params[:bs]
     itr = params[:itr]
     native_light_bill = params[:native_light_bill]
-    guarantor_pan = params[:guarantor_pan]
-    guarantor_adhar = params[:guarantor_adhar]
-    guarantor_light_bill = params[:guarantor_light_bill]
-    garantor_rent_aggrement = params[:garantor_rent_aggrement]
-    guarantor_BS = params[:guarantor_BS]
-    guarantor_ITR = params[:guarantor_ITR]
-    guarantor1_pancard = params[:guarantor1_pancard]
-    guarantor1_adharcard = params[:guarantor1_adharcard]
-    guarantor1_lightbill = params[:guarantor1_lightbill]
-    guarantor1_rent_aggrement = params[:guarantor1_rent_aggrement]
-    guarantor1_BS = params[:guarantor1_BS]
-    guarantor1_ITR = params[:guarantor1_ITR]
+    guarantor_pan = params[:pan_guarantor]
+    guarantor_adhar = params[:adhar_guarantor]
+    guarantor_light_bill = params[:light_bill_guarantor]
+    garantor_rent_aggrement = params[:rent_agr_guarantor]
+    guarantor_BS = params[:bs_guarantor]
+    guarantor_ITR = params[:guarantor_unit]
+    guarantor1_pancard = params[:pan_guarantor1]
+    guarantor1_adharcard = params[:adhar_guarantor1]
+    guarantor1_lightbill = params[:light_bill_guarantor1]
+    guarantor1_rent_aggrement = params[:rent_agr_guarantor1]
+    guarantor1_BS = params[:bs_guarantor1]
+    guarantor1_ITR = params[:guarantor1_unit]
     status = params[:status]
     enquiry = params[:enquiry_id]
     date = params[:date]
     agent_id = params[:agent_id]
-    @vehicle_booking = VehicleBooking.create(user_id: employee_id, pan: pan_card, adhar: adhar_card, licence: licence_no, light_bill: light_bill,
+    executive_id = params[:executive_id]
+    @vehicle_booking = VehicleBooking.new(user_id: employee_id, pan: pan_card, adhar: adhar_card, licence: licence_no, light_bill: light_bill,
       rent_agr: rent_aggrement, bs: bs, itr: itr, native_light_bill: native_light_bill, pan_guarantor: guarantor_pan, 
       adhar_guarantor: guarantor_adhar, light_bill_guarantor: guarantor_light_bill, rent_agr_guarantor: garantor_rent_aggrement,
       bs_guarantor: guarantor_BS, itr_guarantor: guarantor_ITR, pan_guarantor1: guarantor1_pancard, adhar_guarantor1: guarantor1_adharcard,
       light_bill_guarantor1: guarantor1_lightbill, rent_agr_guarantor1: guarantor1_rent_aggrement, bs_guarantor1: guarantor1_BS, 
-      itr_guarantor1: guarantor1_ITR, status: status, enquiry_id: enquiry, date: date)
-    render :status=>200, :json=>{:status=> "Vehicle booking was successfully created."}
+      itr_guarantor1: guarantor1_ITR, status: status, enquiry_id: enquiry, date: date, executive_id: executive_id,agent_id: agent_id)
+   
+    if @vehicle_booking.save
+      enquiry = Enquiry.find_by(id: @vehicle_booking.enquiry_id)
+      enquiry.update(status: 'Booked')
+      @document_masters = DocumentMaster.where(status: true)
+      @document_masters.each do |doc|
+        DocumentList.create(document_master_id: doc.id,vehicle_booking_id: @vehicle_booking.id,status: false)
+      end
+      render :status=>200, :json=>{:status=> "Vehicle booking was successfully created."}
+    else
+      render :status=>200, :json=>{:status=> "Booking Already Exist"}
+    end
   end
 
   def vehicle_booking_list
@@ -280,13 +294,19 @@ class Api::UserAuthsController < ApplicationController
     from_date = params[:fromdate]
     to_date = params[:todate]
     booking = VehicleBooking.where(date: from_date.to_date..to_date.to_date)
-    render :json => booking.present? ? booking.collect{|d| {:id => d.try(:id), :pan => d.try(:pan), :adhar => d.try(:adhar), :licence => d.try(:licence),
+    render :json => booking.present? ? booking.collect{|d|
+      created_by = Employee.find_by(id: d.user_id)
+      pre = created_by.try(:prefix)
+      fnm = created_by.try(:first_name)
+      lnm = created_by.try(:last_name)
+      {:id => d.try(:id), :pan => d.try(:pan), :adhar => d.try(:adhar), :licence => d.try(:licence),
       :light_bill => d.try(:light_bill), :rent_agr => d.try(:rent_agr), :bs => d.try(:bs), :itr => d.try(:itr), :native_light_bill => d.try(:native_light_bill),
       :pan_guarantor => d.try(:pan_guarantor), :adhar_guarantor => d.try(:adhar_guarantor), :light_bill_guarantor => d.try(:light_bill_guarantor),
       :rent_agr_guarantor => d.try(:rent_agr_guarantor), :bs_guarantor => d.try(:bs_guarantor), :itr_guarantor => d.try(:itr_guarantor), 
       :pan_guarantor1 => d.try(:pan_guarantor1), :adhar_guarantor1 => d.try(:adhar_guarantor1), :light_bill_guarantor1 => d.try(:light_bill_guarantor1), 
       :rent_agr_guarantor1 => d.try(:rent_agr_guarantor1), :bs_guarantor1 => d.try(:bs_guarantor1), :itr_guarantor1 => d.try(:itr_guarantor1),
-      :status => d.try(:status), :enquiry_id => d.try(:enquiry).try(:name_first), :vehicle_type_id => d.try(:vehicle_type).try(:name), :phone_number => d.try(:enquiry).try(:mobile_no), :date => d.try(:date) }} : []
+      :status => d.try(:status), :enquiry_id => d.try(:enquiry).try(:name_first), :vehicle_type_id => d.try(:vehicle_type).try(:name), :phone_number => d.try(:enquiry).try(:mobile_no), :date => d.try(:date), :enquiry_pre => d.try(:enquiry).try(:user).try(:employee).try(:prefix), :enquiry_fnm => d.try(:enquiry).try(:user).try(:employee).try(:first_name), :enquiry_mnm => d.try(:enquiry).try(:user).try(:employee).try(:middle_name), :enquiry_lnm => d.try(:enquiry).try(:user).try(:employee).try(:last_name), 
+      :executive_pre => d.try(:executive).try(:prefix), :executive_fnm => d.try(:executive).try(:first_name), :executive_lnm => d.try(:executive).try(:last_name), :agent_fnm => d.try(:agent).try(:first_name), :agent_mnm => d.try(:agent).try(:middel_name), :agent_lnm => d.try(:agent).try(:last_name), :created_by_pre => pre, :created_by_fnm => fnm, :created_by_lnm => lnm }} : []
   end
 
   def enquiry_type
@@ -306,13 +326,19 @@ class Api::UserAuthsController < ApplicationController
     from_date = params[:fromdate]
     to_date = params[:todate]
     booking = VehicleBooking.where(user_id: employee, date: from_date.to_date..to_date.to_date)
-    render :json => booking.present? ? booking.collect{|d| {:id => d.try(:id), :pan => d.try(:pan), :adhar => d.try(:adhar), :licence => d.try(:licence),
+    render :json => booking.present? ? booking.collect{|d|
+      created_by = Employee.find_by(id: d.user_id)
+      pre = created_by.try(:prefix)
+      fnm = created_by.try(:first_name)
+      lnm = created_by.try(:last_name)
+      {:id => d.try(:id), :pan => d.try(:pan), :adhar => d.try(:adhar), :licence => d.try(:licence),
       :light_bill => d.try(:light_bill), :rent_agr => d.try(:rent_agr), :bs => d.try(:bs), :itr => d.try(:itr), :native_light_bill => d.try(:native_light_bill),
       :pan_guarantor => d.try(:pan_guarantor), :adhar_guarantor => d.try(:adhar_guarantor), :light_bill_guarantor => d.try(:light_bill_guarantor),
       :rent_agr_guarantor => d.try(:rent_agr_guarantor), :bs_guarantor => d.try(:bs_guarantor), :itr_guarantor => d.try(:itr_guarantor), 
       :pan_guarantor1 => d.try(:pan_guarantor1), :adhar_guarantor1 => d.try(:adhar_guarantor1), :light_bill_guarantor1 => d.try(:light_bill_guarantor1), 
       :rent_agr_guarantor1 => d.try(:rent_agr_guarantor1), :bs_guarantor1 => d.try(:bs_guarantor1), :itr_guarantor1 => d.try(:itr_guarantor1),
-      :status => d.try(:status), :enquiry_id => d.try(:enquiry).try(:name_first), :vehicle_type_id => d.try(:vehicle_type).try(:name), :phone_number => d.try(:enquiry).try(:mobile_no), :date => d.try(:date) }} : []
+      :status => d.try(:status), :enquiry_id => d.try(:enquiry).try(:name_first), :vehicle_type_id => d.try(:vehicle_type).try(:name), :phone_number => d.try(:enquiry).try(:mobile_no), :date => d.try(:date), :enquiry_pre => d.try(:enquiry).try(:user).try(:employee).try(:prefix), :enquiry_fnm => d.try(:enquiry).try(:user).try(:employee).try(:first_name), :enquiry_mnm => d.try(:enquiry).try(:user).try(:employee).try(:middle_name), :enquiry_lnm => d.try(:enquiry).try(:user).try(:employee).try(:last_name), 
+      :executive_pre => d.try(:executive).try(:prefix), :executive_fnm => d.try(:executive).try(:first_name), :executive_lnm => d.try(:executive).try(:last_name), :agent_fnm => d.try(:agent).try(:first_name), :agent_mnm => d.try(:agent).try(:middel_name), :agent_lnm => d.try(:agent).try(:last_name), :created_by_pre => pre, :created_by_fnm => fnm, :created_by_lnm => lnm }} : []
   end
 
   def date_wise_schemes_list
@@ -325,5 +351,67 @@ class Api::UserAuthsController < ApplicationController
   def agent_list
     @agent = Agent.all
     render :json => @agent.present? ? @agent.collect{|a| {:id => a.try(:id), :first_name => a.try(:first_name), :middel_name => a.try(:middel_name), :last_name => a.try(:last_name), :mobile_number => a.try(:mobile_number), :status => a.try(:status) }} : []
+  end
+
+  def create_agent
+    fname = params[:first_name]
+    mname = params[:middel_name]
+    lname = params[:last_name]
+    mobile_number = params[:mobile_number]
+    status = params[:status]
+    @agent = Agent.create(first_name: fname, middel_name: mname, last_name: lname, mobile_number: mobile_number, status: status)
+    render :status=>200, :json=>{:status=> "Agent Created successfully!"}
+  end
+
+  def destroy_agent 
+    agent_id = params[:agent_id]
+    @agent = Agent.find(agent_id)
+    @agent.destroy
+    render :status=>200, :json=>{:status=> "Agent Successfully Destroy"}    
+  end
+
+  def destroy_financer 
+    financer_id = params[:financer_id]
+    @financer = FinancerMaster.find(financer_id)
+    @financer.destroy
+    render :status=>200, :json=>{:status=> "Financer Successfully Destroy"}    
+  end
+
+  def destroy_showroom
+    showroom_id = params[:showroom_id]
+    @showroom = ShowroomMaster.find(showroom_id)
+    @showroom.destroy
+    render :status=>200, :json=>{:status=> "Showroom Master Successfully Destroy"}
+  end
+
+  def destroy_schemes
+    scheme_id = params[:scheme_id]
+    scheme = Scheme.find(scheme_id)
+    scheme.destroy
+    # scheme = Enquiry.where(scheme_id: scheme_id).present?
+    render :status=>200, :json=>{:status => "Scheme Successfully Destroy" }    
+  end
+
+  def destroy_vehicle
+    vehicle_id = params[:vehicle_id]
+    vehicale = VehicleType.find(vehicle_id)
+    vehicale.destroy
+    render :status=>200, :json=>{:status=> "Vehicle Successfully Destroy"}
+  end
+
+  def destroy_document
+    document_id = params[:document_id]
+    document = DocumentMaster.find(document_id)
+    document.destroy
+    render :status=>200, :json=>{:status=> "Document Master Successfully Destroy"}
+  end
+
+  def particular_date_wise_schemes_list
+    employee_id = params[:employee_id]
+    from_date = params[:fromdate]
+    to_date = params[:todate]
+    employee = Employee.find(employee_id)
+    @schemes = Scheme.where(branch_id: employee.branch_id, from_date: from_date..to_date)
+    render :json => @schemes.present? ? @schemes.collect{|d| {:id => d.try(:id),:scheme_type => d.try(:scheme_type), :name => d.try(:name), :budget => d.try(:budget), :down_payment => d.try(:down_payment), :installment => d.try(:installment), :installment_amount => d.try(:installment_amount), :intrest => d.try(:intrest), :from_date => d.try(:from_date), :to_date => d.try(:to_date), :status => d.try(:status), :vehicle_type => d.try(:vehicle_type).try(:name)}} : []
   end
 end
