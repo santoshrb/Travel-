@@ -3,6 +3,16 @@
     <%= render 'admin_dashboard' %>
   <% elsif current_user.try(:role) == 'Branch' %>
     <%= render 'branch_dashboard' %>
+  <% elsif current_user.try(:role) == 'Tele Team Lead' %>
+    <%= render 'tele_team_lead_dashboard' %>
+  <% elsif current_user.try(:role) == 'Sales Team Lead' %>
+    <%= render 'tele_team_lead_dashboard' %>
+  <% elsif current_user.try(:role) == 'Finance Executive' %>
+    <%= render 'finance_executive_dashboard' %>
+  <% elsif current_user.try(:role) == 'Accountant' %>
+    <%= render 'accountant_dashboard' %>
+  <% elsif current_user.try(:role) == 'Delivery Executive' %>
+    <%= render 'delivery_executive_dashboard' %>
   <% else %>
     <%= render 'branch_dashboard' %>
   <% end %>

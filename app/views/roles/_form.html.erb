@@ -1,0 +1,58 @@
+
+<%= bootstrap_form_for(@role,html: {id: 'role'}) do |f| %>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :code,hide_label:true, placeholder: 'Code' %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.text_field :name,hide_label:true, placeholder: 'Employee Role' %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group required">
+        <%= f.text_field :description,hide_label:true, placeholder: 'Description' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group required">
+        <%= f.check_box :is_confirm,hide_label:true %>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="actions">
+        <%= f.submit :class => class_name %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<script>
+$("#role").validate({
+    rules: {
+      "role[code]":{
+        required: true,
+      },
+      "role[name]":{
+        required: true,
+      }
+       },
+    messages: {
+      "role[code]":{
+        required: "Please Specify Code",
+      },
+       "role[name]":{
+        required: "Please Specify Employee Role",
+      }
+       },
+    errorPlacement: function(error, element) {
+     error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
+     error.insertAfter(element.parent(element));
+    }
+   });
+</script>
+

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :roles
   resources :file_processes
   resources :agents
   resources :booking_communications do
@@ -62,7 +63,13 @@ Rails.application.routes.draw do
       get :show_enquiry_detail
     end
   end
-  resources :employees
+  resources :employees do
+    collection do
+      get :assign_role
+      post :submit_form
+    end
+  end
+
   resources :branches
   resources :companies
   #devise_for :users

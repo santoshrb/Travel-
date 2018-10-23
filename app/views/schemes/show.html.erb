@@ -50,6 +50,8 @@
           <th>Description</th>
           <td colspan="3"><%= @scheme.description %></td>
         </tr>
+        
+        <div class="carousel-inner">
         <tr>
           <th>Image 1</th>
           <td><%= image_tag @scheme.avatar.url(:medium),class: "profile-user-img img-responsive img-sequer", alt: "User Image",:size => '260x180' %>
@@ -58,6 +60,9 @@
           <td><%= image_tag @scheme.image1.url(:medium),class: "profile-user-img img-responsive img-sequer", alt: "User Image",size: "85x85" %>
           </td>
         </tr>
+        </div>
+
+        
         <tr>
           <th>Image 3</th>
           <td><%= image_tag @scheme.image2.url(:medium),class: "profile-user-img img-responsive img-sequer", alt: "User Image",size: "85x85" %>

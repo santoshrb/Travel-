@@ -62,6 +62,24 @@ class EmployeesController < ApplicationController
     end
   end
 
+  def assign_role
+    if current_user.role.name == 'GroupAdmin'
+      @employees = Employee.joins('LEFT JOIN users on users.employee_id = employees.id where users.employee_id is null')
+    elsif current_user.role.name == 'Admin'
+      @employees = Employee.joins("LEFT JOIN users on users.employee_id = employees.id where users.employee_id is null and employees.company_id = #{current_user.company_location.company_id}")
+    elsif current_user.role.name == 'Branch'
+      @employees = Employee.joins("LEFT JOIN users on users.employee_id = employees.id where users.employee_id is null and employees.company_location_id = #{current_user.company_location_id}")
+    else
+    end
+  end
+
+  def submit_form
+    @employee_ids = params[:employee_ids]
+    role_id = params[:role_id]
+    employee = Employee.find(params['login']['employee_id'])
+    User.create(email: )
+  end#def
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_employee

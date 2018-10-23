@@ -1,0 +1,92 @@
+<style type="text/css">
+.table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td {
+  padding: 1px;
+  }
+</style>
+
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Create New User</h3> 
+     <div class="pull-right"> 
+      <%#= link_to "Upload Create New User", import_assign_role_employees_path, class: 'btn btn-xs btn-primary' %> 
+      <%#= link_to "Template", "/Templates/18.create_new_user.xls", :class=>" btn-xs btn btn-warning" %>  
+    </div>
+  </div><!-- /.box-header -->
+  <div class="box-body">
+    <table class="table table-bordered table-hover table-condensed">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Employee Name</th>
+          <th>Access Control</th><!-- 
+          <th>Reporting Manager-1</th>
+          <th>Reporting Manager-2</th> -->
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @employees.each do |employee| %>
+          <%= bootstrap_form_for :login, url: {action: 'submit_form'}, html: {id: 'login'} do |f| %>   
+            <tr>
+              <td><%= employee.code %></td>
+              <td><%= employee.prefix %> <%= employee.first_name %> <%= employee.middle_name %> <%= employee.last_name %></td>
+              <td><%= select_tag 'role_id[]',options_for_select(all_role),{class: "form-control", hide_label: true,include_blank: " Select Role"} %></td>
+<!-- 
+              <td><%#= select_tag 'manager_1_id[]',options_for_select(all_employee), {class: "form-control",include_blank: 'Select Manager 1',:class=>"select2 select2-hidden-accessible",:style=>"width: 100%;",:tabindex=>"-1",hide_label: true}%></td>
+              <td><%#= select_tag 'manager_2_id[]',options_for_select(all_employee),{include_blank: 'select Manager 2',:class=>"select2 select2-hidden-accessible",:style=>"width: 100%;",:tabindex=>"-1",hide_label: true} %></td> -->
+
+              <%= hidden_field_tag 'employee_ids[]',"",value: employee.id %>
+
+              <td><%= f.submit "+", class: 'btn btn-primary btn-sm fa fa-user-plus' %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".select2").select2();
+  });
+
+  $(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>
+
+<script>
+$("#login").validate({
+    rules: {
+      "login[role_id]":{
+        required: true
+      },
+      "login[manager_id]":{
+        required: true
+      }, 
+      "login[manager_2_id]":{
+        required: true
+      }
+    },
+    messages: {
+      "login[role_id]":{
+        required: "Please specify role"
+      },
+      "login[manager_id]":{
+        required: "Please Select manager"
+      },
+      "login[manager_2_id]":{
+        required: "Please specify manager_2"
+      }
+    },
+    errorPlacement: function(error, element) {
+     error.css({"color": "red", "font-size": "12px","font-weight" : "normal"})
+     error.insertAfter(element.parent(element));
+    }
+
+   });
+</script>
