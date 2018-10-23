@@ -25,7 +25,7 @@
         <% @branchwise_enquiries.each do |enquiry| %>
           <tr>
             <td><%= i = i + 1 %></td>
-            <td><%= enquiry.enquiry_date %></td>
+            <td><%= enquiry.try(:enquiry_date).strftime("%d-%m-%Y") %></td>
             <td><%= enquiry.mobile_no %></td>
             <td><%= enquiry.name_first %> <%= enquiry.middle_name %> <%= enquiry.last_name %></td>
             <td><%= enquiry.scheme.try(:name) %></td>
