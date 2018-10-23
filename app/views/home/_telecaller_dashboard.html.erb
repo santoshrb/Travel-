@@ -6,68 +6,44 @@
     <!-- small box -->
     <div class="small-box bg-aqua">
       <div class="inner">
-        <h6>Yesturday - <%= @enquiry_yest.try(:count) %>    Today - <%= @enquiry_today.try(:count) %></h6>
-        <p><b>Enquiry</b></p>
+        <h6>Yesturday - <%= @enquiry_yest.try(:count) %>   Today - <%= @enquiry_today.try(:count) %></h6>
+        <p>Enquiry</p>
       </div>
       <div class="icon">
         <i class="ion ion-bag"></i>
       </div>
-      <a href="/enquiries" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="/enquiries/branchwise_enquiry" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div><!-- ./col -->
-  <div class="col-lg-4 col-xs-6">
-    <!-- small box -->
-    <div class="small-box bg-green">
-      <div class="inner">
-        <h5><%= @schemes.try(:count) %></h5>
-        <p><b>Scheme</b></p>
-      </div>
-      <div class="icon">
-        <i class="ion ion-stats-bars"></i>
-      </div>
-      <a href="/schemes" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-    </div>
-  </div><!-- ./col -->
-  <div class="col-lg-4 col-xs-6">
-    <!-- small box -->
-    <div class="small-box bg-yellow">
-      <div class="inner">
-        <h5><%= @vehicle_bookings.try(:count) %></h5>
-        <p><b>Booking</b></p>
-      </div>
-      <div class="icon">
-        <i class="ion ion-pie-graph"></i>
-      </div>
-      <a href="/vehicle_bookings" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-    </div>
-  </div><!-- ./col -->
-</div><!-- /.row -->
 
-<div class="row">
   <div class="col-lg-4 col-xs-6">
     <!-- small box -->
     <div class="small-box bg-red">
       <div class="inner">
-        <p><b>Enquiry List</b></p>
-        <h6><%= @todays_all_enquiry.try(:count) %></h6>
+        <h5><%= @vehicle_bookings.try(:count) %></h5>
+        <p>Booking</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-pie-graph"></i>
+      </div>
+      <a href="/vehicle_bookings/branchwise_booking" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+  </div><!-- ./col -->
 
-          <% @userwise_all_enquiry.each do |u| %>
-          <% count = Enquiry.where(user_id: u.user_id).count %>
-        <h6><%= u.try(:user).try(:employee).try(:first_name) %> - <%= count %></h6>
-          <% end %>
-            <%# enquiry_unique = Enquiry.where(email: e.email).count %>
-            <h6><%#= e.name_first %> <%#= e.last_name %> <%#= enquiry_unique %></h6>
-            
-          <%# end %>
+  <div class="col-lg-4 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-green">
+      <div class="inner">
+        <p><b>Enquiry List</b></p>
+        <h6><%= @branch_todays_enquiry.try(:first).try(:user).try(:employee).try(:first_name) %> - <%= @branch_todays_enquiry.try(:count) %></h6>
+          
       </div>
       <div class="icon">
         <i class="ion ion-stats-bars"></i>
       </div>
-      <a href="/enquiries" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <!-- <a href="/enquiries" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
     </div>
   </div><!-- ./col -->
-
-
-</div>
+</div><!-- /.row -->
 
 
