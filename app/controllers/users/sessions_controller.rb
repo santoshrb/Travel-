@@ -9,17 +9,16 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   
-  def create
-    request.env['REMOTE_ADDR']
-    current_ip = request.remote_ip
-    public_ip = JSON.parse TRAVELConfig.public_ip
-    if public_ip.include?(current_ip)
-      puts "#{current_ip}"
-      super
-    else
-      flash[:notice] = "You are not authorized to access"
-      return
-    end
+  #def create
+    #current_ip = request.remote_ip
+    #public_ip = JSON.parse TRAVELConfig.public_ip
+    #if public_ip.include?(current_ip)
+     # puts "#{current_ip}"
+     # super
+    #else
+      #flash[:notice] = "You are not authorized to access"
+      #return
+    #end
     # member_id = current_user.id
     #count = Member.find(member_id).login_count
     #count = count + 1
@@ -27,7 +26,7 @@ class Users::SessionsController < Devise::SessionsController
     #   member = Member.find(member_id)
     #   member.update(:is_active => "true", :login_count => count)
     # end
-  end
+  #end
 
   # DELETE /resource/sign_out
   # def destroy
