@@ -1,14 +1,16 @@
 <!-- <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-body"> -->
-      <%= bootstrap_form_for @user,url: {controller: 'roles',action: 'update_role', user_id: @user.id},remote:true do |f| %>
+      <%#= bootstrap_form_for @user,url: {controller: 'roles',action: 'update_role', user_id: @user.id},remote:true do |f| %>
+      <%= bootstrap_form_for(:roles, url: { action: 'update_role', user_id: @user.id},html: {id: "role"}) do |f| %>
         <div class="row">
           <div class="col-sm-3">
             <strong><%= @user.employee.try(:first_name)%> <%= @user.employee.try(:middle_name)%> <%= @user.employee.try(:last_name)%></strong> 
           </div>
 
           <div class="col-sm-3">
-            <%= f.select :role_id,(@roles.present? ? (@roles.collect {|b| [b.name,b.id]}) : {}),{include_blank: "Select Role",hide_label:true},class: "form-control"%> 
+            <%= select :role, :role_id,(@roles.present? ? (@roles.collect {|b| [b.name,b.id]}) : {}),{include_blank: "Select Role",hide_label:true},class: "form-control"%> 
+            <%#= select :attendance, :agent_id, reporting_wise_atten,{include_blank: 'Select SR'},class: 'form-control' %>
           </div>
           <div class="col-sm-2">
             <%= f.submit "Update", class: 'btn btn-success btn-sm' %>
