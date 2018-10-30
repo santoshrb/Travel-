@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get :datewise_inword
       post :show_datewise_inword
       get :show_datewise_inword
+      post :create_inword
     end
   end
   resources :outwords do
@@ -15,7 +16,13 @@ Rails.application.routes.draw do
       get :show_datewise_outword
     end
   end
-  resources :roles
+  resources :roles do
+    collection do
+      get :role_edit_list
+      get :edit_role
+      post :update_role
+    end
+  end
   resources :file_processes
   resources :agents
   resources :booking_communications do
@@ -84,6 +91,8 @@ Rails.application.routes.draw do
     collection do
       get :assign_role
       post :submit_form
+      get :user_list_for_update_password
+      post :reset_password
     end
   end
 

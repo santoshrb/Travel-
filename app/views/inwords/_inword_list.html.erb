@@ -28,7 +28,7 @@
         <td><%#= inword.contact_no %></td> -->
         <td>
           <%= link_to ' ',show_inword_detail_inwords_path(inword_id: inword.id),class: 'btn btn-default btn-xs fa fa-eye',remote: true %>
-          <%= link_to '', edit_inword_path(inword),class: 'btn btn-xs btn-success fa fa-edit',remote:true %>
+          <%#= link_to '', edit_inword_path(inword),class: 'btn btn-xs btn-success fa fa-edit',remote:true %>
           <%= link_to '',  inword, method: :delete, data: { confirm: 'Are you sure?',remote:true },class: 'btn btn-xs btn-danger fa fa-close' %>
         </td>
       </tr>
@@ -36,7 +36,7 @@
   </tbody>
 </table>
 
-    <div id="show_inword_detail" class="modal fade"></div>
+<div id="show_inword_detail" class="modal fade"></div>
 <script type="text/javascript">
   $(document).ready(function() {
     $('#example6').DataTable( {

@@ -19,13 +19,12 @@ class BookingCommunicationsController < ApplicationController
 
   # GET /booking_communications/1/edit
   def edit
-    @vehicle_booking_id = @booking_communication.vehicle_booking_id
+    #@vehicle_booking_id = @booking_communication.vehicle_booking_id
   end
 
   # POST /booking_communications
   # POST /booking_communications.json
   def create
-
     @booking_communication = BookingCommunication.new(booking_communication_params)
     @booking_communications = BookingCommunication.all
     respond_to do |format|

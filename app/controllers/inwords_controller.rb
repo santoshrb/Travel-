@@ -20,43 +20,39 @@ class InwordsController < ApplicationController
 
   # GET /inwords/1/edit
   def edit
+    @vehicle_booking_id = @inword.vehicle_booking_id
   end
 
   # POST /inwords
   # POST /inwords.json
   def create
     @inword = Inword.new(inword_params)
+    @inwords = Inword.all
 
     #respond_to do |format|
       if @inword.save
-        @inwords = Inword.all
         @inword = Inword.new
+        @inwords = Inword.all
+        #format.js { @flag = true }
         # format.html { redirect_to @inword, notice: 'Inword was successfully created.' }
         # format.json { render :show, status: :created, location: @inword }
       else
+        flash.now[:alert] = "Inword Already Exist"
         # format.html { render :new }
         # format.json { render json: @inword.errors, status: :unprocessable_entity }
+         #format.js { @flag = false }
       end
     #end
-    redirect_to new_inword_path
+    redirect_to vehicle_bookings_path
   end
 
   # PATCH/PUT /inwords/1
   # PATCH/PUT /inwords/1.json
   def update
-    #respond_to do |format|
     @inword.update(inword_params)
     @inword = Inword.new
     @inwords = Inword.all
     redirect_to new_inword_path
-
-    #     format.html { redirect_to @inword, notice: 'Inword was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @inword }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @inword.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # DELETE /inwords/1
@@ -68,6 +64,23 @@ class InwordsController < ApplicationController
     #   format.html { redirect_to inwords_url, notice: 'Inword was successfully destroyed.' }
     #   format.json { head :no_content }
     # end
+  end
+
+  def create_inword
+    @inword = Inword.new(inword_params)
+    @inwords = Inword.all
+    vehicle_booking_id = inword_params["vehicle_booking_id"]
+  
+    #respond_to do |format|
+      if @inword.save
+        @inwords = Inword.all
+        @inword = Inword.new
+      else
+        flash.now[:alert] = 'Inword Already Exist.'
+        
+      end
+    #end
+    redirect_to new_inword_path
   end
 
   def show_inword_detail
