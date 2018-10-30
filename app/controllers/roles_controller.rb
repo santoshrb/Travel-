@@ -62,7 +62,6 @@ class RolesController < ApplicationController
   end
 
   def role_edit_list
-    
     @employees = User.all
   end
 

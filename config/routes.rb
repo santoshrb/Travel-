@@ -92,7 +92,7 @@ Rails.application.routes.draw do
       get :assign_role
       post :submit_form
       get :user_list_for_update_password
-      post :reset_password
+      get :reset_password
     end
   end
 
