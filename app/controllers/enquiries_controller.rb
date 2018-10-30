@@ -29,7 +29,7 @@ class EnquiriesController < ApplicationController
   # POST /enquiries.json
   def create
     @enquiry = Enquiry.new(enquiry_params)
-
+    
     respond_to do |format|
       if @enquiry.save
         format.html { redirect_to @enquiry, notice: 'Enquiry was successfully created.' }

@@ -77,6 +77,20 @@ class EmployeesController < ApplicationController
     redirect_to assign_role_employees_path
   end#def
 
+  def user_list_for_update_password
+    @users = User.all
+  end
+
+  def reset_password
+    @user = User.find(params[:user_id])
+    # @user = User.find_by(id: params[:user_code])
+    # @user = User.find(params[:format])
+    @user_password_reset = User.find_by(id: @user.id).update(password: "12345678")
+    #EmployeeMailer.employee_reset_password(@member).deliver_now
+    flash[:notice] = "Password Changed Successfully"
+    redirect_to user_list_for_update_password_employees_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
