@@ -72,13 +72,11 @@ class RolesController < ApplicationController
 
   def update_role
     @user = User.find(params[:user_id])
-    @user.role_id = params[:user][:role_id]
+    @user.role_id = params[:role][:role_id]
     if @user.save
-      @flag = true
       @employees = User.all
-    else
-      @flag = false
     end
+    redirect_to role_edit_list_roles_path
   end
   
   private
