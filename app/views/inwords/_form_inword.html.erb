@@ -1,12 +1,9 @@
-<div class="box box-default">
-  <div class="box-header with-border">
-    <strong> <font color='#0077b3'> Inword </font></strong>
-  </div><!-- /.box-header -->
   <div class="box-body">
 
-<%= bootstrap_form_for(@inword,html: {id: 'inword'}) do |f| %>
+   <%= bootstrap_form_for(@inword, url: { :action=>"create_inword", :controller=>"inwords"},html: {id: 'inword'}) do |f| %>
+<%#= bootstrap_form_for(@inword,html: {id: 'inword'}) do |f| %>
 <%= f.hidden_field :employee_id,value: current_user.employee_id %>
-<%= f.hidden_field :vehicle_booking_id,value: @vehicle_booking_id %>
+<%#= f.hidden_field :vehicle_booking_id,value: @vehicle_booking_id %>
 
   <div class="row">
     <div class="col-sm-3">
@@ -19,14 +16,14 @@
         </div>
       </div>
     </div>
-    <!-- <div class="col-sm-3"> 
-      <div class="field">
-       <%#= f.select :vehicle_booking_id, all_vehicle_booking, {hide_label:true,include_blank: " Select Customer"},{:class=> "select2 select2-view-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
-      </div>
-    </div> -->
     <div class="col-sm-3"> 
       <div class="field">
         <%= f.select :payment_type,['Downpayment','Booking Amount','ITR','Udyog Adhar'],{hide_label:true, include_blank: 'Select Payment Mode'} %>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="field">
+       <%= f.select :vehicle_booking_id, all_vehicle_booking, {hide_label:true,include_blank: " Select Customer"},{:class=> "select2 select2-view-accessible",:style=>"width: 100%;",:tabindex=>"-1"}  %>
       </div>
     </div>
     <div class="col-sm-3"> 
@@ -52,6 +49,8 @@
         <%= f.text_field :contact_no,hide_label:true, placeholder: 'Contact No' %>
       </div>
     </div>
+  </div>
+  <div class="row">
     <div class="col-sm-3"> 
       <div class="actions">
         <%= f.submit "Create Inword" , class: "btn btn-sm btn-primary" %>
@@ -59,8 +58,8 @@
     </div>
   </div>
 <% end %>
-</div></div>
-
+</div>
+</div>
 <script type="text/javascript">
    $('.enquiry_date').datepicker({
     changeYear:true,

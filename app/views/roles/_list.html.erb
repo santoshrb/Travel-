@@ -1,0 +1,29 @@
+<table  id="example6" class="table table-bordered table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Employee Name</th>
+      <th>Access Role</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @employees.each do |m| %>   
+        <tr>
+          <td><%= m.employee.code %></td>
+          <td><%= m.employee.try(:first_name) %> <%= m.employee.try(:middle_name) %> <%= m.employee.try(:last_name) %></td>
+          <td><%= m.role.try(:name) %></td>
+          <td><%= link_to "", edit_role_roles_path(user_id: m.id), class: "btn btn-success btn-xs fa fa-edit", remote:true %>
+        </tr> 
+    <% end %>
+  </tbody>
+</table>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>
