@@ -1,0 +1,40 @@
+<table id="example6" class="table table-bordered table-hover table-condensed'">
+  <thead>
+    <tr> 
+      <th>Sr. No</th>
+      <th>Date</th>
+      <th>Customer</th>
+      <th>Payment type</th>
+      <th>Amount</th>
+      <th>Receipt no</th>
+      <th>Employee</th>
+      <th>Vendor name</th>
+      <th>Contact no</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% i = 0 %>
+    <% @inwords.each do |inword| %>
+      <tr>
+      	<td><%= i = i + 1 %></td>
+        <td><%= inword.date %></td>
+        <td><%= inword.vehicle_booking.enquiry.name_first %> <%= inword.vehicle_booking.enquiry.last_name %> - <%= inword.vehicle_booking.enquiry.mobile_no %></td>
+        <td><%= inword.payment_type %></td>
+        <td><%= inword.amount %></td>
+        <td><%= inword.receipt_no %></td>
+        <td><%= inword.employee.prefix %> <%= inword.employee.first_name %> <%= inword.employee.last_name %></td>
+        <td><%= inword.vendor_name %></td>
+        <td><%= inword.contact_no %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+    <div id="show_inword_detail" class="modal fade"></div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>

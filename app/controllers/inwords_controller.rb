@@ -111,6 +111,28 @@ class InwordsController < ApplicationController
     end
   end
 
+  def bookingwise_inword
+  end
+
+  def show_bookingwise_inword
+    vehicle_booking_id = params[:salary][:vehicle_booking_id]
+    @inwords = Inword.where(vehicle_booking_id: vehicle_booking_id)
+    
+    respond_to do |f|
+      f.js
+      f.xls {render template: 'inwords/show_bookingwise_inword.xls.erb'}
+      f.html
+      f.pdf do
+        render pdf: ' show_bookingwise_inword',
+        layout: 'pdf.html',
+        orientation: 'Landscape',
+        template: 'inwords/show_bookingwise_inword.pdf.erb',
+        show_as_html: params[:debug].present?
+        #margin:  { top:1,bottom:1,left:1,right:1 }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_inword

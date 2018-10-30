@@ -1,0 +1,39 @@
+<div class="box">
+  <div class="box-body">
+
+<table id="example6" class="table table-bordered table-hover table-condensed'">
+  <thead>
+    <tr> 
+      <th>Sr. No</th>
+      <th>Date</th>
+      <!-- <th>Customer</th> -->
+      <th>Amount</th>
+      <th>Employee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% i = 0 %>
+    <% @inwords.each do |inword| %>
+      <tr>
+      	<td><%= i = i + 1 %></td>
+        <td><%= inword.date %></td>
+        <!-- <td><%#= inword.vehicle_booking.enquiry.name_first %> <%#= inword.vehicle_booking.enquiry.last_name %> - <%#= inword.vehicle_booking.enquiry.mobile_no %></td> -->
+        <td><%= inword.amount %></td>
+        <td><%= inword.employee.prefix %> <%= inword.employee.first_name %> <%= inword.employee.last_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  <br>
+    <%= link_to " Excel ",show_bookingwise_inword_inwords_path(:salary =>{:vehicle_booking_id => params[:salary][:vehicle_booking_id]}, format: "xls"), class: "btn btn-xl btn-success fa fa-print" %>
+    <%= link_to " PDF ",show_bookingwise_inword_inwords_path(:salary =>{:vehicle_booking_id => params[:salary][:vehicle_booking_id]}, format: "pdf"), class: "btn btn-xl btn-primary fa fa-print",:target => "_blank" %>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example6').DataTable( {
+        "lengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]]
+    } );
+} );
+</script>

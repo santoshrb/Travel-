@@ -6,6 +6,9 @@ Rails.application.routes.draw do
       post :show_datewise_inword
       get :show_datewise_inword
       post :create_inword
+      get :bookingwise_inword
+      get :show_bookingwise_inword
+      post :show_bookingwise_inword
     end
   end
   resources :outwords do
