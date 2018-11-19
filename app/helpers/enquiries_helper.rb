@@ -12,7 +12,8 @@ module EnquiriesHelper
 			employee = Employee.where(branch_id: current_emp.branch_id).pluck(:id)
 			user = User.where(employee_id: employee).pluck(:id)
 			@booking = VehicleBooking.all.pluck(:enquiry_id)
-			Enquiry.where(user_id: user).where.not(id: @booking).collect { |x| [x.mobile_no + ' - ' + x.name_first, x.id] }
+			
+			Enquiry.where.not(id: @booking).where(user_id: user).collect { |x| [x.mobile_no + ' - ' + x.name_first, x.id] }
 		end
 	end
 end
