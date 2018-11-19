@@ -5,7 +5,7 @@
 		<a href="/home"><Center><%#= current_user.role.name %> DASHBOARD</Center></a>
 	</li>
 
-  <li class="treeview" id="setup">
+  <!-- <li class="treeview" id="setup">
     <a href=""><i class="fa fa-user-plus"></i> <span> Setup</span> <i class="fa fa-angle-left pull-right"></i></a> 
     <ul class="treeview-menu" >
       <li><a href="/companies"><i class="fa fa-tags"></i> Company </a></li>
@@ -17,7 +17,7 @@
 			<li><a href="/showroom_masters"><i class="fa fa-tags"></i> Showroom </a></li>
 			<li><a href="/agents/new"><i class="fa fa-tags"></i> Agent </a></li>
     </ul>
-  </li>
+  </li> -->
 
 	<li><a href="/schemes"><i class="fa fa-tags"></i> Schemes </a></li>
 	<li><a href="/enquiries"><i class="fa fa-tags"></i> Enquiry </a></li>
@@ -26,6 +26,17 @@
     <a href=""><i class="fa fa-user-plus"></i> <span> Reports</span> <i class="fa fa-angle-left pull-right"></i></a> 
     <ul class="treeview-menu" >
 			<li><a href="/enquiries/datewise_report"><i class="fa fa-tags"></i> Enquiry Datewise </a></li>
+    </ul>
+  </li>
+
+  <li class="treeview" id="setup">
+    <a href=""><i class="fa fa-user-plus"></i> <span> Account</span> <i class="fa fa-angle-left pull-right"></i></a> 
+		<ul class="treeview-menu" >
+			<li><a href="/inwords/new"><i class="fa fa-tags"></i> Inword </a></li>
+			<li><a href="/outwords/new"><i class="fa fa-tags"></i> Outword </a></li>
+			<li><a href="/inwords/datewise_inword"><i class="fa fa-tags"></i> Inword Report </a></li>
+			<li><a href="/outwords/datewise_outword"><i class="fa fa-tags"></i> Outword Report </a></li>
+			<li><a href="/inwords/bookingwise_inword"><i class="fa fa-tags"></i> Customer Inword </a></li>
     </ul>
   </li>
 </ul>
