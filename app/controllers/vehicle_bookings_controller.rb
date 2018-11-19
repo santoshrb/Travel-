@@ -4,7 +4,19 @@ class VehicleBookingsController < ApplicationController
   # GET /vehicle_bookings
   # GET /vehicle_bookings.json
   def index
-    @vehicle_bookings = VehicleBooking.all
+    if current_user.role.name == "GroupAdmin"
+      @vehicle_bookings = VehicleBooking.all
+    elsif current_user.role.name == "Admin"
+      @vehicle_bookings = VehicleBooking.all
+    elsif current_user.role.name == "Tellecaller"
+      user = User.where(employee_id: current_user.employee_id).pluck(:id)
+      @vehicle_bookings = VehicleBooking.where(user_id: user)
+    else
+      current_emp = Employee.find_by(id: current_user.employee_id)
+      employee = Employee.where(branch_id: current_emp.branch_id).pluck(:id)
+      user = User.where(employee_id: employee).pluck(:id)
+      @vehicle_bookings = VehicleBooking.where(user_id: user)
+    end
   end
 
   def branchwise_booking
