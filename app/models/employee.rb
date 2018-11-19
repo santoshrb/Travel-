@@ -18,7 +18,7 @@ class Employee < ApplicationRecord
 	validates :first_name, presence:true , length: {minimum: 3}
 	#validates :last_name, presence:true
 	# validates :code, presence:true,uniqueness:{case_sensitive:false}
-	#validates :email, presence:true
+	validates :email, presence:true
 	validates :company_id, presence:true
-	# validates :branch_id, presence:true
+	validates :branch_id, presence:true
 end
