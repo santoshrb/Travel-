@@ -10,8 +10,8 @@
   <tbody>
     <% @employees.each do |m| %>   
         <tr>
-          <td><%= m.employee.code %></td>
-          <td><%= m.employee.try(:first_name) %> <%= m.employee.try(:middle_name) %> <%= m.employee.try(:last_name) %></td>
+          <td><%= m.try(:employee).try(:code) %></td>
+          <td><%= m.try(:employee).try(:first_name) %> <%= m.employee.try(:middle_name) %> <%= m.employee.try(:last_name) %></td>
           <td><%= m.role.try(:name) %></td>
           <td><%= link_to "", edit_role_roles_path(user_id: m.id), class: "btn btn-success btn-xs fa fa-edit", remote:true %>
         </tr> 

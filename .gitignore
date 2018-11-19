@@ -63,3 +63,5 @@ bower.json
 
 # Ignore schema file
 db/schema.rb
+# Ignore application configuration
+/config/application.yml

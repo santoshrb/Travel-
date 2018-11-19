@@ -163,6 +163,6 @@ class VehicleBookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_booking_params
-      params.require(:vehicle_booking).permit(:agent_id,:executive_id,:user_id,:vehicle_type_id,:date,:enquiry_id,:pan, :adhar, :licence, :light_bill, :rent_agr, :bs, :itr, :native_light_bill, :pan_guarantor, :adhar_guarantor, :light_bill_guarantor, :rent_agr_guarantor, :bs_guarantor, :itr_guarantor, :pan_guarantor1, :adhar_guarantor1, :light_bill_guarantor1, :rent_agr_guarantor1, :bs_guarantor1, :itr_guarantor1, :status)
+      params.require(:vehicle_booking).permit(:guarantor_unit, :guarantor1_unit,:agent_id,:executive_id,:user_id,:vehicle_type_id,:date,:enquiry_id,:pan, :adhar, :licence, :light_bill, :rent_agr, :bs, :itr, :native_light_bill, :pan_guarantor, :adhar_guarantor, :light_bill_guarantor, :rent_agr_guarantor, :bs_guarantor, :itr_guarantor, :pan_guarantor1, :adhar_guarantor1, :light_bill_guarantor1, :rent_agr_guarantor1, :bs_guarantor1, :itr_guarantor1, :status)
     end
 end
